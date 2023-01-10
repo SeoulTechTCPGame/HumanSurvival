@@ -37,7 +37,6 @@ public class OptionManager : MonoBehaviour
         {
             ThirdPanel.SetActive(false);
             FirstPanel.SetActive(true);
-            buttontext.GetComponent<Text>().text = "data recovery";
         }
         //그외는 button의 onClick에서 사용
     }
