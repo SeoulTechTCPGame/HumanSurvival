@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Material/GUI.meta
+guid: 8f05a2222c8591748819f816ef19271b
+========
 guid: 4f798160357278c439a8d898aea65f03
+>>>>>>>> origin/develop-PlayerMovement:Assets/Hero Knight - Pixel Art.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
