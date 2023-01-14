@@ -4,37 +4,70 @@ using UnityEngine;
 
 public class SkillFiringSystem : MonoBehaviour
 {
-    //ToDO: 캐릭터의 스탯이 없어, 직접 변수로 가져오는 것으로 설정
-    //캐릭터의 스탯을 가져오기
-    public int damage = 10;              //피해량
-    public int projectileSpeed = 1;     //투사체 속도
-    public int duration = 3;            //지속 시간
-    public int attackRange = 1;         //공격범위
-    public int cooldown = 5;            //쿨타임
-    public int numberOfProjectiles = 1; //투사체 수
-    //몬스터 태그 가져오기
-    public GameObject monster;
-    //ToDo: 무기 리스트 가져오기로 바꾸기
-    //무기 가져오기
-    public TestWeapon weapon;
-    //임팩트 효과 가져오기
-    public GameObject impact;
+    private int damage;              //피해량
+    private int projectileSpeed;     //투사체 속도
+    private int duration;            //지속 시간
+    private int attackRange;         //공격범위
+    private int cooldown;            //쿨타임
+    private int numberOfProjectiles; //투사체 수
 
-    private void Start()
-    {
-        AttackCalculation();
-    }
+    public GameObject character;    //캐릭터 스탯과 위치 가져오기
+    //ToDo: 무기 리스트 가져오기로 바꾸기
+    public GameObject weapon;    //무기 가져오기
+    public GameObject monster;    //몬스터 태그 가져오기
+
     private void Update()
     {
         Attack();
     }
     //공격하기
-    private void Attack() { }
-    private void Impact() {
-        GameObject obj = Resources.Load<GameObject>("Object/Capsule");
+    private void Attack() 
+    {
+        AttackCalculation();
+        for (int i = 0; i <= numberOfProjectiles; i++)
+        {
+            FireWeapon();
+        }
+    }
+    //무기 발사
+    private void FireWeapon()
+    {
+        float timer = 0;    //시간
+        float timediff = cooldown;  //쿨타임
+
+        timer += Time.deltaTime;    //시간 갱신
+        if (timer > timediff)   //쿨타임 넘을 시
+        {
+            GameObject newobs = Instantiate(weapon.GetComponent<Weapon>().weaponType);  //무기 로드
+
+            newobs.transform.position = new Vector2(character.GetComponent<PlayerMovement>().Movement.x, character.GetComponent<PlayerMovement>().Movement.y);  //캐릭터 위치에 생성
+            transform.position = Vector2.right * projectileSpeed * Time.deltaTime;
+            timer = 0;
+            Destroy(newobs, duration);
+        }
+        if (OnTriggerEnter2D(weapon.GetComponent<Collider2D>()))    //무기가 몬스터와 부딪힘 감지
+        {
+            monster.GetComponent<Monster>().Health -= damage;
+            if (true)    //몬스터가 죽는다면
+            {
+                GameObject obj = Resources.Load<GameObject>("Object/Capsule");  //임벡트 등장
+            }
+        }
+    }
+
+    bool OnTriggerEnter2D(Collider2D other)
+    //rigidBody가 무언가와 충돌할때 호출되는 함수로 Collider2D other로 부딪힌 객체를 받아옵니다.
+    {
+        if (other.gameObject.tag.Equals("Monster")) //부딪힌 객체의 태그를 비교해서 적인지 판단합니다.
+        {
+            //딜 계산 후 삭제
+            return false;
+        }
+        else { return true; }
     }
     //아래 계산을 한번에 하기
-    private void AttackCalculation() {
+    private void AttackCalculation()
+    {
         DamageCalculation();
         ProjectileSpeedCalculation();
         DurationCalculation();
@@ -45,35 +78,31 @@ public class SkillFiringSystem : MonoBehaviour
     //데미지 계산
     private void DamageCalculation()
     {
-        damage = weapon.Damage * (1 + damage / 100);
+        damage = weapon.GetComponent<Weapon>().Damage * (1 + character.GetComponent<Character>().Damage / 100);
     }
     //투사체 속도 계산
     private void ProjectileSpeedCalculation()
     {
-        //ToDo: 계산식 바꾸기
-        projectileSpeed = weapon.ProjectileSpeed * (1 + projectileSpeed / 100);
+        projectileSpeed = weapon.GetComponent<Weapon>().ProjectileSpeed * (1 + character.GetComponent<Character>().ProjectileSpeed / 100);
     }
     //지속시간 계산
     private void DurationCalculation()
     {
-        //ToDo: 계산식 바꾸기
-        duration = weapon.Duration * (1 + duration / 100);
+        duration = weapon.GetComponent<Weapon>().Duration * (1 + character.GetComponent<Character>().Duration / 100);
     }
     //공격범위 계산
     private void AttackRangeCalculation()
     {
-        //ToDo: 계산식 바꾸기
-        attackRange = weapon.AttackRange * (1 + attackRange / 100);
+        attackRange = weapon.GetComponent<Weapon>().AttackRange * (1 + character.GetComponent<Character>().AttackRange / 100);
     }
     //쿨타임 계산
     private void CooldownCalculation()
     {
-        //ToDo: 계산식 바꾸기
-        cooldown = weapon.Cooldown * (1 + cooldown / 100);
+        cooldown = weapon.GetComponent<Weapon>().Cooldown * (1 + character.GetComponent<Character>().Cooldown / 100);
     }
     //투사체 수 계산
     private void CalculateNumberOfProjectiles()
     {
-        numberOfProjectiles = weapon.NumberOfProjectiles + numberOfProjectiles;
+        numberOfProjectiles = weapon.GetComponent<Weapon>().NumberOfProjectiles + character.GetComponent<Character>().NumberOfProjectiles;
     }
 }

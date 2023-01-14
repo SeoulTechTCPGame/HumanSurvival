@@ -72,5 +72,9 @@ public class PlayerMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
     }
+    public Vector2 Movement
+    {
+        get { return movement; }
+    }
 }
 

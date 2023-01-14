@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestWeapon : MonoBehaviour
+public class TestCharacterSpack : MonoBehaviour
 {
-    //무기 특징 스크립트
+    //캐릭터 특징 스크립트
 }
