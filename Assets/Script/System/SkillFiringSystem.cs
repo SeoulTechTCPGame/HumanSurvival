@@ -12,59 +12,59 @@ public class SkillFiringSystem : MonoBehaviour
     private int numberOfProjectiles; //투사체 수
 
     public GameObject character;    //캐릭터 스탯과 위치 가져오기
-    //ToDo: 무기 리스트 가져오기로 바꾸기
     public GameObject weapon;    //무기 가져오기
-    public GameObject monster;    //몬스터 태그 가져오기
 
-    private void Update()
+    float timer = 0;    //시간
+    void Update()
     {
         Attack();
     }
+
     //공격하기
     private void Attack() 
     {
-        AttackCalculation();
-        for (int i = 0; i <= numberOfProjectiles; i++)
+        AttackCalculation();    //공격 관련 계산
+        for (int i = 0; i <= numberOfProjectiles; i++)  //투사체 수만큼 발사하기
         {
             FireWeapon();
         }
     }
     //무기 발사
+    //ToDo: attackRange을 적용하기
     private void FireWeapon()
     {
-        float timer = 0;    //시간
         float timediff = cooldown;  //쿨타임
-
         timer += Time.deltaTime;    //시간 갱신
+
+        GameObject monster = GameObject.FindWithTag("Monster");
+
         if (timer > timediff)   //쿨타임 넘을 시
         {
-            GameObject newobs = Instantiate(weapon.GetComponent<Weapon>().weaponType);  //무기 로드
-
-            newobs.transform.position = new Vector2(character.GetComponent<PlayerMovement>().Movement.x, character.GetComponent<PlayerMovement>().Movement.y);  //캐릭터 위치에 생성
-            transform.position = Vector2.right * projectileSpeed * Time.deltaTime;
-            timer = 0;
-            Destroy(newobs, duration);
-        }
-        if (OnTriggerEnter2D(weapon.GetComponent<Collider2D>()))    //무기가 몬스터와 부딪힘 감지
-        {
-            monster.GetComponent<Monster>().Health -= damage;
-            if (true)    //몬스터가 죽는다면
+            GameObject newobs = Instantiate(weapon);  //무기 로드
+            newobs.transform.position = character.transform.position;  //캐릭터 위치에 생성
+            newobs.GetComponent<Weapon>().Shoot(projectileSpeed);  //오른쪽 벡터로 날아감
+            if (OnTriggerEnter2D(weapon.GetComponent<Collider2D>()))    //무기가 몬스터와 부딪힘 감지
             {
-                GameObject obj = Resources.Load<GameObject>("Object/Capsule");  //임벡트 등장
+                monster.GetComponent<Monster>().Health -= damage;   //딜 계산
+                Destroy(monster, 0);    //몬스터 삭제
+                if (monster.GetComponent<Monster>().Health <= 0)    //몬스터가 죽는다면
+                {
+                    GameObject obj = Resources.Load<GameObject>("Object/Capsule");  //임펙트 등장
+                    Destroy(obj, 1);    //임펙트 등장 시간
+                }
             }
+            timer = 0;  //시간 초기화
+            Destroy(newobs, duration);  //지속 시간 지나면 삭제
         }
     }
-
-    bool OnTriggerEnter2D(Collider2D other)
+    private bool OnTriggerEnter2D(Collider2D weapon)
     //rigidBody가 무언가와 충돌할때 호출되는 함수로 Collider2D other로 부딪힌 객체를 받아옵니다.
     {
-        if (other.gameObject.tag.Equals("Monster")) //부딪힌 객체의 태그를 비교해서 적인지 판단합니다.
-        {
-            //딜 계산 후 삭제
-            return false;
-        }
-        else { return true; }
+        if (weapon.gameObject.tag.Equals("Monster")) //부딪힌 객체의 태그를 비교해서 적인지 판단합니다.
+        { return true; }
+        else { return false; }
     }
+
     //아래 계산을 한번에 하기
     private void AttackCalculation()
     {

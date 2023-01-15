@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class TestCharacterSpack : MonoBehaviour
 {
-    //캐릭터 특징 스크립트
+    //캐릭터 추가 스탯
+    //캐릭터 패시브
+    //캐릭터 고유 무기
 }

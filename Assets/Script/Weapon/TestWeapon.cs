@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class TestWeapon : MonoBehaviour
 {
-    //무기 특징 스크립트
+    //무기 랩업 당 스킬 변화
+    //공격 패턴
 }

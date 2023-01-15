@@ -10,11 +10,9 @@ public class Character : MonoBehaviour
     private int projectileSpeed = 1;     //투사체 속도
     private int duration = 3;            //지속 시간
     private int attackRange = 1;         //공격범위
-    private int cooldown = 5;            //쿨타임
+    private int cooldown = 3;            //쿨타임
     private int numberOfProjectiles = 1;     //투사체 수
 
-    //캐릭터 오브젝트 가져오기
-    public GameObject character;
     //Get,Set함수 자동 구현
     public int Damage
     {
