@@ -1,12 +1,8 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Pixel Heroes Pack/Environment/EnvironmentTiles_0.asset.meta
 guid: a10908d73aab26e40a904320ccfbb8ac
-========
-guid: ae1bdb29717bb194dba140e414d8f34c
->>>>>>>> origin/develop-mainCollection:Assets/Animation/Player.controller.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 9100000
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

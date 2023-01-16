@@ -123,7 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &448379209
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,94 +155,6 @@ Transform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
-=======
-<<<<<<<< HEAD:Assets/Scenes/Achievements.unity
---- !u!1 &673442833
-========
---- !u!1001 &22277134
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2686015410902635470, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982446484038651094, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982446484038651094, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: ae1bdb29717bb194dba140e414d8f34c, type: 2}
-    - target: {fileID: 6519986605444753521, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8087212995117874151, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8188212440292430148, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304483108373407079, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753630203296474150, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
---- !u!1 &519420028
->>>>>>>> origin/develop-mainCollection:Assets/Scenes/InGame.unity
->>>>>>> origin/develop-mainCollection
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,16 +162,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-=======
-  - component: {fileID: 673442836}
-  - component: {fileID: 673442835}
-  - component: {fileID: 673442834}
->>>>>>> origin/develop-mainCollection
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -268,26 +173,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!81 &519420029
-=======
---- !u!81 &673442834
->>>>>>> origin/develop-mainCollection
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
-=======
-  m_GameObject: {fileID: 673442833}
-  m_Enabled: 1
-<<<<<<<< HEAD:Assets/Scenes/Achievements.unity
---- !u!20 &673442835
-========
->>>>>>> origin/develop-mainCollection
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,26 +215,15 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
 --- !u!20 &519420031
-<<<<<<< HEAD
-=======
->>>>>>>> origin/develop-mainCollection:Assets/Scenes/InGame.unity
->>>>>>> origin/develop-mainCollection
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-=======
-  m_GameObject: {fileID: 673442833}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
->>>>>>> origin/develop-mainCollection
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -357,15 +239,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-<<<<<<< HEAD
   field of view: 34
   orthographic: 1
   orthographic size: 10
-=======
-  field of view: 60
-  orthographic: 1
-  orthographic size: 5
->>>>>>> origin/develop-mainCollection
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -373,7 +249,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-<<<<<<< HEAD
   m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 0
@@ -383,27 +258,12 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &519420032
-=======
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &673442836
->>>>>>> origin/develop-mainCollection
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 519420028}
-=======
-  m_GameObject: {fileID: 673442833}
->>>>>>> origin/develop-mainCollection
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -412,11 +272,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &551852908
-=======
---- !u!1 &1238107324
->>>>>>> origin/develop-mainCollection
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,36 +280,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 551852910}
   - component: {fileID: 551852909}
   m_Layer: 0
   m_Name: GameManager
-=======
-  - component: {fileID: 1238107325}
-  - component: {fileID: 1238107328}
-  - component: {fileID: 1238107327}
-  - component: {fileID: 1238107326}
-  m_Layer: 5
-  m_Name: Canvas
->>>>>>> origin/develop-mainCollection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!114 &551852909
 MonoBehaviour:
-=======
---- !u!224 &1238107325
-RectTransform:
->>>>>>> origin/develop-mainCollection
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 551852908}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -495,53 +336,17 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &619394801
-=======
-  m_GameObject: {fileID: 1238107324}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2064890328}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &1238107326
->>>>>>> origin/develop-mainCollection
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 619394800}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
-  m_GameObject: {fileID: 1238107324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-<<<<<<<< HEAD:Assets/Scenes/Achievements.unity
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1238107327
-MonoBehaviour:
-========
->>>>>>> origin/develop-mainCollection
   m_ComponentVersion: 1
   m_LightType: 4
   m_BlendStyleIndex: 0
@@ -611,87 +416,16 @@ MonoBehaviour:
   - {x: -0.5, y: 0.5, z: 0}
 --- !u!4 &619394802
 Transform:
-<<<<<<< HEAD
-=======
->>>>>>>> origin/develop-mainCollection:Assets/Scenes/InGame.unity
->>>>>>> origin/develop-mainCollection
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 619394800}
-=======
-  m_GameObject: {fileID: 1238107324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &1238107328
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238107324}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!1 &2064890327
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2064890328}
-  - component: {fileID: 2064890330}
-  - component: {fileID: 2064890329}
-  m_Layer: 5
-  m_Name: BG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2064890328
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064890327}
->>>>>>> origin/develop-mainCollection
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-<<<<<<< HEAD
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -705,75 +439,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 662457938, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
   m_PrefabInstance: {fileID: 4686011899677845276}
   m_PrefabAsset: {fileID: 0}
-=======
-<<<<<<<< HEAD:Assets/Scenes/Achievements.unity
-  m_Father: {fileID: 1238107325}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2064890329
-========
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &662457937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6519986605444753521, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-  m_PrefabInstance: {fileID: 22277134}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &662457938
->>>>>>>> origin/develop-mainCollection:Assets/Scenes/InGame.unity
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Assets/Scenes/Achievements.unity
-  m_GameObject: {fileID: 2064890327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2064890330
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064890327}
-  m_CullTransparentMesh: 1
-========
->>>>>>> origin/develop-mainCollection
   m_GameObject: {fileID: 662457937}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e56d3363983cce14bad14e3057490446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
 --- !u!4 &662457945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4067641842341195572, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
@@ -1127,18 +798,3 @@ Transform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> main
-=======
-  rb: {fileID: 662457941}
-  animator: {fileID: 662457943}
---- !u!50 &662457941 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8188212440292430148, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-  m_PrefabInstance: {fileID: 22277134}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &662457943 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2982446484038651094, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
-  m_PrefabInstance: {fileID: 22277134}
-  m_PrefabAsset: {fileID: 0}
->>>>>>>> origin/develop-mainCollection:Assets/Scenes/InGame.unity
->>>>>>> origin/develop-mainCollection
