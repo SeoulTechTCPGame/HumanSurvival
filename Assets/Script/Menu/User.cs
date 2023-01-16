@@ -17,12 +17,28 @@ public class User : MonoBehaviour
     public TextMeshProUGUI moneyText;
 
     public int selectState;
+<<<<<<< HEAD
     public int money;
+=======
+>>>>>>> origin/develop-mainCollection
     // Start is called before the first frame update
     void Start()
     {
         // TODO - Read user data
+<<<<<<< HEAD
         money = 100;
+=======
+        UserInfo.money = 100;
+        for(int i = 0; i < UserInfo.itemCount; i++){
+            UserInfo.userItem[i] = false;
+        }
+        for(int i = 0; i < UserInfo.achiCount; i++){
+            UserInfo.userAchi[i] = false;
+        }
+        // Example for item
+        // UserInfo.userAchi[0] = true;
+        // UserInfo.userItem[0] = true;
+>>>>>>> origin/develop-mainCollection
 
         selectState = (int)State.CharacterSelection;
         setSelect(buttons[selectState]);
@@ -105,7 +121,11 @@ public class User : MonoBehaviour
 
     void SetMoneyText()
     {
+<<<<<<< HEAD
         moneyText.text = "¼ÒÁö±Ý: " + money.ToString();
+=======
+        moneyText.text = UserInfo.money.ToString();
+>>>>>>> origin/develop-mainCollection
     }
 
     private void setSelect(GameObject nowObject)

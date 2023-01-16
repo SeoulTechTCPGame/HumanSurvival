@@ -19,6 +19,10 @@ public class ToCollection : MonoBehaviour
 
     public void SceneChange()
     {
+<<<<<<< HEAD
         SceneManager.LoadScene("Collection");
+=======
+        SceneManager.LoadScene("MainCollection");
+>>>>>>> origin/develop-mainCollection
     }
 }

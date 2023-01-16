@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Pixel Heroes Pack/Environment/EnvironmentTiles_1.asset.meta
 guid: 42848a368e5eccc4bbcdc78387beab41
+========
+guid: 50037ea5bf884e3438442ce9d2f0df1c
+>>>>>>>> origin/develop-mainCollection:Assets/Hero Knight - Pixel Art/Environment/EnvironmentTiles_3.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
