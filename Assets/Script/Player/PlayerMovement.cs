@@ -11,11 +11,17 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float vertical;
     bool moving;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] public Animator animator;
-    void Start()
+    Rigidbody2D rb;
+    Animator animator;
+    SpriteRenderer spriter;
+    void Awake()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        spriter = GetComponent<SpriteRenderer>();
+    }
+    void Start()
+    {
         clickTarget = transform.position;
     }
     void Update()
@@ -27,20 +33,18 @@ public class PlayerMovement : MonoBehaviour
         //animator.SetFloat("Horizontal", movement.x);
         //animator.SetFloat("Vertical", movement.y);
         //animator.SetFloat("Speed", movement.sqrMagnitude); //성능 체크용
-        if (horizontal != 0||vertical !=0) animator.SetBool("Moving", true);
+        if (horizontal != 0||vertical !=0||moving) animator.SetBool("Moving", true);
         else animator.SetBool("Moving", false);
         // 마우스 click 코드
         if (Input.GetMouseButtonDown(0))
         {
             clickTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            animator.SetBool("Moving", true);
             moving = true;
         }
         
         relativePos = new Vector2(
              clickTarget.x - rb.position.x,
              clickTarget.y - rb.position.y);
-        RotateAnimation();
     }
     private void FixedUpdate()//물리 계산 할 때 사용
     {
@@ -53,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         //click 시 movement 코드
         if (moving && (Vector2)rb.position != clickTarget)
         {
+            animator.SetBool("Moving", true);
             float step = moveSpeed * Time.fixedDeltaTime;
             rb.position = Vector2.MoveTowards(rb.position, clickTarget, step);
         }
@@ -64,13 +69,13 @@ public class PlayerMovement : MonoBehaviour
         
        
     }
-    private void RotateAnimation()
+    private void LateUpdate()
     {
-        if (horizontal > 0.01f||relativePos.x>0)
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        else if (horizontal < -0.01f||relativePos.x<0)
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-
+        
+        if (horizontal != 0||relativePos.x<0)
+        {
+            spriter.flipX = horizontal < 0;
+        }
     }
 }
 
