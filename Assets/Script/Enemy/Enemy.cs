@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 
     public Transform targetDestination;
     GameObject targetGameobject;
-    //Character targetCharacter;
+    Character targetCharacter;
     [SerializeField] float speed;
 
     bool isLive = true;
