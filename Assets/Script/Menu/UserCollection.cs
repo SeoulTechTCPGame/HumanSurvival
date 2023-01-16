@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UserCollection : MonoBehaviour
@@ -19,11 +20,13 @@ public class UserCollection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            SceneManager.LoadScene("MainScreen");
+        }
     }
 
     void SetMoneyText(){
-        moneyText.text = "������: " + UserInfo.money.ToString();
+        moneyText.text = UserInfo.money.ToString();
     }
 
     void SetCollectionText(){

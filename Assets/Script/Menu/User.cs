@@ -25,7 +25,11 @@ public class User : MonoBehaviour
         for(int i = 0; i < UserInfo.itemCount; i++){
             UserInfo.userItem[i] = false;
         }
+        for(int i = 0; i < UserInfo.achiCount; i++){
+            UserInfo.userAchi[i] = false;
+        }
         // Example for item
+        // UserInfo.userAchi[0] = true;
         // UserInfo.userItem[0] = true;
 
         selectState = (int)State.CharacterSelection;
@@ -109,7 +113,7 @@ public class User : MonoBehaviour
 
     void SetMoneyText()
     {
-        moneyText.text = "������: " + UserInfo.money.ToString();
+        moneyText.text = UserInfo.money.ToString();
     }
 
     private void setSelect(GameObject nowObject)
