@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         if (!isLive) return;
         Vector2 direction = (targetDestination.position - transform.position).normalized;
         
-        //ÇÃ·¹ÀÌ¾îÀÇ Å°ÀÔ·Â °ªÀ» ´õÇÑ ÀÌµ¿=¸ó½ºÅÍÀÇ ¹æÇâ °ªÀ» ´õÇÑ ÀÌµ¿
+        //í”Œë ˆì´ì–´ì˜ í‚¤ì…ë ¥ ê°’ì„ ë”í•œ ì´ë™=ëª¬ìŠ¤í„°ì˜ ë°©í–¥ ê°’ì„ ë”í•œ ì´ë™
         Vector2 nextVec = direction * speed * Time.fixedDeltaTime; ;
         rb.MovePosition(rb.position + nextVec);
        rb.velocity = Vector2.zero;
@@ -53,6 +53,6 @@ public class Enemy : MonoBehaviour
     }
     private void Attack()
     {
-        Debug.Log("°ø°İ ´çÇÏ°í ÀÖÀ½!");
+        Debug.Log("ê³µê²© ë‹¹í•˜ê³  ìˆìŒ!");
     }
 }
