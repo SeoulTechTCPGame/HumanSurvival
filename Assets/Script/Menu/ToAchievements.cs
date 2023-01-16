@@ -19,6 +19,6 @@ public class ToAchievements : MonoBehaviour
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("Achievements");
+        SceneManager.LoadScene("MainAchievements");
     }
 }
