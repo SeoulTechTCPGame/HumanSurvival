@@ -45,9 +45,9 @@ public class SkillFiringSystem : MonoBehaviour
             newobs.GetComponent<Weapon>().Shoot(projectileSpeed);  //오른쪽 벡터로 날아감
             if (OnTriggerEnter2D(weapon.GetComponent<Collider2D>()))    //무기가 몬스터와 부딪힘 감지
             {
-                monster.GetComponent<Monster>().Health -= damage;   //딜 계산
+                monster.GetComponent<Enemy>().Health -= damage;   //딜 계산
                 Destroy(monster, 0);    //몬스터 삭제
-                if (monster.GetComponent<Monster>().Health <= 0)    //몬스터가 죽는다면
+                if (monster.GetComponent<Enemy>().Health <= 0)    //몬스터가 죽는다면
                 {
                     GameObject obj = Resources.Load<GameObject>("Object/Capsule");  //임펙트 등장
                     Destroy(obj, 1);    //임펙트 등장 시간

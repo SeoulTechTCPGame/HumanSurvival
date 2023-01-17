@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     public Transform targetDestination;
+    public int health = 100; //몬스터 체력
     GameObject targetGameobject;
     //Character targetCharacter;
     [SerializeField] float speed;
@@ -54,5 +55,10 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         Debug.Log("공격 당하고 있음!");
+    }
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
     }
 }

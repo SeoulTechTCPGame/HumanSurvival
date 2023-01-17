@@ -460,6 +460,18 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7524329395878774724, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
   m_PrefabInstance: {fileID: 4686011899677845276}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &662457952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662457937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d482cda60995b9e4188a714708017848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1068104043
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +517,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1142057796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142057798}
+  - component: {fileID: 1142057797}
+  m_Layer: 0
+  m_Name: SkillFiringSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1142057797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142057796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3438c1b1a518e844af7095f2a3e8939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 662457937}
+  weapon: {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
+--- !u!4 &1142057798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142057796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3717073, y: 1.1682914, z: 10.707074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237692781
 GameObject:
@@ -569,6 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDestination: {fileID: 662457945}
+  health: 100
   speed: 1
 --- !u!1001 &4686011899677845276
 PrefabInstance:
