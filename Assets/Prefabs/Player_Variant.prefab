@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: ae1bdb29717bb194dba140e414d8f34c, type: 2}
     - target: {fileID: 6519986605444753521, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player_Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8087212995117874151, guid: 3e14bf7b39e2c2940a826eb72e6b8043, type: 3}
       propertyPath: m_Enabled
@@ -120,15 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56d3363983cce14bad14e3057490446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &662457950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978113481815630691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6651770325e7b14468e5845179304eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  animator: {fileID: 0}
