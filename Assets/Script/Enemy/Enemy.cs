@@ -42,9 +42,7 @@ public class Enemy : MonoBehaviour
     {
         spriter.flipX = targetDestination.position.x < rb.position.x;
     }
-    private void OnEnable()
-    {
-    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject== targetGameobject)

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 807355772286374460}
   - component: {fileID: 807355772286374461}
   - component: {fileID: 807355772286374462}
-  - component: {fileID: 807355772286374402}
+  - component: {fileID: -1377271983600501788}
   m_Layer: 0
   m_Name: EnemyBat
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &807355772286374402
+--- !u!114 &-1377271983600501788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 807355772286374456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcc62e539e77c34c9fb0c72b8211305, type: 3}
+  m_Script: {fileID: 11500000, guid: c1575af2165c04644887e15d2d007331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDestination: {fileID: 0}
-  speed: 2
+  speed: 1
+  target: {fileID: 0}

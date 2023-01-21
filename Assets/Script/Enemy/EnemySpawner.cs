@@ -2,39 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesManager : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
     [SerializeField] Vector2 spawnArea;
-    [SerializeField] float spawnTimer;
     [SerializeField] GameObject player;
-    public Transform[] spawnPoint;
+
     float timer;
 
-
-    private void Awake()
-    {
-        spawnPoint = GetComponentsInChildren<Transform>();
-    }
-        
     private void Update()
     {
 
         timer -= Time.deltaTime;
-        if (timer < 0.2f)
+        if (timer < 1f)
         {
             SpawnEnemy();
-            timer = spawnTimer;
+            timer = 0;
         }
     }
 
     private void SpawnEnemy()
     {
+        
         Vector3 position = GenerateRandomPos();
         position += player.transform.position;
-        GameObject newEnemy = Instantiate(enemy);
+        GameObject newEnemy= GameManager.instance.pool.Get(Random.Range(0,3));
         newEnemy.transform.position = position;
-        newEnemy.GetComponent<Enemy>().SetTarget(player);
         newEnemy.transform.parent = transform;
     }
 
@@ -58,4 +50,3 @@ public class EnemiesManager : MonoBehaviour
         return position;
     }
 }
-        
