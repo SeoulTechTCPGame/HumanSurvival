@@ -5,15 +5,21 @@ using UnityEngine;
 public class N_Enemy : MonoBehaviour
 {
     public float speed;
+    public float health;
+    public float maxHealth;
+    public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
-    bool isLive = true;
+
+    bool isLive ;
 
     Rigidbody2D rb;
     SpriteRenderer spriter;
+    Animator anim;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
@@ -38,6 +44,17 @@ public class N_Enemy : MonoBehaviour
     {
         //prefeb은 scene의 object에 접근할 수 없다=> 생성될 때마다 변수를 초기화하기
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
-    }
 
+        //활성화 될때 isLive true, health 초기화
+        isLive = true;
+        health = maxHealth;
+    }
+   
+    public void Init(SpawnData data)  //각각의 몬스터 데이터 설정 함수s
+    {
+        anim.runtimeAnimatorController = animcon[data.spriteType];
+        speed = data.speed;
+        maxHealth = data.health;
+        health = data.health;
+    }
 }
