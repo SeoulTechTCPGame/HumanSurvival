@@ -5,12 +5,14 @@ using UnityEngine;
 public class N_Enemy : MonoBehaviour
 {
     public float speed;
-    public float health;
-    public float maxHealth;
+    public float health = 0.5f;
+    public float maxHealth = 0.5f;
     public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
 
     bool isLive ;
+
+    private float damage = 1f;
 
     Rigidbody2D rb;
     SpriteRenderer spriter;
@@ -23,38 +25,50 @@ public class N_Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //¸ó½ºÅÍ°¡ »ì¾Æ ÀÖÀ» ¶§¸¸ ¿òÁ÷ÀÌµµ·Ï 
+        //ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ 
         if (!isLive) return;
 
         Vector2 direction = (target.position - rb.position).normalized;
         Vector2 nextVec = direction * speed * Time.fixedDeltaTime; ;
 
-        //ÇÃ·¹ÀÌ¾îÀÇ Å°ÀÔ·Â °ªÀ» ´õÇÑ ÀÌµ¿=¸ó½ºÅÍÀÇ ¹æÇâ °ªÀ» ´õÇÑ ÀÌµ¿
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ Å°ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         rb.MovePosition(rb.position + nextVec);
 
-        //¹°¸® ¼Óµµ°¡ ÀÌµ¿¿¡ ¿µÇâÀ» ÁÖÁö ¾Êµµ·Ï ¼Óµµ Á¦°Å
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
         rb.velocity = Vector2.zero;
     }
     private void LateUpdate()
     {
-        //Å¸°ÙÀÇ xÃà°ú ºñ±³ÇÏ¿© sprite flip 
+        //Å¸ï¿½ï¿½ï¿½ï¿½ xï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ sprite flip 
         spriter.flipX = target.position.x < rb.position.x;
     }
     private void OnEnable()
     {
-        //prefebÀº sceneÀÇ object¿¡ Á¢±ÙÇÒ ¼ö ¾ø´Ù=> »ý¼ºµÉ ¶§¸¶´Ù º¯¼ö¸¦ ÃÊ±âÈ­ÇÏ±â
+        //prefebï¿½ï¿½ sceneï¿½ï¿½ objectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½=> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ï±ï¿½
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
 
-        //È°¼ºÈ­ µÉ¶§ isLive true, health ÃÊ±âÈ­
+        //È°ï¿½ï¿½È­ ï¿½É¶ï¿½ isLive true, health ï¿½Ê±ï¿½È­
         isLive = true;
         health = maxHealth;
     }
    
-    public void Init(SpawnData data)  //°¢°¢ÀÇ ¸ó½ºÅÍ µ¥ÀÌÅÍ ¼³Á¤ ÇÔ¼ös
+    public void Init(SpawnData data)  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½s
     {
         anim.runtimeAnimatorController = animcon[data.spriteType];
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+    }
+
+    private void OnCollisionStay2D(Collision2D other) {
+        if(other.gameObject.tag == "Weapon"){
+            if(health > damage){
+                health -= damage;
+            }
+            else{
+                gameObject.SetActive(false);
+                Destroy(other.gameObject);
+            }
+        }
     }
 }

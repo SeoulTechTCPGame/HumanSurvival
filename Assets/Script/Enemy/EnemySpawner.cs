@@ -13,10 +13,10 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        //floatÇü ½Ã°£¿¡ µû¶ó intÇü ·¹º§ ¼³Á¤
+        //floatï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ intï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         level =Mathf.Min(Mathf.FloorToInt( GameManager.instance.gameTime / 10f),spawnData.Length-1);
 
-        //·¹º§À» È°¿ëÇØ ¸ó½ºÅÍ °¢°¢ÀÇ ¼ÒÈ¯ Å¸ÀÌ¹Ö º¯°æÇÏ±â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ Å¸ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
         if (timer >(spawnData[level].spawnTime))
         {
             Spawn();
@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        //playerÀÇ À§Ä¡ °ª¿¡ ·£´ý pos¸¦ ´õÇØ ½ºÆù ÁöÁ¡ ¼³Á¤
+        //playerï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ posï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Vector3 position = GenerateRandomPos();
         position += player.transform.position;
 
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
 
-        //****script ÀÌ¸§ º¯°æ ÈÄ ÄÄÆ÷³ÍÆ® ÀÌ¸§ ¹Ù²Ù±â!****
+        //****script ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¸ï¿½ ï¿½Ù²Ù±ï¿½!****
         newEnemy.GetComponent<N_Enemy>().Init(spawnData[level]);
     }
 
