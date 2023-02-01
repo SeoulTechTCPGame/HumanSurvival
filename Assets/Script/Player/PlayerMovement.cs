@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 8f;
     private Vector2 clickTarget;
     private Vector2 relativePos;
-    private Vector2 movement;
+    public Vector2 movement;
     private float horizontal;
     private float vertical;
     bool moving;
@@ -20,37 +20,37 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        //Å° input ÄÚµå
+        //input ì„¤ì •
 
-        movement.x = Input.GetAxisRaw("Horizontal"); //Å° ÀÔ·Â
+        movement.x = Input.GetAxisRaw("Horizontal"); //í‚¤ì…ë ¥
         movement.y = Input.GetAxisRaw("Vertical"); 
         //animator.SetFloat("Horizontal", movement.x);
         //animator.SetFloat("Vertical", movement.y);
-        //animator.SetFloat("Speed", movement.sqrMagnitude); //¼º´É Ã¼Å©¿ë
+        //animator.SetFloat("Speed", movement.sqrMagnitude); //ì„±ëŠ¥ í…ŒìŠ¤íŠ¸
         if (horizontal != 0||vertical !=0) animator.SetBool("Moving", true);
         else animator.SetBool("Moving", false);
-        // ¸¶¿ì½º click ÄÚµå
+        // click ì´ë²¤íŠ¸
         if (Input.GetMouseButtonDown(0))
         {
             clickTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            animator.SetBool("Moving", true);
+            animator.SetBool("moving", true);
             moving = true;
         }
-        
+
         relativePos = new Vector2(
              clickTarget.x - rb.position.x,
              clickTarget.y - rb.position.y);
         RotateAnimation();
     }
-    private void FixedUpdate()//¹°¸® °è»ê ÇÒ ¶§ »ç¿ë
+    private void FixedUpdate()//ë¬¼ë¦¬ íš¨ê³¼ê°€ ì ìš©ëœ ì˜¤ë¸Œì íŠ¸ë¥¼ ì¡°ì •
     {
-        //movement ÄÚµå
+        //movement ì¡°ì •
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);//ÀÌÀü ÇÑ ÇÁ·¹ÀÓ ¼öÇà ½Ã°£
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-        //click ½Ã movement ÄÚµå
+        ////click ìœ¼ë¡œ movement ì¡°ì •
         if (moving && (Vector2)rb.position != clickTarget)
         {
             float step = moveSpeed * Time.fixedDeltaTime;
@@ -61,8 +61,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Moving", false);
             moving = false;
         }
-        
-       
+
+
     }
     private void RotateAnimation()
     {

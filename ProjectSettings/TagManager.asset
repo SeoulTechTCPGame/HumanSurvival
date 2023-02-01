@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - Ground
+  - Area
   layers:
   - Default
   - TransparentFX
