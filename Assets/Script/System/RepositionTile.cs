@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class RepositionTile : MonoBehaviour
 {
-    public int x;   //타일 가로 크기
-    public int y;   //타일 세로 크기
+    public float x;   //타일 가로 크기
+    public float y;   //타일 세로 크기
+    public int probability;
+    public GameObject prefab;   //불러올 프리팹
+    public GameObject respawn;   //현재 프리팹
     // 태크 Area에서 충돌나서 벗어났을 때만 불러오는 함수
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -25,14 +28,30 @@ public class RepositionTile : MonoBehaviour
             case "Ground":
                 if (diffX > diffY)  //x축으로 많이 이동시
                 {
+                    RemoveObject(collision);
                     transform.Translate(Vector3.right * dirX * x * 2); //주인공 이동 방향 앞에 tilemap을 놓기 위해 x*2 만큼 이동
+                    ObjectRespown(transform.position);
                 }
                 else if (diffX < diffY) //y축으로 많이 이동시
                 {
+                    RemoveObject(collision);
                     transform.Translate(Vector3.up * dirY * y * 2); //주인공 이동 방향 앞에 tilemap을 놓기 위해 y*2 만큼 이동
+                    ObjectRespown(transform.position);
                 }
                 break;
         }
     }
+    private void ObjectRespown(Vector3 myPos) {  //프리팹 생성
+        if (respawn == null & Random.Range(0.0f,100.0f) >= (100-probability))   //probability 확률로 생성
+        {
+            float randomX = Random.Range(0.0f, x); //랜덤 X좌표
+            float randomY = Random.Range(0.0f, y); //랜덤 Y좌표
+            //instantiate함수 (오브젝트 이름, 오브젝트 위치, 오브젝트 회전 값)
+            respawn = Instantiate(prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
+        }
+    }
+    private void RemoveObject(Collider2D collision) {   //프리팹 삭제
+        //if (collision.gameObject.tag == "Object")
+        Destroy(respawn);
+    }
 }
-

@@ -369,6 +369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 20
   y: 20
+  probability: 30
+  prefab: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+  respawn: {fileID: 0}
 --- !u!66 &613691140
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -5019,6 +5022,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 20
   y: 20
+  probability: 30
+  prefab: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+  respawn: {fileID: 0}
 --- !u!66 &1413402406
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -9308,6 +9314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 20
   y: 20
+  probability: 30
+  prefab: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+  respawn: {fileID: 0}
 --- !u!66 &1694354701
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -13597,6 +13606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 20
   y: 20
+  probability: 30
+  prefab: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+  respawn: {fileID: 0}
 --- !u!66 &2039106535
 CompositeCollider2D:
   m_ObjectHideFlags: 0
