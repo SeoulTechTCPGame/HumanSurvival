@@ -28,7 +28,7 @@ public class StageInfo : MonoBehaviour, IPointerEnterHandler
         {
             case 1:
                 this.Name = "Stage 1";
-                this.time = "30:00";
+                this.time = "30:01";
                 this.doubleSpeed = 1;
                 this.goldCoinBonus = 1;
                 this.luckBonus = 1;
@@ -37,11 +37,11 @@ public class StageInfo : MonoBehaviour, IPointerEnterHandler
 
             case 2:
                 this.Name = "Stage 2";
-                this.time = "30:00";
-                this.doubleSpeed = 1;
-                this.goldCoinBonus = 1;
-                this.luckBonus = 1;
-                this.experienceBonus = 1;
+                this.time = "30:02";
+                this.doubleSpeed = 2;
+                this.goldCoinBonus = 2;
+                this.luckBonus = 2;
+                this.experienceBonus = 2;
                 break;
 
         }
