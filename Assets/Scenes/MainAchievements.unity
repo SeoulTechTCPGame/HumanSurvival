@@ -18807,7 +18807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1259382381}
-  collectText: {fileID: 2127716375}
+  achiText: {fileID: 2127716375}
 --- !u!1 &467621991
 GameObject:
   m_ObjectHideFlags: 0
@@ -62638,7 +62638,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1245577307}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.038644385
+  m_Size: 0.03864438
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
