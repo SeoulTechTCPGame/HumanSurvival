@@ -4,61 +4,80 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float speed;
+    public float health;
+    public float maxHealth;
+    public RuntimeAnimatorController[] animcon;
+    public Rigidbody2D target;
+    //GameObject targetGameobject;
 
-    public Transform targetDestination;
-    public int health = 100; //ëª¬ìŠ¤í„° ì²´ë ¥
-    GameObject targetGameobject;
-    //Character targetCharacter;
-    [SerializeField] float speed;
-
-    bool isLive = true;
+    bool isLive ;
 
     Rigidbody2D rb;
+    Collider2D coll;
     SpriteRenderer spriter;
-
-
+    Animator anim;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
     }
-    public void SetTarget(GameObject target)
-    {
-        targetGameobject = target;
-        targetDestination = target.transform;
-    }
-    // Update is called once per frame
     void FixedUpdate()
     {
+        //¸ó½ºÅÍ°¡ »ì¾Æ ÀÖÀ» ¶§¸¸ ¿òÁ÷ÀÌµµ·Ï 
         if (!isLive) return;
-        Vector2 direction = (targetDestination.position - transform.position).normalized;
-        
-        //í”Œë ˆì´ì–´ì˜ í‚¤ì…ë ¥ ê°’ì„ ë”í•œ ì´ë™=ëª¬ìŠ¤í„°ì˜ ë°©í–¥ ê°’ì„ ë”í•œ ì´ë™
+
+        Vector2 direction = (target.position - rb.position).normalized;
         Vector2 nextVec = direction * speed * Time.fixedDeltaTime; ;
+
+        //ÇÃ·¹ÀÌ¾îÀÇ Å°ÀÔ·Â °ªÀ» ´õÇÑ ÀÌµ¿=¸ó½ºÅÍÀÇ ¹æÇâ °ªÀ» ´õÇÑ ÀÌµ¿
         rb.MovePosition(rb.position + nextVec);
-       rb.velocity = Vector2.zero;
+
+        //¹°¸® ¼Óµµ°¡ ÀÌµ¿¿¡ ¿µÇâÀ» ÁÖÁö ¾Êµµ·Ï ¼Óµµ Á¦°Å
+        rb.velocity = Vector2.zero;
     }
     private void LateUpdate()
     {
-        spriter.flipX = targetDestination.position.x < rb.position.x;
+        //Å¸°ÙÀÇ xÃà°ú ºñ±³ÇÏ¿© sprite flip 
+        spriter.flipX = target.position.x < rb.position.x;
     }
     private void OnEnable()
     {
+        //prefebÀº sceneÀÇ object¿¡ Á¢±ÙÇÒ ¼ö ¾ø´Ù=> »ı¼ºµÉ ¶§¸¶´Ù º¯¼ö¸¦ ÃÊ±âÈ­ÇÏ±â
+        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
+
+        //È°¼ºÈ­ µÉ¶§ º¯¼ö ÃÊ±âÈ­
+        isLive = true;
+        health = maxHealth;
+        coll.enabled=true;
+        rb.simulated = true;
+        spriter.sortingOrder = 2;
+        anim.SetBool("Dead", false);
+
     }
-    private void OnCollisionStay2D(Collision2D collision)
+
+    public void Init(SpawnData data)  //°¢°¢ÀÇ ¸ó½ºÅÍ µ¥ÀÌÅÍ ¼³Á¤ ÇÔ¼ö
     {
-        if (collision.gameObject== targetGameobject)
-        {
-            Attack();
-        }
+        anim.runtimeAnimatorController = animcon[data.spriteType];
+        speed = data.speed;
+        maxHealth = data.health;
+        health = data.health;
     }
-    private void Attack()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ê³µê²© ë‹¹í•˜ê³  ìˆìŒ!");
+        isLive = false;
+        coll.enabled = false;
+        rb.simulated = false;
+        spriter.sortingOrder = 1;
+        anim.SetBool("Dead", true);
+        Debug.Log("Hit");
+        Dead();
     }
-    public int Health
+    void Dead()
     {
-        get { return health; }
-        set { health = value; }
+        // object ºñÈ°¼ºÈ­
+        gameObject.SetActive(false);
     }
 }
