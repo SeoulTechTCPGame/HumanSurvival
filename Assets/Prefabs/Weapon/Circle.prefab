@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponIndex: 0
+  WeaponLevel: 0
+  WeaponMaxLevel: 0
+  WeaponStats: []
 --- !u!58 &7983366735893547710
 CircleCollider2D:
   m_ObjectHideFlags: 0
