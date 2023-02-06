@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2016231350047655973}
   m_Layer: 0
   m_Name: Frostbite
-  m_TagString: Object
+  m_TagString: DestructibleObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
