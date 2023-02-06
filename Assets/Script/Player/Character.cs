@@ -44,4 +44,5 @@ public class Character : MonoBehaviour
         get { return numberOfProjectiles; }
         set { numberOfProjectiles = value; }
     }
+    
 }

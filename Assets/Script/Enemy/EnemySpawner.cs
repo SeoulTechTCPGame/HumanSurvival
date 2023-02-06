@@ -33,9 +33,9 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy= GameManager.instance.pool.Get(0);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
-
-        //****script 이름 변경 후 컴포넌트 이름 바꾸기!****
-        newEnemy.GetComponent<N_Enemy>().Init(spawnData[level]);
+        
+  
+        newEnemy.GetComponent<Enemy>().Init(spawnData[level]);
     }
 
     private Vector3 GenerateRandomPos()
