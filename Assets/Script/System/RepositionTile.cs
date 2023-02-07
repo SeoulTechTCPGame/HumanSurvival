@@ -12,7 +12,7 @@ public class RepositionTile : MonoBehaviour
     // 태크 Area에서 충돌나서 벗어났을 때만 불러오는 함수
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Area")) { return; }  //필터 역할
+        if (!collision.CompareTag("Area")) { return; }  //Area 영역에서 벗어난 것만 아래 코드가 실행됨
 
         Vector3 playerPos = GameManager.instance.player.transform.position; //주인공 위치
         Vector3 myPos = transform.position; //현재 Tilemap 위치
@@ -20,8 +20,8 @@ public class RepositionTile : MonoBehaviour
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
 
         Vector3 playerDir = GameManager.instance.player.movement;  //주인공 이동방향 저장
-        float dirX = playerDir.x < 0 ? -1 : 1;
-        float dirY = playerDir.y < 0 ? -1 : 1;
+        float dirX = playerDir.x > 0 ? 1 : -1;
+        float dirY = playerDir.y > 0 ? 1 : -1;
 
         switch (transform.tag)
         {
@@ -42,10 +42,10 @@ public class RepositionTile : MonoBehaviour
         }
     }
     private void ObjectRespown(Vector3 myPos) {  //프리팹 생성
-        if (respawn == null & Random.Range(0.0f,100.0f) >= (100-probability))   //probability 확률로 생성
+        if (respawn == null & (Random.Range(0.0f,100.0f) <= probability))   //probability 확률로 생성
         {
-            float randomX = Random.Range(0.0f, x); //랜덤 X좌표
-            float randomY = Random.Range(0.0f, y); //랜덤 Y좌표
+            float randomX = Random.Range(-x/2, x/2); //랜덤 X좌표
+            float randomY = Random.Range(-y/2, y/2); //랜덤 Y좌표
             //instantiate함수 (오브젝트 이름, 오브젝트 위치, 오브젝트 회전 값)
             respawn = Instantiate(prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
         }
