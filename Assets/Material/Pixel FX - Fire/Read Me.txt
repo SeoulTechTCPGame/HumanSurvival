@@ -1,0 +1,131 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LICENSE
+
+- You can use this asset in any game project, personal or commercial
+- DO NOT resell or redistribute AS A GAME ASSET, it has to be part of a project
+- Modify to suit your needs
+- You are NOT allowed to turn any of my assets to an NFT.
+- Credit not necessary but appreciated, if you do you can link to my ITCH profile
+ITCH.IO LINK: https://admurin.itch.io/
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FX DETAILS
+
+Buff
+
+- Animations: 1
+- Frames: 16
+- Loop: No 
+- Details
+	- This buff will imbue your armor with fire attribute which may render you immune to fire skills. Up to you.
+	- The last frame (the flame over the head) is meant to follow the player around to indicate when the skill is active and when it expires.
+
+
+Fire I
+
+- Animations: 1
+- Frames: 15
+- Loop: Yes 
+- Details: 
+	- This is the most basic fire attack.
+	- It will only deal damage to the first enemy it touches.
+	
+
+Fire II
+
+- Animations: 6
+- Frames: 126
+- Loop: Yes 
+- Details:
+	- There are a total of 4 orbs that circle you.
+	- Each orb is its own animation and the best way I can think of to use the sprites is by summoning the 1st orb
+	- Waiting x amount of seconds, summoning the 2nd orb and so on until you summoned all 4.
+	- This way when an enemy touches you all you have to do is disable the orb that was consumed.
+	- Another way to use this is by making a script that will make things move in a circular motion and once the orbs are summoned they will travel the path the script dictates.
+
+
+Fire III
+
+- Animations: 4
+- Frames: 47
+- Loop: Yes
+- Details: 
+	- Create a huge fire hand and smack your enemies to the ground. 
+	- That will deal the enemy damage once, and the flames that the hand summons will deal further damage.
+	- By the way the hand can be looped to keep smacking your enemies.
+
+
+Bomb
+
+- Animations: 2
+- Frames: 21
+- Loop: Yes 
+- Details: 
+	- This is a bit slow to travel but once it hits your bomb will implode and then explode dealing a vast amount of damage to enemies around the point of impact.
+	- Maybe you can also add a high % of knockback to show the big explosion.
+
+
+Incendiary
+
+- Animations: 1
+- Frames: 16
+- Loop: Yes 
+- Details: 
+	- This will 100% guarantee your enemies to get burnt. 
+	- For even more insane damage... all you have to do is just spam the skill, loop the animations and hold it down until you run out of MP.
+
+
+Meteors
+
+- Animations: 5
+- Frames: 55
+- Loop: Yes
+- Details: 
+	- These will deal massive amounts of damage based on how long your meteor shower is!
+	- The animations have been made in a way that the meteors will travel diagonally towards the floor.
+
+
+Napalm
+
+- Animations: 3
+- Frames: 23
+- Loop: Yes 
+- Details:
+	- Lure your enemies to burn themselves.
+	- It is good to know that the 1st animation and 3rd animation can be used by themselves.
+	- If you do not want to mix and match just use all 3 animations in a row.
+
+Burn Debuff
+
+- Animations: 1
+- Frames: 18
+- Loop: Yes 
+- Details:
+	- Feel free to put them on top of the enemy or below like I have showcased in the previews. 
+	- For better results I recommend making the victim red!
+	- This debuff can be applied to all fire attacks if you wish.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+MAKE SURE YOU READ THE DETAILS THERE ARE A FEW IDEAS ON HOW TO USE THE SKILLS.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+If you have any other questions you can check my discord where I will answer and help you use my assets. 
+DISCORD LINK: https://discord.com/invite/jmf4pzv5Fj
+
+If you want to support me you can check out my Patreon. This allows me to focus on making more assets and releasing them for free assets!
+PATREON LINK: https://www.patreon.com/admurin
+
+
+Don't forget to leave a review and check my other assets!
+
+Thank you.
+Admurin

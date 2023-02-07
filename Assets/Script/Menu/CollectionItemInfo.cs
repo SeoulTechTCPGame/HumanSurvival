@@ -63,17 +63,17 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 this.rank = "black";
                 break;
 
-            case 7:
-                this.itemName = "도끼[Axe]";
-                this.explain = "피해량이 높고 공격 범위가 넓습니다.(High damage, high area scaling.)";
-                this.rank = "black";
-                break;
+            // case 7:
+            //     this.itemName = "도끼[Axe]";
+            //     this.explain = "피해량이 높고 공격 범위가 넓습니다.(High damage, high area scaling.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 8:
-                this.itemName = "죽음의 나선[Death Spiral]";
-                this.explain = "도끼의 진화형. 적을 관통합니다.(Evolved VS_Item_Axe. Passes through enemies.)";
-                this.rank = "black";
-                break;
+            // case 8:
+            //     this.itemName = "죽음의 나선[Death Spiral]";
+            //     this.explain = "도끼의 진화형. 적을 관통합니다.(Evolved VS_Item_Axe. Passes through enemies.)";
+            //     this.rank = "black";
+            //     break;
 
             case 9:
                 this.itemName = " 십자가[Cross]";
@@ -123,29 +123,29 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 this.rank = "black";
                 break;
 
-            case 17:
-                this.itemName = "성수[Santa Water]";
-                this.explain = "피해 구역를 생성합니다.(Generates damaging zones.)";
-                this.rank = "black";
-                break;
+            // case 17:
+            //     this.itemName = "성수[Santa Water]";
+            //     this.explain = "피해 구역를 생성합니다.(Generates damaging zones.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 18:
-                this.itemName = "정화자[La Borra]";
-                this.explain = "성수의 진화형. 피해 구역이 점점 커지며 캐릭터를 따릅니다.(Evolved Santa Water. Damaging zones follow you and grow when they move.)";
-                this.rank = "black";
-                break;
+            // case 18:
+            //     this.itemName = "정화자[La Borra]";
+            //     this.explain = "성수의 진화형. 피해 구역이 점점 커지며 캐릭터를 따릅니다.(Evolved Santa Water. Damaging zones follow you and grow when they move.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 19:
-                this.itemName = "룬 트레이서[RuneTracer]";
-                this.explain = "적을 관통하며 튕겨져 나옵니다.(Passes through enemies, bounces around.)";
-                this.rank = "black";
-                break;
+            // case 19:
+            //     this.itemName = "룬 트레이서[RuneTracer]";
+            //     this.explain = "적을 관통하며 튕겨져 나옵니다.(Passes through enemies, bounces around.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 20:
-                this.itemName = "절멸[NO Future]";
-                this.explain = "룬 트레이서 진화형. 적에게 반사 대미지를 주며 튕겨져 나올 때 폭파 피해를 줍니다.(Evolved Runetracer. Explodes when bouncing and in retaliation.)";
-                this.rank = "black";
-                break;
+            // case 20:
+            //     this.itemName = "절멸[NO Future]";
+            //     this.explain = "룬 트레이서 진화형. 적에게 반사 대미지를 주며 튕겨져 나올 때 폭파 피해를 줍니다.(Evolved Runetracer. Explodes when bouncing and in retaliation.)";
+            //     this.rank = "black";
+            //     break;
 
             case 21:
                 this.itemName = "번개 반지[Lightning Ring]";
@@ -159,17 +159,17 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 this.rank = "black";
                 break;
 
-            case 23:
-                this.itemName = "오망성[Pentagram]";
-                this.explain = "화면 안의 모든 것을 제거합니다.(Erases everything in sight.)";
-                this.rank = "black";
-                break;
+            // case 23:
+            //     this.itemName = "오망성[Pentagram]";
+            //     this.explain = "화면 안의 모든 것을 제거합니다.(Erases everything in sight.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 24:
-                this.itemName = "매혹의 달[Gorgeous Moon]";
-                this.explain = "오망성의 진화형. 추가 보석을 생성하고 처치한 적의 보석을 흡수합니다.(Evolved Pentagram. Generates extra gems and gathers all of them.)";
-                this.rank = "black";
-                break;
+            // case 24:
+            //     this.itemName = "매혹의 달[Gorgeous Moon]";
+            //     this.explain = "오망성의 진화형. 추가 보석을 생성하고 처치한 적의 보석을 흡수합니다.(Evolved Pentagram. Generates extra gems and gathers all of them.)";
+            //     this.rank = "black";
+            //     break;
 
             case 25:
                 this.itemName = "하얀 비둘기[Peachone]";
@@ -189,185 +189,185 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 this.rank = "black";
                 break;
 
-            case 28:
-                this.itemName = "피에라 데 투펠로[Phiera Der Tuphello]";
-                this.explain = "고정된 네 방향으로 투사체를 빠르게 발사합니다.(Fires quickly in four fixed directions.)";
-                this.rank = "black";
-                break;
+            // case 28:
+            //     this.itemName = "피에라 데 투펠로[Phiera Der Tuphello]";
+            //     this.explain = "고정된 네 방향으로 투사체를 빠르게 발사합니다.(Fires quickly in four fixed directions.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 29:
-                this.itemName = "에잇 더 스페로우[Eight the Sparrow]";
-                this.explain = "고정된 네 방향으로 투사체를 빠르게 발사합니다.(Fires quickly in four fixed directions.)";
-                this.rank = "black";
-                break;
+            // case 29:
+            //     this.itemName = "에잇 더 스페로우[Eight the Sparrow]";
+            //     this.explain = "고정된 네 방향으로 투사체를 빠르게 발사합니다.(Fires quickly in four fixed directions.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 30:
-                this.itemName = "피에라지[Phieraggi]";
-                this.explain = "피에라 데 투펠로와 에잇 더 스패로우의 진화형. 부활횟수만큼 추가 투사체를 얻습니다.(Union of Phiera Der Tuphello and Eight The Sparrow. Scales with Revivals.)";
-                this.rank = "black";
-                break;
+            // case 30:
+            //     this.itemName = "피에라지[Phieraggi]";
+            //     this.explain = "피에라 데 투펠로와 에잇 더 스패로우의 진화형. 부활횟수만큼 추가 투사체를 얻습니다.(Union of Phiera Der Tuphello and Eight The Sparrow. Scales with Revivals.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 31:
-                this.itemName = "마녀의 고양이[Gatti Amari]";
-                this.explain = "변덕이 심한 발사체를 소환합니다. 픽업과 소통할 수도 있습니다. (Summons capricious projectiles. Might interact with pickups.)";
-                this.rank = "black";
-                break;
+            // case 31:
+            //     this.itemName = "마녀의 고양이[Gatti Amari]";
+            //     this.explain = "변덕이 심한 발사체를 소환합니다. 픽업과 소통할 수도 있습니다. (Summons capricious projectiles. Might interact with pickups.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 32:
-                this.itemName = "흉포한 굶주림[Vicious Hunger]";
-                this.explain = "마녀의 고양이의 진화형. 무엇이든지 금으로 바꿉니다.(Evolved Gatti Amari. Might turn anything into gold.)";
-                this.rank = "black";
-                break;
+            // case 32:
+            //     this.itemName = "흉포한 굶주림[Vicious Hunger]";
+            //     this.explain = "마녀의 고양이의 진화형. 무엇이든지 금으로 바꿉니다.(Evolved Gatti Amari. Might turn anything into gold.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 33:
-                this.itemName = "마나의 노래[Song of Mana]";
-                this.explain = "수직으로 공격하며 적을 관통합니다.(Attacks vertically, passes through enemies.)";
-                this.rank = "black";
-                break;
+            // case 33:
+            //     this.itemName = "마나의 노래[Song of Mana]";
+            //     this.explain = "수직으로 공격하며 적을 관통합니다.(Attacks vertically, passes through enemies.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 34:
-                this.itemName = "마력의 결정체[Mannajja]";
-                this.explain = "마나의 노래의 진화형. 적을 느려지게 만듭니다.(Evolved Song of Mana. Might slow enemies down.)";
-                this.rank = "black";
-                break;
+            // case 34:
+            //     this.itemName = "마력의 결정체[Mannajja]";
+            //     this.explain = "마나의 노래의 진화형. 적을 느려지게 만듭니다.(Evolved Song of Mana. Might slow enemies down.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 35:
-                this.itemName = "검은 드릴[Shadow Pinion]";
-                this.explain = "이동 시 피해를 주는 구역을 만들며, 정지 시 공격합니다.(Generates damaging zones when moving, strikes when stopping.)";
-                this.rank = "black";
-                break;
+            // case 35:
+            //     this.itemName = "검은 드릴[Shadow Pinion]";
+            //     this.explain = "이동 시 피해를 주는 구역을 만들며, 정지 시 공격합니다.(Generates damaging zones when moving, strikes when stopping.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 36:
-                this.itemName = "발키리 터너[Valkyrie Turner]";
-                this.explain = "검은 드릴의 진화형. 더 크게, 더 길게, 더 강력하게.(Evolved Shadow Pinion. Bigger, longer, faster, stronger.)";
-                this.rank = "black";
-                break;
+            // case 36:
+            //     this.itemName = "발키리 터너[Valkyrie Turner]";
+            //     this.explain = "검은 드릴의 진화형. 더 크게, 더 길게, 더 강력하게.(Evolved Shadow Pinion. Bigger, longer, faster, stronger.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 37:
-                this.itemName = "시곗바늘[Clock Lancet]";
-                this.explain = "적들을 잠시 얼려 움직이지 못하게 합니다.(Chance to freeze enemies in time.)";
-                this.rank = "black";
-                break;
+            // case 37:
+            //     this.itemName = "시곗바늘[Clock Lancet]";
+            //     this.explain = "적들을 잠시 얼려 움직이지 못하게 합니다.(Chance to freeze enemies in time.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 38:
-                this.itemName = "무한회랑[Infinite Corridor]";
-                this.explain = "시곗바늘 진화형. 적의 체력 절반을 감소시킵니다.(Evolved Clock Lancet. Halves enemies health.)";
-                this.rank = "black";
-                break;
+            // case 38:
+            //     this.itemName = "무한회랑[Infinite Corridor]";
+            //     this.explain = "시곗바늘 진화형. 적의 체력 절반을 감소시킵니다.(Evolved Clock Lancet. Halves enemies health.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 39:
-                this.itemName = "월계수[Laurel]";
-                this.explain = "피격 피해를 막아주는 방어막을 생성합니다. 손상된 방어막은 잠시 후 재생성됩니다.(Shields from damage while active.)";
-                this.rank = "black";
-                break;
+            // case 39:
+            //     this.itemName = "월계수[Laurel]";
+            //     this.explain = "피격 피해를 막아주는 방어막을 생성합니다. 손상된 방어막은 잠시 후 재생성됩니다.(Shields from damage while active.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 40:
-                this.itemName = "진홍의 망토[Crimson Shroud]";
-                this.explain = "월계수 진화형. 받는 피해를 최대 10으로 감소시키며 보호막 감소 시 반사 피해를 줍니다.(Evolved Laurel. Caps incoming damage at 10. Retaliates when losing charges.)";
-                this.rank = "black";
-                break;
+            // case 40:
+            //     this.itemName = "진홍의 망토[Crimson Shroud]";
+            //     this.explain = "월계수 진화형. 받는 피해를 최대 10으로 감소시키며 보호막 감소 시 반사 피해를 줍니다.(Evolved Laurel. Caps incoming damage at 10. Retaliates when losing charges.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 41:
-                this.itemName = "성스러운 바람[Vento Sacro]";
-                this.explain = "지속적으로 움직이면 더욱 강한 피해를 줍니다. 치명타 피해를 줄 수 있습니다.(Stronger with continuous movement. Can deal critical damage.)";
-                this.rank = "black";
-                break;
+            // case 41:
+            //     this.itemName = "성스러운 바람[Vento Sacro]";
+            //     this.explain = "지속적으로 움직이면 더욱 강한 피해를 줍니다. 치명타 피해를 줄 수 있습니다.(Stronger with continuous movement. Can deal critical damage.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 42:
-                this.itemName = "붉은 장미 덩쿨[Fuwalafuwaloo]";
-                this.explain = "성스러운 바람과 피눈물의 진화형. 치명타 공격시 폭발 가능성이 있습니다.(Union of Vento Sacro and Bloody Tear. Critical hits might generate explosions.)";
-                this.rank = "black";
-                break;
+            // case 42:
+            //     this.itemName = "붉은 장미 덩쿨[Fuwalafuwaloo]";
+            //     this.explain = "성스러운 바람과 피눈물의 진화형. 치명타 공격시 폭발 가능성이 있습니다.(Union of Vento Sacro and Bloody Tear. Critical hits might generate explosions.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 43:
-                this.itemName = "뼈[bone]";
-                this.explain = "튕겨나오는 투사체를 던집니다.(Throws a bouncing projectile.)";
-                this.rank = "black";
-                break;
+            // case 43:
+            //     this.itemName = "뼈[bone]";
+            //     this.explain = "튕겨나오는 투사체를 던집니다.(Throws a bouncing projectile.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 44:
-                this.itemName = "체리폭탄[cherry Bomb]";
-                this.explain = "튕겨나오며 일정 확률로 폭발하는 투사체를 던집니다.(Throws a bouncing projectile that explodes after some time.)";
-                this.rank = "black";
-                break;
+            // case 44:
+            //     this.itemName = "체리폭탄[cherry Bomb]";
+            //     this.explain = "튕겨나오며 일정 확률로 폭발하는 투사체를 던집니다.(Throws a bouncing projectile that explodes after some time.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 45:
-                this.itemName = "광산 수레[Carrello]";
-                this.explain = "수레를 밀어 적을 공격합니다. 투사체의 수가 많아질수록 여러번 튕겨져 나옵니다.(Throws a bouncing projectile. Number of bounces affected by Amount.)";
-                this.rank = "black";
-                break;
+            // case 45:
+            //     this.itemName = "광산 수레[Carrello]";
+            //     this.explain = "수레를 밀어 적을 공격합니다. 투사체의 수가 많아질수록 여러번 튕겨져 나옵니다.(Throws a bouncing projectile. Number of bounces affected by Amount.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 46:
-                this.itemName = "천상의 꽃[Celestial Dusting]";
-                this.explain = "튕겨지는 투사체를 발사합니다. 이동 시 무기의 쿨타임 감소.(Throws a bouncing projectile. Cooldown reduces when moving.)";
-                this.rank = "black";
-                break;
+            // case 46:
+            //     this.itemName = "천상의 꽃[Celestial Dusting]";
+            //     this.explain = "튕겨지는 투사체를 발사합니다. 이동 시 무기의 쿨타임 감소.(Throws a bouncing projectile. Cooldown reduces when moving.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 47:
-                this.itemName = "라 로바[La Robba]";
-                this.explain = "통통 튀는 투사체를 소환합니다.(Generates bouncing projectiles.)";
-                this.rank = "black";
-                break;
+            // case 47:
+            //     this.itemName = "라 로바[La Robba]";
+            //     this.explain = "통통 튀는 투사체를 소환합니다.(Generates bouncing projectiles.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 48:
-                this.itemName = "위대한 기념제[Greatest Jubilee]";
-                this.explain = "광원을 소환할 확률이 있습니다.(Has a chance to summon light sources)";
-                this.rank = "black";
-                break;
+            // case 48:
+            //     this.itemName = "위대한 기념제[Greatest Jubilee]";
+            //     this.explain = "광원을 소환할 확률이 있습니다.(Has a chance to summon light sources)";
+            //     this.rank = "black";
+            //     break;
 
-            case 49:
-                this.itemName = "팔찌 1[Bracelet]";
-                this.explain = "무작위 적 1명에게 3개의 투사체를 발사합니다.(Fires three projectiles at a random enemy.)";
-                this.rank = "black";
-                break;
+            // case 49:
+            //     this.itemName = "팔찌 1[Bracelet]";
+            //     this.explain = "무작위 적 1명에게 3개의 투사체를 발사합니다.(Fires three projectiles at a random enemy.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 50:
-                this.itemName = "팔찌 2[Bi-Bracelet]";
-                this.explain = "무작위 적 1명에게 3개의 투사체를 발사합니다.(Fires three projectiles at a random enemy.)";
-                this.rank = "black";
-                break;
+            // case 50:
+            //     this.itemName = "팔찌 2[Bi-Bracelet]";
+            //     this.explain = "무작위 적 1명에게 3개의 투사체를 발사합니다.(Fires three projectiles at a random enemy.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 51:
-                this.itemName = "팔찌 3[Tri-Bracelet]";
-                this.explain = "무작위 적 1명에게 3개의 투사체를 발사합니다.(Fires three projectiles at a random enemy.)";
-                this.rank = "black";
-                break;
+            // case 51:
+            //     this.itemName = "팔찌 3[Tri-Bracelet]";
+            //     this.explain = "무작위 적 1명에게 3개의 투사체를 발사합니다.(Fires three projectiles at a random enemy.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 52:
-                this.itemName = "사탕상자[Candybox]";
-                this.explain = "잠금 해체한 기본 무기 중 원하는 무기를 하나 선택할 수 있습니다.(Allows you to choose any unlcoked base weapon.)";
-                this.rank = "black";
-                break;
+            // case 52:
+            //     this.itemName = "사탕상자[Candybox]";
+            //     this.explain = "잠금 해체한 기본 무기 중 원하는 무기를 하나 선택할 수 있습니다.(Allows you to choose any unlcoked base weapon.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 53:
-                this.itemName = "슈퍼 사탕상자 2 터보[Super Candybox II Turbo]";
-                this.explain = "사탕상자의 선물입니다. 고급 무기 중 선택할 수 있습니다.(Gift of Candybox. Allows to choose among a selection of advanced weapons.)";
-                this.rank = "black";
-                break;
+            // case 53:
+            //     this.itemName = "슈퍼 사탕상자 2 터보[Super Candybox II Turbo]";
+            //     this.explain = "사탕상자의 선물입니다. 고급 무기 중 선택할 수 있습니다.(Gift of Candybox. Allows to choose among a selection of advanced weapons.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 54:
-                this.itemName = "승리의 검[Victory Sword]";
-                this.explain = "가장 가까운 적에게 콤보 공격을 가합니다. 반격이 가능합니다.(Strikes with a combo attack at the nearest enemy. Retaliates.)";
-                this.rank = "black";
-                break;
+            // case 54:
+            //     this.itemName = "승리의 검[Victory Sword]";
+            //     this.explain = "가장 가까운 적에게 콤보 공격을 가합니다. 반격이 가능합니다.(Strikes with a combo attack at the nearest enemy. Retaliates.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 55:
-                this.itemName = "주요한 해결책[Sole Solution]";
-                this.explain = "승리의 검이 주는 선물입니다. 더 많은 적을 처치할수록 더 강해집니다.(Gift of Victory Sword. The more enemies are defeated, the stronger it grows.)";
-                this.rank = "black";
-                break;
+            // case 55:
+            //     this.itemName = "주요한 해결책[Sole Solution]";
+            //     this.explain = "승리의 검이 주는 선물입니다. 더 많은 적을 처치할수록 더 강해집니다.(Gift of Victory Sword. The more enemies are defeated, the stronger it grows.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 56:
-                this.itemName = "잘못된 주문의 불꽃[Flames of Misspell]";
-                this.explain = "불꽃의 원뿔을 방출합니다.(Emits cones of flames.)";
-                this.rank = "black";
-                break;
+            // case 56:
+            //     this.itemName = "잘못된 주문의 불꽃[Flames of Misspell]";
+            //     this.explain = "불꽃의 원뿔을 방출합니다.(Emits cones of flames.)";
+            //     this.rank = "black";
+            //     break;
 
-            case 57:
-                this.itemName = "무슬림의 재[Ashes of Muspell]";
-                this.explain = "진화한 잘못된 주문의 불꽃입니다. 더 많은 적을 처치할수록 더 강해집니다.(Evolved Flames of Misspell. The more enemies are defeated, the stronger it grows.)";
-                this.rank = "black";
-                break;
+            // case 57:
+            //     this.itemName = "무슬림의 재[Ashes of Muspell]";
+            //     this.explain = "진화한 잘못된 주문의 불꽃입니다. 더 많은 적을 처치할수록 더 강해집니다.(Evolved Flames of Misspell. The more enemies are defeated, the stronger it grows.)";
+            //     this.rank = "black";
+            //     break;
 
             case 58:
                 this.itemName = "시금치[Spinach]";
@@ -459,71 +459,71 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 this.rank = "black";
                 break;
 
-            case 73:
-                this.itemName = "티라미수[Tiragisu]";
-                this.explain = "부활 횟수가 추가된다.";
-                this.rank = "black";
-                break;
+            // case 73:
+            //     this.itemName = "티라미수[Tiragisu]";
+            //     this.explain = "부활 횟수가 추가된다.";
+            //     this.rank = "black";
+            //     break;
 
-            case 74:
-                this.itemName = "토로나의 상자[Torrona's Box]";
-                this.explain = "피해량, 투사체 속도, 지속시간, 공격범위가 증가한다. 9레벨에 저주가 증가한다.";
-                this.rank = "black";
-                break;
+            // case 74:
+            //     this.itemName = "토로나의 상자[Torrona's Box]";
+            //     this.explain = "피해량, 투사체 속도, 지속시간, 공격범위가 증가한다. 9레벨에 저주가 증가한다.";
+            //     this.rank = "black";
+            //     break;
 
-            case 75:
-                this.itemName = "백조자리[Cygnus]";
-                this.explain = "하얀 비둘기를 쌍둥이 자리 아르카나를 사용해 복제";
-                this.rank = "black";
-                break;
+            // case 75:
+            //     this.itemName = "백조자리[Cygnus]";
+            //     this.explain = "하얀 비둘기를 쌍둥이 자리 아르카나를 사용해 복제";
+            //     this.rank = "black";
+            //     break;
 
-            case 76:
-                this.itemName = "불사조[Zhar Ptyrtsia]";
-                this.explain = "검은 비둘기를 쌍둥이 자리 아르카나를 사용해 복제";
-                this.rank = "black";
-                break;
+            // case 76:
+            //     this.itemName = "불사조[Zhar Ptyrtsia]";
+            //     this.explain = "검은 비둘기를 쌍둥이 자리 아르카나를 사용해 복제";
+            //     this.rank = "black";
+            //     break;
 
-            case 77:
-                this.itemName = "적색근육[Red Muscle]";
-                this.explain = "피에라 데 투펠로를 쌍둥이 자리 아르카나를 사용해 복제";
-                this.rank = "black";
-                break;
+            // case 77:
+            //     this.itemName = "적색근육[Red Muscle]";
+            //     this.explain = "피에라 데 투펠로를 쌍둥이 자리 아르카나를 사용해 복제";
+            //     this.rank = "black";
+            //     break;
 
-            case 78:
-                this.itemName = "두번의 시간[Twice Upon a time]";
-                this.explain = "에잇 더 스패로우를 쌍둥이 자리 아르카나를 사용해 복제";
-                this.rank = "black";
-                break;
+            // case 78:
+            //     this.itemName = "두번의 시간[Twice Upon a time]";
+            //     this.explain = "에잇 더 스패로우를 쌍둥이 자리 아르카나를 사용해 복제";
+            //     this.rank = "black";
+            //     break;
 
-            case 79:
-                this.itemName = "무리 파괴자[Flock Destroyer]";
-                this.explain = "마녀의 고양이를 쌍둥이 자리 아르카나를 사용해 복제";
-                this.rank = "black";
-                break;
+            // case 79:
+            //     this.itemName = "무리 파괴자[Flock Destroyer]";
+            //     this.explain = "마녀의 고양이를 쌍둥이 자리 아르카나를 사용해 복제";
+            //     this.rank = "black";
+            //     break;
 
-            case 80:
-                this.itemName = "은반지[Silver Ring]";
-                this.explain = "지속시간과 범위 5% 증가";
-                this.rank = "black";
-                break;
+            // case 80:
+            //     this.itemName = "은반지[Silver Ring]";
+            //     this.explain = "지속시간과 범위 5% 증가";
+            //     this.rank = "black";
+            //     break;
 
-            case 81:
-                this.itemName = "금반지[Gold Ring]";
-                this.explain = "저주 5% 증가";
-                this.rank = "black";
-                break;
+            // case 81:
+            //     this.itemName = "금반지[Gold Ring]";
+            //     this.explain = "저주 5% 증가";
+            //     this.rank = "black";
+            //     break;
 
-            case 82:
-                this.itemName = "좌 메탈리오[Metaglio Right]";
-                this.explain = "어둠의 힘으로 사용자를 보호합니다.";
-                this.rank = "black";
-                break;
+            // case 82:
+            //     this.itemName = "좌 메탈리오[Metaglio Right]";
+            //     this.explain = "어둠의 힘으로 사용자를 보호합니다.";
+            //     this.rank = "black";
+            //     break;
 
-            case 83:
-                this.itemName = "우 메탈리오[Metaglio Left]";
-                this.explain = "어둠의 힘으로 사용자를 저주합니다.";
-                this.rank = "black";
-                break;
+            // case 83:
+            //     this.itemName = "우 메탈리오[Metaglio Left]";
+            //     this.explain = "어둠의 힘으로 사용자를 저주합니다.";
+            //     this.rank = "black";
+            //     break;
 
             case 84:
                 this.itemName = "경험치 보석[Experience Gem]";
