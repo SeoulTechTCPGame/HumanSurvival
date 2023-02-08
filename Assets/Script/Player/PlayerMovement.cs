@@ -73,13 +73,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
     public Vector2 Movement {
-        get
-        {
-            return movement;
-        }
-        set
-        {
-            movement = value;
-        }
+        get{ return movement;}
     }
 }
