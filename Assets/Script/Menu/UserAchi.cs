@@ -7,7 +7,7 @@ using TMPro;
 public class UserAchi : MonoBehaviour
 {
     public TMP_Text moneyText;
-    public TMP_Text achiText;
+    public TMP_Text collectText;
 
     int achiCount = 0;
     // Start is called before the first frame update
@@ -35,6 +35,6 @@ public class UserAchi : MonoBehaviour
                 achiCount++;
             }
         }
-        achiText.text = "잠금 해제됨 : " + achiCount.ToString() + " / " + UserInfo.achiCount;
+        collectText.text = "잠금 해제됨 : " + achiCount.ToString() + " / " + UserInfo.achiCount;
     }
 }
