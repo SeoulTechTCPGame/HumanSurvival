@@ -23,11 +23,11 @@ public class PlayerMovement : MonoBehaviour
         //키 input 코드
 
         movement.x = Input.GetAxisRaw("Horizontal"); //키 입력
-        movement.y = Input.GetAxisRaw("Vertical"); 
+        movement.y = Input.GetAxisRaw("Vertical");
         //animator.SetFloat("Horizontal", movement.x);
         //animator.SetFloat("Vertical", movement.y);
         //animator.SetFloat("Speed", movement.sqrMagnitude); //성능 체크용
-        if (horizontal != 0||vertical !=0) animator.SetBool("Moving", true);
+        if (horizontal != 0 || vertical != 0) animator.SetBool("Moving", true);
         else animator.SetBool("Moving", false);
         // 마우스 click 코드
         if (Input.GetMouseButtonDown(0))
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Moving", true);
             moving = true;
         }
-        
+
         relativePos = new Vector2(
              clickTarget.x - rb.position.x,
              clickTarget.y - rb.position.y);
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         //movement 코드
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-        
+
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);//이전 한 프레임 수행 시간
 
         //click 시 movement 코드
@@ -61,16 +61,19 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Moving", false);
             moving = false;
         }
-        
-       
+
+
     }
     private void RotateAnimation()
     {
-        if (horizontal > 0.01f||relativePos.x>0)
+        if (horizontal > 0.01f || relativePos.x > 0)
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        else if (horizontal < -0.01f||relativePos.x<0)
+        else if (horizontal < -0.01f || relativePos.x < 0)
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
+    }
+    public Vector2 Movement{
+        get{ return movement; }
     }
 }
 
