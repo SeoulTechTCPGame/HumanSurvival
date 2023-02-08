@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - ExpObj
+  - HealObj
+  - DestructibleObj
+  - Ground
+  - Area
   layers:
   - Default
   - TransparentFX

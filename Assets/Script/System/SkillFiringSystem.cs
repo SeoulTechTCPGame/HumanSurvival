@@ -26,37 +26,37 @@ public class SkillFiringSystem : MonoBehaviour
         AttackCalculation();    //공격 관련 계산
         for (int i = 0; i <= numberOfProjectiles; i++)  //투사체 수만큼 발사하기
         {
-            //FireWeapon();
+            FireWeapon();
         }
     }
     //무기 발사
     //ToDo: attackRange을 적용하기
-    //private void FireWeapon()
-    //{
-    //    float timediff = cooldown;  //쿨타임
-    //    timer += Time.deltaTime;    //시간 갱신
+    private void FireWeapon()
+    {
+        float timediff = cooldown;  //쿨타임
+        timer += Time.deltaTime;    //시간 갱신
 
-    //    GameObject monster = GameObject.FindWithTag("Monster");
+        GameObject monster = GameObject.FindWithTag("Monster");
 
-    //    if (timer > timediff)   //쿨타임 넘을 시
-    //    {
-    //        GameObject newobs = Instantiate(weapon);  //무기 로드
-    //        newobs.transform.position = character.transform.position;  //캐릭터 위치에 생성
-    //        newobs.GetComponent<Weapon>().Shoot(projectileSpeed);  //오른쪽 벡터로 날아감
-    //        if (OnTriggerEnter2D(weapon.GetComponent<Collider2D>()))    //무기가 몬스터와 부딪힘 감지
-    //        {
-    //            monster.GetComponent<Enemy>().Health -= damage;   //딜 계산
-    //            Destroy(monster, 0);    //몬스터 삭제
-    //            if (monster.GetComponent<Enemy>().Health <= 0)    //몬스터가 죽는다면
-    //            {
-    //                GameObject obj = Resources.Load<GameObject>("Object/Capsule");  //임펙트 등장
-    //                Destroy(obj, 1);    //임펙트 등장 시간
-    //            }
-    //        }
-    //        timer = 0;  //시간 초기화
-    //        Destroy(newobs, duration);  //지속 시간 지나면 삭제
-    //    }
-    //}
+        if (timer > timediff)   //쿨타임 넘을 시
+        {
+            GameObject newobs = Instantiate(weapon);  //무기 로드
+            newobs.transform.position = character.transform.position;  //캐릭터 위치에 생성
+            newobs.GetComponent<Weapon>().Shoot(projectileSpeed);  //오른쪽 벡터로 날아감
+            /*if (OnTriggerEnter2D(weapon.GetComponent<Collider2D>()))    //무기가 몬스터와 부딪힘 감지
+            {
+                monster.GetComponent<Enemy>().Health -= damage;   //딜 계산
+                Destroy(monster, 0);    //몬스터 삭제
+                if (monster.GetComponent<Enemy>().Health <= 0)    //몬스터가 죽는다면
+                {
+                    GameObject obj = Resources.Load<GameObject>("Object/Capsule");  //임펙트 등장
+                    Destroy(obj, 1);    //임펙트 등장 시간
+                }
+            }*/
+            timer = 0;  //시간 초기화
+            Destroy(newobs, duration);  //지속 시간 지나면 삭제
+        }
+    }
     private bool OnTriggerEnter2D(Collider2D weapon)
     //rigidBody가 무언가와 충돌할때 호출되는 함수로 Collider2D other로 부딪힌 객체를 받아옵니다.
     {

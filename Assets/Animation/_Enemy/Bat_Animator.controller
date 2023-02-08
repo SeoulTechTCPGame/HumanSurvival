@@ -33,18 +33,18 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8936855848663467614}
-    m_Position: {x: 130, y: -50, z: 0}
+    m_Position: {x: -2250, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3933246528621158821}
-    m_Position: {x: 130, y: 30, z: 0}
+    m_Position: {x: -2250, y: 390, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 470, y: -70, z: 0}
-  m_EntryPosition: {x: 150, y: -140, z: 0}
-  m_ExitPosition: {x: 150, y: -200, z: 0}
+  m_AnyStatePosition: {x: -1910, y: 290, z: 0}
+  m_EntryPosition: {x: -2230, y: 220, z: 0}
+  m_ExitPosition: {x: -2230, y: 160, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 8936855848663467614}
 --- !u!91 &9100000
@@ -53,7 +53,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Animator Controller
+  m_Name: Bat_Animator
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
