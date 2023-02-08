@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScreen.unity
+    guid: 0b61ce453f6bfd04ab6bd94f5b4b9d47
+  - enabled: 1
     path: Assets/Scenes/MainCollection.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/MainAchievements.unity
+    guid: 01aa0b8070c004ec6aa0c52b8936b5a1
+  - enabled: 1
+    path: Assets/Scenes/MainscreenOption.unity
+    guid: a8cb04eee647dc8409dd8edcf291d1e3
+  - enabled: 1
+    path: Assets/Scenes/StageSelection.unity
+    guid: 8ffbcbf62e88cae428fad2cfe455de67
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 4d2ee4276b7d47d4691427a539c83df3
+  - enabled: 1
+    path: Assets/Scenes/InGame.unity
+    guid: fec2aaf74e82bf14983ad0b25b243ebe
   m_configObjects: {}
