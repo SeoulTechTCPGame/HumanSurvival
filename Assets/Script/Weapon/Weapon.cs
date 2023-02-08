@@ -6,19 +6,19 @@ using System;
 
 public class Weapon : MonoBehaviour
 {
-    //¹«±âÀÇ ½ºÅÈ ÁöÁ¤
-    //¿¹½Ã¸¦ À§ÇØ °ªÀº ¹«ÀÛÀ§·Î ³ÖÀ½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public int WeaponIndex;
     public int WeaponLevel;
     public int WeaponMaxLevel;
 
-    private int damage = 10;                //ÇÇÇØ·®
-    private int projectileSpeed = 1;        //Åõ»çÃ¼ ¼Óµµ
-    private int duration = 3;               //Áö¼Ó ½Ã°£
-    private int attackRange = 1;            //°ø°Ý¹üÀ§
-    private int cooldown = 3;               //ÄðÅ¸ÀÓ
-    private int numberOfProjectiles = 1;    //Åõ»çÃ¼ ¼ö
-    private int totalspeed;                 //ÃÑ ¼Óµµ
+    private int damage = 10;                //ï¿½ï¿½ï¿½Ø·ï¿½
+    private int projectileSpeed = 1;        //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½Óµï¿½
+    private int duration = 3;               //ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    private int attackRange = 1;            //ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½
+    private int cooldown = 3;               //ï¿½ï¿½Å¸ï¿½ï¿½
+    private int numberOfProjectiles = 1;    //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½
+    private int totalspeed;                 //ï¿½ï¿½ ï¿½Óµï¿½
 
     public float[] WeaponStats;
     public static float[][] defaultWeaponStats;
@@ -64,7 +64,7 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel ? true : false;
     }
-    //Get,SetÇÔ¼ö ÀÚµ¿ ±¸Çö
+    //Get,Setï¿½Ô¼ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
     public int Damage
     {
         get { return damage; }
