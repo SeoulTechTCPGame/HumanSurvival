@@ -40,9 +40,6 @@ public class Weapon : MonoBehaviour
 
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
-
-        // юс╫ц
-        WeaponLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel] - 1;
     }
 
     void Start()
