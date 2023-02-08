@@ -14,14 +14,14 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class Character : MonoBehaviour
 {
-    //Ä³¸¯ÅÍÀÇ ½ºÅÈÁöÁ¤
-    //¿¹½Ã¸¦ À§ÇØ °ªÀº ¹«ÀÛÀ§·Î ³ÖÀ½
-    private int damage = 10;              //ÇÇÇØ·®
-    private int projectileSpeed = 1;     //Åõ»çÃ¼ ¼Óµµ
-    private int duration = 3;            //Áö¼Ó ½Ã°£
-    private int attackRange = 1;         //°ø°Ý¹üÀ§
-    private int cooldown = 3;            //ÄðÅ¸ÀÓ
-    private int numberOfProjectiles = 1;     //Åõ»çÃ¼ ¼ö
+    //Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private int damage = 10;              //ï¿½ï¿½ï¿½Ø·ï¿½
+    private int projectileSpeed = 1;     //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½Óµï¿½
+    private int duration = 3;            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    private int attackRange = 1;         //ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½
+    private int cooldown = 3;            //ï¿½ï¿½Å¸ï¿½ï¿½
+    private int numberOfProjectiles = 1;     //ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½ï¿½
 
     private int mLevel;
     private int mExp;
@@ -41,8 +41,8 @@ public class Character : MonoBehaviour
     public List<Tuple<int, int>> Accessorys;  // tuple< Accessory_index, now_Accessory_level >
     public static List<List<Tuple<int, float>>>[] AccessoryUpgrade;
 
-    private int[] mTransWeaponIndex; // ÇØ´ç indexÀÇ weaponÀÌ ÇöÀç º¸À¯ÁßÀÎ WeaponsÀÇ ¸î ¹øÂ° index¿¡ ÀÖ´ÂÁö ¹ÝÈ¯ÇÏ´Â ¹è¿­
-    private bool[] mHasAccessoryIndex; // ÇØ´ç Accessory¸¦ ¼ÒÀ¯ÁßÀÎÁö Ç¥½Ã (0, 1)
+    private int[] mTransWeaponIndex; // ï¿½Ø´ï¿½ indexï¿½ï¿½ weaponï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Weaponsï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Â° indexï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½è¿­
+    private bool[] mHasAccessoryIndex; // ï¿½Ø´ï¿½ Accessoryï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ (0, 1)
     static Character()
     {
         AccessoryUpgrade = new List<List<Tuple<int, float>>>[21];
@@ -54,7 +54,7 @@ public class Character : MonoBehaviour
         mMaxExp = 100;
         mdExp = 10;
 
-        CharacterStats = new float[20]; // TODO user°¡ ¸ÞÀÎ È­¸é¿¡¼­ °­È­ÇØ³õÀº ½ºÅÈµéÀ» ±âº»°ªÀ¸·Î ¹Þ¾Æ¿À±â
+        CharacterStats = new float[20]; // TODO userï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½È­ï¿½Ø³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
         AccessoryUpgradePreprocessing();
 
         mWeaponRarity = new int[13];
@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
         mHasAccessoryIndex = Enumerable.Repeat<bool>(false, 21).ToArray<bool>();
     }
 
-    //Get,SetÇÔ¼ö ÀÚµ¿ ±¸Çö
+    //Get,Setï¿½Ô¼ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
     public int Damage
     {
         get { return damage; }
@@ -99,7 +99,7 @@ public class Character : MonoBehaviour
 
     public void GetExp(int exp)
     {
-        // TODO: statÀÇ growth Àû¿ëÇÏ¿© °æÇèÄ¡ È¹µæ
+        // TODO: statï¿½ï¿½ growth ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ È¹ï¿½ï¿½
 
         mExp += exp;
         while (mExp >= mMaxExp)
@@ -112,12 +112,12 @@ public class Character : MonoBehaviour
     public void LevelUp()
     {
         mLevel++;
-        // °ÔÀÓ ÀÏ½ÃÁ¤Áö
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        // TODO: ½ºÅ³ ¼±ÅÃ ±â´É
+        // TODO: ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         // 
 
-        // ¼±ÅÃ ÈÄ °ÔÀÓ Àç°³
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ç°³
     }
     public void UpdateLuck(int luck)
     {
@@ -154,8 +154,8 @@ public class Character : MonoBehaviour
 
         }
 
-        // TODO: »ÌÈù ½ºÅ³µéÀ» ¼±ÅÃÇÒ ¼ö ÀÖ°Ô Ç¥½Ã
-        // TODO: ¼±ÅÃµÈ ½ºÅ³µé ·¹º§¾÷ ½ÃÄÑÁÖ±â
+        // TODO: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ Ç¥ï¿½ï¿½
+        // TODO: ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 
 
     }

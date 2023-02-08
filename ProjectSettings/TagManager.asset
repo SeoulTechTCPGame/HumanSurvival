@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Monster
+  - ExpObj
+  - HealObj
+  - DestructibleObj
+  - Ground
+  - Area
+>>>>>>> main
   layers:
   - Default
   - TransparentFX

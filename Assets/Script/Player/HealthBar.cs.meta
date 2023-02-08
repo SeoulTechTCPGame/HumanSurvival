@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Script/Player/HealthBar.cs.meta
 guid: 7be1b9c62e5924bca8cb04912ea45161
+=======
+guid: c1575af2165c04644887e15d2d007331
+>>>>>>> main:Assets/Script/Enemy/Enemy.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
