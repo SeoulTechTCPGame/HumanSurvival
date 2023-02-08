@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9127071239805826086}
   - component: {fileID: 9127071239805826087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 9127071239993843721}
   - component: {fileID: 9127071239993843720}
   - component: {fileID: 9127071239993843725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyMira
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -243,4 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  health: 0
+  maxHealth: 0
+  enemyDamage: 0
+  animcon: []
   target: {fileID: 0}

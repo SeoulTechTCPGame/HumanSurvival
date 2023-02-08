@@ -10,6 +10,7 @@ TagManager:
   - DestructibleObj
   - Ground
   - Area
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Monster
+  - Weapon
   - 
   - 
   - 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 807355772286374461}
   - component: {fileID: 807355772286374462}
   - component: {fileID: -1377271983600501788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBat
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -147,4 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  health: 0
+  maxHealth: 0
+  enemyDamage: 0
+  animcon: []
   target: {fileID: 0}

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
+    public float enemyDamage;
     public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
     //GameObject targetGameobject;
@@ -17,38 +18,40 @@ public class Enemy : MonoBehaviour
     Collider2D coll;
     SpriteRenderer spriter;
     Animator anim;
+    WaitForFixedUpdate wait;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        wait = new WaitForFixedUpdate();
     }
     void FixedUpdate()
     {
-        //¸ó½ºÅÍ°¡ »ì¾Æ ÀÖÀ» ¶§¸¸ ¿òÁ÷ÀÌµµ·Ï 
+        //ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ 
         if (!isLive) return;
 
         Vector2 direction = (target.position - rb.position).normalized;
         Vector2 nextVec = direction * speed * Time.fixedDeltaTime; ;
 
-        //ÇÃ·¹ÀÌ¾îÀÇ Å°ÀÔ·Â °ªÀ» ´õÇÑ ÀÌµ¿=¸ó½ºÅÍÀÇ ¹æÇâ °ªÀ» ´õÇÑ ÀÌµ¿
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ Å°ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         rb.MovePosition(rb.position + nextVec);
 
-        //¹°¸® ¼Óµµ°¡ ÀÌµ¿¿¡ ¿µÇâÀ» ÁÖÁö ¾Êµµ·Ï ¼Óµµ Á¦°Å
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
         rb.velocity = Vector2.zero;
     }
     private void LateUpdate()
     {
-        //Å¸°ÙÀÇ xÃà°ú ºñ±³ÇÏ¿© sprite flip 
+        //Å¸ï¿½ï¿½ï¿½ï¿½ xï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ sprite flip 
         spriter.flipX = target.position.x < rb.position.x;
     }
     private void OnEnable()
     {
-        //prefebÀº sceneÀÇ object¿¡ Á¢±ÙÇÒ ¼ö ¾ø´Ù=> »ý¼ºµÉ ¶§¸¶´Ù º¯¼ö¸¦ ÃÊ±âÈ­ÇÏ±â
+        //prefebï¿½ï¿½ sceneï¿½ï¿½ objectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½=> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ï±ï¿½
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
 
-        //È°¼ºÈ­ µÉ¶§ º¯¼ö ÃÊ±âÈ­
+        //È°ï¿½ï¿½È­ ï¿½É¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         isLive = true;
         health = maxHealth;
         coll.enabled=true;
@@ -58,7 +61,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void Init(SpawnData data)  //°¢°¢ÀÇ ¸ó½ºÅÍ µ¥ÀÌÅÍ ¼³Á¤ ÇÔ¼ö
+    public void Init(SpawnData data)  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
         anim.runtimeAnimatorController = animcon[data.spriteType];
         speed = data.speed;
@@ -77,7 +80,31 @@ public class Enemy : MonoBehaviour
     }
     void Dead()
     {
-        // object ºñÈ°¼ºÈ­
+        // object ï¿½ï¿½È°ï¿½ï¿½È­
         gameObject.SetActive(false);
+    }
+
+    private void OnCollisionStay2D(Collision2D other) {
+        if(other.gameObject.tag == "Weapon"){
+
+            StartCoroutine(KnockBack());
+            if(health > enemyDamage){
+                health -= enemyDamage;
+            }
+            else{
+                gameObject.SetActive(false);
+                Destroy(other.gameObject);
+
+                anim.SetTrigger("Hit");
+            }
+        }
+    }
+
+    IEnumerator KnockBack()
+    {
+        yield return wait;
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 dirVec = transform.position - playerPos;
+        rb.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
     }
 }
