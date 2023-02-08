@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 8f;
     private Vector2 clickTarget;
     private Vector2 relativePos;
-    public Vector2 movement;
+    private Vector2 movement;
     private float horizontal;
     private float vertical;
     bool moving;
@@ -71,5 +71,15 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontal < -0.01f || relativePos.x < 0)
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
+    }
+    public Vector2 Movement {
+        get
+        {
+            return movement;
+        }
+        set
+        {
+            movement = value;
+        }
     }
 }

@@ -19,7 +19,7 @@ public class RepositionTile : MonoBehaviour
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
 
-        Vector3 playerDir = GameManager.instance.player.movement;  //주인공 이동방향 저장
+        Vector3 playerDir = GameManager.instance.player.Movement;  //주인공 이동방향 저장
         float dirX = playerDir.x > 0 ? 1 : -1;
         float dirY = playerDir.y > 0 ? 1 : -1;
 
