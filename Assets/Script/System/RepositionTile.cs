@@ -42,10 +42,10 @@ public class RepositionTile : MonoBehaviour
         }
     }
     private void ObjectRespown(Vector3 myPos) {  //ÇÁ¸®ÆÕ »ý¼º
-        if (respawn == null & (Random.Range(0.0f,100.0f) <= probability))   //probability È®·ü·Î »ý¼º
+        if (respawn == null & (Random.Range(0,101) <= probability))   //probability È®·ü·Î »ý¼º
         {
-            float randomX = Random.Range(-x/2, x/2); //·£´ý XÁÂÇ¥
-            float randomY = Random.Range(-y/2, y/2); //·£´ý YÁÂÇ¥
+            float randomX = Random.Range(-x/2f, x/2f); //·£´ý XÁÂÇ¥
+            float randomY = Random.Range(-y/2f, y/2f); //·£´ý YÁÂÇ¥
             //instantiateÇÔ¼ö (¿ÀºêÁ§Æ® ÀÌ¸§, ¿ÀºêÁ§Æ® À§Ä¡, ¿ÀºêÁ§Æ® È¸Àü °ª)
             respawn = Instantiate(prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
         }

@@ -18,27 +18,27 @@ public class MiniLevels
 }
 public class LevelUpUIManager : MonoBehaviour
 {
-    public MiniLevels[] WeaponLevelsUI;
-    public Image[] OwnWeaponImages;
-    public MiniLevels[] AccessoryLevelsUI;
-    public Image[] OwnAccessoryImages;
+    [SerializeField] MiniLevels[] WeaponLevelsUI;
+    [SerializeField] Image[] OwnWeaponImages;
+    [SerializeField] MiniLevels[] AccessoryLevelsUI;
+    [SerializeField] Image[] OwnAccessoryImages;
 
-    public GameObject Player;
-    public GameObject PickUpUI;
-    public GameObject StatUI;
-    public GameObject ItemUI;
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject PickUpUI;
+    [SerializeField] GameObject StatUI;
+    [SerializeField] GameObject ItemUI;
 
-    public TextMeshProUGUI StatVarText;
+    [SerializeField] TextMeshProUGUI StatVarText;
 
-    public GameObject[] mPickUpButtons;
+    [SerializeField] GameObject[] mPickUpButtons;
 
-    public Sprite[] WeaponImages;
-    public Sprite[] AccessoryImages;
-    public Sprite[] EtcImages;
-    public Sprite[] MiniLevelImages;
+    [SerializeField] Sprite[] WeaponImages;
+    [SerializeField] Sprite[] AccessoryImages;
+    [SerializeField] Sprite[] EtcImages;
+    [SerializeField] Sprite[] MiniLevelImages;
 
 
-    public static List<string[]> TypeScripts;
+    [SerializeField] static List<string[]> TypeScripts;
 
     private List<Tuple<int, int, int>> mPickUps;
     // Start is called before the first frame update
@@ -51,6 +51,11 @@ public class LevelUpUIManager : MonoBehaviour
         ItemUI.SetActive(false);
 
         // TODO: 아이템 설명들 추가하기
+        ItemScriptProcessing();
+    }
+
+    private static void ItemScriptProcessing()
+    {
         TypeScripts = new List<string[]>();
         TypeScripts.Add(new string[Constants.MaxWeaponNumber]
             {
@@ -98,6 +103,7 @@ public class LevelUpUIManager : MonoBehaviour
                 "체력을 30 회복합니다."
             });
     }
+
     public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Tuple<int, int, int>> accessories)
     {
         mPickUps = pickUps;
@@ -141,18 +147,6 @@ public class LevelUpUIManager : MonoBehaviour
                 return AccessoryImages;
             default:
                 return EtcImages;
-        }
-    }
-    private string transPickTypeToString(int type)
-    {
-        switch (type)
-        {
-            case 0:
-                return "Weapon";
-            case 1:
-                return "Accessory";
-            default:
-                return "Etc";
         }
     }
     private string transPickIndexToEnumString(int type, int index)
@@ -269,7 +263,6 @@ public class LevelUpUIManager : MonoBehaviour
     }
     public void ClickPickButton()
     {
-        // TODO: 
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         int selectedIndex = clickedButton.GetComponent<PickButton>().index;
         Player.GetComponent<Character>().ApplyItem(mPickUps[selectedIndex]);

@@ -18,12 +18,12 @@ public class Character : MonoBehaviour
     //예시를 위해 값은 무작위로 넣음
     public GameObject LevepUpUI;
 
-    private int damage = 10;              //피해량
-    private int projectileSpeed = 1;     //투사체 속도
-    private int duration = 3;            //지속 시간
-    private int attackRange = 1;         //공격범위
-    private int cooldown = 3;            //쿨타임
-    private int numberOfProjectiles = 1;     //투사체 수
+    private int mDamage = 10;              //피해량
+    private int mProjectileSpeed = 1;     //투사체 속도
+    private int mDuration = 3;            //지속 시간
+    private int mAttackRange = 1;         //공격범위
+    private int mCooldown = 3;            //쿨타임
+    private int mNumberOfProjectiles = 1;     //투사체 수
 
     private int mLevel;
     private int mExp;
@@ -51,6 +51,11 @@ public class Character : MonoBehaviour
         AccessoriesMaxLevel = new int[21];
         AccessoryUpgrade = new List<List<Tuple<int, float>>>[21];
     }
+    private void Awake()
+    {
+        mWeaponRarity = new int[13] { 100, 100, 100, 100, 80, 80, 80, 70, 100, 50, 50, 80, 80 };
+        mAccessoryRarity = new int[21] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 60, 50, 50, 50, 40, 40, 40 }; // 임시
+    }
     void Start()
     {
         mLevel = 1;
@@ -65,9 +70,6 @@ public class Character : MonoBehaviour
         Weapons = new List<Weapon>();
         Accessorys = new List<Tuple<int, int, int>>();
 
-        mWeaponRarity = new int[13] { 100, 100, 100, 100, 80, 80, 80, 70, 100, 50, 50, 80, 80 };
-        mAccessoryRarity = new int[21] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 60, 50, 50, 50, 40, 40, 40 }; // 임시
-
         mTransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();
         mTransAccessoryIndex = Enumerable.Repeat<int>(-1, 21).ToArray<int>();
 
@@ -76,7 +78,6 @@ public class Character : MonoBehaviour
 
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
-
         // 임시
         GetWeapon(0);
         GetWeapon(1);
@@ -84,42 +85,12 @@ public class Character : MonoBehaviour
         GetAccessory(1);
 
     }
+    //버튼 지우면 삭제 예정
     public void TempLoad()
     {
         LevelUp();
     }
 
-    //Get,Set함수 자동 구현
-    public int Damage
-    {
-        get { return damage; }
-        set { damage = value; }
-    }
-    public int ProjectileSpeed
-    {
-        get { return projectileSpeed; }
-        set { projectileSpeed = value; }
-    }
-    public int Duration
-    {
-        get { return duration; }
-        set { duration = value; }
-    }
-    public int AttackRange
-    {
-        get { return attackRange; }
-        set { attackRange = value; }
-    }
-    public int Cooldown
-    {
-        get { return cooldown; }
-        set { cooldown = value; }
-    }
-    public int NumberOfProjectiles
-    {
-        get { return numberOfProjectiles; }
-        set { numberOfProjectiles = value; }
-    }
     public void GetExp(int exp)
     {
         // TODO: stat의 growth 적용하여 경험치 획득
@@ -343,6 +314,7 @@ public class Character : MonoBehaviour
                 break;
         }
     }
+    //ToDo: SkillFiringSystem이랑 연계 할 함수
     public void GetWeapon(int weaponIndex)
     {
         mTransWeaponIndex[weaponIndex] = Weapons.Count;
@@ -386,6 +358,40 @@ public class Character : MonoBehaviour
             }
         }
     }
+
+    //Get,Set함수 자동 구현
+    public int Damage
+    {
+        get { return mDamage; }
+        set { mDamage = value; }
+    }
+    public int ProjectileSpeed
+    {
+        get { return mProjectileSpeed; }
+        set { mProjectileSpeed = value; }
+    }
+    public int Duration
+    {
+        get { return mDuration; }
+        set { mDuration = value; }
+    }
+    public int AttackRange
+    {
+        get { return mAttackRange; }
+        set { mAttackRange = value; }
+    }
+    public int Cooldown
+    {
+        get { return mCooldown; }
+        set { mCooldown = value; }
+    }
+    public int NumberOfProjectiles
+    {
+        get { return mNumberOfProjectiles; }
+        set { mNumberOfProjectiles = value; }
+    }
+
+    //장신구 인덱싱과 스탯 업그레이드
     private void AccessoryUpgradePreprocessing()
     {
         // 앞의 한 개(index상 0에 해당)는 더미 데이터
