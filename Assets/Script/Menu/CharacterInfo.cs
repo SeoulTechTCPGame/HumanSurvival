@@ -7,172 +7,171 @@ using TMPro;
 
 public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
 {
-    public int character;   //캐릭터 고유 번호
-    public Image infoImage; //설명란 이미지
-    public Image buttonIamge;   //버튼 이미지
-    public TMP_Text characterName;  //캐릭터 이름
-    public TMP_Text characterName1;  //캐릭터 이름
-    public TMP_Text characterExplain;   //캐릭터 설명
-    public TMP_Text characterMaxStamina;    //캐릭터 최대 체력
-    public TMP_Text characterRecovery;  //캐릭터 회복
-    public TMP_Text characterDefense;   //캐릭터 방어력
-    public TMP_Text characterSpeed; //캐릭터 이동 속도
-    public TMP_Text characterDamage;    //캐릭터 데미지
-    public TMP_Text characterProjectileSpeed;   //캐릭터 투사체 속도
-    public TMP_Text characterDuration;  //캐릭터 지속 시간
-    public TMP_Text characterAttackRange;   //캐릭터 공격 범위
-    public TMP_Text characterCooldown;  //캐릭터 쿨타임
-    public TMP_Text characterNumberOfProjectiles;   //캐릭터 투사체 수
-    public TMP_Text characterMagnet;    //캐릭터 자석
-    public TMP_Text characterLuck;  //캐릭터 행운
-    public TMP_Text characterGrowth;    //캐릭터 성장
+    [SerializeField] int mCharacter;
+    [SerializeField] Image mInfoImage;
+    [SerializeField] Image mButtonIamge;
+    [SerializeField] TMP_Text mCharacterName;
+    [SerializeField] TMP_Text mCharacterName1;
+    [SerializeField] TMP_Text mCharacterExplain;
+    [SerializeField] TMP_Text mCharacterMaxStamina;
+    [SerializeField] TMP_Text mCharacterRecovery;
+    [SerializeField] TMP_Text mCharacterDefense;
+    [SerializeField] TMP_Text mCharacterSpeed;
+    [SerializeField] TMP_Text mCharacterDamage;
+    [SerializeField] TMP_Text mCharacterProjectileSpeed;
+    [SerializeField] TMP_Text mCharacterDuration;
+    [SerializeField] TMP_Text mCharacterAttackRange;
+    [SerializeField] TMP_Text mCharacterCooldown;
+    [SerializeField] TMP_Text mCharacterNumberOfProjectiles;
+    [SerializeField] TMP_Text mCharacterMagnet;
+    [SerializeField] TMP_Text mCharacterLuck;
+    [SerializeField] TMP_Text mCharacterGrowth;
 
-
-    string Name;    //캐릭터 이름 글
-    string explain; //캐릭터 설명 글
-    float maxStamina;  //캐릭터 최대 체력
-    float recovery;    //캐릭터 회복
-    float defense; //캐릭터 방어력
-    float speed;   //캐릭터 이동 속도
-    float damage;  //캐릭터 데미지
-    float projectileSpeed; //캐릭터 투사체 속도
-    float duration;    //캐릭터 지속 시간
-    float attackRange; //캐릭터 공격 범위
-    float cooldown;    //캐릭터 쿨타임
-    int numberOfProjectiles; //캐릭터 투사체 수
-    float magnet;   //캐릭터 자석
-    float luck;    //캐릭터 행운
-    float growth;  //캐릭터 성장
+    string mName;
+    string mExplain;
+    float mMaxStamina;
+    float mRecovery;
+    float mDefense;
+    float mSpeed;
+    float mDamage;
+    float mProjectileSpeed;
+    float mDuration;
+    float mAttackRange;
+    float mCooldown;
+    int mNumberOfProjectiles;
+    float mMagnet;
+    float mLuck;
+    float mGrowth;
 
     void Start()
     {
-        switch (character)
+        switch (mCharacter)
         {
             case 1:
-                this.Name = "캐릭터 이름1";
-                this.explain = "캐릭터 설명1";
-                this.maxStamina = 101;
-                this.recovery = (float)0.1;
-                this.defense = 1;
-                this.speed = 11;
-                this.damage = 11;
-                this.projectileSpeed = 11;
-                this.duration = 11;
-                this.attackRange = 11;
-                this.cooldown = -1;
-                this.numberOfProjectiles = 1;
-                this.magnet = 1;
-                this.luck = 11;
-                this.growth = 11;
+                this.mName = "캐릭터 이름1";
+                this.mExplain = "캐릭터 설명1";
+                this.mMaxStamina = 101;
+                this.mRecovery = (float)0.1;
+                this.mDefense = 1;
+                this.mSpeed = 11;
+                this.mDamage = 11;
+                this.mProjectileSpeed = 11;
+                this.mDuration = 11;
+                this.mAttackRange = 11;
+                this.mCooldown = -1;
+                this.mNumberOfProjectiles = 1;
+                this.mMagnet = 1;
+                this.mLuck = 11;
+                this.mGrowth = 11;
                 break;
 
             case 2:
-                this.Name = "캐릭터 이름2";
-                this.explain = "캐릭터 설명2";
-                this.maxStamina = 102;
-                this.recovery = (float)0.2;
-                this.defense = 2;
-                this.speed = 12;
-                this.damage = 12;
-                this.projectileSpeed = 12;
-                this.duration = 12;
-                this.attackRange = 12;
-                this.cooldown = -2;
-                this.numberOfProjectiles = 2;
-                this.magnet = 2;
-                this.luck = 12;
-                this.growth = 12;
+                this.mName = "캐릭터 이름2";
+                this.mExplain = "캐릭터 설명2";
+                this.mMaxStamina = 102;
+                this.mRecovery = (float)0.2;
+                this.mDefense = 2;
+                this.mSpeed = 12;
+                this.mDamage = 12;
+                this.mProjectileSpeed = 12;
+                this.mDuration = 12;
+                this.mAttackRange = 12;
+                this.mCooldown = -2;
+                this.mNumberOfProjectiles = 2;
+                this.mMagnet = 2;
+                this.mLuck = 12;
+                this.mGrowth = 12;
                 break;
 
             case 3:
 
-                this.Name = "캐릭터 이름3";
-                this.explain = "캐릭터 설명3";
-                this.maxStamina = 103;
-                this.recovery = (float)0.3;
-                this.defense = 3;
-                this.speed = 13;
-                this.damage = 13;
-                this.projectileSpeed = 13;
-                this.duration = 13;
-                this.attackRange = 13;
-                this.cooldown = -3;
-                this.numberOfProjectiles = 3;
-                this.magnet = 3;
-                this.luck = 13;
-                this.growth = 13;
+                this.mName = "캐릭터 이름3";
+                this.mExplain = "캐릭터 설명3";
+                this.mMaxStamina = 103;
+                this.mRecovery = (float)0.3;
+                this.mDefense = 3;
+                this.mSpeed = 13;
+                this.mDamage = 13;
+                this.mProjectileSpeed = 13;
+                this.mDuration = 13;
+                this.mAttackRange = 13;
+                this.mCooldown = -3;
+                this.mNumberOfProjectiles = 3;
+                this.mMagnet = 3;
+                this.mLuck = 13;
+                this.mGrowth = 13;
                 break;
 
             case 4:
-                this.Name = "캐릭터 이름4";
-                this.explain = "캐릭터 설명4";
-                this.maxStamina = 104;
-                this.recovery = (float)0.4;
-                this.defense = 4;
-                this.speed = 14;
-                this.damage = 14;
-                this.projectileSpeed = 14;
-                this.duration = 14;
-                this.attackRange = 14;
-                this.cooldown = -4;
-                this.numberOfProjectiles = 4;
-                this.magnet = 4;
-                this.luck = 14;
-                this.growth = 14;
+                this.mName = "캐릭터 이름4";
+                this.mExplain = "캐릭터 설명4";
+                this.mMaxStamina = 104;
+                this.mRecovery = (float)0.4;
+                this.mDefense = 4;
+                this.mSpeed = 14;
+                this.mDamage = 14;
+                this.mProjectileSpeed = 14;
+                this.mDuration = 14;
+                this.mAttackRange = 14;
+                this.mCooldown = -4;
+                this.mNumberOfProjectiles = 4;
+                this.mMagnet = 4;
+                this.mLuck = 14;
+                this.mGrowth = 14;
                 break;
 
             case 5:
-                this.Name = "캐릭터 이름5";
-                this.explain = "캐릭터 설명5";
-                this.maxStamina = 105;
-                this.recovery = (float)0.5;
-                this.defense = 5;
-                this.speed = 15;
-                this.damage = 15;
-                this.projectileSpeed = 15;
-                this.duration = 15;
-                this.attackRange = 15;
-                this.cooldown = -5;
-                this.numberOfProjectiles = 5;
-                this.magnet = 5;
-                this.luck = 15;
-                this.growth = 15;
+                this.mName = "캐릭터 이름5";
+                this.mExplain = "캐릭터 설명5";
+                this.mMaxStamina = 105;
+                this.mRecovery = (float)0.5;
+                this.mDefense = 5;
+                this.mSpeed = 15;
+                this.mDamage = 15;
+                this.mProjectileSpeed = 15;
+                this.mDuration = 15;
+                this.mAttackRange = 15;
+                this.mCooldown = -5;
+                this.mNumberOfProjectiles = 5;
+                this.mMagnet = 5;
+                this.mLuck = 15;
+                this.mGrowth = 15;
                 break;
 
             case 6:
-                this.Name = "캐릭터 이름6";
-                this.explain = "캐릭터 설명6";
-                this.maxStamina = 106;
-                this.recovery = (float)0.6;
-                this.defense = 6;
-                this.speed = 16;
-                this.damage = 16;
-                this.projectileSpeed = 16;
-                this.duration = 16;
-                this.attackRange = 16;
-                this.cooldown = -6;
-                this.numberOfProjectiles = 6;
-                this.magnet = 6;
-                this.luck = 16;
-                this.growth = 16;
+                this.mName = "캐릭터 이름6";
+                this.mExplain = "캐릭터 설명6";
+                this.mMaxStamina = 106;
+                this.mRecovery = (float)0.6;
+                this.mDefense = 6;
+                this.mSpeed = 16;
+                this.mDamage = 16;
+                this.mProjectileSpeed = 16;
+                this.mDuration = 16;
+                this.mAttackRange = 16;
+                this.mCooldown = -6;
+                this.mNumberOfProjectiles = 6;
+                this.mMagnet = 6;
+                this.mLuck = 16;
+                this.mGrowth = 16;
                 break;
 
             case 7:
-                this.Name = "캐릭터 이름7";
-                this.explain = "캐릭터 설명7";
-                this.maxStamina = 107;
-                this.recovery = (float)0.7;
-                this.defense = 7;
-                this.speed = 17;
-                this.damage = 17;
-                this.projectileSpeed = 17;
-                this.duration = 17;
-                this.attackRange = 17;
-                this.cooldown = -7;
-                this.numberOfProjectiles = 7;
-                this.magnet = 7;
-                this.luck = 17;
-                this.growth = 17;
+                this.mName = "캐릭터 이름7";
+                this.mExplain = "캐릭터 설명7";
+                this.mMaxStamina = 107;
+                this.mRecovery = (float)0.7;
+                this.mDefense = 7;
+                this.mSpeed = 17;
+                this.mDamage = 17;
+                this.mProjectileSpeed = 17;
+                this.mDuration = 17;
+                this.mAttackRange = 17;
+                this.mCooldown = -7;
+                this.mNumberOfProjectiles = 7;
+                this.mMagnet = 7;
+                this.mLuck = 17;
+                this.mGrowth = 17;
                 break;
         }
     }
@@ -180,23 +179,23 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         //지정한 텍스트 대입
-        characterName.text = this.Name;
-        characterName1.text = this.Name;
-        characterExplain.text = this.explain;
-        characterMaxStamina.text = "Max stamina" + this.maxStamina.ToString();
-        characterRecovery.text = "Recovery" + this.recovery.ToString();
-        characterDefense.text = "Defense" + this.defense.ToString();
-        characterSpeed.text = "Speed" + this.speed.ToString() + "%";
-        characterDamage.text = "Damage" + this.damage.ToString() + "%";
-        characterProjectileSpeed.text = "Projectile Speed" + this.projectileSpeed.ToString() + "%";
-        characterDuration.text = "Duration" + this.duration.ToString() + "%";
-        characterAttackRange.text = "AttackRange" + this.attackRange.ToString() + "%";
-        characterCooldown.text = "Cooldown" + this.cooldown.ToString() + "%";
-        characterNumberOfProjectiles.text = "Number of projectiles" + this.numberOfProjectiles.ToString();
-        characterMagnet.text = "Magnet" + this.magnet.ToString() + "%";
-        characterLuck.text = "Luck" + this.luck.ToString() + "%";
-        characterGrowth.text = "Growth" + this.growth.ToString() + "%";
-        infoImage.GetComponent<Image>().sprite = buttonIamge.GetComponent<Image>().sprite;  //이미지 대입
+        mCharacterName.text = this.mName;
+        mCharacterName1.text = this.mName;
+        mCharacterExplain.text = this.mExplain;
+        mCharacterMaxStamina.text = "Max stamina" + this.mMaxStamina.ToString();
+        mCharacterRecovery.text = "Recovery" + this.mRecovery.ToString();
+        mCharacterDefense.text = "Defense" + this.mDefense.ToString();
+        mCharacterSpeed.text = "Speed" + this.mSpeed.ToString() + "%";
+        mCharacterDamage.text = "Damage" + this.mDamage.ToString() + "%";
+        mCharacterProjectileSpeed.text = "Projectile Speed" + this.mProjectileSpeed.ToString() + "%";
+        mCharacterDuration.text = "Duration" + this.mDuration.ToString() + "%";
+        mCharacterAttackRange.text = "AttackRange" + this.mAttackRange.ToString() + "%";
+        mCharacterCooldown.text = "Cooldown" + this.mCooldown.ToString() + "%";
+        mCharacterNumberOfProjectiles.text = "Number of projectiles" + this.mNumberOfProjectiles.ToString();
+        mCharacterMagnet.text = "Magnet" + this.mMagnet.ToString() + "%";
+        mCharacterLuck.text = "Luck" + this.mLuck.ToString() + "%";
+        mCharacterGrowth.text = "Growth" + this.mGrowth.ToString() + "%";
+        mInfoImage.GetComponent<Image>().sprite = mButtonIamge.GetComponent<Image>().sprite;  //이미지 대입
     }
 
 }

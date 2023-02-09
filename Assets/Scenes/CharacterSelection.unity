@@ -293,7 +293,7 @@ RectTransform:
   m_Children:
   - {fileID: 997501673}
   m_Father: {fileID: 1238107325}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1032,7 +1032,7 @@ RectTransform:
   - {fileID: 360691707}
   - {fileID: 1124102298}
   m_Father: {fileID: 1238107325}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1323,7 +1323,7 @@ RectTransform:
   m_Children:
   - {fileID: 854055307}
   m_Father: {fileID: 1238107325}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1677,25 +1677,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 6
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 989739433}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!114 &315219439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1967,25 +1967,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 3
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 1373536889}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!114 &356184076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4505,141 +4505,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044643409}
   m_CullTransparentMesh: 1
---- !u!1 &1076633947
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1076633948}
-  - component: {fileID: 1076633950}
-  - component: {fileID: 1076633949}
-  m_Layer: 5
-  m_Name: ID
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1076633948
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076633947}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1238107325}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 450}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1076633949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076633947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: id
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
-  m_sharedMaterial: {fileID: 1927474857956726295, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1076633950
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076633947}
-  m_CullTransparentMesh: 1
 --- !u!1 &1083854415
 GameObject:
   m_ObjectHideFlags: 0
@@ -4694,25 +4559,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 5
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 191004039}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!114 &1083854418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5119,7 +4984,6 @@ RectTransform:
   m_Children:
   - {fileID: 929618611}
   - {fileID: 2083669271}
-  - {fileID: 1076633948}
   - {fileID: 128696269}
   - {fileID: 1505366583}
   - {fileID: 271327715}
@@ -5822,25 +5686,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 4
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 1101049887}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!114 &1496740860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5956,7 +5820,7 @@ RectTransform:
   - {fileID: 1250205451}
   - {fileID: 621320256}
   m_Father: {fileID: 1238107325}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6325,25 +6189,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 7
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 1845017834}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!114 &1819735249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6547,7 +6411,7 @@ RectTransform:
   - {fileID: 1033241845}
   - {fileID: 321645307}
   m_Father: {fileID: 1238107325}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6683,25 +6547,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 2
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 1361973301}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!114 &1950805342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7292,25 +7156,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 1
-  infoImage: {fileID: 2017955206}
-  buttonIamge: {fileID: 2047682848}
-  characterName: {fileID: 152407671}
-  characterName1: {fileID: 1373137500}
-  characterExplain: {fileID: 95562946}
-  characterMaxStamina: {fileID: 914950922}
-  characterRecovery: {fileID: 1044643411}
-  characterDefense: {fileID: 1788514945}
-  characterSpeed: {fileID: 96223572}
-  characterDamage: {fileID: 285419571}
-  characterProjectileSpeed: {fileID: 707526229}
-  characterDuration: {fileID: 127891951}
-  characterAttackRange: {fileID: 530029159}
-  characterCooldown: {fileID: 463938723}
-  characterNumberOfProjectiles: {fileID: 54606820}
-  characterMagnet: {fileID: 2338152}
-  characterLuck: {fileID: 1033241846}
-  characterGrowth: {fileID: 321645308}
+  mCharacter: 0
+  mInfoImage: {fileID: 0}
+  mButtonIamge: {fileID: 0}
+  mCharacterName: {fileID: 0}
+  mCharacterName1: {fileID: 0}
+  mCharacterExplain: {fileID: 0}
+  mCharacterMaxStamina: {fileID: 0}
+  mCharacterRecovery: {fileID: 0}
+  mCharacterDefense: {fileID: 0}
+  mCharacterSpeed: {fileID: 0}
+  mCharacterDamage: {fileID: 0}
+  mCharacterProjectileSpeed: {fileID: 0}
+  mCharacterDuration: {fileID: 0}
+  mCharacterAttackRange: {fileID: 0}
+  mCharacterCooldown: {fileID: 0}
+  mCharacterNumberOfProjectiles: {fileID: 0}
+  mCharacterMagnet: {fileID: 0}
+  mCharacterLuck: {fileID: 0}
+  mCharacterGrowth: {fileID: 0}
 --- !u!1 &2147086572
 GameObject:
   m_ObjectHideFlags: 0

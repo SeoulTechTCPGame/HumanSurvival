@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
-    public float enemyDamage;
+    public float WeaponDamage;   //무기 데미지 적용 시 삭제
     public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
     //GameObject targetGameobject;
@@ -88,8 +88,8 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.tag == "Weapon"){
 
             StartCoroutine(KnockBack());
-            if(health > enemyDamage){
-                health -= enemyDamage;
+            if(health > WeaponDamage){
+                health -= WeaponDamage;
             }
             else{
                 gameObject.SetActive(false);

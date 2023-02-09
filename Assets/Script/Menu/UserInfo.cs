@@ -5,9 +5,7 @@ using UnityEngine;
 
 public static class UserInfo
 {
-    public static int money;
-    public static int itemCount = 131;
-    public static int achiCount = 159;
-    public static bool[] userItem = new bool[itemCount];
-    public static bool[] userAchi = new bool[achiCount];
+    public static int Money;
+    public static bool[] IsUserItem = new bool[Constants.itemCount];
+    public static bool[] IsUserAchi = new bool[Constants.achiCount];
 }

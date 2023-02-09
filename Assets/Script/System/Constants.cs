@@ -11,4 +11,6 @@ static class Constants
     public const int MaxEtcNumber = 2;
     public const int MaxWeaponNumber = 13;
     public const int MaxAccessoryNumber = 21;
+    public const int itemCount = 131;
+    public const int achiCount = 159;
 }
