@@ -6,8 +6,8 @@ using TMPro;
 
 public class UserCollection : MonoBehaviour
 {
-    public TMP_Text moneyText;
-    public TMP_Text collectText;
+    [SerializeField] TMP_Text mMoneyText;
+    [SerializeField] TMP_Text mCollectText;
 
     int collectionCount = 0;
     // Start is called before the first frame update
@@ -26,15 +26,15 @@ public class UserCollection : MonoBehaviour
     }
 
     void SetMoneyText(){
-        moneyText.text = UserInfo.money.ToString();
+        mMoneyText.text = UserInfo.Money.ToString();
     }
 
     void SetCollectionText(){
-        for(int i = 0; i < UserInfo.itemCount; i++){
-            if(UserInfo.userItem[i]){
+        for(int i = 0; i < Constants.itemCount; i++){
+            if(UserInfo.IsUserItem[i]){
                 collectionCount++;
             }
         }
-        collectText.text = "Collection : " + collectionCount.ToString() + " / " + UserInfo.itemCount;
+        mCollectText.text = "Collection : " + collectionCount.ToString() + " / " + Constants.itemCount;
     }
 }

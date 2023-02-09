@@ -7,24 +7,17 @@ using System;
 
 public class PlayerHp : MonoBehaviour
 {
-    public Slider hpBar;
-    private float damage = 0.1f;
-    // Start is called before the first frame update
+    [SerializeField] Slider HpBar;
+    private float damage = 0.1f;    //몬스터 데미지
     void Start()
     {
-        hpBar.maxValue = (int)Enums.Stat.MaxHealth;
-        hpBar.value = (int)Enums.Stat.MaxHealth;
+        //TODO: 캐릭터 고유의 최대 체력 가져오기
+        HpBar.maxValue = (int)Enums.Stat.MaxHealth;
+        HpBar.value = (int)Enums.Stat.MaxHealth;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionStay2D(Collision2D other) {
         if(other.gameObject.tag == "Monster"){
-            hpBar.value -= damage;
+            HpBar.value -= damage;
         }
     }
 }

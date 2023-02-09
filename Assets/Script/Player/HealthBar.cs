@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
+    private Vector3 mOffset;
 
-    private Vector3 offset;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        offset = transform.position - player.transform.position;
-        transform.position = player.transform.position + offset;
+        mOffset = transform.position - Player.transform.position;
+        transform.position = Player.transform.position + mOffset;
     }
 }

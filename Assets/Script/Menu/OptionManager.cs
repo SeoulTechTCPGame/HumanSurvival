@@ -60,6 +60,6 @@ public class OptionManager : MonoBehaviour
     }
     
     void SetMoneyText(){
-        moneyText.text = UserInfo.money.ToString();
+        moneyText.text = UserInfo.Money.ToString();
     }
 }
