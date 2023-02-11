@@ -1,57 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    private float moveSpeed = 8f;
-    private Vector2 clickTarget;
-    private Vector2 relativePos;
-    private Vector2 movement;
-    private float horizontal;
-    private float vertical;
+    private Vector2 movement;    //입력값
+    private Vector2 clickTarget;    //마우스 클릭
+    private float moveSpeed = 8f;   //속도
     bool moving;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] public Animator animator;
+
+    [SerializeField] Rigidbody2D rb;    //리디지바디
+    [SerializeField] SpriteRenderer spriter;    //스프라이트
+    [SerializeField] Animator animator;  //애니메이션
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        spriter = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
     void Start()
     {
-        animator = GetComponent<Animator>();
         clickTarget = transform.position;
     }
     void Update()
     {
-        //키 input 코드
-
-        movement.x = Input.GetAxisRaw("Horizontal"); //키 입력
-        movement.y = Input.GetAxisRaw("Vertical");
-        //animator.SetFloat("Horizontal", movement.x);
-        //animator.SetFloat("Vertical", movement.y);
-        //animator.SetFloat("Speed", movement.sqrMagnitude); //성능 체크용
-        if (horizontal != 0 || vertical != 0) animator.SetBool("Moving", true);
-        else animator.SetBool("Moving", false);
-        // 마우스 click 코드
+        // click 이벤트
         if (Input.GetMouseButtonDown(0))
         {
             clickTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             animator.SetBool("Moving", true);
             moving = true;
         }
-
-        relativePos = new Vector2(
-             clickTarget.x - rb.position.x,
-             clickTarget.y - rb.position.y);
-        RotateAnimation();
     }
     private void FixedUpdate()//물리 계산 할 때 사용
     {
-        //movement 코드
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);//이전 한 프레임 수행 시간
+        //movement 조정
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
 
         //click 시 movement 코드
-        if (moving && (Vector2)rb.position != clickTarget)
+        if (moving && rb.position != clickTarget)
         {
             float step = moveSpeed * Time.fixedDeltaTime;
             rb.position = Vector2.MoveTowards(rb.position, clickTarget, step);
@@ -61,19 +49,31 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Moving", false);
             moving = false;
         }
-
-
     }
-    private void RotateAnimation()
+
+    private void LateUpdate()   //모든 Update 함수가 호출된 후, 마지막으로 호출되는 함수
     {
-        if (horizontal > 0.01f || relativePos.x > 0)
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        else if (horizontal < -0.01f || relativePos.x < 0)
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        //키보드로 움직임 확인
+        if (movement.magnitude != 0)
+        {
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
+        animator.SetFloat("Speed", movement.magnitude);
 
+        if (movement.x != 0)    //x의 입력값이 있는 경우
+        {
+            spriter.flipX = movement.x < 0; //방향 뒤집기
+        }
     }
-    public Vector2 Movement{
-        get{ return movement; }
+    private void OnMove(InputValue value)   //InputSystem으로 키입력을 받는 함수
+    {
+        movement = value.Get<Vector2>();
+    }
+    public Vector2 Movement {
+        get { return movement; }
     }
 }
-
