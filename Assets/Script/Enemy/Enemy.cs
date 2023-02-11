@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public float WeaponDamage;   //무기 데미지 적용 시 삭제
     public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
-    //GameObject targetGameobject;
 
     bool isLive ;
 
@@ -57,8 +56,7 @@ public class Enemy : MonoBehaviour
         coll.enabled=true;
         rb.simulated = true;
         spriter.sortingOrder = 2;
-        anim.SetBool("Dead", false);
-
+        anim.SetBool("Dead", false);  //TODO: Fix code location
     }
 
     public void Init(SpawnData data)  //������ ���� ������ ���� �Լ�
@@ -68,6 +66,7 @@ public class Enemy : MonoBehaviour
         maxHealth = data.health;
         health = data.health;
     }
+    /* ToDo: 코드 재활용
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isLive = false;
@@ -78,6 +77,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Hit");
         Dead();
     }
+    */
     void Dead()
     {
         // object ��Ȱ��ȭ
@@ -92,6 +92,7 @@ public class Enemy : MonoBehaviour
                 health -= WeaponDamage;
             }
             else{
+                //ToDo: 충돌 오브젝트 비활성화 제어
                 gameObject.SetActive(false);
                 Destroy(other.gameObject);
 
