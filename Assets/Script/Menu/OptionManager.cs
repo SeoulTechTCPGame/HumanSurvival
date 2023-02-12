@@ -34,29 +34,22 @@ public class OptionManager : MonoBehaviour
     //�ڷΰ��� ��ư
     public void ClickBackButton()
     {
-        //TODO: �� ���¿��� back ��ư�� ������ ����ȭ������ �����Ѵ�.
-        
-        if (FirstPanel.activeSelf == true & SecondPanel.activeSelf == false & ThirdPanel.activeSelf == false)
+        if (FirstPanel.activeSelf == true)
         {
             SceneManager.LoadScene("MainScreen");
         }
-        
-        //�ι�° ���������� ù��° �������� �̵�
-        if (FirstPanel.activeSelf == false & SecondPanel.activeSelf == true & ThirdPanel.activeSelf == false)
+        else if (SecondPanel.activeSelf == true)
         {
             SecondPanel.SetActive(false);
             FirstPanel.SetActive(true);
             DataRecovery.SetActive(true);
-
         }
-        //DataRecovery���� ù��° �������� �̵�
-        if (FirstPanel.activeSelf == false & SecondPanel.activeSelf == false & ThirdPanel.activeSelf == true)
+        else
         {
             buttonText.text = "data\nrecovery";
             ThirdPanel.SetActive(false);
             FirstPanel.SetActive(true);
         }
-        //�׿ܴ� button�� onClick���� ���
     }
     
     void SetMoneyText(){
