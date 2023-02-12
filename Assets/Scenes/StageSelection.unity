@@ -1995,8 +1995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 40, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1139471748
 MonoBehaviour:
@@ -2459,7 +2459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8dcb164bbc5116a48981030eb6898b10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8682db3d8b62b9f40aefd67412aa5017, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2489,7 +2489,7 @@ GameObject:
   - component: {fileID: 1437334926}
   - component: {fileID: 1437334925}
   - component: {fileID: 1437334924}
-  - component: {fileID: 1437334923}
+  - component: {fileID: 1437334927}
   m_Layer: 5
   m_Name: Stage (1)
   m_TagString: Untagged
@@ -2520,25 +2520,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1437334923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437334921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb066702ffde3143852cd799c583486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 2
-  stageName: {fileID: 1087310170}
-  stageTime: {fileID: 1999691790}
-  stageDoubleSpeed: {fileID: 231834388}
-  stageGoldCoinBonus: {fileID: 1820721036}
-  stageLuckBonus: {fileID: 1660078187}
-  stageExperienceBonus: {fileID: 1989247311}
 --- !u!114 &1437334924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,10 +2549,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 434d2fb392505ee4bbc398c84be91b59, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 434d2fb392505ee4bbc398c84be91b59, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 434d2fb392505ee4bbc398c84be91b59, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 6089406853a50064e95395e8cdc80c4f, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: ce30b1431faa4b943b23b453bcf5f4b2, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ce30b1431faa4b943b23b453bcf5f4b2, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: ce30b1431faa4b943b23b453bcf5f4b2, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 4d40c001a25a34b4e860682bf7d3310d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2603,7 +2584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6089406853a50064e95395e8cdc80c4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d40c001a25a34b4e860682bf7d3310d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2621,6 +2602,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437334921}
   m_CullTransparentMesh: 1
+--- !u!114 &1437334927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437334921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730d0c52f8e150c458a449891f15ef3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mStage: 2
+  mStageName: {fileID: 1017706706}
+  mStageName1: {fileID: 1087310170}
+  mStageExplain: {fileID: 1779011794}
+  mStagePlayTime: {fileID: 1999691790}
+  mStageDoubleSpeed: {fileID: 231834388}
+  mStageGoldCoinBonus: {fileID: 1820721036}
+  mStageLuckBonus: {fileID: 1660078187}
+  mStageExperienceBonus: {fileID: 1989247311}
 --- !u!1 &1465476255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,8 +2658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 40, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1465476257
 MonoBehaviour:
@@ -3156,10 +3158,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 434d2fb392505ee4bbc398c84be91b59, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 434d2fb392505ee4bbc398c84be91b59, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 434d2fb392505ee4bbc398c84be91b59, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 6089406853a50064e95395e8cdc80c4f, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: ce30b1431faa4b943b23b453bcf5f4b2, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ce30b1431faa4b943b23b453bcf5f4b2, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: ce30b1431faa4b943b23b453bcf5f4b2, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 4d40c001a25a34b4e860682bf7d3310d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3191,7 +3193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6089406853a50064e95395e8cdc80c4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d40c001a25a34b4e860682bf7d3310d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3218,16 +3220,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1722028499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb066702ffde3143852cd799c583486, type: 3}
+  m_Script: {fileID: 11500000, guid: 730d0c52f8e150c458a449891f15ef3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stageName: {fileID: 1087310170}
-  stageTime: {fileID: 1999691790}
-  stageDoubleSpeed: {fileID: 231834388}
-  stageGoldCoinBonus: {fileID: 1820721036}
-  stageLuckBonus: {fileID: 1660078187}
-  stageExperienceBonus: {fileID: 1989247311}
+  mStage: 1
+  mStageName: {fileID: 69090530}
+  mStageName1: {fileID: 1087310170}
+  mStageExplain: {fileID: 1666214191}
+  mStagePlayTime: {fileID: 1999691790}
+  mStageDoubleSpeed: {fileID: 231834388}
+  mStageGoldCoinBonus: {fileID: 1820721036}
+  mStageLuckBonus: {fileID: 1660078187}
+  mStageExperienceBonus: {fileID: 1989247311}
 --- !u!1 &1779011792
 GameObject:
   m_ObjectHideFlags: 0

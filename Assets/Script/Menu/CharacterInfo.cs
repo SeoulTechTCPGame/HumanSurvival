@@ -84,7 +84,6 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 3:
-
                 this.mName = "캐릭터 이름3";
                 this.mExplain = "캐릭터 설명3";
                 this.mMaxStamina = 103;
@@ -197,6 +196,4 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         mCharacterGrowth.text = "Growth" + this.mGrowth.ToString() + "%";
         mInfoImage.GetComponent<Image>().sprite = mButtonIamge.GetComponent<Image>().sprite;  //이미지 대입
     }
-
 }
-
