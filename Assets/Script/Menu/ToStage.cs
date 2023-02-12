@@ -7,6 +7,6 @@ public class ToStage : MonoBehaviour
 {
     public void SceneChange()
     {
-        SceneManager.LoadScene("MapSelection");
+        SceneManager.LoadScene("StageSelection");
     }
 }

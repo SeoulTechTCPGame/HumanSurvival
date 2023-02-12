@@ -32,9 +32,6 @@ public class Weapon : MonoBehaviour
         levelOneWeaponPreprocessing();
         weaponUpgradePreprocessing();
     }
-    public Weapon()
-    {
-    }
     public void WeaponSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
@@ -42,10 +39,6 @@ public class Weapon : MonoBehaviour
 
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
-    }
-    void Start()
-    {
-        
     }
 
     private void Update()
