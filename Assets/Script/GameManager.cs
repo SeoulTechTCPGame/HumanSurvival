@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float maxGameTime = 2 * 10f; //20√ 
 
     [Header("# Player Info")]
+    public Character character;
     public int level;
     public int kill;
     public int exp;

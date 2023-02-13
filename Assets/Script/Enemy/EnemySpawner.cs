@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
 public class SpawnData
 {   
     public float spawnTime;
-
+    public int exp;
     public int spriteType;
     public int health;
     public float speed;

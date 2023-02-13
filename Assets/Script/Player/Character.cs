@@ -14,14 +14,16 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class Character : MonoBehaviour
 {
-    //ĳ������ ��������
-    //���ø� ���� ���� �������� ����
-    private int damage = 10;              //���ط�
-    private int projectileSpeed = 1;     //����ü �ӵ�
-    private int duration = 3;            //���� �ð�
-    private int attackRange = 1;         //���ݹ���
-    private int cooldown = 3;            //��Ÿ��
-    private int numberOfProjectiles = 1;     //����ü ��
+    //캐릭터의 스탯지정
+    //예시를 위해 값은 무작위로 넣음
+    public GameObject LevepUpUI;
+
+    private int damage = 10;              //피해량
+    private int projectileSpeed = 1;     //투사체 속도
+    private int duration = 3;            //지속 시간
+    private int attackRange = 1;         //공격범위
+    private int cooldown = 3;            //쿨타임
+    private int numberOfProjectiles = 1;     //투사체 수
 
     private int mLevel;
     private int mExp;
@@ -41,8 +43,8 @@ public class Character : MonoBehaviour
     public List<Tuple<int, int>> Accessorys;  // tuple< Accessory_index, now_Accessory_level >
     public static List<List<Tuple<int, float>>>[] AccessoryUpgrade;
 
-    private int[] mTransWeaponIndex; // �ش� index�� weapon�� ���� �������� Weapons�� �� ��° index�� �ִ��� ��ȯ�ϴ� �迭
-    private bool[] mHasAccessoryIndex; // �ش� Accessory�� ���������� ǥ�� (0, 1)
+    private int[] mTransWeaponIndex; //
+    private bool[] mHasAccessoryIndex; //
     static Character()
     {
         AccessoryUpgrade = new List<List<Tuple<int, float>>>[21];
@@ -54,7 +56,7 @@ public class Character : MonoBehaviour
         mMaxExp = 100;
         mdExp = 10;
 
-        CharacterStats = new float[20]; // TODO user�� ���� ȭ�鿡�� ��ȭ�س��� ���ȵ��� �⺻������ �޾ƿ���
+        CharacterStats = new float[20]; // 
         AccessoryUpgradePreprocessing();
 
         mWeaponRarity = new int[13];
@@ -64,7 +66,7 @@ public class Character : MonoBehaviour
         mHasAccessoryIndex = Enumerable.Repeat<bool>(false, 21).ToArray<bool>();
     }
 
-    //Get,Set�Լ� �ڵ� ����
+    //Get,Set
     public int Damage
     {
         get { return damage; }
@@ -99,7 +101,7 @@ public class Character : MonoBehaviour
 
     public void GetExp(int exp)
     {
-        // TODO: stat�� growth �����Ͽ� ����ġ ȹ��
+        // TODO: 
 
         mExp += exp;
         while (mExp >= mMaxExp)
@@ -112,12 +114,12 @@ public class Character : MonoBehaviour
     public void LevelUp()
     {
         mLevel++;
-        // ���� �Ͻ�����
-
-        // TODO: ��ų ���� ���
         // 
 
-        // ���� �� ���� �簳
+        // TODO
+        // 
+
+        // 
     }
     public void UpdateLuck(int luck)
     {
@@ -154,8 +156,7 @@ public class Character : MonoBehaviour
 
         }
 
-        // TODO: ���� ��ų���� ������ �� �ְ� ǥ��
-        // TODO: ���õ� ��ų�� ������ �����ֱ�
+        // TODO:
 
 
     }

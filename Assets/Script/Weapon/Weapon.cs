@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public int WeaponLevel;
     public int WeaponMaxLevel;
 
-    private int damage = 10;                //피해량
+    public int damage = 10;                //피해량
     private int projectileSpeed = 1;        //투사체 속도
     private int duration = 3;               //지속 시간
     private int attackRange = 1;            //공격범위
