@@ -7,10 +7,10 @@ TagManager:
   - Monster
   - ExpObj
   - HealObj
-  - DestructibleObj
-  - Ground
-  - Area
   - Weapon
+  - Ground
+  - DestructibleObj
+  - Area
   layers:
   - Default
   - TransparentFX
