@@ -6,18 +6,15 @@ using TMPro;
 
 public class UserAchi : MonoBehaviour
 {
-    public TMP_Text moneyText;
-    public TMP_Text collectText;
+    [SerializeField] TMP_Text mMoneyText;
+    [SerializeField] TMP_Text mAchiText;
 
     int achiCount = 0;
-    // Start is called before the first frame update
     void Start()
     {
         SetMoneyText();
         SetCollectionText();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -26,15 +23,15 @@ public class UserAchi : MonoBehaviour
     }
 
     void SetMoneyText(){
-        moneyText.text = UserInfo.money.ToString();
+        mMoneyText.text = UserInfo.Money.ToString();
     }
 
     void SetCollectionText(){
-        for(int i = 0; i < UserInfo.achiCount; i++){
-            if(UserInfo.userAchi[i]){
+        for(int i = 0; i < Constants.achiCount; i++){
+            if(UserInfo.IsUserAchi[i]){
                 achiCount++;
             }
         }
-        collectText.text = "잠금 해제됨 : " + achiCount.ToString() + " / " + UserInfo.achiCount;
+        mAchiText.text = "잠금 해제됨 : " + achiCount.ToString() + " / " + Constants.achiCount;
     }
 }

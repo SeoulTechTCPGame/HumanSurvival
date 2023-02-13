@@ -7,11 +7,5 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Barbarian
-  m_Controller: {fileID: 9100000, guid: ae1bdb29717bb194dba140e414d8f34c, type: 2}
-  m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 06c9a3cf3101f4b499f1c93d8025f536, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 73f928e6b4d49e24ebc758aad1a80f42, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: b0bd3166ab874154ea6d3f249571a48b, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ae4f05ed5b039d94bacd7e95e15e89f5, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: a2ad0df9d9dc93c4c8c0918bc43459fb, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 21b28378b58ce5b40b0001283498f250, type: 2}
+  m_Controller: {fileID: 9100000, guid: c1e848102ae992c4f9d3e39c675d4074, type: 2}
+  m_Clips: []

@@ -42,7 +42,8 @@ namespace Enums
         Amount,
         AmountLimit,
         Piercing,
-        Area
+        Area,
+        MaxLevel
     }
 
     public enum AccessoryStat
@@ -87,7 +88,7 @@ namespace Enums
         LightningRing // 13개
     }
 
-    public enum Passive
+    public enum Accessory
     {
         Spinach,
         Armor,
@@ -110,5 +111,22 @@ namespace Enums
         MetaglioLeft,
         MetaglioRight,
         TorronaBox  // 21개
+    }
+    public enum PickUpType
+    {
+        Weapon,
+        Accessory,
+        Etc
+    }
+    public enum Etc
+    {
+        Money,
+        Food
+    }
+    public enum Button
+    {
+        Name,
+        Script,
+        Property
     }
 }

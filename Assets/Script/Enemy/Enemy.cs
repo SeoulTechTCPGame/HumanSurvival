@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     public int exp;
     public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
-    //GameObject targetGameobject;
 
     bool isLive ;
 
@@ -31,39 +30,38 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //¸ó½ºÅÍ°¡ »ì¾Æ ÀÖÀ» ¶§¸¸ ¿òÁ÷ÀÌµµ·Ï 
+        //ëª¬ìŠ¤í„°ê°€ ì‚´ì•„ ìˆì„ ë•Œë§Œ ì›€ì§ì´ë„ë¡ 
         if (!isLive||anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
 
         Vector2 direction = (target.position - rb.position).normalized;
         Vector2 nextVec = direction * speed * Time.fixedDeltaTime; ;
 
-        //ÇÃ·¹ÀÌ¾îÀÇ Å°ÀÔ·Â °ªÀ» ´õÇÑ ÀÌµ¿=¸ó½ºÅÍÀÇ ¹æÇâ °ªÀ» ´õÇÑ ÀÌµ¿
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ Å°ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         rb.MovePosition(rb.position + nextVec);
 
-        //¹°¸® ¼Óµµ°¡ ÀÌµ¿¿¡ ¿µÇâÀ» ÁÖÁö ¾Êµµ·Ï ¼Óµµ Á¦°Å
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
         rb.velocity = Vector2.zero;
     }
     private void LateUpdate()
     {
-        //Å¸°ÙÀÇ xÃà°ú ºñ±³ÇÏ¿© sprite flip 
+        //Å¸ï¿½ï¿½ï¿½ï¿½ xï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ sprite flip 
         spriter.flipX = target.position.x < rb.position.x;
     }
     private void OnEnable()
     {
-        //prefebÀº sceneÀÇ object¿¡ Á¢±ÙÇÒ ¼ö ¾ø´Ù=> »ı¼ºµÉ ¶§¸¶´Ù º¯¼ö¸¦ ÃÊ±âÈ­ÇÏ±â
+        //prefebï¿½ï¿½ sceneï¿½ï¿½ objectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½=> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ï±ï¿½
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
 
-        //È°¼ºÈ­ µÉ¶§ º¯¼ö ÃÊ±âÈ­
+        //È°ï¿½ï¿½È­ ï¿½É¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         isLive = true;
         health = maxHealth;
         coll.enabled=true;
         rb.simulated = true;
         spriter.sortingOrder = 2;
-        anim.SetBool("Dead", false);
-
+        anim.SetBool("Dead", false);  //TODO: Fix code location
     }
 
-    public void Init(SpawnData data)  //°¢°¢ÀÇ ¸ó½ºÅÍ µ¥ÀÌÅÍ ¼³Á¤ ÇÔ¼ö
+    public void Init(SpawnData data)  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     {
         anim.runtimeAnimatorController = animcon[data.spriteType];
         speed = data.speed;
@@ -72,7 +70,7 @@ public class Enemy : MonoBehaviour
     }
     void Dead()
     {
-        // object ºñÈ°¼ºÈ­
+        // object ë¹„í™œì„±í™”
         gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)

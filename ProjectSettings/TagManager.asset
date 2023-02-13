@@ -7,6 +7,9 @@ TagManager:
   - Monster
   - ExpObj
   - HealObj
+  - DestructibleObj
+  - Ground
+  - Area
   - Weapon
   layers:
   - Default
@@ -15,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Monster
+  - Weapon
   - 
   - 
   - 
