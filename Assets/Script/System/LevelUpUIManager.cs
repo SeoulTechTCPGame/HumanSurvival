@@ -104,7 +104,7 @@ public class LevelUpUIManager : MonoBehaviour
             });
     }
 
-    public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Tuple<int, int, int>> accessories)
+    public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Accessory> accessories)
     {
         mPickUps = pickUps;
 
@@ -191,7 +191,7 @@ public class LevelUpUIManager : MonoBehaviour
             ((int)characterStats[(int)Enums.Stat.Skip] == 0 ? "-" : ((int)characterStats[(int)Enums.Stat.Skip]).ToString()) + "\n" +
             ((int)characterStats[(int)Enums.Stat.Banish] == 0 ? "-" : ((int)characterStats[(int)Enums.Stat.Banish]).ToString());
     }
-    public void SetItemUI(List<Weapon> weapons, List<Tuple<int, int, int>> accessories)
+    public void SetItemUI(List<Weapon> weapons, List<Accessory> accessories)
     {
         SetWeaponUI(weapons);
         SetAccessoryUI(accessories);
@@ -216,20 +216,20 @@ public class LevelUpUIManager : MonoBehaviour
             }
         }
     }
-    private void SetAccessoryUI(List<Tuple<int, int, int>> accessories)
+    private void SetAccessoryUI(List<Accessory> accessories)
     {
         for (int i = 0; i < accessories.Count; i++)
         {
-            OwnAccessoryImages[i].sprite = AccessoryImages[accessories[i].Item1];
+            OwnAccessoryImages[i].sprite = AccessoryImages[accessories[i].AccessoryIndex];
             OwnAccessoryImages[i].enabled = true;
 
             int j = 0;
-            for (; j < accessories[i].Item2; j++)
+            for (; j < accessories[i].AccessoryLevel; j++)
             {
                 AccessoryLevelsUI[i].MiniLevel[j].sprite = MiniLevelImages[1];
                 AccessoryLevelsUI[i].MiniLevel[j].enabled = true;
             }
-            for (; j < accessories[i].Item3; j++)
+            for (; j < accessories[i].AccessoryMaxLevel; j++)
             {
                 AccessoryLevelsUI[i].MiniLevel[j].sprite = MiniLevelImages[0];
                 AccessoryLevelsUI[i].MiniLevel[j].enabled = true;
