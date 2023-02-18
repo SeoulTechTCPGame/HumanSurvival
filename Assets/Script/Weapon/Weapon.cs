@@ -49,24 +49,17 @@ public class Weapon : MonoBehaviour
     {
         totalspeed = speed;
     }
-    public bool Upgrade()
+    public void Upgrade()
     {
         WeaponLevel++;
         foreach ((var statIndex, var data) in WeaponUpgrade[WeaponIndex][WeaponLevel])
         {
             WeaponStats[statIndex] += data;
         }
-        if (WeaponLevel == WeaponMaxLevel)
-        {
-            Mastered = true;
-            return true;
-        }
-
-        return false;
     }
-    public bool IsMaster() // 삭제 예정
+    public bool IsMaster()
     {
-        return Mastered;
+        return WeaponLevel == WeaponMaxLevel;
     }
     //Get,Set함수 자동 구현
     public int Damage
