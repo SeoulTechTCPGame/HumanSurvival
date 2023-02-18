@@ -29,8 +29,9 @@ public class Accessory
     {
         return AccessoryLevel == AccessoryMaxLevel;
     }
-    public void Upgrade(Character character)
+    public void Upgrade()
     {
+        Character character = GameObject.Find("Player").GetComponent<Character>();
         AccessoryLevel++;
         foreach ((var statIndex, var data) in AccessoryUpgrade[AccessoryIndex][AccessoryLevel])
         {

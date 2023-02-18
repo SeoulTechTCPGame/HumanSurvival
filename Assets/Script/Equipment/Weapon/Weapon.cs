@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour
 
     public static void levelOneWeaponPreprocessing()
     {
-        defaultWeaponStats = new float[13,9]
+        defaultWeaponStats = new float[13,9] // Enums.WeaponStat의 순서대로
         { 
             { 10, 1.35f, Constants.X, Constants.X, 1, 30, Constants.INF, 1, 8 },
             { 10, 1.20f, 1, Constants.X, 1, 60, 1, 1, 8 },
