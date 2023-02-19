@@ -41,9 +41,13 @@ public class LevelUpUIManager : MonoBehaviour
     [SerializeField] static List<string[]> TypeScripts;
 
     private List<Tuple<int, int, int>> mPickUps;
+    private bool IsOnLevelUp;
+    private int mRotSpeed = 60;
+    private float mTime = 0;
     // Start is called before the first frame update
     void Start()
     {
+        IsOnLevelUp = false;
         UnSetPickUpUI();
         PickUpUI.SetActive(false);
         UnSetItemUI();
@@ -52,6 +56,21 @@ public class LevelUpUIManager : MonoBehaviour
 
         // TODO: 아이템 설명들 추가하기
         ItemScriptProcessing();
+    }
+    private void Update()
+    {
+        if (IsOnLevelUp && mTime < 0.99f)
+        {
+            PickUpUI.transform.Rotate(0, 0, mRotSpeed * Time.unscaledDeltaTime);
+
+            PickUpUI.transform.localScale = Vector3.one * (mTime);
+            StatUI.transform.localScale = Vector3.one * (mTime);
+            ItemUI.transform.localScale = Vector3.one * (mTime);
+
+            mTime += 0.02f;
+            if(mTime >= 0.99f)
+                PickUpUI.transform.rotation = Quaternion.identity;
+        }
     }
 
     private static void ItemScriptProcessing()
@@ -106,6 +125,8 @@ public class LevelUpUIManager : MonoBehaviour
 
     public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Accessory> accessories)
     {
+        mTime = 0;
+        IsOnLevelUp = true;
         mPickUps = pickUps;
 
         PickUpUI.SetActive(true);
@@ -117,6 +138,7 @@ public class LevelUpUIManager : MonoBehaviour
     }
     public void UnloadLevelUpUI()
     {
+        IsOnLevelUp = false;
         UnSetPickUpUI();
         PickUpUI.SetActive(false);
         StatUI.SetActive(false);
