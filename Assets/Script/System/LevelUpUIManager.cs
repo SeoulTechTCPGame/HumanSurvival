@@ -266,10 +266,13 @@ public class LevelUpUIManager : MonoBehaviour
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         int selectedIndex = clickedButton.GetComponent<PickButton>().index;
         Player.GetComponent<Character>().ApplyItem(mPickUps[selectedIndex]);
+
         if (mPickUps[selectedIndex].Item1 == (int)Enums.PickUpType.Weapon)
             Player.GetComponent<Character>().RandomPickUpSystem.UpdateWeaponPickUpList(Player.GetComponent<Character>());
         else if (mPickUps[selectedIndex].Item1 == (int)Enums.PickUpType.Accessory)
             Player.GetComponent<Character>().RandomPickUpSystem.UpdateAccessoryPickUpList(Player.GetComponent<Character>());
+
         UnloadLevelUpUI();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ResumeGame();
     }
 }
