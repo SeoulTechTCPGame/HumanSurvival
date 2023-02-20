@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 807355772286374461}
   - component: {fileID: 807355772286374462}
   - component: {fileID: -1377271983600501788}
+  - component: {fileID: 8531361723829270703}
   m_Layer: 7
   m_Name: EnemyBat
   m_TagString: Monster
@@ -146,9 +147,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1575af2165c04644887e15d2d007331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
   speed: 1
   health: 0
   maxHealth: 0
   enemyDamage: 0
+  exp: 0
   animcon: []
   target: {fileID: 0}
+--- !u!95 &8531361723829270703
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807355772286374456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: b2c752fc4ff55e4469f69dd51599b80a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

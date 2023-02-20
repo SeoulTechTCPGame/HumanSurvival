@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Vector2 spawnArea;
     [SerializeField] GameObject player;
-    public SpawnData[] spawnData;
+    public EnemyScriptableObject[] spawnData;
     int level;
     float timer;
 
@@ -33,8 +33,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject newEnemy= GameManager.instance.pool.Get(0);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
-        
-  
+
         newEnemy.GetComponent<Enemy>().Init(spawnData[level]);
     }
 
@@ -57,13 +56,4 @@ public class EnemySpawner : MonoBehaviour
         position.z = 0;
         return position;
     }
-}
-[System.Serializable]
-public class SpawnData
-{   
-    public float spawnTime;
-    public int exp;
-    public int spriteType;
-    public int health;
-    public float speed;
 }

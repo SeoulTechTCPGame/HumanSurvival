@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public EnemyScriptableObject enemyData;
     public float speed;
     public float health;
     public float maxHealth;
@@ -34,7 +35,7 @@ public class Enemy : MonoBehaviour
         if (!isLive||anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
 
         Vector2 direction = (target.position - rb.position).normalized;
-        Vector2 nextVec = direction * speed * Time.fixedDeltaTime; ;
+        Vector2 nextVec = direction * enemyData.speed *0.01f* Time.fixedDeltaTime;
 
         //�÷��̾��� Ű�Է� ���� ���� �̵�=������ ���� ���� ���� �̵�
         rb.MovePosition(rb.position + nextVec);
@@ -54,33 +55,34 @@ public class Enemy : MonoBehaviour
 
         //Ȱ��ȭ �ɶ� ���� �ʱ�ȭ
         isLive = true;
-        health = maxHealth;
+        health = enemyData.maxHP;
         coll.enabled=true;
         rb.simulated = true;
         spriter.sortingOrder = 2;
         anim.SetBool("Dead", false);  //TODO: Fix code location
     }
 
-    public void Init(SpawnData data)  //������ ���� ������ ���� �Լ�
+    public void Init(EnemyScriptableObject data)  //������ ���� ������ ���� �Լ�
     {
-        anim.runtimeAnimatorController = animcon[data.spriteType];
-        speed = data.speed;
-        maxHealth = data.health;
-        health = data.health;
+        enemyData = data;
+        anim.runtimeAnimatorController = animcon[enemyData.spriteType];
+        
+
     }
     void Dead()
     {
         // object 비활성화
+        Debug.Log("비활성화");
         gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if (!collision.CompareTag("Weapon")) return;
-        health -= 10;
         //health -= collision.GetComponent<Weapon>().damage;
-        StartCoroutine(KnockBack());
+        
         if (health > 0)
         {
+            StartCoroutine(KnockBack());
             anim.SetTrigger("Hit");
             Debug.Log("Hit");
         }
@@ -92,7 +94,8 @@ public class Enemy : MonoBehaviour
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
-            GameManager.instance.exp+=exp;
+            GameManager.instance.exp+=enemyData.xp;
+            
             Dead();
         }
     }

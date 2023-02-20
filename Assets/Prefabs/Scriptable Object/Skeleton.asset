@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  spriteType: 2
+  spawnTime: 0.5
+  speed: 100
+  power: 10
+  knockback: 1
+  maxKnockback: 3
+  deathKB: 5
+  xp: 2
+  end: 18
+  level: 1
+  maxHP: 1.5

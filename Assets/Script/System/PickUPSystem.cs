@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUPSystem : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Character c = collision.GetComponent<Character>();
