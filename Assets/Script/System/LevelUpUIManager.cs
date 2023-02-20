@@ -37,6 +37,7 @@ public class LevelUpUIManager : MonoBehaviour
     [SerializeField] Sprite[] EtcImages;
     [SerializeField] Sprite[] MiniLevelImages;
 
+    [SerializeField] GameObject Filter;
 
     [SerializeField] static List<string[]> TypeScripts;
 
@@ -53,6 +54,7 @@ public class LevelUpUIManager : MonoBehaviour
         UnSetItemUI();
         StatUI.SetActive(false);
         ItemUI.SetActive(false);
+        Filter.SetActive(false);
 
         // TODO: 아이템 설명들 추가하기
         ItemScriptProcessing();
@@ -135,6 +137,7 @@ public class LevelUpUIManager : MonoBehaviour
         SetStatUI(characterStats);
         ItemUI.SetActive(true);
         SetItemUI(weapons, accessories);
+        Filter.SetActive(true);
     }
     public void UnloadLevelUpUI()
     {
@@ -144,6 +147,7 @@ public class LevelUpUIManager : MonoBehaviour
         StatUI.SetActive(false);
         UnSetItemUI();
         ItemUI.SetActive(false);
+        Filter.SetActive(false);
     }
     public void SetPickUpUI(List<Tuple<int, int, int>> pickUps)
     {
