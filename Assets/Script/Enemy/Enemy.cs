@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
+        // 주석 깨짐 확인
         //���Ͱ� ��� ���� ���� �����̵��� 
         if (!isLive) return;
 
