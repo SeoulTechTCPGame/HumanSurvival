@@ -13,4 +13,5 @@ static class Constants
     public const int MaxAccessoryNumber = 21;
     public const int itemCount = 131;
     public const int achiCount = 159;
+    public const int DeltaExp = 10;
 }

@@ -37,21 +37,42 @@ public class LevelUpUIManager : MonoBehaviour
     [SerializeField] Sprite[] EtcImages;
     [SerializeField] Sprite[] MiniLevelImages;
 
+    [SerializeField] GameObject Filter;
 
     [SerializeField] static List<string[]> TypeScripts;
 
     private List<Tuple<int, int, int>> mPickUps;
+    private bool IsOnLevelUp;
+    private int mRotSpeed = 60;
+    private float mTime = 0;
     // Start is called before the first frame update
     void Start()
     {
+        IsOnLevelUp = false;
         UnSetPickUpUI();
         PickUpUI.SetActive(false);
         UnSetItemUI();
         StatUI.SetActive(false);
         ItemUI.SetActive(false);
+        Filter.SetActive(false);
 
         // TODO: 아이템 설명들 추가하기
         ItemScriptProcessing();
+    }
+    private void Update()
+    {
+        if (IsOnLevelUp && mTime < 0.99f)
+        {
+            PickUpUI.transform.Rotate(0, 0, mRotSpeed * Time.unscaledDeltaTime);
+
+            PickUpUI.transform.localScale = Vector3.one * (mTime);
+            StatUI.transform.localScale = Vector3.one * (mTime);
+            ItemUI.transform.localScale = Vector3.one * (mTime);
+
+            mTime += 0.02f;
+            if(mTime >= 0.99f)
+                PickUpUI.transform.rotation = Quaternion.identity;
+        }
     }
 
     private static void ItemScriptProcessing()
@@ -104,8 +125,11 @@ public class LevelUpUIManager : MonoBehaviour
             });
     }
 
-    public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Tuple<int, int, int>> accessories)
+    public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Accessory> accessories)
     {
+        mTime = 0;
+        IsOnLevelUp = true;
+        Player.GetComponent<PlayerMovement>().enabled = false;
         mPickUps = pickUps;
 
         PickUpUI.SetActive(true);
@@ -114,14 +138,18 @@ public class LevelUpUIManager : MonoBehaviour
         SetStatUI(characterStats);
         ItemUI.SetActive(true);
         SetItemUI(weapons, accessories);
+        Filter.SetActive(true);
     }
     public void UnloadLevelUpUI()
     {
+        IsOnLevelUp = false;
         UnSetPickUpUI();
         PickUpUI.SetActive(false);
         StatUI.SetActive(false);
         UnSetItemUI();
         ItemUI.SetActive(false);
+        Filter.SetActive(false);
+        Player.GetComponent<PlayerMovement>().enabled = true;
     }
     public void SetPickUpUI(List<Tuple<int, int, int>> pickUps)
     {
@@ -191,7 +219,7 @@ public class LevelUpUIManager : MonoBehaviour
             ((int)characterStats[(int)Enums.Stat.Skip] == 0 ? "-" : ((int)characterStats[(int)Enums.Stat.Skip]).ToString()) + "\n" +
             ((int)characterStats[(int)Enums.Stat.Banish] == 0 ? "-" : ((int)characterStats[(int)Enums.Stat.Banish]).ToString());
     }
-    public void SetItemUI(List<Weapon> weapons, List<Tuple<int, int, int>> accessories)
+    public void SetItemUI(List<Weapon> weapons, List<Accessory> accessories)
     {
         SetWeaponUI(weapons);
         SetAccessoryUI(accessories);
@@ -216,20 +244,20 @@ public class LevelUpUIManager : MonoBehaviour
             }
         }
     }
-    private void SetAccessoryUI(List<Tuple<int, int, int>> accessories)
+    private void SetAccessoryUI(List<Accessory> accessories)
     {
         for (int i = 0; i < accessories.Count; i++)
         {
-            OwnAccessoryImages[i].sprite = AccessoryImages[accessories[i].Item1];
+            OwnAccessoryImages[i].sprite = AccessoryImages[accessories[i].AccessoryIndex];
             OwnAccessoryImages[i].enabled = true;
 
             int j = 0;
-            for (; j < accessories[i].Item2; j++)
+            for (; j < accessories[i].AccessoryLevel; j++)
             {
                 AccessoryLevelsUI[i].MiniLevel[j].sprite = MiniLevelImages[1];
                 AccessoryLevelsUI[i].MiniLevel[j].enabled = true;
             }
-            for (; j < accessories[i].Item3; j++)
+            for (; j < accessories[i].AccessoryMaxLevel; j++)
             {
                 AccessoryLevelsUI[i].MiniLevel[j].sprite = MiniLevelImages[0];
                 AccessoryLevelsUI[i].MiniLevel[j].enabled = true;
@@ -266,6 +294,13 @@ public class LevelUpUIManager : MonoBehaviour
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         int selectedIndex = clickedButton.GetComponent<PickButton>().index;
         Player.GetComponent<Character>().ApplyItem(mPickUps[selectedIndex]);
+
+        if (mPickUps[selectedIndex].Item1 == (int)Enums.PickUpType.Weapon)
+            Player.GetComponent<Character>().RandomPickUpSystem.UpdateWeaponPickUpList(Player.GetComponent<Character>());
+        else if (mPickUps[selectedIndex].Item1 == (int)Enums.PickUpType.Accessory)
+            Player.GetComponent<Character>().RandomPickUpSystem.UpdateAccessoryPickUpList(Player.GetComponent<Character>());
+
         UnloadLevelUpUI();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ResumeGame();
     }
 }
