@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
-    private int damage = 10;                //피해량
+    private int damage = 1;                //피해량
     private int projectileSpeed = 1;        //투사체 속도
     private int duration = 3;               //지속 시간
     private int attackRange = 1;            //공격범위
@@ -86,5 +86,16 @@ public class Weapon : MonoBehaviour
         set { numberOfProjectiles = value; }
     }
 
-    
+    protected virtual void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("DestructibleObj"))
+        {
+            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
+            {
+                Debug.Log("사물 hit");
+                destructible.TakeDamage(damage);
+
+            }
+        }
+    }
 }

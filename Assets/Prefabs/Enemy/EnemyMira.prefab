@@ -242,9 +242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1575af2165c04644887e15d2d007331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
   speed: 1
   health: 0
   maxHealth: 0
-  WeaponDamage: 0
+  enemyDamage: 0
+  exp: 0
   animcon: []
   target: {fileID: 0}

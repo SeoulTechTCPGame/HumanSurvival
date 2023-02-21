@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1886036213109440172}
   - component: {fileID: 1886036213109440173}
   - component: {fileID: 1886036213109440168}
+  - component: {fileID: 7129043048481569120}
   m_Layer: 7
   m_Name: EnemyZombie
   m_TagString: Monster
@@ -164,7 +165,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: -493647738, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -242,12 +243,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1575af2165c04644887e15d2d007331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
   speed: 0
   health: 0
   maxHealth: 0
-  WeaponDamage: 0
+  enemyDamage: 0
+  exp: 0
   animcon:
   - {fileID: 22100000, guid: a3bedb3a9ecc9be4cb39be632a24b26f, type: 2}
   - {fileID: 22100000, guid: 820c77d809ccd844894117bba6b83c57, type: 2}
-  - {fileID: 9100000, guid: 29daf0ca7c54182439b038ee13756084, type: 2}
+  - {fileID: 22100000, guid: b2c752fc4ff55e4469f69dd51599b80a, type: 2}
   target: {fileID: 0}
+--- !u!114 &7129043048481569120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886036213109440174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: ExpObj
+    itemPrefabs: {fileID: 3915139561794565461, guid: c4e03ee29601fef4191b6e1a8caa01ec, type: 3}
+    dropRate: 90
