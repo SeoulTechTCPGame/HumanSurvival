@@ -677,4 +677,18 @@ public class Weapon : MonoBehaviour
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
     }
+
+    protected virtual void onTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("DestructibleObj"))
+        {
+           if(col.gameObject.TryGetComponent(out DestructibleObject destructible))
+            {
+                Debug.Log("»ç¹° hit");
+                destructible.TakeDamage(damage);
+
+            }
+        }
+    }
+
 }

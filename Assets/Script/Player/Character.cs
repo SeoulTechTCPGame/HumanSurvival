@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     //¿¹½Ã¸¦ À§ÇØ °ªÀº ¹«ÀÛÀ§·Î ³ÖÀ½
     public GameObject LevepUpUI;
 
+    private float currentHealth = 100;
     private int mDamage = 10;              //ÇÇÇØ·®
     private int mProjectileSpeed = 1;     //Åõ»çÃ¼ ¼Óµµ
     private int mDuration = 3;            //Áö¼Ó ½Ã°£
@@ -85,6 +86,16 @@ public class Character : MonoBehaviour
         GetAccessory(1);
 
     }
+    public void RestoreHealth(float amount)
+    {
+        if(currentHealth< (int)Enums.Stat.MaxHealth)
+        { 
+            currentHealth += amount;
+            if (currentHealth > (int)Enums.Stat.MaxHealth) currentHealth = (int)Enums.Stat.MaxHealth;
+
+        }
+       
+    }
     //ë²„íŠ¼ ì§€?°ë©´ ?? œ ?ˆì •
     public void TempLoad()
     {
@@ -102,6 +113,7 @@ public class Character : MonoBehaviour
             mMaxExp += mdExp;
             LevelUp();
         }
+        Debug.Log(mExp);
     }
     public void LevelUp()
     {

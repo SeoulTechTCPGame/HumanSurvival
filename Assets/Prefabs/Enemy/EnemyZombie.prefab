@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1886036213109440172}
   - component: {fileID: 1886036213109440173}
   - component: {fileID: 1886036213109440168}
+  - component: {fileID: 7129043048481569120}
   m_Layer: 7
   m_Name: EnemyZombie
   m_TagString: Monster
@@ -253,3 +254,19 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 820c77d809ccd844894117bba6b83c57, type: 2}
   - {fileID: 22100000, guid: b2c752fc4ff55e4469f69dd51599b80a, type: 2}
   target: {fileID: 0}
+--- !u!114 &7129043048481569120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886036213109440174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: ExpObj
+    itemPrefabs: {fileID: 3915139561794565461, guid: c4e03ee29601fef4191b6e1a8caa01ec, type: 3}
+    dropRate: 90

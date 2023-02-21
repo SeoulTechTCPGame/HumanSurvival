@@ -4,51 +4,33 @@ using UnityEngine;
 
 public class DropSystem : MonoBehaviour
 {
-    /*
-    public static DropSystem Instance;
-    [SerializeField]
-    private GameObject itemPrefab;
-    //private Queue<PickUpItem> dropItemPool = new Queue<PickUpItem>();
-    private List<PickUpItem> itemPool = new List<PickUpItem>();
-    int rand;
-
-    private void Awake()
+    [System.Serializable]
+    public class Drops
     {
-        Instance = this;
-        Init(5);
+        public string name;
+        public GameObject itemPrefabs;
+        public float dropRate;
     }
-
-    private PickUpItem Create()
+    public List<Drops> drops;
+     void OnDestroy()
     {
-        var obj = Instantiate(itemPrefab).GetComponent<PickUpItem>();
-        obj.gameObject.SetActive(false);
-        obj.transform.SetParent(transform);
-        return obj;
-    }
+        //로직 1. 적이 죽으면 랜덤 넘버 생성(아이템 확률)
+        float randomNumber = UnityEngine.Random.Range(0f, 100f);
 
-    private void Init(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            itemPool.Add(Create());
+        //로직 3.
+        List<Drops> posibleDrops = new List<Drops>();
+        foreach(Drops rate in drops)
+        {   
+            //로직 2
+            if (randomNumber <= rate.dropRate) posibleDrops.Add(rate);
+        }       
+        //drop possible 인지 확인
+        if (posibleDrops.Count > 0)
+        {   
+            //로직 4.
+            Drops drops = posibleDrops[UnityEngine.Random.Range(0, posibleDrops.Count)];
+            Instantiate(drops.itemPrefabs, transform.position, Quaternion.identity);
         }
+        
     }
-
-    public static PickUpItem GetItem()
-    {
-        int rand = Random.Range(0, Instance.itemPool.Count);
-        var obj = Instance.itemPool[rand];
-        Instance.itemPool.RemoveAt(rand);
-        obj.transform.SetParent(null);
-        obj.gameObject.SetActive(true);
-        return obj;
-    }
-
-    public static void ReturnItem(PickUpItem item)
-    {
-        item.gameObject.SetActive(false);
-        item.transform.SetParent(Instance.transform);
-        Instance.itemPool.Add(item);
-    }
-    */
 }

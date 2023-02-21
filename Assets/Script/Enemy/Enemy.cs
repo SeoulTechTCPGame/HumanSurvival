@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         if (!isLive||anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
 
         Vector2 direction = (target.position - rb.position).normalized;
-        Vector2 nextVec = direction * enemyData.speed *0.01f* Time.fixedDeltaTime;
+        Vector2 nextVec = direction * enemyData.Speed *0.01f* Time.fixedDeltaTime;
 
         //�÷��̾��� Ű�Է� ���� ���� �̵�=������ ���� ���� ���� �̵�
         rb.MovePosition(rb.position + nextVec);
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
 
         //Ȱ��ȭ �ɶ� ���� �ʱ�ȭ
         isLive = true;
-        health = enemyData.maxHP;
+        health = enemyData.MaxHP;
         coll.enabled=true;
         rb.simulated = true;
         spriter.sortingOrder = 2;
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     public void Init(EnemyScriptableObject data)  //������ ���� ������ ���� �Լ�
     {
         enemyData = data;
-        anim.runtimeAnimatorController = animcon[enemyData.spriteType];
+        anim.runtimeAnimatorController = animcon[enemyData.SpriteType];
         
 
     }
@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
-            GameManager.instance.exp+=enemyData.xp;
+            GameManager.instance.exp+=enemyData.Xp;
             
             Dead();
         }

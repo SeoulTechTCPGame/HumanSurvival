@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 658979437267050101}
   - component: {fileID: 377170778701322449}
   - component: {fileID: 896621226140263116}
+  - component: {fileID: -5793097457873377131}
+  - component: {fileID: -6609521633568185040}
   m_Layer: 0
   m_Name: Frostbite
   m_TagString: DestructibleObj
@@ -133,3 +135,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5793097457873377131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5038864057873729496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 254b38679dedfb74e888449eeb3e4160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &-6609521633568185040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5038864057873729496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: hp
+    itemPrefabs: {fileID: 3536152229503077200, guid: bfe51152093a5ef40bf93340dc20ff55, type: 3}
+    dropRate: 50

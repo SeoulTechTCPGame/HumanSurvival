@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
         level =Mathf.Min(Mathf.FloorToInt( GameManager.instance.gameTime / 10f),spawnData.Length-1);
 
         //레벨을 활용해 몬스터 각각의 소환 타이밍 변경하기
-        if (timer >(spawnData[level].spawnTime))
+        if (timer >(spawnData[level].SpawnTime))
         {
             Spawn();
             timer = 0;
