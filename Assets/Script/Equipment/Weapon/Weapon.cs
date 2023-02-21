@@ -86,5 +86,16 @@ public class Weapon : MonoBehaviour
         set { numberOfProjectiles = value; }
     }
 
-    
+    protected virtual void onTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("DestructibleObj"))
+        {
+            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
+            {
+                Debug.Log("»ç¹° hit");
+                destructible.TakeDamage(damage);
+
+            }
+        }
+    }
 }
