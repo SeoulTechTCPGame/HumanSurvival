@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool IsPause = false;
     public static GameManager instance;
     [Header("# Game Control")]
     public float gameTime;
@@ -38,11 +37,9 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        IsPause = true;
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        IsPause = false;
     }
 }

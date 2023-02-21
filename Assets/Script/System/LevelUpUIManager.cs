@@ -129,6 +129,7 @@ public class LevelUpUIManager : MonoBehaviour
     {
         mTime = 0;
         IsOnLevelUp = true;
+        Player.GetComponent<PlayerMovement>().enabled = false;
         mPickUps = pickUps;
 
         PickUpUI.SetActive(true);
@@ -148,6 +149,7 @@ public class LevelUpUIManager : MonoBehaviour
         UnSetItemUI();
         ItemUI.SetActive(false);
         Filter.SetActive(false);
+        Player.GetComponent<PlayerMovement>().enabled = true;
     }
     public void SetPickUpUI(List<Tuple<int, int, int>> pickUps)
     {
