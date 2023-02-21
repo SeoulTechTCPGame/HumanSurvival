@@ -77,12 +77,9 @@ public class Character : EquipmentManagementSystem
     public void LevelUp()
     {
         mLevel++;
-        // 게임 일시정지
-
+        GameObject.Find("GameManager").GetComponent<GameManager>().PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(this);
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, Weapons, Accessories);
-        // 게임 재개
-
     }
     public void UpdateLuck(float luck)
     {
