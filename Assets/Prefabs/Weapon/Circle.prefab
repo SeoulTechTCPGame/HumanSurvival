@@ -102,6 +102,7 @@ MonoBehaviour:
   WeaponIndex: 0
   WeaponLevel: 0
   WeaponMaxLevel: 0
+  Mastered: 0
   WeaponStats: []
 --- !u!58 &7983366735893547710
 CircleCollider2D:

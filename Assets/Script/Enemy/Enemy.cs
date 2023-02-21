@@ -37,23 +37,23 @@ public class Enemy : MonoBehaviour
         Vector2 direction = (target.position - rb.position).normalized;
         Vector2 nextVec = direction * enemyData.Speed *0.01f* Time.fixedDeltaTime;
 
-        //�÷��̾��� Ű�Է� ���� ���� �̵�=������ ���� ���� ���� �̵�
+        //플레이어의 키입력 값을 더한 이동=몬스터의 방향 값을 더한 이동
         rb.MovePosition(rb.position + nextVec);
 
-        //���� �ӵ��� �̵��� ������ ���� �ʵ��� �ӵ� ����
+        //물리 속도가 이동에 영향을 주지 않도록 속도 제거
         rb.velocity = Vector2.zero;
     }
     private void LateUpdate()
     {
-        //Ÿ���� x��� ���Ͽ� sprite flip 
+        //타겟의 x축과 비교하여 sprite flip  
         spriter.flipX = target.position.x < rb.position.x;
     }
     private void OnEnable()
     {
-        //prefeb�� scene�� object�� ������ �� ����=> ������ ������ ������ �ʱ�ȭ�ϱ�
+        //prefeb은 scene의 object에 접근할 수 없다=> 생성될 때마다 변수를 초기화하기
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
 
-        //Ȱ��ȭ �ɶ� ���� �ʱ�ȭ
+        //활성화 될때 변수 초기화
         isLive = true;
         health = enemyData.MaxHP;
         coll.enabled=true;
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
         anim.SetBool("Dead", false);  //TODO: Fix code location
     }
 
-    public void Init(EnemyScriptableObject data)  //������ ���� ������ ���� �Լ�
+    public void Init(EnemyScriptableObject data)  //각각의 몬스터 데이터 설정 함수
     {
         enemyData = data;
         anim.runtimeAnimatorController = animcon[enemyData.SpriteType];
@@ -77,27 +77,31 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (!collision.CompareTag("Weapon")) return;
-        //health -= collision.GetComponent<Weapon>().damage;
         
-        if (health > 0)
+        if (collision.gameObject.CompareTag("Weapon"))
         {
-            StartCoroutine(KnockBack());
-            anim.SetTrigger("Hit");
-            Debug.Log("Hit");
-        }
-        else
-        {
-            isLive = false;
-            coll.enabled = false;
-            rb.simulated = false;
-            spriter.sortingOrder = 1;
-            anim.SetBool("Dead", true);
-            GameManager.instance.kill++;
-            GameManager.instance.exp+=enemyData.Xp;
+             health -= collision.GetComponent<Weapon>().Damage;
+            Debug.Log(health);
+            if (health > 0)
+            {
+                StartCoroutine(KnockBack());
+                anim.SetTrigger("Hit");
+                Debug.Log("Hit");
+            }
+            else
+            {
+                isLive = false;
+                coll.enabled = false;
+                rb.simulated = false;
+                spriter.sortingOrder = 1;
+                anim.SetBool("Dead", true);
+                GameManager.instance.kill++;
+                GameManager.instance.exp+=enemyData.Xp;
             
-            Dead();
+                Dead();
+            }
         }
+       
     }
 
     IEnumerator KnockBack()
