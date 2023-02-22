@@ -14,13 +14,14 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
-    private int damage = 1;                //피해량
-    private int projectileSpeed = 1;        //투사체 속도
-    private int duration = 3;               //지속 시간
-    private int attackRange = 1;            //공격범위
-    private int cooldown = 3;               //쿨타임
-    private int numberOfProjectiles = 1;    //투사체 수
-    private int totalspeed;                 //총 속도
+    private int damage = 1; 
+    private int projectileSpeed = 1; 
+    private int duration = 3;
+    private int attackRange = 1;
+    private int cooldown = 3;
+    private int numberOfProjectiles = 1;
+    private int totalspeed;
+    private Vector3 direction;
 
     public float[] WeaponStats;
     public EquipmentData EquipmentData;
@@ -36,11 +37,12 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        transform.position = transform.position + Vector3.right * totalspeed * Time.deltaTime;
+        transform.position = transform.position + direction * totalspeed * Time.deltaTime;
     }
-    public void Shoot(int speed)
+    public void Shoot(int speed, Vector3 direct)
     {
         totalspeed = speed;
+        direction = direct;
     }
     public void Upgrade()
     {
@@ -54,7 +56,6 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-    //Get,Set함수 자동 구현
     public int Damage
     {
         get { return damage; }
