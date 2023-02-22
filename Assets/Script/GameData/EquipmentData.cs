@@ -18,21 +18,22 @@ public class EquipmentData
 
     public static void levelOneWeaponPreprocessing()
     {
-        defaultWeaponStats = new float[13, 9] // Enums.WeaponStat의 순서대로
+        defaultWeaponStats = new float[13, 9]
         {
-            { 10, 1.35f, Constants.X, Constants.X, 1, 30, Constants.INF, 1, 8 },
-            { 10, 1.20f, 1, Constants.X, 1, 60, 1, 1, 8 },
-            { 6.5f, 1.00f, 1, Constants.X, 1, 70, 1, 1, 8 },
-            { 20, 4.00f, 1, Constants.X, 1, 70, 3, 1, 8 },
-            { 5, 2.00f, 1, Constants.X, 1, 30, Constants.INF, 1, 8 },
-            { 10, 3.00f, 1, 3, 1, 50, Constants.INF, 1, 8 },
-            { 20, 3.00f, 1, Constants.X, 3, 30, 1, 1, 8 },
-            { 5, 1.00f, Constants.X, Constants.X, Constants.X, Constants.X, Constants.INF, 1, 8 },
-            { 10, 4.50f, Constants.X, 2, 1, 20, Constants.INF, 1, 8 },
-            { 10, 1.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },
-            { 10, 1.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },
-            { 10, 3.00f, 1.00f, 2.25f, 1, 25, Constants.INF, 1, 8 },
-            { 15, 4.50f, Constants.X, Constants.X, 2, 50, Constants.INF, 1, 8 }
+            //Might,Cooldown,ProjectileSpeed,Duration,Amount,AmountLimit,Piercing,Area,MaxLevel
+            { 10, 1.35f, Constants.X, Constants.X, 1, 30, Constants.INF, 1, 8 },    // Whip
+            { 10, 1.20f, 1, Constants.X, 1, 60, 1, 1, 8 },  // MagicWand
+            { 6.5f, 1.00f, 1, Constants.X, 1, 70, 1, 1, 8 },    // Knife
+            { 20, 4.00f, 1, Constants.X, 1, 70, 3, 1, 8 },  // Axe
+            { 5, 2.00f, 1, Constants.X, 1, 30, Constants.INF, 1, 8 },   // Cross
+            { 10, 3.00f, 1, 3, 1, 50, Constants.INF, 1, 8 },    //KingBible
+            { 20, 3.00f, 1, Constants.X, 3, 30, 1, 1, 8 },  // FireWand
+            { 5, 1.00f, Constants.X, Constants.X, Constants.X, Constants.X, Constants.INF, 1, 8 },  // Garlic
+            { 10, 4.50f, Constants.X, 2, 1, 20, Constants.INF, 1, 8 },  // SantaWater
+            { 10, 1.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // Peachone
+            { 10, 1.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // EbonyWings
+            { 10, 3.00f, 1.00f, 2.25f, 1, 25, Constants.INF, 1, 8 },    // Runetracer
+            { 15, 4.50f, Constants.X, Constants.X, 2, 50, Constants.INF, 1, 8 } // LightningRing
         };
     }
 
