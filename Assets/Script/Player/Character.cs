@@ -19,11 +19,11 @@ public class Character : EquipmentManagementSystem
     public GameObject LevepUpUI;
 
     private float currentHealth = 100;
-    private int mDamage = 10;              //피해량
-    private int mProjectileSpeed = 1;     //투사체 속도
-    private int mDuration = 3;            //지속 시간
-    private int mAttackRange = 1;         //공격범위
-    private int mCooldown = 3;            //쿨타임
+    private float mDamage = 10;              //피해량
+    private float mProjectileSpeed = 1;     //투사체 속도
+    private float mDuration = 3;            //지속 시간
+    private float mAttackRange = 1;         //공격범위
+    private float mCooldown = 3;            //쿨타임
     private int mNumberOfProjectiles = 1;     //투사체 수
 
     private int mLevel;
@@ -99,27 +99,27 @@ public class Character : EquipmentManagementSystem
         RandomPickUpSystem.UpdateAccessoryPickUpList(this);
     }
     //Get,Set함수 자동 구현
-    public int Damage
+    public float Damage
     {
         get { return mDamage; }
         set { mDamage = value; }
     }
-    public int ProjectileSpeed
+    public float ProjectileSpeed
     {
         get { return mProjectileSpeed; }
         set { mProjectileSpeed = value; }
     }
-    public int Duration
+    public float Duration
     {
         get { return mDuration; }
         set { mDuration = value; }
     }
-    public int AttackRange
+    public float AttackRange
     {
         get { return mAttackRange; }
         set { mAttackRange = value; }
     }
-    public int Cooldown
+    public float Cooldown
     {
         get { return mCooldown; }
         set { mCooldown = value; }

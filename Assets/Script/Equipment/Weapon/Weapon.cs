@@ -14,18 +14,28 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
-    private int damage = 1; 
-    private int projectileSpeed = 1; 
-    private int duration = 3;
-    private int attackRange = 1;
-    private int cooldown = 3;
+    private float damage = 1; 
+    private float projectileSpeed = 1; 
+    private float duration = 3;
+    private float attackRange = 1;
+    private float cooldown = 3;
     private int numberOfProjectiles = 1;
-    private int totalspeed;
+    private float totalspeed;
     private Vector3 direction;
 
     public float[] WeaponStats;
     public EquipmentData EquipmentData;
+    public PoolManager pool;
 
+    private void Update()
+    {
+        transform.position = transform.position + direction * totalspeed * Time.deltaTime;
+    }
+    public void Shoot(float speed, Vector3 direct)
+    {
+        totalspeed = speed;
+        direction = direct;
+    }
     public void WeaponSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
@@ -35,15 +45,6 @@ public class Weapon : MonoBehaviour
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
     }
 
-    private void Update()
-    {
-        transform.position = transform.position + direction * totalspeed * Time.deltaTime;
-    }
-    public void Shoot(int speed, Vector3 direct)
-    {
-        totalspeed = speed;
-        direction = direct;
-    }
     public void Upgrade()
     {
         WeaponLevel++;
@@ -56,37 +57,6 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-    public int Damage
-    {
-        get { return damage; }
-        set { damage = value; }
-    }
-    public int ProjectileSpeed
-    {
-        get { return projectileSpeed; }
-        set { projectileSpeed = value; }
-    }
-    public int Duration
-    {
-        get { return duration; }
-        set { duration = value; }
-    }
-    public int AttackRange
-    {
-        get { return attackRange; }
-        set { attackRange = value; }
-    }
-    public int Cooldown
-    {
-        get { return cooldown; }
-        set { cooldown = value; }
-    }
-    public int NumberOfProjectiles
-    {
-        get { return numberOfProjectiles; }
-        set { numberOfProjectiles = value; }
-    }
-
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
@@ -98,5 +68,75 @@ public class Weapon : MonoBehaviour
 
             }
         }
+    }
+    public void WhichWeapon()
+    {
+        switch (WeaponIndex)
+        {
+            case 0:     // Whip
+                break;
+            case 1:     // MagicWand
+                break;
+            case 2:     // Knife
+                this.damage = EquipmentData.defaultWeaponStats[2, 0];
+                this.cooldown = EquipmentData.defaultWeaponStats[2, 1];
+                this.projectileSpeed = EquipmentData.defaultWeaponStats[2, 2];
+                this.duration = EquipmentData.defaultWeaponStats[2, 3];
+                this.numberOfProjectiles = ((int)EquipmentData.defaultWeaponStats[2, 4]);
+                //투사체수 최대치
+                //관통
+                this.attackRange = EquipmentData.defaultWeaponStats[2, 7];  //임시
+                break;
+            case 3:     // Axe
+                break;
+            case 4:     // Cross
+                break;
+            case 5:     //KingBible
+                break;
+            case 6:     // FireWand
+                break;
+            case 7:     // Garlic
+                break;
+            case 8:     // SantaWater
+                break;
+            case 9:     // Peachone
+                break;
+            case 10:    // EbonyWings
+                break;
+            case 11:    // Runetracer
+                break;
+            case 12:   // LightningRing
+                break;
+        }
+    }
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
+    public float ProjectileSpeed
+    {
+        get { return projectileSpeed; }
+        set { projectileSpeed = value; }
+    }
+    public float Duration
+    {
+        get { return duration; }
+        set { duration = value; }
+    }
+    public float AttackRange
+    {
+        get { return attackRange; }
+        set { attackRange = value; }
+    }
+    public float Cooldown
+    {
+        get { return cooldown; }
+        set { cooldown = value; }
+    }
+    public int NumberOfProjectiles
+    {
+        get { return numberOfProjectiles; }
+        set { numberOfProjectiles = value; }
     }
 }

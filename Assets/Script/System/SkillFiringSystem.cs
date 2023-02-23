@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SkillFiringSystem : MonoBehaviour
 {
-    private int damage;
-    private int projectileSpeed;
-    private int duration;
-    private int attackRange;
-    private int cooldown;
-    private int numberOfProjectiles;
+    private float totalDamage;
+    private float totalProjectileSpeed;
+    private float totalDuration;
+    private float totalAttackRange;
+    private float totalCooldown;
+    private int totalNumberOfProjectiles;
     private Vector3 direction;
 
     public GameObject weapon;
@@ -21,28 +21,57 @@ public class SkillFiringSystem : MonoBehaviour
     }
     private void Attack()
     {
-        AttackCalculation();
-        for (int i = 0; i <= numberOfProjectiles; i++)
+        switch (weapon.GetComponent<Weapon>().WeaponIndex)
         {
-            FireWeapon();
+            case 0:     // Whip
+                break;
+            case 1:     // MagicWand
+                break;
+            case 2:     // Knife
+                FireKnife(weapon.GetComponent<Weapon>().WeaponIndex);
+                break;
+            case 3:     // Axe
+                break;
+            case 4:     // Cross
+                break;
+            case 5:     //KingBible
+                break;
+            case 6:     // FireWand
+                break;
+            case 7:     // Garlic
+                break;
+            case 8:     // SantaWater
+                break;
+            case 9:     // Peachone
+                break;
+            case 10:    // EbonyWings
+                break;
+            case 11:    // Runetracer
+                break;
+            case 12:   // LightningRing
+                break;
         }
     }
-    //ToDo: attackRange을 적용하기
-    private void FireWeapon()
+    //ToDo: totalAttackRange 적용하기
+    private void FireKnife(int index)
     {
-        float timediff = cooldown;
+        float timediff = totalCooldown;
         timer += Time.deltaTime;
         if (timer > timediff)
         {
-            GameObject newobs = Instantiate(weapon);
-            newobs.transform.position = GameManager.instance.player.transform.position;
-            newobs.transform.parent = transform;
-            newobs.GetComponent<Weapon>().Shoot(projectileSpeed, direction);  //오른쪽 벡터로 날아감
-            timer = 0;
-            Destroy(newobs, duration);  //지속 시간 지나면 삭제
+            for (int i=0; i<= totalNumberOfProjectiles; i++)
+            {
+                GameObject newobs = Instantiate(GameManager.instance.pool.monsterPrefabs[index]);
+                newobs.transform.position = GameManager.instance.player.transform.position;
+                newobs.transform.parent = transform;
+                newobs.GetComponent<Weapon>().Shoot(totalProjectileSpeed, GameManager.instance.player.GetComponent<PlayerMovement>().Movement);
+                timer = 0;
+                Destroy(newobs, totalDuration);  //지속 시간 지나면 삭제
+            }
         }
     }
     //아래 계산을 한번에 하기
+    //레벨업 할때마다 갱신하는 것으로 변경
     private void AttackCalculation()
     {
         DamageCalculation();
@@ -54,26 +83,26 @@ public class SkillFiringSystem : MonoBehaviour
     }
     private void DamageCalculation()
     {
-        damage = weapon.GetComponent<Weapon>().Damage * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
+        totalDamage = weapon.GetComponent<Weapon>().Damage * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
     }
     private void ProjectileSpeedCalculation()
     {
-        projectileSpeed = weapon.GetComponent<Weapon>().ProjectileSpeed * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
+        totalProjectileSpeed = weapon.GetComponent<Weapon>().ProjectileSpeed * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
     }
     private void DurationCalculation()
     {
-        duration = weapon.GetComponent<Weapon>().Duration * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
+        totalDuration = weapon.GetComponent<Weapon>().Duration * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
     }
     private void AttackRangeCalculation()
     {
-        attackRange = weapon.GetComponent<Weapon>().AttackRange * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
+        totalAttackRange = weapon.GetComponent<Weapon>().AttackRange * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
     }
     private void CooldownCalculation()
     {
-        cooldown = weapon.GetComponent<Weapon>().Cooldown * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
+        totalCooldown = weapon.GetComponent<Weapon>().Cooldown * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
     }
     private void CalculateNumberOfProjectiles()
     {
-        numberOfProjectiles = weapon.GetComponent<Weapon>().NumberOfProjectiles + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
+        totalNumberOfProjectiles = weapon.GetComponent<Weapon>().NumberOfProjectiles + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
     }
 }
