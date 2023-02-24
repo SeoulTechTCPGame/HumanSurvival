@@ -14,19 +14,21 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
-    private float damage = 1; 
-    private float projectileSpeed = 1; 
-    private float duration = 3;
-    private float attackRange = 1;
-    private float cooldown = 3;
-    private int numberOfProjectiles = 1;
+    private float totalDamage;
+    private float totalProjectileSpeed;
+    private float totalDuration;
+    private float totalAttackRange;
+    private float totalCooldown;
+    private int totalNumberOfProjectiles;
     private float totalspeed;
+
     private Vector3 direction;
 
     public float[] WeaponStats;
+    public float[] WeaponTotalStats;
+
     public EquipmentData EquipmentData;
     public PoolManager pool;
-
     private void Update()
     {
         transform.position = transform.position + direction * totalspeed * Time.deltaTime;
@@ -43,6 +45,7 @@ public class Weapon : MonoBehaviour
 
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
+        WeaponTotalStats = WeaponStats;
     }
 
     public void Upgrade()
@@ -64,11 +67,12 @@ public class Weapon : MonoBehaviour
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
                 Debug.Log("사물 hit");
-                destructible.TakeDamage(damage);
+                destructible.TakeDamage(totalDamage);
 
             }
         }
     }
+    /*무기마다 행동
     public void WhichWeapon()
     {
         switch (WeaponIndex)
@@ -78,14 +82,6 @@ public class Weapon : MonoBehaviour
             case 1:     // MagicWand
                 break;
             case 2:     // Knife
-                this.damage = EquipmentData.defaultWeaponStats[2, 0];
-                this.cooldown = EquipmentData.defaultWeaponStats[2, 1];
-                this.projectileSpeed = EquipmentData.defaultWeaponStats[2, 2];
-                this.duration = EquipmentData.defaultWeaponStats[2, 3];
-                this.numberOfProjectiles = ((int)EquipmentData.defaultWeaponStats[2, 4]);
-                //투사체수 최대치
-                //관통
-                this.attackRange = EquipmentData.defaultWeaponStats[2, 7];  //임시
                 break;
             case 3:     // Axe
                 break;
@@ -109,34 +105,40 @@ public class Weapon : MonoBehaviour
                 break;
         }
     }
-    public float Damage
+    */
+    //아래 계산을 한번에 하기
+    //레벨업 할때마다 갱신하는 것으로 변경
+    private void AttackCalculation()
     {
-        get { return damage; }
-        set { damage = value; }
+        DamageCalculation();
+        ProjectileSpeedCalculation();
+        DurationCalculation();
+        AttackRangeCalculation();
+        CooldownCalculation();
+        CalculateNumberOfProjectiles();
     }
-    public float ProjectileSpeed
+    private void DamageCalculation()
     {
-        get { return projectileSpeed; }
-        set { projectileSpeed = value; }
+        WeaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
     }
-    public float Duration
+    private void ProjectileSpeedCalculation()
     {
-        get { return duration; }
-        set { duration = value; }
+        WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
     }
-    public float AttackRange
+    private void DurationCalculation()
     {
-        get { return attackRange; }
-        set { attackRange = value; }
+        WeaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
     }
-    public float Cooldown
+    private void AttackRangeCalculation()
     {
-        get { return cooldown; }
-        set { cooldown = value; }
+        WeaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
     }
-    public int NumberOfProjectiles
+    private void CooldownCalculation()
     {
-        get { return numberOfProjectiles; }
-        set { numberOfProjectiles = value; }
+        WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
+    }
+    private void CalculateNumberOfProjectiles()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
     }
 }

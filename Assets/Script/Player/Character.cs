@@ -51,8 +51,7 @@ public class Character : EquipmentManagementSystem
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
         // юс╫ц
-        GetWeapon(0);
-        GetWeapon(1);
+        GetWeapon(2);
         GetAccessory(0);
         GetAccessory(1);
 

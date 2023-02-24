@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Weapon"))
         {
-             health -= collision.GetComponent<Weapon>().Damage;
+             health -= collision.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)];
             Debug.Log(health);
             if (health > 0)
             {
