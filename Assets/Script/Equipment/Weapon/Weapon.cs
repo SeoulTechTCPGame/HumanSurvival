@@ -14,18 +14,30 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
-    private int damage = 1; 
-    private int projectileSpeed = 1; 
-    private int duration = 3;
-    private int attackRange = 1;
-    private int cooldown = 3;
-    private int numberOfProjectiles = 1;
-    private int totalspeed;
+    private float totalDamage;
+    private float totalProjectileSpeed;
+    private float totalDuration;
+    private float totalAttackRange;
+    private float totalCooldown;
+    private int totalNumberOfProjectiles;
+    private float totalspeed;
+
     private Vector3 direction;
 
     public float[] WeaponStats;
-    public EquipmentData EquipmentData;
+    public float[] WeaponTotalStats;
 
+    public EquipmentData EquipmentData;
+    public PoolManager pool;
+    private void Update()
+    {
+        transform.position = transform.position + direction * totalspeed * Time.deltaTime;
+    }
+    public void Shoot(float speed, Vector3 direct)
+    {
+        totalspeed = speed;
+        direction = direct;
+    }
     public void WeaponSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
@@ -33,17 +45,9 @@ public class Weapon : MonoBehaviour
 
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
+        WeaponTotalStats = WeaponStats;
     }
 
-    private void Update()
-    {
-        transform.position = transform.position + direction * totalspeed * Time.deltaTime;
-    }
-    public void Shoot(int speed, Vector3 direct)
-    {
-        totalspeed = speed;
-        direction = direct;
-    }
     public void Upgrade()
     {
         WeaponLevel++;
@@ -56,37 +60,6 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-    public int Damage
-    {
-        get { return damage; }
-        set { damage = value; }
-    }
-    public int ProjectileSpeed
-    {
-        get { return projectileSpeed; }
-        set { projectileSpeed = value; }
-    }
-    public int Duration
-    {
-        get { return duration; }
-        set { duration = value; }
-    }
-    public int AttackRange
-    {
-        get { return attackRange; }
-        set { attackRange = value; }
-    }
-    public int Cooldown
-    {
-        get { return cooldown; }
-        set { cooldown = value; }
-    }
-    public int NumberOfProjectiles
-    {
-        get { return numberOfProjectiles; }
-        set { numberOfProjectiles = value; }
-    }
-
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
@@ -94,9 +67,78 @@ public class Weapon : MonoBehaviour
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
                 Debug.Log("사물 hit");
-                destructible.TakeDamage(damage);
+                destructible.TakeDamage(totalDamage);
 
             }
         }
+    }
+    /*무기마다 행동
+    public void WhichWeapon()
+    {
+        switch (WeaponIndex)
+        {
+            case 0:     // Whip
+                break;
+            case 1:     // MagicWand
+                break;
+            case 2:     // Knife
+                break;
+            case 3:     // Axe
+                break;
+            case 4:     // Cross
+                break;
+            case 5:     //KingBible
+                break;
+            case 6:     // FireWand
+                break;
+            case 7:     // Garlic
+                break;
+            case 8:     // SantaWater
+                break;
+            case 9:     // Peachone
+                break;
+            case 10:    // EbonyWings
+                break;
+            case 11:    // Runetracer
+                break;
+            case 12:   // LightningRing
+                break;
+        }
+    }
+    */
+    //아래 계산을 한번에 하기
+    //레벨업 할때마다 갱신하는 것으로 변경
+    private void AttackCalculation()
+    {
+        DamageCalculation();
+        ProjectileSpeedCalculation();
+        DurationCalculation();
+        AttackRangeCalculation();
+        CooldownCalculation();
+        CalculateNumberOfProjectiles();
+    }
+    private void DamageCalculation()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
+    }
+    private void ProjectileSpeedCalculation()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
+    }
+    private void DurationCalculation()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
+    }
+    private void AttackRangeCalculation()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
+    }
+    private void CooldownCalculation()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
+    }
+    private void CalculateNumberOfProjectiles()
+    {
+        WeaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
     }
 }
