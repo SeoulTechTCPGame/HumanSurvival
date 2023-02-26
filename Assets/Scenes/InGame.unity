@@ -1041,7 +1041,7 @@ MonoBehaviour:
   kill: 0
   exp: 0
   coin: 0
-  pool: {fileID: 0}
+  pool: {fileID: 1068104046}
   player: {fileID: 1928233908}
 --- !u!4 &551852910
 Transform:
