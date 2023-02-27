@@ -10,13 +10,13 @@ public class EquipmentManagementSystem : MonoBehaviour
     public List<Accessory> Accessories;
     public List<int> MasteredWeapons;
     public List<int> MasteredAccessories;
+    public SkillFiringSystem skillFiringSystem;
     public int[] TransWeaponIndex; // 해당 index의 weapon이 현재 보유중인 Weapons의 몇 번째 index에 있는지 반환하는 배열, 없다면 -1 반환
     public int[] TransAccessoryIndex; // 위와 같으나 Accessory에 해당
 
-    void Start()
-    {
-    }
-        public void ApplyItem(Tuple<int, int, int> pickUp)
+    void Awake(){ skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>(); }
+
+    public void ApplyItem(Tuple<int, int, int> pickUp)
     {
         switch ((Enums.PickUpType)pickUp.Item1)
         {
@@ -63,7 +63,7 @@ public class EquipmentManagementSystem : MonoBehaviour
     public void GetWeapon(int weaponIndex)
     {
         TransWeaponIndex[weaponIndex] = Weapons.Count;
-        Weapon newWeapon = GameObject.Find("Player").gameObject.AddComponent<Weapon>();
+        Weapon newWeapon = (skillFiringSystem.weaponPrefabs[weaponIndex]).GetComponent<Weapon>();
         newWeapon.WeaponSetting(weaponIndex);
         Weapons.Add(newWeapon);
     }

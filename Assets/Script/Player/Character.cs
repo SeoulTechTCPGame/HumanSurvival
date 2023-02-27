@@ -14,20 +14,21 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class Character : EquipmentManagementSystem,IDamageable
 {
-    //Ä³¸¯ÅÍÀÇ ½ºÅÈÁöÁ¤
-    //¿¹½Ã¸¦ À§ÇØ °ªÀº ¹«ÀÛÀ§·Î ³ÖÀ½
+    //ìºë¦­í„°ì˜ ìŠ¤íƒ¯ì§€ì •
+    //ì˜ˆì‹œë¥¼ ìœ„í•´ ê°’ì€ ë¬´ì‘ìœ„ë¡œ ë„£ìŒ
     public GameObject LevepUpUI;
+
 
     [SerializeField] HealthBar HpBar;
     private bool isDead;
     private float currentHp = 100;
     private float maxHp = 100;
-    private int mDamage = 10;              //ÇÇÇØ·®
-    private int mProjectileSpeed = 1;     //Åõ»çÃ¼ ¼Óµµ
-    private int mDuration = 3;            //Áö¼Ó ½Ã°£
-    private int mAttackRange = 1;         //°ø°İ¹üÀ§
-    private int mCooldown = 3;            //ÄğÅ¸ÀÓ
-    private int mNumberOfProjectiles = 1;     //Åõ»çÃ¼ ¼ö
+    private int mDamage = 10;              //í”¼í•´ëŸ‰
+    private int mProjectileSpeed = 1;     //íˆ¬ì‚¬ì²´ ì†ë„
+    private int mDuration = 3;            //ì§€ì† ì‹œê°„
+    private int mAttackRange = 1;         //ê³µê²©ë²”ìœ„
+    private int mCooldown = 3;            //ì¿¨íƒ€ì„
+    private int mNumberOfProjectiles = 1;     //íˆ¬ì‚¬ì²´ ìˆ˜
 
     private int mLevel;
     private int mExp;
@@ -43,7 +44,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         mExp = 0;
         mMaxExp = 100;
 
-        // TODO: user°¡ ¸ŞÀÎ È­¸é¿¡¼­ °­È­ÇØ³õÀº ½ºÅÈµéÀ» ±âº»°ªÀ¸·Î ¹Ş¾Æ¿À±â
+        // TODO: userê°€ ë©”ì¸ í™”ë©´ì—ì„œ ê°•í™”í•´ë†“ì€ ìŠ¤íƒ¯ë“¤ì„ ê¸°ë³¸ê°’ìœ¼ë¡œ ë°›ì•„ì˜¤ê¸°
         CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
@@ -54,9 +55,8 @@ public class Character : EquipmentManagementSystem,IDamageable
         RandomPickUpSystem = new RandomPickUpSystem();
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
-        // ÀÓ½Ã
-        GetWeapon(0);
-        GetWeapon(1);
+        // ì„ì‹œ
+        GetWeapon(2);
         GetAccessory(0);
         GetAccessory(1);
 
@@ -93,7 +93,7 @@ public class Character : EquipmentManagementSystem,IDamageable
 
     public void GetExp(int exp)
     {
-        // TODO: statÀÇ growth Àû¿ëÇÏ¿© °æÇèÄ¡ È¹µæ
+        // TODO: statì˜ growth ì ìš©í•˜ì—¬ ê²½í—˜ì¹˜ íšë“
 
         mExp += exp;
         while (mExp >= mMaxExp)
@@ -116,28 +116,28 @@ public class Character : EquipmentManagementSystem,IDamageable
         RandomPickUpSystem.UpdateWeaponPickUpList(this);
         RandomPickUpSystem.UpdateAccessoryPickUpList(this);
     }
-    //Get,SetÇÔ¼ö ÀÚµ¿ ±¸Çö
-    public int Damage
+    //Get,Setí•¨ìˆ˜ ìë™ êµ¬í˜„
+    public float Damage
     {
         get { return mDamage; }
         set { mDamage = value; }
     }
-    public int ProjectileSpeed
+    public float ProjectileSpeed
     {
         get { return mProjectileSpeed; }
         set { mProjectileSpeed = value; }
     }
-    public int Duration
+    public float Duration
     {
         get { return mDuration; }
         set { mDuration = value; }
     }
-    public int AttackRange
+    public float AttackRange
     {
         get { return mAttackRange; }
         set { mAttackRange = value; }
     }
-    public int Cooldown
+    public float Cooldown
     {
         get { return mCooldown; }
         set { mCooldown = value; }
