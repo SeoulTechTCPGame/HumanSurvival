@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+
     private void Spawn()
     {
         //player의 위치 값에 랜덤 pos를 더해 스폰 지점 설정

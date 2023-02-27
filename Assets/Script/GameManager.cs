@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("# Game Object")]
     public PoolManager pool;
     public PlayerMovement player;
+    public GameObject gameoverPanel;
 
     private void Awake()
     {
@@ -41,5 +42,14 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    public void GameOverPanelUp()
+    {
+        Debug.Log("Game over");
+        player.enabled = false;
+        gameoverPanel.SetActive(true);
+
+
     }
 }

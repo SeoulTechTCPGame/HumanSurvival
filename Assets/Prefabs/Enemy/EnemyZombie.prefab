@@ -244,11 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
-  speed: 0
   health: 0
   maxHealth: 0
-  enemyDamage: 0
-  exp: 0
   animcon:
   - {fileID: 22100000, guid: a3bedb3a9ecc9be4cb39be632a24b26f, type: 2}
   - {fileID: 22100000, guid: 820c77d809ccd844894117bba6b83c57, type: 2}
