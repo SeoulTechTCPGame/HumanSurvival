@@ -55,8 +55,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
         // 임시
-        GetWeapon(0);
-        GetWeapon(1);
+        GetWeapon(2);
         GetAccessory(0);
         GetAccessory(1);
 
@@ -117,27 +116,27 @@ public class Character : EquipmentManagementSystem,IDamageable
         RandomPickUpSystem.UpdateAccessoryPickUpList(this);
     }
     //Get,Set함수 자동 구현
-    public int Damage
+    public float Damage
     {
         get { return mDamage; }
         set { mDamage = value; }
     }
-    public int ProjectileSpeed
+    public float ProjectileSpeed
     {
         get { return mProjectileSpeed; }
         set { mProjectileSpeed = value; }
     }
-    public int Duration
+    public float Duration
     {
         get { return mDuration; }
         set { mDuration = value; }
     }
-    public int AttackRange
+    public float AttackRange
     {
         get { return mAttackRange; }
         set { mAttackRange = value; }
     }
-    public int Cooldown
+    public float Cooldown
     {
         get { return mCooldown; }
         set { mCooldown = value; }

@@ -122,6 +122,4 @@ public class Enemy : MonoBehaviour,IDamageable
         Vector3 dirVec = transform.position - playerPos;
         rb.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
     }
-
-
 }
