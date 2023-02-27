@@ -22,11 +22,11 @@ public class Character : EquipmentManagementSystem,IDamageable
     private bool isDead;
     private float currentHp = 100;
     private float maxHp = 100;
-    private int mDamage = 10;              //피해량
-    private int mProjectileSpeed = 1;     //투사체 속도
-    private int mDuration = 3;            //지속 시간
-    private int mAttackRange = 1;         //공격범위
-    private int mCooldown = 3;            //쿨타임
+    private float mDamage = 10;              //피해량
+    private float mProjectileSpeed = 1;     //투사체 속도
+    private float mDuration = 3;            //지속 시간
+    private float mAttackRange = 1;         //공격범위
+    private float mCooldown = 3;            //쿨타임
     private int mNumberOfProjectiles = 1;     //투사체 수
 
     private int mLevel;

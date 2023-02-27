@@ -21,6 +21,7 @@ public class PlayerHp : MonoBehaviour
             damage = other.gameObject.GetComponent<Enemy>().enemyData.power;
             HpBar.value -= damage;
             Debug.Log(damage);
+            
         }
     }
 }
