@@ -12,13 +12,16 @@ using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime;
 using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
-public class Character : EquipmentManagementSystem
+public class Character : EquipmentManagementSystem,IDamageable
 {
     //Ä³¸¯ÅÍÀÇ ½ºÅÈÁöÁ¤
     //¿¹½Ã¸¦ À§ÇØ °ªÀº ¹«ÀÛÀ§·Î ³ÖÀ½
     public GameObject LevepUpUI;
 
-    private float currentHealth = 100;
+    [SerializeField] HealthBar HpBar;
+    private bool isDead;
+    private float currentHp = 100;
+    private float maxHp = 100;
     private float mDamage = 10;              //ÇÇÇØ·®
     private float mProjectileSpeed = 1;     //Åõ»çÃ¼ ¼Óµµ
     private float mDuration = 3;            //Áö¼Ó ½Ã°£
@@ -32,6 +35,7 @@ public class Character : EquipmentManagementSystem
 
     public float[] CharacterStats;
     public RandomPickUpSystem RandomPickUpSystem;
+    
 
     void Start()
     {
@@ -58,15 +62,29 @@ public class Character : EquipmentManagementSystem
     }
     public void RestoreHealth(float amount)
     {
-        if(currentHealth< (int)Enums.Stat.MaxHealth)
+        if(currentHp< (int)Enums.Stat.MaxHealth)
         { 
-            currentHealth += amount;
-            if (currentHealth > (int)Enums.Stat.MaxHealth) currentHealth = (int)Enums.Stat.MaxHealth;
+            currentHp += amount;
+            if (currentHp > (int)Enums.Stat.MaxHealth) currentHp = (int)Enums.Stat.MaxHealth;
 
         }
        
     }
-    //ë²„íŠ¼ ì§€?°ë©´ ?? œ ?ˆì •
+    public void TakeDamage(float damage)
+    {
+        if (isDead == true) return;
+        currentHp -= damage;
+        Debug.Log(currentHp);
+        if (currentHp <= 0)
+        {
+            GameManager.instance.GameOverPanelUp();
+            isDead = true;
+        }
+
+        HpBar.SetState(currentHp, maxHp);
+        
+    }
+
     public void TempLoad()
     {
         LevelUp();
