@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 13121504}
   - component: {fileID: 13121503}
   - component: {fileID: 13121502}
-  - component: {fileID: 13121501}
+  - component: {fileID: 13121506}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -435,18 +435,6 @@ RectTransform:
   m_AnchoredPosition: {x: 780, y: -400}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.49999985, y: 0.5}
---- !u!114 &13121501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13121499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 964f50d8f79b8aa44ba9a9c344f90a68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &13121502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -543,9 +531,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 13121501}
-        m_TargetAssemblyTypeName: ToStage, Assembly-CSharp
-        m_MethodName: SceneChange
+      - m_Target: {fileID: 13121506}
+        m_TargetAssemblyTypeName: SceneMove, Assembly-CSharp
+        m_MethodName: ToStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -593,6 +581,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13121499}
   m_CullTransparentMesh: 1
+--- !u!114 &13121506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13121499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54606818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1650,7 @@ GameObject:
   - component: {fileID: 271327719}
   - component: {fileID: 271327718}
   - component: {fileID: 271327717}
-  - component: {fileID: 271327716}
+  - component: {fileID: 271327721}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -1679,18 +1679,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 450}
   m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &271327716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271327714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d34b547f30bb4260955dce4d3e1e9d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &271327717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1787,9 +1775,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 271327716}
-        m_TargetAssemblyTypeName: ToBack, Assembly-CSharp
-        m_MethodName: SceneChange
+      - m_Target: {fileID: 271327721}
+        m_TargetAssemblyTypeName: SceneMove, Assembly-CSharp
+        m_MethodName: ToBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1837,6 +1825,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271327714}
   m_CullTransparentMesh: 1
+--- !u!114 &271327721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271327714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285419569
 GameObject:
   m_ObjectHideFlags: 0
