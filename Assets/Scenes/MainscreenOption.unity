@@ -5358,7 +5358,6 @@ GameObject:
   - component: {fileID: 1182829818}
   - component: {fileID: 1182829817}
   - component: {fileID: 1182829816}
-  - component: {fileID: 1182829815}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -5387,18 +5386,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 450}
   m_SizeDelta: {x: 180, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1182829815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182829813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d34b547f30bb4260955dce4d3e1e9d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1182829816
 SpriteRenderer:
   m_ObjectHideFlags: 0

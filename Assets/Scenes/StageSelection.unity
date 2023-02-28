@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 198138485}
   - component: {fileID: 198138484}
   - component: {fileID: 198138483}
+  - component: {fileID: 198138488}
   - component: {fileID: 198138487}
   m_Layer: 5
   m_Name: ButtonBack
@@ -601,9 +602,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ToBack, Assembly-CSharp
-        m_MethodName: SceneChange
+      - m_Target: {fileID: 198138488}
+        m_TargetAssemblyTypeName: SceneMove, Assembly-CSharp
+        m_MethodName: ToCharacterSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -661,6 +662,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d734ba002330bb4288d5e31838704eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &198138488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198138480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &231834386
@@ -1368,7 +1381,7 @@ GameObject:
   - component: {fileID: 946848274}
   - component: {fileID: 946848273}
   - component: {fileID: 946848272}
-  - component: {fileID: 946848276}
+  - component: {fileID: 946848277}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1493,9 +1506,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 946848276}
-        m_TargetAssemblyTypeName: ToStart, Assembly-CSharp
-        m_MethodName: SceneChange
+      - m_Target: {fileID: 946848277}
+        m_TargetAssemblyTypeName: SceneMove, Assembly-CSharp
+        m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1543,7 +1556,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946848269}
   m_CullTransparentMesh: 1
---- !u!114 &946848276
+--- !u!114 &946848277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1552,7 +1565,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 946848269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d115cfb95154084792751fc7045d2ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &983093782

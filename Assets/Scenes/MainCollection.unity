@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1245577308}
   m_HandleRect: {fileID: 1245577307}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2171,7 +2171,7 @@ GameObject:
   - component: {fileID: 1844337280}
   - component: {fileID: 1844337279}
   - component: {fileID: 1844337282}
-  - component: {fileID: 1844337283}
+  - component: {fileID: 1844337284}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -2244,9 +2244,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1844337283}
-        m_TargetAssemblyTypeName: ToBack, Assembly-CSharp
-        m_MethodName: SceneChange
+      - m_Target: {fileID: 1844337284}
+        m_TargetAssemblyTypeName: SceneMove, Assembly-CSharp
+        m_MethodName: ToBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2346,7 +2346,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1844337283
+--- !u!114 &1844337284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2355,7 +2355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844337277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d34b547f30bb4260955dce4d3e1e9d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1853643576
