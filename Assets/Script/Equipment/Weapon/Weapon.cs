@@ -24,11 +24,12 @@ public class Weapon : MonoBehaviour
 
     private Vector3 direction;
 
-    public float[] WeaponStats;
-    public float[] WeaponTotalStats;
+    private float[] WeaponStats;
+    private float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
 
-    public EquipmentData EquipmentData;
-    public PoolManager pool;
+    private EquipmentData EquipmentData;
+    private PoolManager pool;
+
     private void Update()
     {
         transform.position = transform.position + direction * totalspeed * Time.deltaTime;
@@ -45,7 +46,7 @@ public class Weapon : MonoBehaviour
 
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
-        WeaponTotalStats = WeaponStats;
+        weaponTotalStats = WeaponStats;
     }
 
     public void Upgrade()
@@ -107,7 +108,7 @@ public class Weapon : MonoBehaviour
     }
     */
     //아래 계산을 한번에 하기
-    //레벨업 할때마다 갱신하는 것으로 변경
+    //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     private void AttackCalculation()
     {
         DamageCalculation();
@@ -119,26 +120,28 @@ public class Weapon : MonoBehaviour
     }
     private void DamageCalculation()
     {
-        WeaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
     }
     private void ProjectileSpeedCalculation()
     {
-        WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
     }
     private void DurationCalculation()
     {
-        WeaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
     }
     private void AttackRangeCalculation()
     {
-        WeaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
     }
     private void CooldownCalculation()
     {
-        WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
     }
     private void CalculateNumberOfProjectiles()
     {
-        WeaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
+        weaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
     }
+    //Get, Set
+    public float[] WeaponTotalStats { get { return weaponTotalStats; } }
 }
