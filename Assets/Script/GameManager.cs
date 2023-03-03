@@ -47,9 +47,8 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
-        player.enabled = false;
-        gameoverPanel.SetActive(true);
-
+        player.enabled = false; // Character object 비활성화
+        gameoverPanel.SetActive(true); // 판넬 활성화
 
     }
 }
