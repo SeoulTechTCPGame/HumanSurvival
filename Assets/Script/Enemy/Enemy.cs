@@ -109,11 +109,12 @@ public class Enemy : MonoBehaviour,IDamageable
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
             targetCharacter.GetExp(enemyData.Xp);
-            GameManager.instance.exp += enemyData.Xp;
+            //GameManager.instance.exp += enemyData.Xp;
 
             Dead();
         }
     }
+
 
     IEnumerator KnockBack()
     {

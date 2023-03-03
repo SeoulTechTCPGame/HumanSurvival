@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public Character character;
     public int level;
     public int kill;
-    public int exp;
     public int coin;
 
     [Header("# Game Object")]
@@ -48,7 +47,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game over");
         player.enabled = false;
+        //pool.ClearAll();
         gameoverPanel.SetActive(true);
+        
 
 
     }

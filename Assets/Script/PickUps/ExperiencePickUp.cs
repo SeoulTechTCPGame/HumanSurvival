@@ -11,6 +11,5 @@ public class ExperiencePickUp : MonoBehaviour,ICollectible
         //스크립트 명으로 오브젝트 찾기
         Character character = FindObjectOfType<Character>();
         character.GetExp(expGranted);
-        Destroy(gameObject);
 ;    }
 }
