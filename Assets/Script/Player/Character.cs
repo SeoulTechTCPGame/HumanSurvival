@@ -76,7 +76,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         currentHp -= damage;
         Debug.Log(currentHp);
         if (currentHp <= 0)
-        {   
+        {
             GameManager.instance.GameOverPanelUp();
             isDead = true;
         }

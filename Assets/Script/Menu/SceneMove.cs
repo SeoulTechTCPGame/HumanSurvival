@@ -47,5 +47,6 @@ public class SceneMove : MonoBehaviour
     public void ToResultScene()
     {
         SceneManager.LoadScene("GameResultScene");
+
     }
 }
