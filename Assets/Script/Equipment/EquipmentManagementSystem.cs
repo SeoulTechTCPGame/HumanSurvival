@@ -64,7 +64,7 @@ public class EquipmentManagementSystem : MonoBehaviour
     {
         TransWeaponIndex[weaponIndex] = Weapons.Count;
         Weapon newWeapon = (skillFiringSystem.weaponPrefabs[weaponIndex]).GetComponent<Weapon>();
-        newWeapon.WeaponSetting(weaponIndex);
+        newWeapon.WeaponDefalutSetting(weaponIndex);
         Weapons.Add(newWeapon);
     }
     public void UpgradeWeapon(int weaponIndex)
