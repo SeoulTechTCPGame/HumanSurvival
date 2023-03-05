@@ -56,7 +56,7 @@ public class Character : EquipmentManagementSystem,IDamageable
 
         // ???
         GetWeapon(2);
-        GetWeapon(7);
+        //GetWeapon(7);
         GetAccessory(0);
         GetAccessory(1);
 

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891077723031153331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0021734, y: 0.051065806, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -153,5 +153,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1d851a15ab24324bc1677b72b642c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefabs: []
-  player: {fileID: 2861891060427429947, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
