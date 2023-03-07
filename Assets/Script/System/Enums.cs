@@ -129,4 +129,14 @@ namespace Enums
         Script,
         Property
     }
+    public enum Character
+    {
+        Antonio,
+        Imelda,
+        Gennaro,
+        Arca,
+        Porta,
+        Poe,
+        Clerici
+    }
 }

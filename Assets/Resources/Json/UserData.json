@@ -1,0 +1,9 @@
+{
+  "Gold": 0,
+  "Weapons": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], // Enums.Weapon의 순서대로, 1이면 해금, 0이면 잠금 상태
+  "Character": [ 1, 1, 1, 1, 1, 1, 1 ], // Enums.Character 순서대로, ...
+  "Options": [], // TODO: 옵션 상세히 구현 되면
+  "PowerUps": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] // 해당 index의 강화 레벨
+  "Achievements": [], // TODO: 업적들 정해지면
+  "Collection": [] // TODO: ...
+}
