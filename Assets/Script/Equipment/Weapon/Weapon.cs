@@ -13,33 +13,16 @@ public class Weapon : MonoBehaviour
     public int WeaponLevel;
     public int WeaponMaxLevel;
     public bool Mastered = false;
-
-    private float totalDamage;
-    private float totalProjectileSpeed;
-    private float totalDuration;
-    private float totalAttackRange;
-    private float totalCooldown;
-    private int totalNumberOfProjectiles;
-    private float totalspeed;
-
-    private Vector3 direction;
+    
+    private float enemyHealth;
 
     private float[] WeaponStats;
     private float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
 
     private EquipmentData EquipmentData;
     private PoolManager pool;
-
-    private void Update()
-    {
-        transform.position = transform.position + direction * totalspeed * Time.deltaTime;
-    }
-    public void Shoot(float speed, Vector3 direct)
-    {
-        totalspeed = speed;
-        direction = direct;
-    }
-    public void WeaponSetting(int weaponIndex=0)
+    
+    public void WeaponDefalutSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
         this.WeaponStats = Enumerable.Range(0, EquipmentData.defaultWeaponStats.GetLength(1)).Select(x => EquipmentData.defaultWeaponStats[weaponIndex, x]).ToArray();
@@ -48,18 +31,23 @@ public class Weapon : MonoBehaviour
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
         weaponTotalStats = WeaponStats;
     }
-
     public void Upgrade()
     {
         WeaponLevel++;
         foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[WeaponIndex][WeaponLevel])
         {
             WeaponStats[statIndex] += data;
-        }
+        }  
     }
     public bool IsMaster()
     {
         return WeaponLevel == WeaponMaxLevel;
+    }
+    //진화 조건 충족 확인
+    private void isEvoluction()
+    {
+        bool evoluction = IsMaster();
+        //knife 팔목 보호대 장신구 보유 확인
     }
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
@@ -68,45 +56,17 @@ public class Weapon : MonoBehaviour
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
                 Debug.Log("사물 hit");
-                destructible.TakeDamage(totalDamage);
+                destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)]);
 
             }
         }
-    }
-    /*무기마다 행동
-    public void WhichWeapon()
-    {
-        switch (WeaponIndex)
+        if (col.gameObject.tag == "Monster")
         {
-            case 0:     // Whip
-                break;
-            case 1:     // MagicWand
-                break;
-            case 2:     // Knife
-                break;
-            case 3:     // Axe
-                break;
-            case 4:     // Cross
-                break;
-            case 5:     //KingBible
-                break;
-            case 6:     // FireWand
-                break;
-            case 7:     // Garlic
-                break;
-            case 8:     // SantaWater
-                break;
-            case 9:     // Peachone
-                break;
-            case 10:    // EbonyWings
-                break;
-            case 11:    // Runetracer
-                break;
-            case 12:   // LightningRing
-                break;
+            col.gameObject.GetComponent<Enemy>().TakeDamage(GameManager.instance.player.GetComponent<Character>().Weapons[WeaponIndex].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+            Debug.Log("Monster Hit");
         }
     }
-    */
+
     //아래 계산을 한번에 하기
     //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     private void AttackCalculation()
