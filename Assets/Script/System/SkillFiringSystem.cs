@@ -5,25 +5,29 @@ using UnityEngine;
 public class SkillFiringSystem : MonoBehaviour
 {
     public GameObject[] weaponPrefabs; //무기 프리팹
-    float timer = 0;
-
+    public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
     void Update()
     {
         foreach (var weapon in GameManager.instance.player.GetComponent<Character>().Weapons)
         {
-            Attack(weapon.WeaponIndex);
+            Attack(weapon);
         }
     }
-    private void Attack(int index)
+    private void Attack(Weapon weapon)
     {
-        switch (index)
+        switch (weapon.WeaponIndex)
         {
             case 0:     // Whip
                 break;
             case 1:     // MagicWand
                 break;
             case 2:     // Knife
-                FireKnife(index);
+                if (!weapon.IsMaster()) {
+                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
+                }
+                else {
+                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
+                }
                 break;
             case 3:     // Axe
                 break;
@@ -34,6 +38,7 @@ public class SkillFiringSystem : MonoBehaviour
             case 6:     // FireWand
                 break;
             case 7:     // Garlic
+                GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[7]].GetComponent<Gralic>().SpawnGralic(weaponPrefabs[7]);
                 break;
             case 8:     // SantaWater
                 break;
@@ -47,22 +52,5 @@ public class SkillFiringSystem : MonoBehaviour
                 break;
         }
     }
-    //ToDo: totalAttackRange 적용하기
-    private void FireKnife(int index)
-    {
-        float timediff = weaponPrefabs[index].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)];
-        timer += Time.deltaTime;
-        if (timer > timediff)
-        {
-            for (int i=0; i<= weaponPrefabs[index].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
-            {
-                GameObject newobs = Instantiate(weaponPrefabs[index]);   //weapon의 index와 monsterPool의 index는 값게 설정
-                newobs.transform.position = GameManager.instance.player.transform.position;
-                newobs.transform.parent = transform;
-                newobs.GetComponent<Weapon>().Shoot(weaponPrefabs[index].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)], GameManager.instance.player.GetComponent<PlayerMovement>().Movement);
-                timer = 0;
-                Destroy(newobs, weaponPrefabs[index].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Duration)]);  //지속 시간 지나면 삭제
-            }
-        }
-    }
+    
 }
