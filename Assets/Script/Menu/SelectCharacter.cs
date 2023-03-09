@@ -8,7 +8,7 @@ public class SelectCharacter : MonoBehaviour
     public void OnClickCharacter()
     {
         DataManager.instance.currentCharcter=charname;
-        
+        Debug.Log(DataManager.instance.currentCharcter);
 
     }
 }
