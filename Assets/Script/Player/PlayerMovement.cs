@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;    //입력값
     private Vector2 clickTarget;    //마우스 클릭
     private float moveSpeed = 8f;   //속도
+   // private Sprite[] charSprites;
     bool moving;
 
     [SerializeField] Rigidbody2D rb;    //리디지바디
@@ -18,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        Debug.Log(DataManager.instance.currentCharcter);
+        string resourceName = "Animator/" + DataManager.instance.currentCharcter;
+       
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
+           
     }
     void Start()
     {
