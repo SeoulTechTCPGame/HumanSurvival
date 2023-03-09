@@ -15,11 +15,7 @@ public class DataManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    public void  SetCharacterName(CharacterName c)
-    {
-        CharacterName currentCharcter=c;
-        Debug.Log(currentCharcter);
-    }
+   
         
 }
 
