@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;    //입력값
     private Vector2 clickTarget;    //마우스 클릭
     private float moveSpeed = 8f;   //속도
+   // private Sprite[] charSprites;
     bool moving;
 
     [SerializeField] Rigidbody2D rb;    //리디지바디
@@ -18,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
+        //애니메이터 파일 이름을 설정 ex> Animator/Heroknight
+        string resourceName = "Animator/" + DataManager.instance.currentCharcter;
+       //실행중에 에니메이터 바꾸기. Resources.Load()는 path의 파일을 load한다. Asset>Resource가 root 경로
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
+           
     }
     void Start()
     {
