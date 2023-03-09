@@ -1254,6 +1254,20 @@ MonoBehaviour:
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
+  evolutionWeaponPrefabs:
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
 --- !u!4 &1142057798
 Transform:
   m_ObjectHideFlags: 0
@@ -1262,7 +1276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142057796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3717073, y: 1.1682914, z: 10.707074}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
