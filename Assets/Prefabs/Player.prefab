@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8752795522729509839}
-  spriter: {fileID: 0}
+  spriter: {fileID: 6553961692257777007}
   animator: {fileID: -6732184727074694340}
 --- !u!114 &1531688282230669326
 MonoBehaviour:
@@ -220,11 +220,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d482cda60995b9e4188a714708017848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevepUpUI: {fileID: 0}
-  CharacterStats: []
   Weapons: []
   MasteredWeapons: 
   MasteredAccessories: 
+  skillFiringSystem: {fileID: 0}
+  TransWeaponIndex: 
+  TransAccessoryIndex: 
+  LevepUpUI: {fileID: 0}
+  HpBar: {fileID: 0}
+  CharacterStats: []
 --- !u!114 &7757571355129539571
 MonoBehaviour:
   m_ObjectHideFlags: 0
