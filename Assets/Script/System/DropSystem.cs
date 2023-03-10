@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DropSystem : MonoBehaviour
 {
+    public GameObject dropsObj;
     [System.Serializable]
     public class Drops
     {
@@ -11,12 +12,13 @@ public class DropSystem : MonoBehaviour
         public int prefabsIndex;
         public float dropRate;
     }
+    
     public List<Drops> drops;
-     public void OnDrop()
+     public void OnDrop(Vector2 pos)
     {
         //로직 1. 적이 죽으면 랜덤 넘버 생성(아이템 확률)
         float randomNumber = UnityEngine.Random.Range(0f, 100f);
-
+        dropsObj = GameObject.Find("--DropObj--");
         //로직 3.
         List<Drops> posibleDrops = new List<Drops>();
         foreach(Drops rate in drops)
@@ -29,11 +31,7 @@ public class DropSystem : MonoBehaviour
         {   
             //로직 4.
             Drops drops = posibleDrops[UnityEngine.Random.Range(0, posibleDrops.Count)];
-            //Instantiate(drops.itemPrefabs, transform.position, Quaternion.identity);
-            GameObject dropObj=GameManager.instance.pool.Get(drops.name,drops.prefabsIndex);
-            dropObj.transform.position = transform.position;
-            dropObj.transform.parent = transform;
+            dropsObj.GetComponent<DropSpawner>().Spawn(transform.position,drops.name, drops.prefabsIndex);
         }
-        
     }
 }

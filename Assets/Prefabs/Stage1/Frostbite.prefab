@@ -159,10 +159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropsObj: {fileID: 0}
   drops:
-  - name: hp
-    itemPrefabs: {fileID: 3536152229503077200, guid: bfe51152093a5ef40bf93340dc20ff55, type: 3}
-    dropRate: 50
+  - name: heart
+    prefabsIndex: 0
+    dropRate: 100
   - name: coin
-    itemPrefabs: {fileID: 5073338675276140225, guid: b77369b8a23a3fb458e4e4ca2504c1f0, type: 3}
-    dropRate: 50
+    prefabsIndex: 0
+    dropRate: 100

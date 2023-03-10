@@ -6,8 +6,9 @@ public class PoolManager : MonoBehaviour
     public GameObject[] enemyPrefabs; // 프리펩들을 보관할 변수.
     List<GameObject>[] enemyPools; // 풀 담당을 하는 리스트들
 
-    List<GameObject>[] targetPool;
     GameObject[] targetPrefab;
+    List<GameObject>[] targetPool;
+
     public GameObject[] expPrefabs;
     List<GameObject>[] expPools;
     public GameObject[] coinPrefabs;
@@ -19,6 +20,8 @@ public class PoolManager : MonoBehaviour
     {
         enemyPools = new List<GameObject>[enemyPrefabs.Length];
         expPools = new List<GameObject>[expPrefabs.Length];
+        coinPools = new List<GameObject>[coinPrefabs.Length];
+        heartPools = new List<GameObject>[heartPrefabs.Length];
 
         // 인스펙터에서 초기화
         for (int index = 0; index < enemyPools.Length; index++)
@@ -31,7 +34,7 @@ public class PoolManager : MonoBehaviour
             heartPools[index] = new List<GameObject>();
     }
     public GameObject Get(string type,int index) //게임 오브젝트 반환 함수
-    {   
+    {
         switch (type)
         {
             case "enemy":
@@ -46,11 +49,13 @@ public class PoolManager : MonoBehaviour
             case "heart":
                 targetPool = heartPools;
                 targetPrefab = heartPrefabs;
+                Debug.Log("heart pooling");
                 break;
 
             case "coin":
                 targetPool = coinPools;
                 targetPrefab = coinPrefabs;
+                Debug.Log("coin pooling");
                 break;
         }
         GameObject select = null;
@@ -72,7 +77,6 @@ public class PoolManager : MonoBehaviour
             select = Instantiate(targetPrefab[index], transform);
             targetPool[index].Add(select);
         }
-
         return select;
     }
     public void Clear(int index)

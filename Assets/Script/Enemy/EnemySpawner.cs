@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 position = GenerateRandomPos();
         position += player.transform.position;
 
-        GameObject newEnemy= GameManager.instance.pool.Get("enemy", level);
+        GameObject newEnemy= GameManager.instance.pool.Get("enemy",level);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
 

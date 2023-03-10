@@ -12,6 +12,8 @@ public class ExperiencePickUp : MonoBehaviour,ICollectible
         Character character = GameManager.instance.character;
         //Todo : character grouth stat 
         character.GetExp(expGranted);
-        Destroy(gameObject);
-;    }
+        gameObject.SetActive(false);
+
+        ;
+    }
 }

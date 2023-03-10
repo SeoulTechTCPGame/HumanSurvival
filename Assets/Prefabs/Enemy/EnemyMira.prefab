@@ -246,7 +246,6 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
   health: 0
   maxHealth: 0
-  animcon: []
   target: {fileID: 0}
 --- !u!114 &3147115563545930466
 MonoBehaviour:
@@ -261,6 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - name: Exp
+  - name: exp
     prefabsIndex: 2
     dropRate: 100

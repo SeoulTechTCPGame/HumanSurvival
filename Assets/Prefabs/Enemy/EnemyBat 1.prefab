@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8531361723829270703}
   - component: {fileID: 8737480394920996120}
   m_Layer: 7
-  m_Name: EnemyBat
+  m_Name: EnemyBat 1
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,6 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
   health: 0
   maxHealth: 0
-  animcon: []
   target: {fileID: 0}
 --- !u!95 &8531361723829270703
 Animator:
@@ -186,6 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - name: Exp
+  - name: exp
     prefabsIndex: 0
     dropRate: 100

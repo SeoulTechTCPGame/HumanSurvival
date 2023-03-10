@@ -5,11 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour,IDamageable
 {
     public EnemyScriptableObject enemyData;
-    public float health;
-    public float maxHealth;
+    public Rigidbody2D target;
+    
+    float health;
+    float maxHealth;
     bool isLive ;
 
-    public Rigidbody2D target;
+    DropSystem drops;
     Character targetCharacter;
     GameObject targetGameObject;
 
@@ -18,7 +20,6 @@ public class Enemy : MonoBehaviour,IDamageable
     SpriteRenderer spriter;
     Animator anim;
     WaitForFixedUpdate wait;
-    DropSystem drop;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,8 +27,6 @@ public class Enemy : MonoBehaviour,IDamageable
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
         wait = new WaitForFixedUpdate();
-        drop = GetComponent<DropSystem>();
-
     }
     void FixedUpdate()
     {
@@ -65,7 +64,6 @@ public class Enemy : MonoBehaviour,IDamageable
     public void InitEnemy(EnemyScriptableObject data)  //각각의 몬스터 데이터 설정 함수
     {
         enemyData = data;
-        //anim.runtimeAnimatorController = animcon[enemyData.SpriteType];
     }
     private void OnCollisionStay2D(Collision2D col)
     {
@@ -83,10 +81,8 @@ public class Enemy : MonoBehaviour,IDamageable
     }  
     void Dead()
     {
-        // object 비활성화
-        Debug.Log("비활성화");
-        // enemyData.Xp
-        drop.OnDrop();
+        //경험치 drop
+        gameObject.GetComponent<DropSystem>().OnDrop(rb.transform.position);
         gameObject.SetActive(false);
 
     }
