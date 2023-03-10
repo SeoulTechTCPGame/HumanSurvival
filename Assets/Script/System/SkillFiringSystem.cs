@@ -5,16 +5,14 @@ using UnityEngine;
 public class SkillFiringSystem : MonoBehaviour
 {
     public GameObject[] weaponPrefabs; //무기 프리팹
-
+    public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
     void Update()
     {
         foreach (var weapon in GameManager.instance.player.GetComponent<Character>().Weapons)
         {
-            Debug.Log(weapon.WeaponIndex);
             Attack(weapon);
         }
     }
-
     private void Attack(Weapon weapon)
     {
         switch (weapon.WeaponIndex)
@@ -24,7 +22,12 @@ public class SkillFiringSystem : MonoBehaviour
             case 1:     // MagicWand
                 break;
             case 2:     // Knife
-                GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
+                if (!weapon.IsMaster()) {
+                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
+                }
+                else {
+                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
+                }
                 break;
             case 3:     // Axe
                 break;
