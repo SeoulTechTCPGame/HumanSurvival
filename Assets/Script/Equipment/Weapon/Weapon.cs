@@ -43,7 +43,12 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-
+    //진화 조건 충족 확인
+    private void isEvoluction()
+    {
+        bool evoluction = IsMaster();
+        //knife 팔목 보호대 장신구 보유 확인
+    }
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
