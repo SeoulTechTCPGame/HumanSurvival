@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 9127071239993843721}
   - component: {fileID: 9127071239993843720}
   - component: {fileID: 9127071239993843725}
+  - component: {fileID: 3147115563545930466}
   m_Layer: 7
   m_Name: EnemyMira
   m_TagString: Monster
@@ -243,10 +244,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
-  speed: 1
   health: 0
   maxHealth: 0
-  enemyDamage: 0
-  exp: 0
-  animcon: []
   target: {fileID: 0}
+--- !u!114 &3147115563545930466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127071239993843719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: exp
+    prefabsIndex: 2
+    dropRate: 100

@@ -7,10 +7,8 @@ public class HealthPotion : MonoBehaviour,ICollectible
     public int healthToRestore;
     public void Collect()
     {
-        Character character = FindObjectOfType<Character>();
+        Character character = GameManager.instance.character;
         character.RestoreHealth(healthToRestore);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
-
-  
 }

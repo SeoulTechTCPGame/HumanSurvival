@@ -30,7 +30,7 @@ public class Character : EquipmentManagementSystem,IDamageable
     private int mNumberOfProjectiles = 1;     //????? ??
 
     private int mLevel;
-    private int mExp;
+    private float mExp;
     private int mMaxExp;
 
     public float[] CharacterStats;
@@ -63,6 +63,7 @@ public class Character : EquipmentManagementSystem,IDamageable
     }
     public void RestoreHealth(float amount)
     {
+        Debug.Log("Ã¼·Â"+amount);
         if(currentHp< (int)Enums.Stat.MaxHealth)
         { 
             currentHp += amount;
@@ -75,7 +76,6 @@ public class Character : EquipmentManagementSystem,IDamageable
     {
         if (isDead == true) return;
         currentHp -= damage;
-        Debug.Log(currentHp);
         if (currentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
@@ -91,7 +91,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         LevelUp();
     }
 
-    public void GetExp(int exp)
+    public void GetExp(float exp)
     {
         // TODO: stat?? growth ??????? ????? ???
 
@@ -102,11 +102,12 @@ public class Character : EquipmentManagementSystem,IDamageable
             mMaxExp += Constants.DeltaExp;
             LevelUp();
         }
-        Debug.Log(mExp);
+        Debug.Log("Exp:"+mExp);
     }
     public void LevelUp()
     {
         mLevel++;
+        GameManager.instance.level++;
         GameObject.Find("GameManager").GetComponent<GameManager>().PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(this);
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, Weapons, Accessories);
@@ -116,6 +117,8 @@ public class Character : EquipmentManagementSystem,IDamageable
         RandomPickUpSystem.UpdateWeaponPickUpList(this);
         RandomPickUpSystem.UpdateAccessoryPickUpList(this);
     }
+
+
     //Get,Set??? ??? ????
     public float Damage
     {
