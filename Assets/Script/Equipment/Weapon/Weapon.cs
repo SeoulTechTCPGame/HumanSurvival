@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     private float enemyHealth;
 
     private float[] WeaponStats;
-    private float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    public float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
 
     private EquipmentData EquipmentData;
     private PoolManager pool;
@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
         bool evoluction = IsMaster();
         //knife �ȸ� ��ȣ�� ��ű� ���� Ȯ��
     }
-    protected virtual void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
         {
@@ -62,8 +62,9 @@ public class Weapon : MonoBehaviour
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[WeaponIndex]].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
-            Debug.Log("Monster Hit");
+            Debug.Log(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+            
         }
         // for(int i = 0; i < col.Length; i++)
         // {
