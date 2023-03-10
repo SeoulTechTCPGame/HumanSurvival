@@ -7,8 +7,8 @@ using System.Linq;
 
 public class Weapon : MonoBehaviour
 {
-    //¹«±âÀÇ ½ºÅÈ ÁöÁ¤
-    //¿¹½Ã¸¦ À§ÇØ °ªÀº ¹«ÀÛÀ§·Î ³ÖÀ½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public int WeaponIndex;
     public int WeaponLevel;
     public int WeaponMaxLevel;
@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     private float enemyHealth;
 
     private float[] WeaponStats;
-    private float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    public float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
 
     private EquipmentData EquipmentData;
     private PoolManager pool;
@@ -43,32 +43,42 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-    //ÁøÈ­ Á¶°Ç ÃæÁ· È®ÀÎ
+    //ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     private void isEvoluction()
     {
         bool evoluction = IsMaster();
-        //knife ÆÈ¸ñ º¸È£´ë Àå½Å±¸ º¸À¯ È®ÀÎ
+        //knife ï¿½È¸ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     }
-    protected virtual void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                Debug.Log("»ç¹° hit");
+                Debug.Log("ï¿½ç¹° hit");
                 destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)]);
 
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(GameManager.instance.player.GetComponent<Character>().Weapons[WeaponIndex].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
-            Debug.Log("Monster Hit");
+            Debug.Log(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+            
         }
+        // for(int i = 0; i < col.Length; i++)
+        // {
+        //     IDamageable e = col[i].GetComponent<IDamageable>();
+        //     if(e != null)
+        //     {
+        //         e.TakeDamage(GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[WeaponIndex]].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+        //     }
+        // }
     }
 
-    //¾Æ·¡ °è»êÀ» ÇÑ¹ø¿¡ ÇÏ±â
-    //ToDo: ·¹º§¾÷ ÇÒ¶§¸¶´Ù °»½ÅÇÏ´Â °ÍÀ¸·Î º¯°æ
+
+    //ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½
+    //ToDo: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void AttackCalculation()
     {
         DamageCalculation();
