@@ -65,8 +65,6 @@ public class Enemy : MonoBehaviour,IDamageable
     {
         enemyData = data;
         anim.runtimeAnimatorController = animcon[enemyData.SpriteType];
-        
-
     }
     private void OnCollisionStay2D(Collision2D col)
     {
