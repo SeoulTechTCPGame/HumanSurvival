@@ -30,7 +30,7 @@ public class Character : EquipmentManagementSystem,IDamageable
     private int mNumberOfProjectiles = 1;     //????? ??
 
     private int mLevel;
-    private int mExp;
+    private float mExp;
     private int mMaxExp;
 
     public float[] CharacterStats;
@@ -91,7 +91,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         LevelUp();
     }
 
-    public void GetExp(int exp)
+    public void GetExp(float exp)
     {
         // TODO: stat?? growth ??????? ????? ???
 

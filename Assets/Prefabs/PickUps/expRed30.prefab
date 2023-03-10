@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 940963522532966023}
   - component: {fileID: 5740431746495080213}
   m_Layer: 0
-  m_Name: CoinBlue
+  m_Name: expRed30
   m_TagString: ExpObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -959104337
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9985099e50905d14b8535b4359ce4b35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d5fdf983e5366c04787e665939474225, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010101eb7c0ecd24686b86fc15e96d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expGranted: 100
+  expGranted: 30

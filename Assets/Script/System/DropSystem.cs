@@ -8,11 +8,11 @@ public class DropSystem : MonoBehaviour
     public class Drops
     {
         public string name;
-        public GameObject itemPrefabs;
+        public int prefabsIndex;
         public float dropRate;
     }
     public List<Drops> drops;
-     void OnDestroy()
+     public void OnDrop()
     {
         //로직 1. 적이 죽으면 랜덤 넘버 생성(아이템 확률)
         float randomNumber = UnityEngine.Random.Range(0f, 100f);
@@ -29,7 +29,10 @@ public class DropSystem : MonoBehaviour
         {   
             //로직 4.
             Drops drops = posibleDrops[UnityEngine.Random.Range(0, posibleDrops.Count)];
-            Instantiate(drops.itemPrefabs, transform.position, Quaternion.identity);
+            //Instantiate(drops.itemPrefabs, transform.position, Quaternion.identity);
+            GameObject dropObj=GameManager.instance.pool.Get(drops.name,drops.prefabsIndex);
+            dropObj.transform.position = transform.position;
+            dropObj.transform.parent = transform;
         }
         
     }

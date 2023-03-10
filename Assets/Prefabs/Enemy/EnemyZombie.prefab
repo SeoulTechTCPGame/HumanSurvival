@@ -264,6 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - name: ExpObj
-    itemPrefabs: {fileID: 3915139561794565461, guid: c4e03ee29601fef4191b6e1a8caa01ec, type: 3}
-    dropRate: 90
+  - name: Exp
+    prefabsIndex: 5
+    dropRate: 100

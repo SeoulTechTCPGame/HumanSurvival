@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour,IDamageable
     public float maxHealth;
     bool isLive ;
 
-    public RuntimeAnimatorController[] animcon;
     public Rigidbody2D target;
     Character targetCharacter;
     GameObject targetGameObject;
@@ -19,6 +18,7 @@ public class Enemy : MonoBehaviour,IDamageable
     SpriteRenderer spriter;
     Animator anim;
     WaitForFixedUpdate wait;
+    DropSystem drop;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour,IDamageable
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
         wait = new WaitForFixedUpdate();
+        drop = GetComponent<DropSystem>();
 
     }
     void FixedUpdate()
@@ -61,17 +62,16 @@ public class Enemy : MonoBehaviour,IDamageable
         anim.SetBool("Dead", false);  //TODO: Fix code location
     }
 
-    public void Init(EnemyScriptableObject data)  //각각의 몬스터 데이터 설정 함수
+    public void InitEnemy(EnemyScriptableObject data)  //각각의 몬스터 데이터 설정 함수
     {
         enemyData = data;
-        anim.runtimeAnimatorController = animcon[enemyData.SpriteType];
+        //anim.runtimeAnimatorController = animcon[enemyData.SpriteType];
     }
     private void OnCollisionStay2D(Collision2D col)
     {
      
         if (col.gameObject ==targetGameObject) { 
             Attack();
-            Debug.Log("부딪힘");
         }
     }
     void Attack() {
@@ -85,7 +85,10 @@ public class Enemy : MonoBehaviour,IDamageable
     {
         // object 비활성화
         Debug.Log("비활성화");
+        // enemyData.Xp
+        drop.OnDrop();
         gameObject.SetActive(false);
+
     }
   
     public void TakeDamage(float damage)
@@ -106,9 +109,6 @@ public class Enemy : MonoBehaviour,IDamageable
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
-            targetCharacter.GetExp(enemyData.Xp);
-            GameManager.instance.exp += enemyData.Xp;
-
             Dead();
         }
     }

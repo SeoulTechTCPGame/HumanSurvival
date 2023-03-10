@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 807355772286374462}
   - component: {fileID: -1377271983600501788}
   - component: {fileID: 8531361723829270703}
+  - component: {fileID: 8737480394920996120}
   m_Layer: 7
   m_Name: EnemyBat
   m_TagString: Monster
@@ -148,11 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-  speed: 1
   health: 0
   maxHealth: 0
-  enemyDamage: 0
-  exp: 0
   animcon: []
   target: {fileID: 0}
 --- !u!95 &8531361723829270703
@@ -175,3 +173,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8737480394920996120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807355772286374456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Exp
+    prefabsIndex: 0
+    dropRate: 100

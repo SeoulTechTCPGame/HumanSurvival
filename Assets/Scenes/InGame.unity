@@ -1209,8 +1209,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751ca0d69d8941e4aa81da1793d1f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
+  enemyPrefabs:
+  - {fileID: 807355772286374456, guid: 52ade92432b1ba64b9a621a71c979f77, type: 3}
+  - {fileID: 9127071239993843719, guid: fca21f12d44d59346abba0164516d799, type: 3}
   - {fileID: 1886036213109440174, guid: c1ccc03b76848804faf85e0437349fc5, type: 3}
+  expPrefabs:
+  - {fileID: 3915139561794565461, guid: bb17956b9b777e743b643480f8b43503, type: 3}
+  - {fileID: 3915139561794565461, guid: c22fbf40d947c8e49b8b055d4fb021aa, type: 3}
+  - {fileID: 3915139561794565461, guid: b58de7ec79a79624abb9c69dfb87fe6b, type: 3}
+  - {fileID: 3915139561794565461, guid: c4e03ee29601fef4191b6e1a8caa01ec, type: 3}
+  - {fileID: 3915139561794565461, guid: 73855f6c12a54da4bba02b90ca8396f2, type: 3}
+  - {fileID: 3915139561794565461, guid: 4f96e204292400d4eb5f2d3f77a50310, type: 3}
+  coinPrefabs:
+  - {fileID: 5073338675276140225, guid: b77369b8a23a3fb458e4e4ca2504c1f0, type: 3}
+  heartPrefabs:
+  - {fileID: 3536152229503077200, guid: bfe51152093a5ef40bf93340dc20ff55, type: 3}
 --- !u!1 &1142057796
 GameObject:
   m_ObjectHideFlags: 0
