@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837802467851809212}
   - component: {fileID: 837802467851809213}
+  - component: {fileID: 7477144898814862941}
   m_Layer: 0
   m_Name: UserData
   m_TagString: Untagged
@@ -44,3 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0e9c0c2411b41418415192006a2eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SavePath: 
+--- !u!114 &7477144898814862941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837802467851809202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244111182b613e540a54ca29723e41ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UserDataSet:
+    Gold: 0
+    Options: 
+    PowerUps: 
+    Achievements: 
+    Collection: 
+    UnlockStages: 

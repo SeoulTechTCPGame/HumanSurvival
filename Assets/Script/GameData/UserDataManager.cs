@@ -13,6 +13,7 @@ public class UserData
     public bool[] Achievements;
     public bool[] Collection;
     public bool[] UnlockStages;
+    public bool[] UnlockCharacters;
 }
 public class UserDataManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class UserDataManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        SavePath = Application.persistentDataPath + "/SaveData/";
+        SavePath = Application.persistentDataPath + "/";
     }
     void Start()
     {
@@ -49,8 +50,8 @@ public class UserDataManager : MonoBehaviour
     }
     public void SaveData()
     {
-        string data = JsonUtility.ToJson(instance);
-        File.WriteAllText(SavePath + "UserSaveData", data);
+        string data = JsonUtility.ToJson(UserInfo.instance.UserDataSet);
+        File.WriteAllText(SavePath + "UserSaveData.json", data);
     }
     public void LoadData()
     {
@@ -68,8 +69,8 @@ public class UserDataManager : MonoBehaviour
     }
     public void DataReset()
     {
-        string data = File.ReadAllText(SavePath + "DefaultUserData");
-        UserInfo.instance.UserDataSet = JsonUtility.FromJson<UserData>(data);
+        TextAsset textData = Resources.Load("GameData/DefaultUserData") as TextAsset;
+        UserInfo.instance.UserDataSet = JsonUtility.FromJson<UserData>(textData.text);
         SaveData();
     }
 }

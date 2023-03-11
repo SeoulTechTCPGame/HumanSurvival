@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,20 +16,20 @@ public class DropSystem : MonoBehaviour
     public List<Drops> drops;
      public void OnDrop(Vector2 pos)
     {
-        //·ÎÁ÷ 1. ÀûÀÌ Á×À¸¸é ·£´ı ³Ñ¹ö »ı¼º(¾ÆÀÌÅÛ È®·ü)
+        //ë¡œì§ 1. ì ì´ ì£½ìœ¼ë©´ ëœë¤ ë„˜ë²„ ìƒì„±(ì•„ì´í…œ í™•ë¥ )
         float randomNumber = UnityEngine.Random.Range(0f, 100f);
         dropsObj = GameObject.Find("--DropObj--");
-        //·ÎÁ÷ 3.
+        //ë¡œì§ 3.
         List<Drops> posibleDrops = new List<Drops>();
         foreach(Drops rate in drops)
         {   
-            //·ÎÁ÷ 2
+            //ë¡œì§ 2
             if (randomNumber <= rate.dropRate) posibleDrops.Add(rate);
         }       
-        //drop possible ÀÎÁö È®ÀÎ
+        //drop possible ì¸ì§€ í™•ì¸
         if (posibleDrops.Count > 0)
         {   
-            //·ÎÁ÷ 4.
+            //ë¡œì§ 4.
             Drops drops = posibleDrops[UnityEngine.Random.Range(0, posibleDrops.Count)];
             dropsObj.GetComponent<DropSpawner>().Spawn(transform.position,drops.name, drops.prefabsIndex);
         }

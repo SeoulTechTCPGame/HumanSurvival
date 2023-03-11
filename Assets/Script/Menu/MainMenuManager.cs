@@ -19,18 +19,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] int mSelectState;
     void Start()
     {
-        // TODO: Read user data
-        UserInfo.instance.UserDataSet.Gold = 100;
-        for(int i = 0; i < Constants.itemCount; i++){
-            UserInfo.instance.UserDataSet.Collection[i] = false;
-        }
-        for(int i = 0; i < Constants.achiCount; i++){
-            UserInfo.instance.UserDataSet.Achievements[i] = false;
-        }
-        // Example for item
-        // UserInfo.userAchi[0] = true;
-        // UserInfo.userItem[0] = true;
-
         mSelectState = (int)State.CharacterSelection;
         setSelect(mButtons[mSelectState]);
         SetMoneyText();

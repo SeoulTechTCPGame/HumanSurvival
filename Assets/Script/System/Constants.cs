@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ static class Constants
     public const int MaxEtcNumber = 2;
     public const int MaxWeaponNumber = 13;
     public const int MaxAccessoryNumber = 21;
-    public const int itemCount = 131;
-    public const int achiCount = 159;
+    public const int itemCount = 132;
+    public const int achiCount = 160;
     public const int DeltaExp = 10;
 }

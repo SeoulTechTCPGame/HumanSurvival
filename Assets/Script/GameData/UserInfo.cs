@@ -7,10 +7,24 @@ public class UserInfo : MonoBehaviour
 {
     public static UserInfo instance;
     public UserData UserDataSet;
+    public const int jumpAccessory = 58;
+    public const int jumpStage = 0;
     // 
-    void UpdateGold(int nowGold)
+    private void Awake()
     {
-        UserDataSet.Gold = nowGold;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+    void getGold(int gold)
+    {
+        UserDataSet.Gold += gold;
         UserDataManager.instance.SaveData();
     }
     void UpdateColldection(List<int> weaponIndexes, List<int> accessoryIndexes)
@@ -32,6 +46,7 @@ public class UserInfo : MonoBehaviour
         {
             UserDataSet.Achievements[index] = true;
         }
+        // 보상 관련 적용?
         UserDataManager.instance.SaveData();
     }
     void UnlockCharacter(int characterIndex)
@@ -53,5 +68,21 @@ public class UserInfo : MonoBehaviour
     {
         // TODO: Option기능 완성되면 추가
         UserDataManager.instance.SaveData();
+    }
+    bool IsWeaponUnlock(int weaponIndex)
+    {
+        return UserDataSet.Collection[(weaponIndex << 1) | 1];
+    }
+    bool IsAccessoryUnlock(int accessoryIndex)
+    {
+        return UserDataSet.Collection[accessoryIndex + jumpAccessory];
+    }
+    bool IsCharacterUnlock(int characterIndex)
+    {
+        return UserDataSet.UnlockCharacters[characterIndex];
+    }
+    bool IsStageUnlock(int stageIndex)
+    {
+        return UserDataSet.UnlockStages[stageIndex];
     }
 }
