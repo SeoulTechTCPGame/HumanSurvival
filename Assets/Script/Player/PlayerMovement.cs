@@ -1,28 +1,28 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    private Vector2 movement;    //ÀÔ·Â°ª
-    private Vector2 clickTarget;    //¸¶¿ì½º Å¬¸¯
-    private float moveSpeed = 8f;   //¼Óµµ
+    private Vector2 movement;    //ì…ë ¥ê°’
+    private Vector2 clickTarget;    //ë§ˆìš°ìŠ¤ í´ë¦­
+    private float moveSpeed = 8f;   //ì†ë„
    // private Sprite[] charSprites;
     bool moving;
 
-    [SerializeField] Rigidbody2D rb;    //¸®µğÁö¹Ùµğ
-    [SerializeField] SpriteRenderer spriter;    //½ºÇÁ¶óÀÌÆ®
-    [SerializeField] Animator animator;  //¾Ö´Ï¸ŞÀÌ¼Ç
+    [SerializeField] Rigidbody2D rb;    //ë¦¬ë””ì§€ë°”ë””
+    [SerializeField] SpriteRenderer spriter;    //ìŠ¤í”„ë¼ì´íŠ¸
+    [SerializeField] Animator animator;  //ì• ë‹ˆë©”ì´ì…˜
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
-        //¾Ö´Ï¸ŞÀÌÅÍ ÆÄÀÏ ÀÌ¸§À» ¼³Á¤ ex> Animator/Heroknight
+        //ì• ë‹ˆë©”ì´í„° íŒŒì¼ ì´ë¦„ì„ ì„¤ì • ex> Animator/Heroknight
         string resourceName = "Animator/" + DataManager.instance.currentCharcter;
-       //½ÇÇàÁß¿¡ ¿¡´Ï¸ŞÀÌÅÍ ¹Ù²Ù±â. Resources.Load()´Â pathÀÇ ÆÄÀÏÀ» loadÇÑ´Ù. Asset>Resource°¡ root °æ·Î
+       //ì‹¤í–‰ì¤‘ì— ì—ë‹ˆë©”ì´í„° ë°”ê¾¸ê¸°. Resources.Load()ëŠ” pathì˜ íŒŒì¼ì„ loadí•œë‹¤. Asset>Resourceê°€ root ê²½ë¡œ
         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
     }
     void Start()
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        // click ÀÌº¥Æ®
+        // click ì´ë²¤íŠ¸
         if (Input.GetMouseButtonDown(0))
         {
             clickTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,12 +39,12 @@ public class PlayerMovement : MonoBehaviour
             moving = true;
         }
     }
-    private void FixedUpdate()//¹°¸® °è»ê ÇÒ ¶§ »ç¿ë
+    private void FixedUpdate()//ë¬¼ë¦¬ ê³„ì‚° í•  ë•Œ ì‚¬ìš©
     {
-        //movement Á¶Á¤
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  //ÀÌÀü ÇÑ ÇÁ·¹ÀÓ ¼öÇà ½Ã°£
+        //movement ì¡°ì •
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  //ì´ì „ í•œ í”„ë ˆì„ ìˆ˜í–‰ ì‹œê°„
 
-        //click ½Ã movement ÄÚµå
+        //click ì‹œ movement ì½”ë“œ
         if (moving && rb.position != clickTarget)
         {
             float step = moveSpeed * Time.fixedDeltaTime;
@@ -57,9 +57,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LateUpdate()   //¸ğµç Update ÇÔ¼ö°¡ È£ÃâµÈ ÈÄ, ¸¶Áö¸·À¸·Î È£ÃâµÇ´Â ÇÔ¼ö
+    private void LateUpdate()   //ëª¨ë“  Update í•¨ìˆ˜ê°€ í˜¸ì¶œëœ í›„, ë§ˆì§€ë§‰ìœ¼ë¡œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     {
-        //Å°º¸µå·Î ¿òÁ÷ÀÓ È®ÀÎ
+        //í‚¤ë³´ë“œë¡œ ì›€ì§ì„ í™•ì¸
         if (movement.magnitude != 0)
         {
             animator.SetBool("Moving", true);
@@ -70,12 +70,12 @@ public class PlayerMovement : MonoBehaviour
         }
         animator.SetFloat("Speed", movement.magnitude);
 
-        if (movement.x != 0)    //xÀÇ ÀÔ·Â°ªÀÌ ÀÖ´Â °æ¿ì
+        if (movement.x != 0)    //xì˜ ì…ë ¥ê°’ì´ ìˆëŠ” ê²½ìš°
         {
-            spriter.flipX = movement.x < 0; //¹æÇâ µÚÁı±â
+            spriter.flipX = movement.x < 0; //ë°©í–¥ ë’¤ì§‘ê¸°
         }
     }
-    private void OnMove(InputValue value)   //InputSystemÀ¸·Î Å°ÀÔ·ÂÀ» ¹Ş´Â ÇÔ¼ö
+    private void OnMove(InputValue value)   //InputSystemìœ¼ë¡œ í‚¤ì…ë ¥ì„ ë°›ëŠ” í•¨ìˆ˜
     {
         movement = value.Get<Vector2>();
     }

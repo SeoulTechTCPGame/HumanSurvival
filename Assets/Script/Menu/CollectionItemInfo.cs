@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +9,7 @@ using TMPro;
 
 public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
 {
-    [SerializeField] int mWeapon;
+    [SerializeField] int mItemIndex;
     [SerializeField] Image mItemImage;
     [SerializeField] Image mThisItemIamge;
     [SerializeField] Sprite mBlackImage;
@@ -26,7 +26,7 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
 
     // Start is called before the first frame update
     void Start(){
-        switch(mWeapon){
+        switch(mItemIndex){
             case 1:
                 this.mItemName = "채찍[Whip]";
                 this.mExplain = "좌우로 적을 관통해 공격합니다.(Attacks horizontally, passes through enemies.)";
@@ -814,7 +814,7 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 break;
         }
         
-        if (!UserInfo.IsUserItem[mWeapon-1]) {
+        if (!UserInfo.instance.UserDataSet.Collection[mItemIndex]) {
             this.mItemName = "???";
             this.mExplain = "아직 발견하지 못했습니다.";
             if(this.mRank == "black"){

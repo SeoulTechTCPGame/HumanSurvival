@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("# Game Control")]
     public float gameTime;
-    public float maxGameTime = 2 * 10f; //20ÃÊ
+    public float maxGameTime = 2 * 10f; //20ì´ˆ
 
     [Header("# Player Info")]
     public Character character;
@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
-        player.enabled = false; // Character object ºñÈ°¼ºÈ­
+        player.enabled = false; // Character object ë¹„í™œì„±í™”
         pool.enabled = false;
-        gameoverPanel.SetActive(true); // ÆÇ³Ú È°¼ºÈ­
+        gameoverPanel.SetActive(true); // íŒë„¬ í™œì„±í™”
 
     }
     public void GetCoin(int amount)

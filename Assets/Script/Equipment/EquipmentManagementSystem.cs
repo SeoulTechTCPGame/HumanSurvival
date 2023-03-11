@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -11,8 +11,8 @@ public class EquipmentManagementSystem : MonoBehaviour
     public List<int> MasteredWeapons;
     public List<int> MasteredAccessories;
     public SkillFiringSystem skillFiringSystem;
-    public int[] TransWeaponIndex; // ÇØ´ç indexÀÇ weaponÀÌ ÇöÀç º¸À¯ÁßÀÎ WeaponsÀÇ ¸î ¹øÂ° index¿¡ ÀÖ´ÂÁö ¹İÈ¯ÇÏ´Â ¹è¿­, ¾ø´Ù¸é -1 ¹İÈ¯
-    public int[] TransAccessoryIndex; // À§¿Í °°À¸³ª Accessory¿¡ ÇØ´ç
+    public int[] TransWeaponIndex; // í•´ë‹¹ indexì˜ weaponì´ í˜„ì¬ ë³´ìœ ì¤‘ì¸ Weaponsì˜ ëª‡ ë²ˆì§¸ indexì— ìˆëŠ”ì§€ ë°˜í™˜í•˜ëŠ” ë°°ì—´, ì—†ë‹¤ë©´ -1 ë°˜í™˜
+    public int[] TransAccessoryIndex; // ìœ„ì™€ ê°™ìœ¼ë‚˜ Accessoryì— í•´ë‹¹
 
     void Awake(){ skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>(); }
 
@@ -50,18 +50,18 @@ public class EquipmentManagementSystem : MonoBehaviour
         switch ((Enums.Etc)etcIndex)
         {
             case Enums.Etc.Food:
-                // TODO: Ã¼·Â È¸º¹ ÇÔ¼ö¿Í ¿¬°á
+                // TODO: ì²´ë ¥ íšŒë³µ í•¨ìˆ˜ì™€ ì—°ê²°
                 break;
             case Enums.Etc.Money:
-                // TODO: ÀçÈ­ È¹µæ ÇÔ¼ö¿Í ¿¬°á
+                // TODO: ì¬í™” íšë“ í•¨ìˆ˜ì™€ ì—°ê²°
                 break;
             default:
                 break;
         }
     }
-    //ToDo: SkillFiringSystemÀÌ¶û ¿¬°è ÇÒ ÇÔ¼ö
+    //ToDo: SkillFiringSystemì´ë‘ ì—°ê³„ í•  í•¨ìˆ˜
     public void GetWeapon(int weaponIndex)
-    {
+    { 
         TransWeaponIndex[weaponIndex] = Weapons.Count;
         Weapon newWeapon = (skillFiringSystem.weaponPrefabs[weaponIndex]).GetComponent<Weapon>();
         newWeapon.WeaponDefalutSetting(weaponIndex);
@@ -89,4 +89,5 @@ public class EquipmentManagementSystem : MonoBehaviour
             MasteredAccessories.Add(accessoryIndex);
         }
     }
-}
+} 
+ 

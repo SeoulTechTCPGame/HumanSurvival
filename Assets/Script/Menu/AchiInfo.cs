@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -821,13 +821,13 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
                 break;
         }
 
-        if (UserInfo.IsUserAchi[mAchi-1]) {
+        if (UserInfo.instance.UserDataSet.Achievements[mAchi]) {
             mAchiToggle.GetComponent<Toggle>().isOn = true;
         }
         mThisAchiName.text = this.mExplain;
     }
     public void OnPointerEnter(PointerEventData eventData) {
-        if (UserInfo.IsUserAchi[mAchi-1]) {
+        if (UserInfo.instance.UserDataSet.Achievements[mAchi]) {
             mAchiName.text = "획득";
             mAchiImageBG.color = new Color(0f, 1f, 1f, 1f);
         }

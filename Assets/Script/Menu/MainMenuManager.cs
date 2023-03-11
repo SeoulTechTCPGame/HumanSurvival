@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,18 +19,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] int mSelectState;
     void Start()
     {
-        // TODO: Read user data
-        UserInfo.Money = 100;
-        for(int i = 0; i < Constants.itemCount; i++){
-            UserInfo.IsUserItem[i] = false;
-        }
-        for(int i = 0; i < Constants.achiCount; i++){
-            UserInfo.IsUserAchi[i] = false;
-        }
-        // Example for item
-        // UserInfo.userAchi[0] = true;
-        // UserInfo.userItem[0] = true;
-
         mSelectState = (int)State.CharacterSelection;
         setSelect(mButtons[mSelectState]);
         SetMoneyText();
@@ -111,7 +99,7 @@ public class MainMenuManager : MonoBehaviour
 
     void SetMoneyText()
     {
-        mMoneyText.text = UserInfo.Money.ToString();
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 
     private void setSelect(GameObject nowObject)
