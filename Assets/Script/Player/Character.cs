@@ -63,7 +63,7 @@ public class Character : EquipmentManagementSystem,IDamageable
     }
     public void RestoreHealth(float amount)
     {
-        Debug.Log("Ã¼·Â"+amount);
+        Debug.Log("Ã¼ï¿½ï¿½"+amount);
         if(currentHp< (int)Enums.Stat.MaxHealth)
         { 
             currentHp += amount;

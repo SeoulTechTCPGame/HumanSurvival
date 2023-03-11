@@ -27,11 +27,11 @@ public class UserAchi : MonoBehaviour
     }
 
     void SetCollectionText(){
-        for(int i = 0; i < Constants.achiCount; i++){
+        for(int i = 0; i < Constants.MaxAchievementNumber; i++){
             if(UserInfo.instance.UserDataSet.Achievements[i]){
                 achiCount++;
             }
         }
-        mAchiText.text = "잠금 해제됨 : " + achiCount.ToString() + " / " + Constants.achiCount;
+        mAchiText.text = "잠금 해제됨 : " + achiCount.ToString() + " / " + Constants.MaxAchievementNumber;
     }
 }

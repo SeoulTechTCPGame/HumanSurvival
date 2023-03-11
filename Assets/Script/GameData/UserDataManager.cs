@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
 
 [Serializable]
 public class UserData
@@ -34,7 +36,7 @@ public class UserDataManager : MonoBehaviour
     }
     void Start()
     {
-        if (File.Exists(UserDataManager.instance.SavePath + "UserSaveData"))
+        if (File.Exists(UserDataManager.instance.SavePath + "UserSaveData.json"))
         {
             LoadData();
         }
@@ -55,17 +57,26 @@ public class UserDataManager : MonoBehaviour
     }
     public void LoadData()
     {
-        string data = File.ReadAllText(SavePath + "UserSaveData");
+        string data = File.ReadAllText(SavePath + "UserSaveData.json");
         UserInfo.instance.UserDataSet = JsonUtility.FromJson<UserData>(data);
     }
-    public void LoadData(string file)
+    public bool LoadData(string dataPath)
     {
-        // TODO: 파싱 제대로 되는지 판별 후 진행되도록
+        string data = File.ReadAllText(dataPath);
+        UserData tempData;
+        try
+        {
+            tempData = JsonUtility.FromJson<UserData>(data);
+        }
+        catch (ArgumentException)
+        {
+            return false;
+        }
 
-        string data = File.ReadAllText(file);
-        File.WriteAllText(SavePath + "UserSaveData", data);
+        UserInfo.instance.UserDataSet = tempData;
+        SaveData();
 
-        // TODO: 게임 재시작 시키기
+        return true;
     }
     public void DataReset()
     {
