@@ -27,31 +27,14 @@ public class UserInfo : MonoBehaviour
         UserDataSet.Gold += gold;
         UserDataManager.instance.SaveData();
     }
-    void UpdateColldection(List<int> weaponIndexes, List<int> accessoryIndexes)
+    void UpdateColldection(int collectionIndex)
     {
-        // 임시로 작성
-        //foreach (int index in weaponIndexes)
-        //{
-        //    UserDataSet.Collection[index] = true;
-        //}
-        //foreach (int index in accessoryIndexes)
-        //{
-        //    UserDataSet.Collection[index + Constants.MaxWeaponNumber] = true;
-        //}
+        UserDataSet.Collection[collectionIndex] = true;
         UserDataManager.instance.SaveData();
     }
-    void UpdateAchievement(List<int> achievementIndexes)
+    void UpdateAchievement(int achievementIndexes)
     {
-        foreach (int index in achievementIndexes)
-        {
-            UserDataSet.Achievements[index] = true;
-        }
-        // 보상 관련 적용?
-        UserDataManager.instance.SaveData();
-    }
-    void UnlockCharacter(int characterIndex)
-    {
-        //UserDataSet.UnlockCharacters[characterIndex] = true;
+        UserDataSet.Achievements[achievementIndexes] = true;
         UserDataManager.instance.SaveData();
     }
     void UpdatePowerUp(int powerUpIndex)
@@ -59,14 +42,24 @@ public class UserInfo : MonoBehaviour
         UserDataSet.PowerUps[powerUpIndex]++;
         UserDataManager.instance.SaveData();
     }
-    void UnlockWeapon(int weaponIndex)
-    {
-        //UserDataSet.UnlockWeapons[weaponIndex] = true;
-        UserDataManager.instance.SaveData();
-    }
     void UpdateOption()
     {
         // TODO: Option기능 완성되면 추가
+        UserDataManager.instance.SaveData();
+    }
+    void UnlockCharacter(int characterIndex)
+    {
+        UserDataSet.UnlockCharacters[characterIndex] = true;
+        UserDataManager.instance.SaveData();
+    }
+    void UnlockWeapon(int weaponIndex)
+    {
+        UserDataSet.Collection[(weaponIndex << 1) | 1] = true;
+        UserDataManager.instance.SaveData();
+    }
+    void UnlockAccessory(int accessoryIndex)
+    {
+        UserDataSet.Collection[accessoryIndex + jumpAccessory] = true;
         UserDataManager.instance.SaveData();
     }
     bool IsWeaponUnlock(int weaponIndex)
@@ -76,13 +69,5 @@ public class UserInfo : MonoBehaviour
     bool IsAccessoryUnlock(int accessoryIndex)
     {
         return UserDataSet.Collection[accessoryIndex + jumpAccessory];
-    }
-    bool IsCharacterUnlock(int characterIndex)
-    {
-        return UserDataSet.UnlockCharacters[characterIndex];
-    }
-    bool IsStageUnlock(int stageIndex)
-    {
-        return UserDataSet.UnlockStages[stageIndex];
     }
 }
