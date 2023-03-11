@@ -55,14 +55,12 @@ public class Weapon : MonoBehaviour
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                Debug.Log("�繰 hit");
                 destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)]);
 
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            Debug.Log(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
             col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
             
         }

@@ -244,12 +244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
-  health: 0
-  maxHealth: 0
-  animcon:
-  - {fileID: 22100000, guid: a3bedb3a9ecc9be4cb39be632a24b26f, type: 2}
-  - {fileID: 22100000, guid: 820c77d809ccd844894117bba6b83c57, type: 2}
-  - {fileID: 22100000, guid: b2c752fc4ff55e4469f69dd51599b80a, type: 2}
   target: {fileID: 0}
 --- !u!114 &7129043048481569120
 MonoBehaviour:
@@ -263,7 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropsObj: {fileID: 0}
   drops:
-  - name: ExpObj
-    itemPrefabs: {fileID: 3915139561794565461, guid: c4e03ee29601fef4191b6e1a8caa01ec, type: 3}
-    dropRate: 90
+  - name: exp
+    prefabsIndex: 2
+    dropRate: 100

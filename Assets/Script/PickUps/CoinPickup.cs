@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CoinPickup : MonoBehaviour, ICollectible
 {
-    public int count;
+    public int amount;
     public void Collect()
     {
-        Character character = FindObjectOfType<Character>();
-        //character.GetCoin(count);
+        GameManager.instance.GetCoin(amount);
+        gameObject.SetActive(false);
     }
 }

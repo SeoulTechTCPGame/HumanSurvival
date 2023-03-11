@@ -31,11 +31,11 @@ public class EnemySpawner : MonoBehaviour
         Vector3 position = GenerateRandomPos();
         position += player.transform.position;
 
-        GameObject newEnemy= GameManager.instance.pool.Get(0);
+        GameObject newEnemy= GameManager.instance.pool.Get("enemy",level);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
 
-        newEnemy.GetComponent<Enemy>().Init(spawnData[level]);
+        newEnemy.GetComponent<Enemy>().InitEnemy(spawnData[level]);
     }
 
     private Vector3 GenerateRandomPos()

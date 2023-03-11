@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Update()
     {
@@ -48,7 +49,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game over");
         player.enabled = false; // Character object 비활성화
+        pool.enabled = false;
         gameoverPanel.SetActive(true); // 판넬 활성화
 
+    }
+    public void GetCoin(int amount)
+    {
+        Debug.Log("coin: "+coin);
+        coin += amount;
     }
 }
