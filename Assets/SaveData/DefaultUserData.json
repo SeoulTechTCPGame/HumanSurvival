@@ -1,10 +1,8 @@
 ﻿{
   "Gold": 0,
-  "UnlockWeapons": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], // Enums.Weapon의 순서대로
-  "UnlockAccessories": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], // Enums.Accessory의 순서대로
-  "UnlockCharacters": [ 1, 1, 1, 1, 1, 1, 1 ], // Enums.Character의 순서대로
   "Options": [], // TODO: 옵션 구현이 끝나면
   "PowerUps": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], // 강화 기능 구현 후에 연결
-  "Achievements": [], // TODO: 업적 개수만큼 0으로 채워넣기
-  "Collection": [] // TODO: 도감 개수만큼 0으로 채워주기
-}  
+  "Collection": [], // TODO: 0을 132개 넣어주기..?
+  "Achievements": [], // TODO: 0을 160개...
+  "UnlockStages": [ 1, 0 ] // 스테이지 추가되면 원소 늘려주기
+}

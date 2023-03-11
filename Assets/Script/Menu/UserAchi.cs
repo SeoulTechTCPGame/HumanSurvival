@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,12 +23,12 @@ public class UserAchi : MonoBehaviour
     }
 
     void SetMoneyText(){
-        mMoneyText.text = UserInfo.Money.ToString();
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 
     void SetCollectionText(){
         for(int i = 0; i < Constants.achiCount; i++){
-            if(UserInfo.IsUserAchi[i]){
+            if(UserInfo.instance.UserDataSet.Achievements[i]){
                 achiCount++;
             }
         }

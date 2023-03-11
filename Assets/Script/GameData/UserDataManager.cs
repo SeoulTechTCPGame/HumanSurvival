@@ -4,21 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+[Serializable]
+public class UserData
+{
+    public int Gold;
+    public int[] Options;
+    public int[] PowerUps;
+    public bool[] Achievements;
+    public bool[] Collection;
+    public bool[] UnlockStages;
+}
 public class UserDataManager : MonoBehaviour
 {
-    [Serializable]
-    public class UserData
-    {
-        public int Gold;
-        public bool[] UnlockWeapons;
-        public bool[] UnlockCharacters;
-        public bool[] Achievements;
-        public bool[] Collection;
-        public int[] Options;
-        public int[] PowerUps;
-    }
     public static UserDataManager instance;
-    public UserData UserDataSet;
     public string SavePath;
     private void Awake()
     {
@@ -49,17 +47,15 @@ public class UserDataManager : MonoBehaviour
     {
         // 게임 시작시 저장 데이터 적용?
     }
-
     public void SaveData()
     {
         string data = JsonUtility.ToJson(instance);
         File.WriteAllText(SavePath + "UserSaveData", data);
     }
-
     public void LoadData()
     {
         string data = File.ReadAllText(SavePath + "UserSaveData");
-        UserDataSet = JsonUtility.FromJson<UserData>(data);
+        UserInfo.instance.UserDataSet = JsonUtility.FromJson<UserData>(data);
     }
     public void LoadData(string file)
     {
@@ -70,57 +66,10 @@ public class UserDataManager : MonoBehaviour
 
         // TODO: 게임 재시작 시키기
     }
-
     public void DataReset()
     {
         string data = File.ReadAllText(SavePath + "DefaultUserData");
-        UserDataSet = JsonUtility.FromJson<UserData>(data);
-        SaveData();
-    }
-    void UpdateGold(int nowGold)
-    {
-        UserDataSet.Gold = nowGold;
-        SaveData();
-    }
-    void UpdateColldection(List<int> weaponIndexes, List<int> accessoryIndexes)
-    {
-        // 임시로 작성
-        foreach (int index in weaponIndexes)
-        {
-            UserDataSet.Collection[index] = true;
-        }
-        foreach (int index in accessoryIndexes)
-        {
-            UserDataSet.Collection[index + Constants.MaxWeaponNumber] = true;
-        }
-        SaveData();
-    }
-    void UpdateAchievement(List<int> achievementIndexes)
-    {
-        foreach (int index in achievementIndexes)
-        {
-            UserDataSet.Achievements[index] = true;
-        }
-        SaveData();
-    }
-    void UnlockCharacter(int characterIndex)
-    {
-        UserDataSet.UnlockCharacters[characterIndex] = true;
-        SaveData();
-    }
-    void UpdatePowerUp(int powerUpIndex)
-    {
-        UserDataSet.PowerUps[powerUpIndex]++;
-        SaveData();
-    }
-    void UnlockWeapon(int weaponIndex)
-    {
-        UserDataSet.UnlockWeapons[weaponIndex] = true;
-        SaveData();
-    }
-    void UpdateOption()
-    {
-        // TODO: Option기능 완성되면 추가
+        UserInfo.instance.UserDataSet = JsonUtility.FromJson<UserData>(data);
         SaveData();
     }
 }

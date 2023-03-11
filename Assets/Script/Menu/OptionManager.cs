@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,6 +53,6 @@ public class OptionManager : MonoBehaviour
     }
     
     void SetMoneyText(){
-        moneyText.text = UserInfo.Money.ToString();
+        moneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }

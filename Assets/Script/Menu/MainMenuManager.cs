@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,12 +20,12 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         // TODO: Read user data
-        UserInfo.Money = 100;
+        UserInfo.instance.UserDataSet.Gold = 100;
         for(int i = 0; i < Constants.itemCount; i++){
-            UserInfo.IsUserItem[i] = false;
+            UserInfo.instance.UserDataSet.Collection[i] = false;
         }
         for(int i = 0; i < Constants.achiCount; i++){
-            UserInfo.IsUserAchi[i] = false;
+            UserInfo.instance.UserDataSet.Achievements[i] = false;
         }
         // Example for item
         // UserInfo.userAchi[0] = true;
@@ -111,7 +111,7 @@ public class MainMenuManager : MonoBehaviour
 
     void SetMoneyText()
     {
-        mMoneyText.text = UserInfo.Money.ToString();
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 
     private void setSelect(GameObject nowObject)

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,12 +26,12 @@ public class UserCollection : MonoBehaviour
     }
 
     void SetMoneyText(){
-        mMoneyText.text = UserInfo.Money.ToString();
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 
     void SetCollectionText(){
         for(int i = 0; i < Constants.itemCount; i++){
-            if(UserInfo.IsUserItem[i]){
+            if(UserInfo.instance.UserDataSet.Collection[i]){
                 collectionCount++;
             }
         }
