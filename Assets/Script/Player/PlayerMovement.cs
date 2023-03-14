@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;    //입력값
     private Vector2 clickTarget;    //마우스 클릭
     private float moveSpeed = 8f;   //속도
-   // private Sprite[] charSprites;
+
+    Vector2 preMovement; //이전 이동 방향 벡터 가져오기
+
+    // private Sprite[] charSprites;
     bool moving;
 
     [SerializeField] Rigidbody2D rb;    //리디지바디
@@ -19,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
+
         //애니메이터 파일 이름을 설정 ex> Animator/Heroknight
         string resourceName = "Animator/" + DataManager.instance.currentCharcter;
        //실행중에 에니메이터 바꾸기. Resources.Load()는 path의 파일을 load한다. Asset>Resource가 root 경로
@@ -37,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
             clickTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             animator.SetBool("Moving", true);
             moving = true;
+        }
+        if (movement != Vector2.zero)
+        {
+            preMovement = movement;
         }
     }
     private void FixedUpdate()//물리 계산 할 때 사용
@@ -82,4 +89,5 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 Movement {
         get { return movement; }
     }
+    public Vector2 PreMovement { get { return preMovement; } }
 }
