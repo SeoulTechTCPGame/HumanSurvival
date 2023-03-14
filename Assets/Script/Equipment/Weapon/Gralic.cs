@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +23,7 @@ public class Gralic : MonoBehaviour
             if(!isExist)
             {
                 newobj = Instantiate(objPre);
+                newobj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
                 newobj.transform.position = GameManager.instance.player.transform.position + new Vector3(0, 0.5f, 0);
                 isExist = true;
             }

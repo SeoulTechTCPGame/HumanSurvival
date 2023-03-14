@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int kill;
     public int exp;
     public int coin;
+    public int[] killCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
 
     [Header("# Game Object")]
     public PoolManager pool;

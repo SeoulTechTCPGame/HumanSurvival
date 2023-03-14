@@ -72,7 +72,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         }
        
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, int weaponIndex)
     {
         if (isDead == true) return;
         currentHp -= damage;

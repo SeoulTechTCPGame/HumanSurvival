@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     public int WeaponLevel;
     public int WeaponMaxLevel;
     public bool Mastered = false;
-    
+
     private float enemyHealth;
 
     private float[] WeaponStats;
@@ -55,13 +55,13 @@ public class Weapon : MonoBehaviour
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)]);
+                destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
 
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
             
         }
         // for(int i = 0; i < col.Length; i++)
@@ -73,7 +73,13 @@ public class Weapon : MonoBehaviour
         //     }
         // }
     }
-
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Boundary")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     //�Ʒ� ����� �ѹ��� �ϱ�
     //ToDo: ������ �Ҷ����� �����ϴ� ������ ����

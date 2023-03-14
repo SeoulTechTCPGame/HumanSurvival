@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,8 +48,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         switch (mCharacter)
         {
             case 1:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§1";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í1";
+                this.mName = "ìºë¦­í„° ì´ë¦„1";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…1";
                 this.mMaxStamina = 101;
                 this.mRecovery = (float)0.1;
                 this.mDefense = 1;
@@ -66,8 +66,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 2:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§2";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í2";
+                this.mName = "ìºë¦­í„° ì´ë¦„2";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…2";
                 this.mMaxStamina = 102;
                 this.mRecovery = (float)0.2;
                 this.mDefense = 2;
@@ -84,8 +84,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 3:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§3";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í3";
+                this.mName = "ìºë¦­í„° ì´ë¦„3";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…3";
                 this.mMaxStamina = 103;
                 this.mRecovery = (float)0.3;
                 this.mDefense = 3;
@@ -102,8 +102,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 4:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§4";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í4";
+                this.mName = "ìºë¦­í„° ì´ë¦„4";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…4";
                 this.mMaxStamina = 104;
                 this.mRecovery = (float)0.4;
                 this.mDefense = 4;
@@ -120,8 +120,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 5:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§5";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í5";
+                this.mName = "ìºë¦­í„° ì´ë¦„5";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…5";
                 this.mMaxStamina = 105;
                 this.mRecovery = (float)0.5;
                 this.mDefense = 5;
@@ -138,8 +138,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 6:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§6";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í6";
+                this.mName = "ìºë¦­í„° ì´ë¦„6";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…6";
                 this.mMaxStamina = 106;
                 this.mRecovery = (float)0.6;
                 this.mDefense = 6;
@@ -156,8 +156,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 7:
-                this.mName = "Ä³¸¯ÅÍ ÀÌ¸§7";
-                this.mExplain = "Ä³¸¯ÅÍ ¼³¸í7";
+                this.mName = "ìºë¦­í„° ì´ë¦„7";
+                this.mExplain = "ìºë¦­í„° ì„¤ëª…7";
                 this.mMaxStamina = 107;
                 this.mRecovery = (float)0.7;
                 this.mDefense = 7;
@@ -177,7 +177,7 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //ÁöÁ¤ÇÑ ÅØ½ºÆ® ´ëÀÔ
+        //ì§€ì •í•œ í…ìŠ¤íŠ¸ ëŒ€ì…
         mCharacterName.text = this.mName;
         mCharacterName1.text = this.mName;
         mCharacterExplain.text = this.mExplain;
@@ -194,6 +194,6 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         mCharacterMagnet.text = "Magnet" + this.mMagnet.ToString() + "%";
         mCharacterLuck.text = "Luck" + this.mLuck.ToString() + "%";
         mCharacterGrowth.text = "Growth" + this.mGrowth.ToString() + "%";
-        mInfoImage.GetComponent<Image>().sprite = mButtonIamge.GetComponent<Image>().sprite;  //ÀÌ¹ÌÁö ´ëÀÔ
+        mInfoImage.GetComponent<Image>().sprite = mButtonIamge.GetComponent<Image>().sprite;  //ì´ë¯¸ì§€ ëŒ€ì…
     }
 }

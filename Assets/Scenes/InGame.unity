@@ -2061,9 +2061,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2095446619551494913, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2407485145146651083, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366252322856446284, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366252322856446284, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
+      propertyPath: m_TagString
+      value: Boundary
       objectReference: {fileID: 0}
     - target: {fileID: 4067641842341195572, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
       propertyPath: m_RootOrder
@@ -2113,12 +2125,17 @@ PrefabInstance:
       propertyPath: HpBar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8963697195022246941, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9054060664900776576, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1531688282230669326, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
+    - {fileID: 4566800448927376289, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 06370274431f3864abeb2ecde2fe0dce, type: 3}
 --- !u!1 &1631753049
 GameObject:

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,15 @@ public class Knife : MonoBehaviour
     float timer = 0;
     bool useKnife = false;
     Vector3 knifeTransform;
+    int touch = 0;
      void Update()
     {
         if (!useKnife) return;  //knife 사용 안할 때 Update를 안 함
         transform.position += knifeTransform * GameManager.instance.character.GetComponent<Character>().Weapons[GameManager.instance.character.GetComponent<Character>().TransWeaponIndex[2]].WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] * Time.deltaTime;
+        if(touch == 3)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     //ToDo: totalAttackRange 적용하기
@@ -26,35 +31,43 @@ public class Knife : MonoBehaviour
                 newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
                 newobs.GetComponent<Knife>().knifeTransform = setDirection(newobs);
                 newobs.GetComponent<Knife>().useKnife = true;
-                //무기가 몬스터와 충돌이 일어나거나, 화면 밖으로 나가면 삭제 + 관통
+                // 관통 + 삭제
             }
             timer = 0;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Monster")
+        {
+            touch++;
+        }
+    }
     private Vector3 setDirection(GameObject obj) {
+        //칼날 방향
         if (GameManager.instance.player.Movement.x > 0)
         {
-            obj.GetComponent<Transform>().localScale = new Vector3(2, -2, 1);
-            return Vector3.right;
+            obj.GetComponent<SpriteRenderer>().flipY = true;
+            if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 135); }
+            else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 45); }
+            else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90); }
         }
         else if (GameManager.instance.player.Movement.x < 0)
         {
-            obj.GetComponent<Transform>().localScale = new Vector3(2, 2, 1);
-            return Vector3.left;
-        }
-        if (GameManager.instance.player.Movement.y > 0)
-        {
-            obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
-            return Vector3.up;
-        }
-        else if (GameManager.instance.player.Movement.y < 0)
-        {
-            obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180);
-            return Vector3.down;
+            obj.GetComponent<SpriteRenderer>().flipY = false;
+            if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 45); }
+            else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 135); }
+            else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90); }
         }
         else
         {
-            return Vector3.zero;    //안 움직이는 이유
+            if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0); }
+            else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180); }
+            else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(GameManager.instance.player.PreMovement); }
         }
+        //이동 방향을 가져옴
+        if (GameManager.instance.player.PreMovement == Vector2.zero){ obj.GetComponent<SpriteRenderer>().flipY = true; return Vector3.right;}
+        else if (GameManager.instance.player.Movement == Vector2.zero & GameManager.instance.player.PreMovement != Vector2.zero) { return GameManager.instance.player.PreMovement;}
+        else { return GameManager.instance.player.Movement; }
     }
 }
