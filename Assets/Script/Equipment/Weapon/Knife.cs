@@ -7,11 +7,15 @@ public class Knife : MonoBehaviour
     float timer = 0;
     bool useKnife = false;
     Vector3 knifeTransform;
+    int touch = 0;
      void Update()
     {
         if (!useKnife) return;  //knife 사용 안할 때 Update를 안 함
         transform.position += knifeTransform * GameManager.instance.character.GetComponent<Character>().Weapons[GameManager.instance.character.GetComponent<Character>().TransWeaponIndex[2]].WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] * Time.deltaTime;
-        Debug.Log(transform.position);
+        if(touch == 3)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     //ToDo: totalAttackRange 적용하기
@@ -27,9 +31,16 @@ public class Knife : MonoBehaviour
                 newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
                 newobs.GetComponent<Knife>().knifeTransform = setDirection(newobs);
                 newobs.GetComponent<Knife>().useKnife = true;
-                // 화면 밖으로 나가면 삭제 + 관통
+                // 관통 + 삭제
             }
             timer = 0;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Monster")
+        {
+            touch++;
         }
     }
     private Vector3 setDirection(GameObject obj) {
@@ -52,7 +63,7 @@ public class Knife : MonoBehaviour
         {
             if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0); }
             else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180); }
-            else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90); }
+            else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(GameManager.instance.player.PreMovement); }
         }
         //이동 방향을 가져옴
         if (GameManager.instance.player.PreMovement == Vector2.zero){ obj.GetComponent<SpriteRenderer>().flipY = true; return Vector3.right;}

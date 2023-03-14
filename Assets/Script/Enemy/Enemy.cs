@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour,IDamageable
         {
             targetCharacter = target.GetComponent<Character>();
         }
-        targetCharacter.TakeDamage(enemyData.power);
+        targetCharacter.TakeDamage(enemyData.power, 0);
     }  
     void Dead()
     {
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     }
   
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, int weaponIndex)
     {
         health -= damage;
 
@@ -106,6 +106,7 @@ public class Enemy : MonoBehaviour,IDamageable
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
             Dead();
+            GameManager.instance.killCount[weaponIndex]++;
         }
     }
 

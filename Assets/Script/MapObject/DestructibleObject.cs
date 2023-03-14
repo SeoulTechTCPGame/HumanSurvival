@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DestructibleObject : MonoBehaviour,IDamageable
 {
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, int weaponIndex)
     {
-        //position À§Ä¡¿¡ Drop »ı¼º
+        //position ìœ„ì¹˜ì— Drop ìƒì„±
         gameObject.GetComponent<DropSystem>().OnDrop(gameObject.transform.position);
         Destroy(gameObject);
     }

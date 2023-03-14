@@ -12,6 +12,7 @@ TagManager:
   - DestructibleObj
   - Area
   - CoinsObj
+  - Boundary
   layers:
   - Default
   - TransparentFX
