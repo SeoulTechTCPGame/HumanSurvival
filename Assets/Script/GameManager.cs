@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
     [Header("# Game Control")]
     public float gameTime;
-    public float maxGameTime = 2 * 10f; //20초
+    public float maxGameTime = 180 * 10f;
 
     [Header("# Player Info")]
     public Character character;
     public int level;
     public int kill;
-    public int exp;
+    public float exp;
+    public float maxExp;
     public int coin;
     public int[] killCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
 
@@ -22,14 +22,31 @@ public class GameManager : MonoBehaviour
     public PlayerMovement player;
     public GameObject gameoverPanel;
 
+    //  Singleton Instance 선언
+    public static GameManager instance = null;
+
     private void Awake()
     {
+        // Scene에 이미 인스턴스가 존재 하는지 확인 후 처리
+        /*if (instance)
+        {
+            Destroy(this.gameObject);
+            return;
+        }*/
+        // instance를 유일 오브젝트로 만든다
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        // Scene 이동 시 삭제 되지 않도록 처리
+        DontDestroyOnLoad(this.gameObject);
+        level = 1;
+        exp = 0;
+        maxExp = 100;
+        //Time.timeScale = 1;
+
+
     }
+
     private void Update()
     {
-
         gameTime += Time.deltaTime;
         if (gameTime >maxGameTime)
         {
@@ -51,12 +68,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game over");
         player.enabled = false; // Character object 비활성화
         pool.enabled = false;
+        Time.timeScale = 0;
+
         gameoverPanel.SetActive(true); // 판넬 활성화
 
     }
     public void GetCoin(int amount)
     {
-        Debug.Log("coin: "+coin);
         coin += amount;
+        Debug.Log("coin: "+coin);
     }
 }

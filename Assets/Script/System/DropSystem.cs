@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DropSystem : MonoBehaviour
 {
-    public GameObject dropsObj;
+    GameObject dropsObj;
     [System.Serializable]
     public class Drops
     {

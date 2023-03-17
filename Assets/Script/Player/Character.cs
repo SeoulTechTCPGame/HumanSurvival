@@ -63,14 +63,14 @@ public class Character : EquipmentManagementSystem,IDamageable
     }
     public void RestoreHealth(float amount)
     {
-        Debug.Log("ü��"+amount);
-        if(currentHp< (int)Enums.Stat.MaxHealth)
+        
+        //if(currentHp< CharacterStats[(int)Enums.Stat.MaxHealth])
+        if(currentHp<100)
         { 
             currentHp += amount;
-            if (currentHp > (int)Enums.Stat.MaxHealth) currentHp = (int)Enums.Stat.MaxHealth;
-
+            if (currentHp > 100) currentHp = 100;
+            HpBar.SetState(currentHp, maxHp);
         }
-       
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
@@ -96,19 +96,21 @@ public class Character : EquipmentManagementSystem,IDamageable
         // TODO: stat?? growth ??????? ????? ???
 
         mExp += exp;
+        GameManager.instance.exp = mExp;
         while (mExp >= mMaxExp)
         {
             mExp -= mMaxExp;
             mMaxExp += Constants.DeltaExp;
+            GameManager.instance.maxExp = mMaxExp;
             LevelUp();
         }
-        Debug.Log("Exp:"+mExp);
+        Debug.Log("Exp:" + GameManager.instance.exp);
     }
     public void LevelUp()
     {
         mLevel++;
         GameManager.instance.level++;
-        GameObject.Find("GameManager").GetComponent<GameManager>().PauseGame();
+        GameManager.instance.PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(this);
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, Weapons, Accessories);
     }

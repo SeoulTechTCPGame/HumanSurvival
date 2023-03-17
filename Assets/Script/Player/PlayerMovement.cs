@@ -22,10 +22,17 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
         //애니메이터 파일 이름을 설정 ex> Animator/Heroknight
-        string resourceName = "Animator/" + DataManager.instance.currentCharcter;
-       //실행중에 에니메이터 바꾸기. Resources.Load()는 path의 파일을 load한다. Asset>Resource가 root 경로
+        string resourceName = "Animator/";
+        try
+        {
+            resourceName += DataManager.instance.currentCharcter;
+        }
+        catch (NullReferenceException ex)
+        {
+            resourceName  +="Alchemist";
+        }
+        //실행중에 에니메이터 바꾸기. Resources.Load()는 path의 파일을 load한다. Asset>Resource가 root 경로
         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
     }
     void Start()
