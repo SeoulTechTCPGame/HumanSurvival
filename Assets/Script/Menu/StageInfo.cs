@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,8 +30,8 @@ public class StageInfo : MonoBehaviour, IPointerEnterHandler
         switch (mStage)
         {
             case 1:
-                this.mSName = "½ºÅ×ÀÌÁö 1";
-                this.mExplain = "½ºÅ×ÀÌÁö ¼³¸í 1";
+                this.mSName = "ìŠ¤í…Œì´ì§€ 1";
+                this.mExplain = "ìŠ¤í…Œì´ì§€ ì„¤ëª… 1";
                 this.mPlayTime = "30:01";
                 this.mDoubleSpeed = 1;
                 this.mGoldCoinBonus = 1;
@@ -40,8 +40,8 @@ public class StageInfo : MonoBehaviour, IPointerEnterHandler
                 break;
 
             case 2:
-                this.mSName = "½ºÅ×ÀÌÁö 2";
-                this.mExplain = "½ºÅ×ÀÌÁö ¼³¸í 2";
+                this.mSName = "ìŠ¤í…Œì´ì§€ 2";
+                this.mExplain = "ìŠ¤í…Œì´ì§€ ì„¤ëª… 2";
                 this.mPlayTime = "30:02";
                 this.mDoubleSpeed = 2;
                 this.mGoldCoinBonus = 2;

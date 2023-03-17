@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class ExperiencePickUp : MonoBehaviour,ICollectible
 
     public void Collect()
     {
-        //½ºÅ©¸³Æ® ¸íÀ¸·Î ¿ÀºêÁ§Æ® Ã£±â
+        //ìŠ¤í¬ë¦½íŠ¸ ëª…ìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ ì°¾ê¸°
         Character character = GameManager.instance.character;
         //Todo : character grouth stat 
         character.GetExp(expGranted);

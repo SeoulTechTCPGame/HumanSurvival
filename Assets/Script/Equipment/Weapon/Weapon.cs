@@ -7,8 +7,8 @@ using System.Linq;
 
 public class Weapon : MonoBehaviour
 {
-    //������ ���� ����
-    //���ø� ���� ���� �������� ����
+    //무기의 스탯 지정
+    //예시를 위해 값은 무작위로 넣음
     public int WeaponIndex;
     public int WeaponLevel;
     public int WeaponMaxLevel;
@@ -43,11 +43,11 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-    //��ȭ ���� ���� Ȯ��
+    //진화 조건 충족 확인
     private void isEvoluction()
     {
         bool evoluction = IsMaster();
-        //knife �ȸ� ��ȣ�� ��ű� ���� Ȯ��
+        //knife 팔목 보호대 장신구 보유 확인
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -81,8 +81,8 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    //�Ʒ� ����� �ѹ��� �ϱ�
-    //ToDo: ������ �Ҷ����� �����ϴ� ������ ����
+    //아래 계산을 한번에 하기
+    //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     private void AttackCalculation()
     {
         DamageCalculation();

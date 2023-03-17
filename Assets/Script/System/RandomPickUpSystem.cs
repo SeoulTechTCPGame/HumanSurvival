@@ -1,4 +1,4 @@
-using Enums;
+Ôªøusing Enums;
 using Rito;
 using System;
 using System.Collections;
@@ -15,7 +15,7 @@ public class RandomPickUpSystem
     static RandomPickUpSystem()
     {
         mWeaponRarity = new int[13] { 100, 100, 100, 100, 80, 80, 80, 70, 100, 50, 50, 80, 80 };
-        mAccessoryRarity = new int[21] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 60, 50, 50, 50, 40, 40, 40 }; // ¿”Ω√
+        mAccessoryRarity = new int[21] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 60, 50, 50, 50, 40, 40, 40 }; // ÏûÑÏãú
     }
     public void UpdateWeaponPickUpList(Character character)
     {
@@ -73,7 +73,7 @@ public class RandomPickUpSystem
         List<Tuple<int, int, int>> pickUps = new List<Tuple<int, int, int>>();
         if (maxChoice == 0)
         {
-            // TODO: 25∞ÒµÂ or hp 30 »∏∫π º±≈√¡ˆ
+            // TODO: 25Í≥®Îìú or hp 30 ÌöåÎ≥µ ÏÑ†ÌÉùÏßÄ
             pickUps.Add(new Tuple<int, int, int>(2, 0, 1));
             pickUps.Add(new Tuple<int, int, int>(2, 1, 1));
         }

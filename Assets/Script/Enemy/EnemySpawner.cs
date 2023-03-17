@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +13,10 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        //floatÇü ½Ã°£¿¡ µû¶ó intÇü ·¹º§ ¼³Á¤
+        //floatí˜• ì‹œê°„ì— ë”°ë¼ intí˜• ë ˆë²¨ ì„¤ì •
         level =Mathf.Min(Mathf.FloorToInt( GameManager.instance.gameTime / 10f),spawnData.Length-1);
 
-        //·¹º§À» È°¿ëÇØ ¸ó½ºÅÍ °¢°¢ÀÇ ¼ÒÈ¯ Å¸ÀÌ¹Ö º¯°æÇÏ±â
+        //ë ˆë²¨ì„ í™œìš©í•´ ëª¬ìŠ¤í„° ê°ê°ì˜ ì†Œí™˜ íƒ€ì´ë° ë³€ê²½í•˜ê¸°
         if (timer >(spawnData[level].SpawnTime))
         {
             Spawn();
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        //playerÀÇ À§Ä¡ °ª¿¡ ·£´ı pos¸¦ ´õÇØ ½ºÆù ÁöÁ¡ ¼³Á¤
+        //playerì˜ ìœ„ì¹˜ ê°’ì— ëœë¤ posë¥¼ ë”í•´ ìŠ¤í° ì§€ì  ì„¤ì •
         Vector3 position = GenerateRandomPos();
         position += player.transform.position;
 

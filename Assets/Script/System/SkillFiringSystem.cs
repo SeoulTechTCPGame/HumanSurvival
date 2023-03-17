@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillFiringSystem : MonoBehaviour
 {
-    public GameObject[] weaponPrefabs; //¹«±â ÇÁ¸®ÆÕ
-    public GameObject[] evolutionWeaponPrefabs; //ÁøÈ­ ¹«±â ÇÁ¸®ÆÕ
+    public GameObject[] weaponPrefabs; //ë¬´ê¸° í”„ë¦¬íŒ¹
+    public GameObject[] evolutionWeaponPrefabs; //ì§„í™” ë¬´ê¸° í”„ë¦¬íŒ¹
     void Update()
     {
         foreach (var weapon in GameManager.instance.player.GetComponent<Character>().Weapons)

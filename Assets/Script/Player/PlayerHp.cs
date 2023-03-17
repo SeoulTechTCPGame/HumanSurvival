@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,11 +8,11 @@ using System;
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField] Slider HpBar;
-    private float damage = 0.1f;    //¸ó½ºÅÍ µ¥¹ÌÁö
+    private float damage = 0.1f;    //ëª¬ìŠ¤í„° ë°ë¯¸ì§€
 
     void Start()
     {
-        //TODO: Ä³¸¯ÅÍ °íÀ¯ÀÇ ÃÖ´ë Ã¼·Â °¡Á®¿À±â
+        //TODO: ìºë¦­í„° ê³ ìœ ì˜ ìµœëŒ€ ì²´ë ¥ ê°€ì ¸ì˜¤ê¸°
         HpBar.maxValue = (int)Enums.Stat.MaxHealth;
         HpBar.value = (int)Enums.Stat.MaxHealth;
     }

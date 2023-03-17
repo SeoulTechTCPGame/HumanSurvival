@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -598,7 +598,7 @@ public class EquipmentData
     private static void AccessoryUpgradePreprocessing()
     {
         AccessoryUpgrade = new List<List<Tuple<int, float>>>[21];
-        // ¾ÕÀÇ ÇÑ °³(index»ó 0¿¡ ÇØ´ç)´Â ´õ¹Ì µ¥ÀÌÅÍ
+        // ì•ì˜ í•œ ê°œ(indexìƒ 0ì— í•´ë‹¹)ëŠ” ë”ë¯¸ ë°ì´í„°
         // Spinach
         AccessoryUpgrade[0] = new List<List<Tuple<int, float>>>();
         AccessoryUpgrade[0].Add(new List<Tuple<int, float>>()

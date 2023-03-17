@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs; // ÇÁ¸®ÆéµéÀ» º¸°üÇÒ º¯¼ö.
-    List<GameObject>[] enemyPools; // Ç® ´ã´çÀ» ÇÏ´Â ¸®½ºÆ®µé
+    public GameObject[] enemyPrefabs; // í”„ë¦¬í©ë“¤ì„ ë³´ê´€í•  ë³€ìˆ˜.
+    List<GameObject>[] enemyPools; // í’€ ë‹´ë‹¹ì„ í•˜ëŠ” ë¦¬ìŠ¤íŠ¸ë“¤
 
     GameObject[] targetPrefab;
     List<GameObject>[] targetPool;
@@ -23,7 +23,7 @@ public class PoolManager : MonoBehaviour
         coinPools = new List<GameObject>[coinPrefabs.Length];
         heartPools = new List<GameObject>[heartPrefabs.Length];
 
-        // ÀÎ½ºÆåÅÍ¿¡¼­ ÃÊ±âÈ­
+        // ì¸ìŠ¤í™í„°ì—ì„œ ì´ˆê¸°í™”
         for (int index = 0; index < enemyPools.Length; index++)
             enemyPools[index] = new List<GameObject>();
         for (int index = 0; index < expPools.Length; index++)
@@ -33,7 +33,7 @@ public class PoolManager : MonoBehaviour
         for (int index = 0; index < heartPools.Length; index++)
             heartPools[index] = new List<GameObject>();
     }
-    public GameObject Get(string type,int index) //°ÔÀÓ ¿ÀºêÁ§Æ® ¹İÈ¯ ÇÔ¼ö
+    public GameObject Get(string type,int index) //ê²Œì„ ì˜¤ë¸Œì íŠ¸ ë°˜í™˜ í•¨ìˆ˜
     {
         switch (type)
         {
@@ -59,8 +59,8 @@ public class PoolManager : MonoBehaviour
                 break;
         }
         GameObject select = null;
-        //¼±ÅÃÇÑ Ç®ÀÇ ºñÈ°¼ºÈ­ µÈ °ÔÀÓ ¿ÀºêÁ§Æ® Á¢±Ù.
-        // ¹ß°ßÇÏ¸é select º¯¼ö¿¡ ÇÒ´ç// »ı¼ºµÈ ÀûÀÌ Á×À»°æ¿ì 
+        //ì„ íƒí•œ í’€ì˜ ë¹„í™œì„±í™” ëœ ê²Œì„ ì˜¤ë¸Œì íŠ¸ ì ‘ê·¼.
+        // ë°œê²¬í•˜ë©´ select ë³€ìˆ˜ì— í• ë‹¹// ìƒì„±ëœ ì ì´ ì£½ì„ê²½ìš° 
         
         foreach (GameObject item in targetPool[index])
         {
@@ -71,7 +71,7 @@ public class PoolManager : MonoBehaviour
                 break;
             }
         }
-        // ¸øÃ£À¸¸é »õ·Ó°Ô »ı¼ºÈÄ ÇÒ´ç// ¸ğµç ÀûÀÌ Á×Áö ¾Ê°í »ì¾ÆÀÖÀ½
+        // ëª»ì°¾ìœ¼ë©´ ìƒˆë¡­ê²Œ ìƒì„±í›„ í• ë‹¹// ëª¨ë“  ì ì´ ì£½ì§€ ì•Šê³  ì‚´ì•„ìˆìŒ
         if (!select)
         {
             select = Instantiate(targetPrefab[index], transform);
