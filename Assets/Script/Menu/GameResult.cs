@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -27,5 +27,9 @@ public class GameResult : MonoBehaviour
         float minutes = Mathf.Floor(gameTime / 60);
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+    }
+    private void OnDestroy()
+    {
+        
     }
 }
