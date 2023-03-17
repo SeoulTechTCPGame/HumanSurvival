@@ -1,4 +1,4 @@
-﻿using Enums;
+using Enums;
 using Rito;
 using System;
 using System.Collections;
