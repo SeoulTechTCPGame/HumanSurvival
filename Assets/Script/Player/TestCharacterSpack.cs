@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TestCharacterSpack : MonoBehaviour
 {
-    //Ä³¸¯ÅÍ Ãß°¡ ½ºÅÈ
-    //Ä³¸¯ÅÍ ÆĞ½Ãºê
-    //Ä³¸¯ÅÍ °íÀ¯ ¹«±â
+    //ìºë¦­í„° ì¶”ê°€ ìŠ¤íƒ¯
+    //ìºë¦­í„° íŒ¨ì‹œë¸Œ
+    //ìºë¦­í„° ê³ ìœ  ë¬´ê¸°
 }

@@ -17,9 +17,9 @@ public class OptionManager : MonoBehaviour
     public GameObject DataRecovery;
     public GameObject WarningPanel;
     public GameObject ParsingErrorPanel;
-    public TMP_Text buttonText; //DataRecovery�ؽ�Ʈ
+    public TMP_Text buttonText; //DataRecovery텍스트
     public TMP_Text moneyText;
-    //Panel�ʱ�ȭ
+    //Panel초기화
     private void Awake()
     {
         SetMoneyText();
@@ -38,7 +38,7 @@ public class OptionManager : MonoBehaviour
         }
     }
 
-    //�ڷΰ��� ��ư
+    //뒤로가기 버튼
     public void ClickBackButton()
     {
         if (FirstPanel.activeSelf == true)

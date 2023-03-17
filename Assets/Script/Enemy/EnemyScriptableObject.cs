@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,28 +12,28 @@ public class EnemyScriptableObject : ScriptableObject
     float spawnTime;
     public float SpawnTime { get => spawnTime; private set => spawnTime = value; }
     [SerializeField]
-    public int speed; //¸ó½ºÅÍÀÇ ÀÌµ¿ ¼Óµµ
+    public int speed; //ëª¬ìŠ¤í„°ì˜ ì´ë™ ì†ë„
     public int Speed { get => speed; private set => speed = value; }
     [SerializeField]
-    public float power; //¸ó½ºÅÍÀÇ °ø°Ý·Â
+    public float power; //ëª¬ìŠ¤í„°ì˜ ê³µê²©ë ¥
     public float Power { get => power; private set => power = value; }
     [SerializeField]
-    public float knockback; //¸ó½ºÅÍ ÇÇ°Ý ½Ã ³Ë¹é(¹Ð¸®´Â) Á¤µµ¿¡ ´ëÇÑ ¼öÄ¡
+    public float knockback; //ëª¬ìŠ¤í„° í”¼ê²© ì‹œ ë„‰ë°±(ë°€ë¦¬ëŠ”) ì •ë„ì— ëŒ€í•œ ìˆ˜ì¹˜
     public float Knockback { get => knockback; private set => knockback = value; }
     [SerializeField]
-    public float maxKnockback; //¸ó½ºÅÍ ³Ë¹é Á¤µµ´Â Áõ°¡ÇÒ ¼ö ÀÖ´Âµ¥ ±× Á¤µµÀÇ »óÇÑ
+    public float maxKnockback; //ëª¬ìŠ¤í„° ë„‰ë°± ì •ë„ëŠ” ì¦ê°€í•  ìˆ˜ ìžˆëŠ”ë° ê·¸ ì •ë„ì˜ ìƒí•œ
     public float MaxKnockback { get => maxKnockback; private set => maxKnockback = value; }
     [SerializeField]
-    public float deathKB; //¸ó½ºÅÍ »ç¸Á ½Ã ³Ë¹é(¹Ð¸®´Â) Á¤µµ¿¡ ´ëÇÑ ¼öÄ¡
+    public float deathKB; //ëª¬ìŠ¤í„° ì‚¬ë§ ì‹œ ë„‰ë°±(ë°€ë¦¬ëŠ”) ì •ë„ì— ëŒ€í•œ ìˆ˜ì¹˜
     public float DeathKB { get => deathKB; private set => deathKB = value; }
     [SerializeField]
-    public int xp; //µå¶øµÇ´Â °æÇèÄ¡ÀÇ ¾ç(¼öÄ¡) ÀÌ´Ù.
+    public int xp; //ë“œëžë˜ëŠ” ê²½í—˜ì¹˜ì˜ ì–‘(ìˆ˜ì¹˜) ì´ë‹¤.
     public int Xp { get => xp; private set => xp = value; }
     [SerializeField]
-    public int end; //·¹º§ ¾÷ »óÇÑ¼±
+    public int end; //ë ˆë²¨ ì—… ìƒí•œì„ 
     public int End { get => end; private set => end = value; }
     [SerializeField]
-    public int level; //ÃÊ±â ·¹º§ ¼öÄ¡
+    public int level; //ì´ˆê¸° ë ˆë²¨ ìˆ˜ì¹˜
     public int Level { get => level; private set => level = value; }
     [SerializeField]
     public float maxHP;

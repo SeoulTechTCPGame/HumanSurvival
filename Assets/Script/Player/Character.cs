@@ -14,20 +14,20 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class Character : EquipmentManagementSystem,IDamageable
 {
-    //ĳ?????? ????????
-    //???ø? ???? ???? ???????? ????
+    //캐릭터의 스탯지정
+    //예시를 위해 값은 무작위로 넣음
     public GameObject LevepUpUI;
 
     [SerializeField] HealthBar HpBar;
     private bool isDead;
     private float currentHp = 100;
     private float maxHp = 100;
-    private float mDamage = 10;              //?????
-    private float mProjectileSpeed = 1;     //????? ???
-    private float mDuration = 3;            //???? ?ð?
-    private float mAttackRange = 1;         //???????
-    private float mCooldown = 3;            //?????
-    private int mNumberOfProjectiles = 1;     //????? ??
+    private float mDamage = 10;              //피해량
+    private float mProjectileSpeed = 1;     //투사체 속도
+    private float mDuration = 3;            //지속 시간
+    private float mAttackRange = 1;         //공격범위
+    private float mCooldown = 3;            //쿨타임
+    private int mNumberOfProjectiles = 1;     //투사체 수
 
     private int mLevel;
     private float mExp;
@@ -43,7 +43,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         mExp = 0;
         mMaxExp = 100;
 
-        // TODO: user?? ???? ????? ???????? ??????? ???????? ??????
+        // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
         CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
@@ -54,7 +54,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         RandomPickUpSystem = new RandomPickUpSystem();
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
-        // ???
+        // 임시
         GetWeapon(2);
         GetWeapon(7);
         GetAccessory(0);
@@ -93,8 +93,7 @@ public class Character : EquipmentManagementSystem,IDamageable
 
     public void GetExp(float exp)
     {
-        // TODO: stat?? growth ??????? ????? ???
-
+        // TODO: stat의 growth 적용하여 경험치 획득
         mExp += exp;
         GameManager.instance.exp = mExp;
         while (mExp >= mMaxExp)
@@ -121,7 +120,7 @@ public class Character : EquipmentManagementSystem,IDamageable
     }
 
 
-    //Get,Set??? ??? ????
+    //Get,Set함수 자동 구현
     public float Damage
     {
         get { return mDamage; }

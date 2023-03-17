@@ -1,59 +1,59 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RepositionTile : MonoBehaviour
 {
-    public float x;   //Å¸ÀÏ °¡·Î Å©±â
-    public float y;   //Å¸ÀÏ ¼¼·Î Å©±â
+    public float x;   //íƒ€ì¼ ê°€ë¡œ í¬ê¸°
+    public float y;   //íƒ€ì¼ ì„¸ë¡œ í¬ê¸°
     public int probability;
-    public GameObject prefab;   //ºÒ·¯¿Ã ÇÁ¸®ÆÕ
-    public GameObject respawn;   //ÇöÀç ÇÁ¸®ÆÕ
-    // ÅÂÅ© Area¿¡¼­ Ãæµ¹³ª¼­ ¹ş¾î³µÀ» ¶§¸¸ ºÒ·¯¿À´Â ÇÔ¼ö
+    public GameObject prefab;   //ë¶ˆëŸ¬ì˜¬ í”„ë¦¬íŒ¹
+    public GameObject respawn;   //í˜„ì¬ í”„ë¦¬íŒ¹
+    // íƒœí¬ Areaì—ì„œ ì¶©ëŒë‚˜ì„œ ë²—ì–´ë‚¬ì„ ë•Œë§Œ ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Area")) { return; }  //Area ¿µ¿ª¿¡¼­ ¹ş¾î³­ °Í¸¸ ¾Æ·¡ ÄÚµå°¡ ½ÇÇàµÊ
+        if (!collision.CompareTag("Area")) { return; }  //Area ì˜ì—­ì—ì„œ ë²—ì–´ë‚œ ê²ƒë§Œ ì•„ë˜ ì½”ë“œê°€ ì‹¤í–‰ë¨
 
-        Vector3 playerPos = GameManager.instance.player.transform.position; //ÁÖÀÎ°ø À§Ä¡
-        Vector3 myPos = transform.position; //ÇöÀç Tilemap À§Ä¡
+        Vector3 playerPos = GameManager.instance.player.transform.position; //ì£¼ì¸ê³µ ìœ„ì¹˜
+        Vector3 myPos = transform.position; //í˜„ì¬ Tilemap ìœ„ì¹˜
         float diffX = Mathf.Abs(playerPos.x - myPos.x);
         float diffY = Mathf.Abs(playerPos.y - myPos.y);
 
-        Vector3 playerDir = GameManager.instance.player.Movement;  //ÁÖÀÎ°ø ÀÌµ¿¹æÇâ ÀúÀå
+        Vector3 playerDir = GameManager.instance.player.Movement;  //ì£¼ì¸ê³µ ì´ë™ë°©í–¥ ì €ì¥
         float dirX = playerDir.x > 0 ? 1 : -1;
         float dirY = playerDir.y > 0 ? 1 : -1;
 
         switch (transform.tag)
         {
             case "Ground":
-                if (diffX > diffY)  //xÃàÀ¸·Î ¸¹ÀÌ ÀÌµ¿½Ã
+                if (diffX > diffY)  //xì¶•ìœ¼ë¡œ ë§ì´ ì´ë™ì‹œ
                 {
                     RemoveObject(collision);
-                    transform.Translate(Vector3.right * dirX * x * 2); //ÁÖÀÎ°ø ÀÌµ¿ ¹æÇâ ¾Õ¿¡ tilemapÀ» ³õ±â À§ÇØ x*2 ¸¸Å­ ÀÌµ¿
+                    transform.Translate(Vector3.right * dirX * x * 2); //ì£¼ì¸ê³µ ì´ë™ ë°©í–¥ ì•ì— tilemapì„ ë†“ê¸° ìœ„í•´ x*2 ë§Œí¼ ì´ë™
                     ObjectRespown(transform.position);
                 }
-                else if (diffX < diffY) //yÃàÀ¸·Î ¸¹ÀÌ ÀÌµ¿½Ã
+                else if (diffX < diffY) //yì¶•ìœ¼ë¡œ ë§ì´ ì´ë™ì‹œ
                 {
                     RemoveObject(collision);
-                    transform.Translate(Vector3.up * dirY * y * 2); //ÁÖÀÎ°ø ÀÌµ¿ ¹æÇâ ¾Õ¿¡ tilemapÀ» ³õ±â À§ÇØ y*2 ¸¸Å­ ÀÌµ¿
+                    transform.Translate(Vector3.up * dirY * y * 2); //ì£¼ì¸ê³µ ì´ë™ ë°©í–¥ ì•ì— tilemapì„ ë†“ê¸° ìœ„í•´ y*2 ë§Œí¼ ì´ë™
                     ObjectRespown(transform.position);
                 }
                 break;
             case "Monster":
-                //¸ó½ºÅÍ À§Ä¡ ¿Å±â±â
+                //ëª¬ìŠ¤í„° ìœ„ì¹˜ ì˜®ê¸°ê¸°
                 break;
         }
     }
-    private void ObjectRespown(Vector3 myPos) {  //ÇÁ¸®ÆÕ »ı¼º
-        if (respawn == null & (Random.Range(0,101) <= probability))   //probability È®·ü·Î »ı¼º
+    private void ObjectRespown(Vector3 myPos) {  //í”„ë¦¬íŒ¹ ìƒì„±
+        if (respawn == null & (Random.Range(0,101) <= probability))   //probability í™•ë¥ ë¡œ ìƒì„±
         {
-            float randomX = Random.Range(-x/2f, x/2f); //·£´ı XÁÂÇ¥
-            float randomY = Random.Range(-y/2f, y/2f); //·£´ı YÁÂÇ¥
-            //instantiateÇÔ¼ö (¿ÀºêÁ§Æ® ÀÌ¸§, ¿ÀºêÁ§Æ® À§Ä¡, ¿ÀºêÁ§Æ® È¸Àü °ª)
+            float randomX = Random.Range(-x/2f, x/2f); //ëœë¤ Xì¢Œí‘œ
+            float randomY = Random.Range(-y/2f, y/2f); //ëœë¤ Yì¢Œí‘œ
+            //instantiateí•¨ìˆ˜ (ì˜¤ë¸Œì íŠ¸ ì´ë¦„, ì˜¤ë¸Œì íŠ¸ ìœ„ì¹˜, ì˜¤ë¸Œì íŠ¸ íšŒì „ ê°’)
             respawn = Instantiate(prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
         }
     }
-    private void RemoveObject(Collider2D collision) {   //ÇÁ¸®ÆÕ »èÁ¦
+    private void RemoveObject(Collider2D collision) {   //í”„ë¦¬íŒ¹ ì‚­ì œ
         //if (collision.gameObject.tag == "Object")
         Destroy(respawn);
     }
