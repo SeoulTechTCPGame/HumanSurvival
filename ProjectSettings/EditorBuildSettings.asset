@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameResultScene.unity
     guid: 358dd48d8b0cfe44ea5f1397b51d81a9
+  - enabled: 1
+    path: Assets/Scenes/PowerUp.unity
+    guid: 105e0caaeddfe354aba2229f909b9e46
   m_configObjects: {}
