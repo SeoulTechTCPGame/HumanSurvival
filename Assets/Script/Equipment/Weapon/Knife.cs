@@ -6,19 +6,16 @@ public class Knife : MonoBehaviour
 {
     float timer = 0;
     bool useKnife = false;
-    Vector3 knifeTransform;
     int touch = 0;
-     void Update()
+    int touchLimit;
+    void Update()
     {
         if (!useKnife) return;  //knife 사용 안할 때 Update를 안 함
-        transform.position += knifeTransform * GameManager.instance.character.GetComponent<Character>().Weapons[GameManager.instance.character.GetComponent<Character>().TransWeaponIndex[2]].WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] * Time.deltaTime;
-        if(touch == 3)
+        if(touchLimit <= touch)
         {
             Destroy(this.gameObject);
         }
     }
-
-    //ToDo: totalAttackRange 적용하기
     public void FireKnife(GameObject objPre)
     {
         timer += Time.deltaTime;
@@ -26,12 +23,18 @@ public class Knife : MonoBehaviour
         {
             for (int i = 0; i < objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
             {
-                GameObject newobs = Instantiate(objPre);   //skillFiringSystem에서 프리팹 가져오기
-                newobs.transform.parent = GameObject.Find("SkillFiringSystem").transform;
-                newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
-                newobs.GetComponent<Knife>().knifeTransform = setDirection(newobs);
+                GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+                Vector3 spawnPosition = GameManager.instance.player.transform.position;
+                if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
+                {
+                    spawnPosition.y -= ((int)objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Area)] * (i-1)) / 2;
+                    spawnPosition.y += i * (int)objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+                }
+                newobs.transform.position = spawnPosition; //시작 위치
                 newobs.GetComponent<Knife>().useKnife = true;
-                // 관통 + 삭제
+                newobs.GetComponent<Knife>().touchLimit = (int)objPre.GetComponent<Weapon>().WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
+                Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
+                rb.velocity = setDirection(newobs) * newobs.GetComponent<Weapon>().WeaponTotalStats[(int)Enums.WeaponStat.ProjectileSpeed];
             }
             timer = 0;
         }
@@ -63,7 +66,7 @@ public class Knife : MonoBehaviour
         {
             if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0); }
             else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180); }
-            else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(GameManager.instance.player.PreMovement); }
+            else { obj.GetComponent<Transform>().rotation = Quaternion.FromToRotation(Vector3.up, GameManager.instance.player.PreMovement); }
         }
         //이동 방향을 가져옴
         if (GameManager.instance.player.PreMovement == Vector2.zero){ obj.GetComponent<SpriteRenderer>().flipY = true; return Vector3.right;}
