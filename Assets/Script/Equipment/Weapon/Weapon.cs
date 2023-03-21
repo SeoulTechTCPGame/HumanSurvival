@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
+    private bool mEvolution = false;
     private float enemyHealth;
 
     private float[] WeaponStats;
@@ -44,10 +45,16 @@ public class Weapon : MonoBehaviour
         return WeaponLevel == WeaponMaxLevel;
     }
     //진화 조건 충족 확인
-    private void isEvoluction()
+    public bool isEvoluction()
     {
         bool evoluction = IsMaster();
-        //knife 팔목 보호대 장신구 보유 확인
+        var characterTrans = GameManager.instance.player.GetComponent<Character>().TransAccessoryIndex;
+        if (evoluction && (this.WeaponIndex == characterTrans[EquipmentData.EvoAccNeedWeaponIndex[this.WeaponIndex]]))
+        {
+            mEvolution = true;
+            return mEvolution;
+        }
+        else { return mEvolution; }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {

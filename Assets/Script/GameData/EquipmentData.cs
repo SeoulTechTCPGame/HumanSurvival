@@ -9,11 +9,19 @@ public class EquipmentData
     public static float[,] defaultWeaponStats;
     public static List<List<Tuple<int, float>>>[] AccessoryUpgrade;
     public static int[] AccessoriesMaxLevel;
+    public static int[] EvoWeaponNeedAccIndex;   //Spinach,Armor,HollowHeart,Pummarola,EmptyTome,Candelabrador,Bracer,Spellbinder,Duplicator,Wings,Attractorb,Clover,Crown,StoneMask,Tiragisu,Skull,SilverRing,GoldRing,MetaglioLeft,MetaglioRight,TorronaBox
+    public static int[] EvoAccNeedWeaponIndex;    //Whip,MagicWand,Knife,Axe,Cross,KingBible,FireWand,Garlic,SantaWater,Peachone,EbonyWings,Runetracer,LightningRing
     static EquipmentData()
     {
         levelOneWeaponPreprocessing();
         weaponUpgradePreprocessing();
         AccessoryUpgradePreprocessing();
+    }
+    public static void EvolutionPairData()
+    {
+        // 짝이 없는 무기, 악세서리의 경우는 -1로 초기화
+        EvoWeaponNeedAccIndex = new int[13] {2,4,6,5,11,7,0,3,10,-1,-1,1,8};
+        EvoAccNeedWeaponIndex = new int[21] { 6, 11, 0, 7, 1, 3, 2, 5, 12, -1, 8, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
     }
 
     public static void levelOneWeaponPreprocessing()

@@ -22,7 +22,7 @@ public class SkillFiringSystem : MonoBehaviour
             case 1:     // MagicWand
                 break;
             case 2:     // Knife
-                if (!weapon.IsMaster()) {
+                if (!weapon.isEvoluction()) {
                     GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
                 }
                 else {
