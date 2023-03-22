@@ -20,6 +20,14 @@ public class SkillFiringSystem : MonoBehaviour
             case 0:     // Whip
                 break;
             case 1:     // MagicWand
+                if (!weapon.isEvoluction())
+                {
+                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<MagicWand>().FireMagicWand(weaponPrefabs[2]);
+                }
+                else
+                {
+                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<MagicWand>().FireMagicWand(evolutionWeaponPrefabs[2]);
+                }
                 break;
             case 2:     // Knife
                 if (!weapon.isEvoluction()) {
