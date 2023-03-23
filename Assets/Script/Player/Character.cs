@@ -55,7 +55,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
         // 임시
-        GetWeapon(2);
+        GetWeapon(1);
         GetWeapon(7);
         GetAccessory(0);
         GetAccessory(1);

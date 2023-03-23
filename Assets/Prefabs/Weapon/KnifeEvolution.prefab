@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6348401555296848256}
   - component: {fileID: 7885131650579194281}
   - component: {fileID: 8613333772210962326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: KnifeEvolution
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   WeaponLevel: 1
   WeaponMaxLevel: 1
   Mastered: 1
+  weaponTotalStats: []
 --- !u!114 &8613333772210962326
 MonoBehaviour:
   m_ObjectHideFlags: 0
