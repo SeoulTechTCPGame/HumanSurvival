@@ -12,14 +12,12 @@ public class MagicWand : MonoBehaviour
     float timer = 0;
     bool useWand = false;
     int touch = 0;
+    int touchLimit;
 
     private void FixedUpdate()
     {
-        GetNearest();
         if (!useWand) return;  //MagicWand 사용 안할 때 Update를 안 함
-        //targets = Physics2D.CircleCastAll(GameManager.instance.player.transform.position, scanRange, Vector2.zero, 0, targetLayer); //상대 찾기 캐스팅 시작 위치,원의 반지름, 캐스팅 방향, 캐스팅 길이, 대상 레이어
-        transform.position += magicWandTransition * Time.deltaTime;
-        if (touch == 2) //TODO: 진화 시로 변경
+        if (touchLimit <= touch)
         {
             Destroy(this.gameObject);
         }
@@ -33,11 +31,11 @@ public class MagicWand : MonoBehaviour
             {
                 for (int i = 0; i < objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
                 {
-                    GameObject newobs = Instantiate(objPre, GameManager.instance.player.transform.position, Quaternion.identity);   //skillFiringSystem에서 프리팹 가져오기
+                    GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+                    newobs.transform.position = GameManager.instance.player.transform.position;
                     newobs.GetComponent<MagicWand>().useWand = true;
-                    newobs.transform.parent = GameObject.Find("SkillFiringSystem").transform;
-                    Vector3 direction = (target.transform.position - GameManager.instance.player.transform.position).normalized;
-                    newobs.GetComponent<MagicWand>().magicWandTransition = direction * GameManager.instance.character.GetComponent<Character>().Weapons[GameManager.instance.character.GetComponent<Character>().TransWeaponIndex[1]].WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
+                    Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
+                    rb.velocity = setDirection(newobs) * newobs.GetComponent<Weapon>().WeaponTotalStats[(int)Enums.WeaponStat.ProjectileSpeed];
                 }
                 timer = 0;
             }
@@ -50,11 +48,14 @@ public class MagicWand : MonoBehaviour
             touch++;
         }
     }
-    void GetNearest()
+    private Vector3 setDirection(GameObject obj)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster"); // Find all game objects with the "Enemy" tag.
         float closestDistance = Mathf.Infinity;
 
+        Vector3 direction = Vector3.one;
+
+        //적 탐색
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(GameManager.instance.player.transform.position, enemy.transform.position);
@@ -65,5 +66,7 @@ public class MagicWand : MonoBehaviour
                 target = enemy;
             }
         }
+        //벡터  설정
+        return direction;
     }
 }
