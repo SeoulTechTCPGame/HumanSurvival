@@ -44,7 +44,7 @@ public class Character : EquipmentManagementSystem,IDamageable
         mMaxExp = 100;
 
         // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
-        CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+        CharacterStats = new float[21] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
         TransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();

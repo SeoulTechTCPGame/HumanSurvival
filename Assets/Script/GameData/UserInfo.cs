@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,9 +24,15 @@ public class UserInfo : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    void getGold(int gold)
+    public void getGold(int gold)
     {
         UserDataSet.Gold += gold;
+        UserDataSet.consumeGold -= gold;
+        UserDataManager.instance.SaveData();
+    }
+    public void RefundGold()
+    {
+        UserDataSet.consumeGold = 0;
         UserDataManager.instance.SaveData();
     }
     void UpdateColldection(int collectionIndex)
@@ -37,9 +45,34 @@ public class UserInfo : MonoBehaviour
         UserDataSet.Achievements[achievementIndexes] = true;
         UserDataManager.instance.SaveData();
     }
-    void UpdatePowerUp(int powerUpIndex)
+    public void UpdatePowerUpLevel(int powerUpIndex)
     {
-        UserDataSet.PowerUps[powerUpIndex]++;
+        UserDataSet.PowerUpLevel[powerUpIndex]++;
+        UserDataManager.instance.SaveData();
+    }
+    public void RefundPowerUpLevel(int powerUpIndex)
+    {
+        UserDataSet.PowerUpLevel[powerUpIndex] = 0;
+        UserDataManager.instance.SaveData();
+    }
+    public void UpdatePowerUpStat(int powerUpIndex, float powerUpStat)
+    {
+        UserDataSet.PowerUpStat[powerUpIndex] += powerUpStat;
+        UserDataManager.instance.SaveData();
+    }
+    public void RefundPowerUpStat(int powerUpIndex)
+    {
+        UserDataSet.PowerUpStat[powerUpIndex] = 0;
+        UserDataManager.instance.SaveData();
+    }
+    public void UpdatePowerUpCash(int powerUpIndex)
+    {
+        UserDataSet.nowPowerUpCash[powerUpIndex] = (int)(UserDataSet.powerUpCash[powerUpIndex] * (1 + UserDataSet.PowerUpLevel[powerUpIndex]) + 20 * Math.Pow(1.1, UserDataSet.PowerUpLevel.Sum() - 1));
+        UserDataManager.instance.SaveData();
+    }
+    public void RefundPowerUpCash(int powerUpIndex)
+    {
+        UserDataSet.nowPowerUpCash[powerUpIndex] = UserDataSet.powerUpCash[powerUpIndex];
         UserDataManager.instance.SaveData();
     }
     void UpdateOption()
