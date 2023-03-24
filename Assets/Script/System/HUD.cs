@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level,Kill,Time,Health,Coin}
+    public enum InfoType { Exp, Level,Kill,Time,Health,Coin,Weapon,Item}
     public InfoType type;
     Text myText;
     Slider mySlider;
+    Sprite[] weaponImages;
     private void Awake()
     {
         mySlider = GetComponent<Slider>();
         myText = GetComponent<Text>();
+       
     }
     private void LateUpdate()
     {
@@ -43,7 +45,10 @@ public class HUD : MonoBehaviour
             case InfoType.Coin:
                 myText.text = string.Format("{0:F0}", GameManager.instance.coin);
                 break;
+            
+            
         }
+
     }
 }
 
