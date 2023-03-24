@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f37dd5a24d2e45408a660c00a988dec, type: 3}
+  m_Name: FireMage
+  m_EditorClassIdentifier: 
+  characterType: 3
+  MaxHealth: 100
+  Recovery: 0
+  Armor: 0
+  MoveSpeed: 0
+  Might: 1.1
+  Area: 1
+  ProjectileSpeed: 1
+  Duration: 1
+  Amount: 0
+  Cooldown: 1
+  Luck: 1
+  Growth: 1
+  Greed: 1
+  Curse: 1
+  MagnetBonus: 1
+  Revival: 0
+  Reroll: 0
+  Skip: 0
+  Banish: 0
+  Ommi: 0
+  Reflection: 0
+  startingWeapon: {fileID: 0}

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -15,6 +15,7 @@ using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 public class Character : EquipmentManagementSystem,IDamageable
 {
     //캐릭터의 스탯지정
+    public CharacterScriptableObject characterData;
     //예시를 위해 값은 무작위로 넣음
     public GameObject LevepUpUI;
 
@@ -38,13 +39,27 @@ public class Character : EquipmentManagementSystem,IDamageable
     
 
     void Start()
-    {
+    {   
+
         mLevel = 1;
         mExp = 0;
         mMaxExp = 100;
 
         // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
-        CharacterStats = new float[21] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        string resourceName = "CharacterData/";
+        try
+        {
+            resourceName += DataManager.instance.currentCharcter;
+        }
+        catch (NullReferenceException ex)
+        {
+            resourceName += "Alchemist";
+        }
+
+        characterData = Resources.Load<CharacterScriptableObject>(resourceName);
+        Debug.Log(characterData.MagnetBonus);
+        CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
         TransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();
@@ -65,7 +80,7 @@ public class Character : EquipmentManagementSystem,IDamageable
     {
         
         //if(currentHp< CharacterStats[(int)Enums.Stat.MaxHealth])
-        if(currentHp<100)
+        if(currentHp<characterData.MaxHealth)
         { 
             currentHp += amount;
             if (currentHp > 100) currentHp = 100;
