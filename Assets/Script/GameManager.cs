@@ -95,15 +95,12 @@ public class GameManager : MonoBehaviour
         player.enabled = false; // Character object 비활성화
         pool.enabled = false;
         Time.timeScale = 0;
-
         gameoverPanel.SetActive(true); // 판넬 활성화
-
     }
     public void LevelUp()
     {
         level++;
-        GameManager.instance.level++;
-        GameManager.instance.PauseGame();
+        PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(equipManageSys);
         Debug.Log(pickUps.Count);
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
