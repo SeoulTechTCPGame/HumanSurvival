@@ -23,14 +23,13 @@ public class Accessory
     }
     public void Upgrade()
     {
-        Character character = GameObject.Find("Player").GetComponent<Character>();
         AccessoryLevel++;
         foreach ((var statIndex, var data) in EquipmentData.AccessoryUpgrade[AccessoryIndex][AccessoryLevel])
         {
-            character.CharacterStats[statIndex] += data;
+            GameManager.instance.CharacterStats[statIndex] += data;
             if (statIndex == (int)Enums.Stat.Luck)
             {
-                character.UpdateLuck(character.CharacterStats[statIndex]);
+                GameManager.instance.UpdateLuck(GameManager.instance.CharacterStats[statIndex]);
             }
         }
     }

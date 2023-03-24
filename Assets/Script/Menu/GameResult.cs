@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameResult : MonoBehaviour
 {
-    [SerializeField] TMP_Text map = null;
+    //[SerializeField] TMP_Text map = null;
     [SerializeField] TMP_Text time = null;
     float gameTime;
     [SerializeField] TMP_Text coin = null;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,11 +17,17 @@ public class GameManager : MonoBehaviour
     public float maxExp;
     public int coin;
     public int[] killCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
+    public EquipmentManagementSystem equipManageSys;
+    public RandomPickUpSystem RandomPickUpSystem;
+    //캐릭터의 스탯지정
+    public CharacterScriptableObject characterData;
+    public float[] CharacterStats;
 
     [Header("# Game Object")]
     public PoolManager pool;
     public PlayerMovement player;
     public GameObject gameoverPanel;
+    public GameObject LevepUpUI;
 
     //  Singleton Instance 선언
     public static GameManager instance = null;
@@ -44,7 +51,26 @@ public class GameManager : MonoBehaviour
 
 
     }
+    private void Start()
+    {
+        level = 1;
+        RandomPickUpSystem = new RandomPickUpSystem();
+        equipManageSys = new EquipmentManagementSystem();
 
+        // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
+        string resourceName = "CharacterData/";
+        try
+        {
+            resourceName += DataManager.instance.currentCharcter;
+        }
+        catch (NullReferenceException)
+        {
+            resourceName += "Alchemist";
+        }
+
+        characterData = Resources.Load<CharacterScriptableObject>(resourceName);
+        Debug.Log(characterData.MagnetBonus);
+    }
     private void Update()
     {
         gameTime += Time.deltaTime;
@@ -72,6 +98,19 @@ public class GameManager : MonoBehaviour
 
         gameoverPanel.SetActive(true); // 판넬 활성화
 
+    }
+    public void LevelUp()
+    {
+        level++;
+        GameManager.instance.level++;
+        GameManager.instance.PauseGame();
+        var pickUps = RandomPickUpSystem.RandomPickUp(equipManageSys);
+        LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
+    }
+    public void UpdateLuck(float luck)
+    {
+        RandomPickUpSystem.UpdateWeaponPickUpList();
+        RandomPickUpSystem.UpdateAccessoryPickUpList();
     }
     public void GetCoin(int amount)
     {

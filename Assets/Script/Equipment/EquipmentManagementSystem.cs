@@ -15,6 +15,21 @@ public class EquipmentManagementSystem : MonoBehaviour
     public int[] TransAccessoryIndex; // 위와 같으나 Accessory에 해당
 
     void Awake() { skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>(); }
+    private void Start()
+    {
+        Weapons = new List<Weapon>();
+        Accessories = new List<Accessory>();
+        TransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();
+        TransAccessoryIndex = Enumerable.Repeat<int>(-1, 21).ToArray<int>();
+        MasteredWeapons = new List<int>();
+        MasteredAccessories = new List<int>();
+
+        // 임시
+        GetWeapon(2);
+        GetWeapon(7);
+        GetAccessory(0);
+        GetAccessory(1);
+    }
 
     public void ApplyItem(Tuple<int, int, int> pickUp)
     {
