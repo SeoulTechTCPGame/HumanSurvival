@@ -48,15 +48,15 @@ public class GameManager : MonoBehaviour
         exp = 0;
         maxExp = 100;
         //Time.timeScale = 1;
-
-
     }
     private void Start()
-    {
+    {    
+        //ToDo: 임시 초기화
+        CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
         level = 1;
         RandomPickUpSystem = new RandomPickUpSystem();
         equipManageSys = new EquipmentManagementSystem();
-
+        equipManageSys.Set();
         // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
         string resourceName = "CharacterData/";
         try
@@ -69,7 +69,8 @@ public class GameManager : MonoBehaviour
         }
 
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
-        Debug.Log(characterData.MagnetBonus);
+
+
     }
     private void Update()
     {

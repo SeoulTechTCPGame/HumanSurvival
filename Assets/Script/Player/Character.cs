@@ -1,18 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
-using Enums;
-using Rito;
-using static UnityEngine.Rendering.DebugUI.Table;
-using static Constants;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
-using System.Linq;
-using Unity.VisualScripting.Antlr3.Runtime;
-using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
-public class Character : IDamageable
+public class Character : MonoBehaviour, IDamageable
 {
 
     //예시를 위해 값은 무작위로 넣음

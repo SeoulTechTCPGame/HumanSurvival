@@ -8,7 +8,6 @@ public class SkillFiringSystem : MonoBehaviour
     public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
     void Update()
     {
-        Debug.Log(GameManager.instance.equipManageSys.Weapons);
         foreach (var weapon in GameManager.instance.equipManageSys.Weapons)
         {
             Attack(weapon);
