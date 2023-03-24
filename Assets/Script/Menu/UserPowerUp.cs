@@ -20,6 +20,7 @@ public class UserPowerUp : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape)){
             SceneManager.LoadScene("MainScreen");
         }
+        SetMoneyText();
     }
 
     void SetMoneyText(){

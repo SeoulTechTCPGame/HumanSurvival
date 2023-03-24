@@ -14,14 +14,14 @@ public class AccessoryInfo : MonoBehaviour, IPointerDownHandler
     [SerializeField] TMP_Text mAccessoryName;
     [SerializeField] TMP_Text mAccessoryExplain;
     [SerializeField] Button ChargeButton;
+    public TMP_Text mAccessoryCash;
     public Toggle[] accessoryToggle;
 
     string mExplain;
     public int accessoryLevel;
-    public int accessoryNowLevel = 0;
 
     void Start()
-    {
+    {   
         switch(mAccessoryIndex){
             case 1:
                 this.mExplain = "랭크당 피해량이 5% 증가합니다\n(최대 +25%)";
@@ -104,14 +104,19 @@ public class AccessoryInfo : MonoBehaviour, IPointerDownHandler
                 break;
         }
 
+        for (int i = 0; i < UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1]; i++)
+        {
+            accessoryToggle[i].isOn = true;
+        }
     }
-
+    
     public void OnPointerDown(PointerEventData eventData) 
     {
         mAccessoryName.text = mThisAccessoryName.text;
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;
         ChargeButton.GetComponent<ChargeAccessory>().nowAccessoryIndex = mAccessoryIndex - 1;
+        mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[mAccessoryIndex - 1].ToString();
     }
     
     
