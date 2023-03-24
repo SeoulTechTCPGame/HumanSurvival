@@ -69,8 +69,7 @@ public class GameManager : MonoBehaviour
         }
 
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
-
-
+        UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
     }
     private void Update()
     {
@@ -106,6 +105,7 @@ public class GameManager : MonoBehaviour
         GameManager.instance.level++;
         GameManager.instance.PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(equipManageSys);
+        Debug.Log(pickUps.Count);
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
     }
     public void UpdateLuck(float luck)

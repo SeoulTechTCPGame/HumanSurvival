@@ -24,11 +24,11 @@ public class SkillFiringSystem : MonoBehaviour
             case 2:     // Knife
                 if (!weapon.isEvoluction())
                 {
-                    GameManager.instance.equipManageSys.Weapons[GameManager.instance.equipManageSys.TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
+                    weapon.GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
                 }
                 else
                 {
-                    GameManager.instance.equipManageSys.Weapons[GameManager.instance.equipManageSys.TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
+                    weapon.GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
                 }
                 break;
             case 3:     // Axe
@@ -40,7 +40,7 @@ public class SkillFiringSystem : MonoBehaviour
             case 6:     // FireWand
                 break;
             case 7:     // Garlic
-                GameManager.instance.equipManageSys.Weapons[GameManager.instance.equipManageSys.TransWeaponIndex[7]].GetComponent<Gralic>().SpawnGralic(weaponPrefabs[7]); break;
+                weapon.GetComponent<Gralic>().SpawnGralic(weaponPrefabs[7]); break;
             case 8:     // SantaWater
                 break;
             case 9:     // Peachone
