@@ -48,7 +48,7 @@ public class Weapon : MonoBehaviour
     public bool isEvoluction()
     {
         bool evoluction = IsMaster();
-        var characterTrans = GameManager.instance.player.GetComponent<Character>().TransAccessoryIndex;
+        var characterTrans = GameManager.instance.equipManageSys.TransAccessoryIndex;
         if (evoluction && (this.WeaponIndex == characterTrans[EquipmentData.EvoAccNeedWeaponIndex[this.WeaponIndex]]))
         {
             mEvolution = true;

@@ -17,35 +17,35 @@ public class RandomPickUpSystem
         mWeaponRarity = new int[13] { 100, 100, 100, 100, 80, 80, 80, 70, 100, 50, 50, 80, 80 };
         mAccessoryRarity = new int[21] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 60, 50, 50, 50, 40, 40, 40 }; // 임시
     }
-    public void UpdateWeaponPickUpList(Character character)
+    public void UpdateWeaponPickUpList()
     {
-        var luck = character.CharacterStats[(int)Enums.Stat.Luck];
+        var luck = GameManager.instance.CharacterStats[(int)Enums.Stat.Luck];
         mWeaponPicker = new WeightedRandomPicker<int>();
-        if (character.Weapons.Count < Constants.MaxWeaponCount)
+        if (GameManager.instance.equipManageSys.Weapons.Count < Constants.MaxWeaponCount)
         {
             for (int i = 0; i < mWeaponRarity.Length; i++)
             {
-                if (character.TransWeaponIndex[i] >= 0 && character.Weapons[character.TransWeaponIndex[i]].Mastered)
+                if (GameManager.instance.equipManageSys.TransWeaponIndex[i] >= 0 && GameManager.instance.equipManageSys.Weapons[GameManager.instance.equipManageSys.TransWeaponIndex[i]].Mastered)
                     continue;
                 mWeaponPicker.Add(i, (mWeaponRarity[i] + luck) / (double)mWeaponRarity[i]);
             }
         }
         else
         {
-            for (int i = 0; i < character.Weapons.Count; i++)
+            for (int i = 0; i < GameManager.instance.equipManageSys.Weapons.Count; i++)
             {
-                if (character.Weapons[i].Mastered)
+                if (GameManager.instance.equipManageSys.Weapons[i].Mastered)
                     continue;
-                int nowIdx = character.Weapons[i].WeaponIndex;
+                int nowIdx = GameManager.instance.equipManageSys.Weapons[i].WeaponIndex;
                 mWeaponPicker.Add(nowIdx, (mWeaponRarity[nowIdx] + luck) / (double)mWeaponRarity[nowIdx]);
             }
         }
     }
-    public void UpdateAccessoryPickUpList(Character character)
+    public void UpdateAccessoryPickUpList()
     {
-        var luck = character.CharacterStats[(int)Enums.Stat.Luck];
+        var luck = GameManager.instance.CharacterStats[(int)Enums.Stat.Luck];
         mAccessoryPicker = new WeightedRandomPicker<int>();
-        if (character.Accessories.Count < Constants.MaxAccessoryCount)
+        if (GameManager.instance.equipManageSys.Accessories.Count < Constants.MaxAccessoryCount)
         {
             for (int i = 0; i < mAccessoryRarity.Length; i++)
             {
@@ -54,21 +54,21 @@ public class RandomPickUpSystem
         }
         else
         {
-            for (int i = 0; i < character.Accessories.Count; i++)
+            for (int i = 0; i < GameManager.instance.equipManageSys.Accessories.Count; i++)
             {
-                if (character.Accessories[i].AccessoryLevel == character.Accessories[i].AccessoryMaxLevel)
+                if (GameManager.instance.equipManageSys.Accessories[i].AccessoryLevel == GameManager.instance.equipManageSys.Accessories[i].AccessoryMaxLevel)
                     continue;
-                int nowIdx = character.Accessories[i].AccessoryIndex;
+                int nowIdx = GameManager.instance.equipManageSys.Accessories[i].AccessoryIndex;
                 mAccessoryPicker.Add(nowIdx, (mAccessoryRarity[nowIdx] + luck) / (double)mAccessoryRarity[nowIdx]);
             }
         }
     }
-    public List<Tuple<int, int, int>> RandomPickUp(Character character)
+    public List<Tuple<int, int, int>> RandomPickUp(EquipmentManagementSystem equipManageSys)
     {
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
-        getPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, character);
+        getPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
 
-        int maxChoice = System.Math.Min(getChoice(character), possibleWeaponChoice + possibleAccessoryChoice);
+        int maxChoice = System.Math.Min(getChoice(), possibleWeaponChoice + possibleAccessoryChoice);
 
         List<Tuple<int, int, int>> pickUps = new List<Tuple<int, int, int>>();
         if (maxChoice == 0)
@@ -83,7 +83,7 @@ public class RandomPickUpSystem
             List<int> pickedAccessoryList = new List<int>();
             for (int i = 0; i < maxChoice; i++)
             {
-                var pick = getOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, character);
+                var pick = getOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
                 pickUps.Add(pick);
                 if (pick.Item1 == 0)
                     possibleWeaponChoice--;
@@ -94,19 +94,19 @@ public class RandomPickUpSystem
 
         return pickUps;
     }
-    private void getPossibleChoice(ref int possibleWeaponChoice, ref int possibleAccessoryChoice, Character character)
+    private void getPossibleChoice(ref int possibleWeaponChoice, ref int possibleAccessoryChoice, EquipmentManagementSystem equipManageSys)
     {
-        if (character.Weapons.Count == Constants.MaxWeaponCount)
-            possibleWeaponChoice = Constants.MaxWeaponCount - character.MasteredWeapons.Count;
+        if (equipManageSys.Weapons.Count == Constants.MaxWeaponCount)
+            possibleWeaponChoice = Constants.MaxWeaponCount - equipManageSys.MasteredWeapons.Count;
         else
-            possibleWeaponChoice = Constants.MaxWeaponCount - character.MasteredWeapons.Count;
-        if (character.Accessories.Count == Constants.MaxAccessoryCount)
-            possibleAccessoryChoice = Constants.MaxAccessoryCount - character.MasteredAccessories.Count;
+            possibleWeaponChoice = Constants.MaxWeaponCount - equipManageSys.MasteredWeapons.Count;
+        if (equipManageSys.Accessories.Count == Constants.MaxAccessoryCount)
+            possibleAccessoryChoice = Constants.MaxAccessoryCount - equipManageSys.MasteredAccessories.Count;
         else
-            possibleAccessoryChoice = Constants.MaxAccessoryCount - character.MasteredAccessories.Count;
+            possibleAccessoryChoice = Constants.MaxAccessoryCount - equipManageSys.MasteredAccessories.Count;
     }
 
-    private Tuple<int, int, int> getOnePickUp(int possibleWeaponNum, int possibleAccessoryNum, List<int> pickedWeaponList, List<int> pickedAccessoryList, Character character)
+    private Tuple<int, int, int> getOnePickUp(int possibleWeaponNum, int possibleAccessoryNum, List<int> pickedWeaponList, List<int> pickedAccessoryList, EquipmentManagementSystem equipManagerSys)
     {   // < 0: weapon / 1: accessory, index , 0: new / 1: old >
         int pickType = getPickType(possibleWeaponNum, possibleAccessoryNum);
         int pick = -1;
@@ -114,21 +114,21 @@ public class RandomPickUpSystem
         if (pickType == 0)
         {
             pick = getWeaponRandomPick(pickedWeaponList);
-            if (character.TransWeaponIndex[pick] < 0)
+            if (equipManagerSys.TransWeaponIndex[pick] < 0)
                 hasPick = 0;
         }
         else
         {
             pick = getAccessoryRandomPick(pickedAccessoryList);
-            if (character.TransAccessoryIndex[pick] < 0)
+            if (equipManagerSys.TransAccessoryIndex[pick] < 0)
                 hasPick = 0;
         }
 
         return new Tuple<int, int, int>(pickType, pick, hasPick);
     }
-    private int getChoice(Character character)
+    private int getChoice()
     {
-        if (UnityEngine.Random.Range(0, 101) <= character.CharacterStats[(int)Enums.Stat.Luck])
+        if (UnityEngine.Random.Range(0, 101) <= GameManager.instance.CharacterStats[(int)Enums.Stat.Luck])
         {
             return 4;
         }

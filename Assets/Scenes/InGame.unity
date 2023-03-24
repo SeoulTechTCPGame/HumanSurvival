@@ -797,9 +797,13 @@ MonoBehaviour:
   maxExp: 0
   coin: 0
   killCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  equipManageSys: {fileID: 0}
+  characterData: {fileID: 0}
+  CharacterStats: []
   pool: {fileID: 1068104046}
   player: {fileID: 1928233908}
   gameoverPanel: {fileID: 1724402127}
+  LevepUpUI: {fileID: 1219748136}
 --- !u!4 &551852910
 Transform:
   m_ObjectHideFlags: 0
