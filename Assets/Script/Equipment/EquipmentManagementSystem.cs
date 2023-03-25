@@ -14,7 +14,23 @@ public class EquipmentManagementSystem : MonoBehaviour
     public int[] TransWeaponIndex; // 해당 index의 weapon이 현재 보유중인 Weapons의 몇 번째 index에 있는지 반환하는 배열, 없다면 -1 반환
     public int[] TransAccessoryIndex; // 위와 같으나 Accessory에 해당
 
-    void Awake(){ skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>(); }
+    void Awake() {  }
+    public void Set()
+    {
+        skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>();
+        Weapons = new List<Weapon>();
+        Accessories = new List<Accessory>();
+        TransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();
+        TransAccessoryIndex = Enumerable.Repeat<int>(-1, 21).ToArray<int>();
+        MasteredWeapons = new List<int>();
+        MasteredAccessories = new List<int>();
+
+        // 임시
+        GetWeapon(2);
+        GetWeapon(7);
+        GetAccessory(0);
+        GetAccessory(1);
+    }
 
     public void ApplyItem(Tuple<int, int, int> pickUp)
     {
@@ -61,7 +77,7 @@ public class EquipmentManagementSystem : MonoBehaviour
     }
     //ToDo: SkillFiringSystem이랑 연계 할 함수
     public void GetWeapon(int weaponIndex)
-    { 
+    {
         TransWeaponIndex[weaponIndex] = Weapons.Count;
         Weapon newWeapon = (skillFiringSystem.weaponPrefabs[weaponIndex]).GetComponent<Weapon>();
         newWeapon.WeaponDefalutSetting(weaponIndex);
@@ -89,5 +105,4 @@ public class EquipmentManagementSystem : MonoBehaviour
             MasteredAccessories.Add(accessoryIndex);
         }
     }
-} 
- 
+}

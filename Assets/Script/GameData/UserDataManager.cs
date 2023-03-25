@@ -10,8 +10,12 @@ using UnityEditor;
 public class UserData
 {
     public int Gold;
+    public int consumeGold = 0;
     public int[] Options;
-    public int[] PowerUps;
+    public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public int[] powerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
+    public int[] nowPowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
     public bool[] Achievements;
     public bool[] Collection;
     public bool[] UnlockStages;

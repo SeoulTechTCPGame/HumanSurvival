@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class GameResult : MonoBehaviour
 {
-    [SerializeField] TMP_Text map = null;
+    //[SerializeField] TMP_Text map = null;
     [SerializeField] TMP_Text time = null;
     float gameTime;
     [SerializeField] TMP_Text coin = null;
     [SerializeField] TMP_Text level = null;
     [SerializeField] TMP_Text kill = null;
+    [SerializeField] TMP_Text character = null;
+    [SerializeField] Image characterImage=null;
 
     Weapon weapon;
     int Weaponname;
@@ -26,7 +30,10 @@ public class GameResult : MonoBehaviour
         float seconds = Mathf.Floor(gameTime % 60);
         float minutes = Mathf.Floor(gameTime / 60);
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
+        string charName = "" + DataManager.instance.currentCharcter;
+        character.text=string.Format("{0}",charName);
+        string source="CharacterSprite/"+ charName + "_0";
+        characterImage.sprite = Resources.Load<Sprite>(source);
     }
     private void OnDestroy()
     {

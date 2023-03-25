@@ -894,11 +894,11 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 369238994}
   - {fileID: 1258547202}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &80155789
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,11 +999,11 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 635917333}
   - {fileID: 41898973}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &88975276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,11 +1593,11 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1835408334}
   - {fileID: 1383947590}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &117848510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,6 +2307,7 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 110811803}
   - {fileID: 1158114870}
@@ -2314,7 +2315,6 @@ MonoBehaviour:
   - {fileID: 665743873}
   - {fileID: 1166574492}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &164830549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,8 +3862,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1640107786}
-  m_Father: {fileID: 1449948763}
-  m_RootOrder: 4
+  m_Father: {fileID: 1055911649}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3917,8 +3917,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4070,6 +4070,7 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1715590876}
   - {fileID: 96413886}
@@ -4077,7 +4078,6 @@ MonoBehaviour:
   - {fileID: 1782489867}
   - {fileID: 1056389621}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &362798353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,8 +4446,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1963926392}
-  m_Father: {fileID: 1449948763}
-  m_RootOrder: 3
+  m_Father: {fileID: 1055911649}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4577,6 +4577,7 @@ MonoBehaviour:
   - {fileID: 356310605}
   - {fileID: 160051466}
   - {fileID: 914118323}
+  mChargeObject: {fileID: 1055911648}
   nowAccessoryIndex: 0
 --- !u!1 &433790885
 GameObject:
@@ -6238,12 +6239,12 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 409964879}
   - {fileID: 1720820320}
   - {fileID: 117848512}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &635917331
 GameObject:
   m_ObjectHideFlags: 0
@@ -7189,6 +7190,7 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 95319124}
   - {fileID: 206863838}
@@ -7196,7 +7198,6 @@ MonoBehaviour:
   - {fileID: 1165588163}
   - {fileID: 1469408646}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &776335635
 GameObject:
   m_ObjectHideFlags: 0
@@ -7952,6 +7953,7 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1222813408}
   - {fileID: 244535981}
@@ -7959,7 +7961,6 @@ MonoBehaviour:
   - {fileID: 988052852}
   - {fileID: 1148102825}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &863086371
 GameObject:
   m_ObjectHideFlags: 0
@@ -8472,10 +8473,10 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 2048720744}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &921408911
 GameObject:
   m_ObjectHideFlags: 0
@@ -8806,11 +8807,11 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 638145803}
   - {fileID: 25318705}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &988052850
 GameObject:
   m_ObjectHideFlags: 0
@@ -9213,6 +9214,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053816320}
   m_CullTransparentMesh: 1
+--- !u!1 &1055911648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055911649}
+  m_Layer: 5
+  m_Name: ChargeObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1055911649
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055911648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 433556711}
+  - {fileID: 334953465}
+  m_Father: {fileID: 1449948763}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1056389619
 GameObject:
   m_ObjectHideFlags: 0
@@ -12588,11 +12627,11 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 2113978788}
   - {fileID: 1144663864}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &1426973686
 GameObject:
   m_ObjectHideFlags: 0
@@ -12779,8 +12818,7 @@ RectTransform:
   - {fileID: 288316071}
   - {fileID: 164830550}
   - {fileID: 264806808}
-  - {fileID: 433556711}
-  - {fileID: 334953465}
+  - {fileID: 1055911649}
   m_Father: {fileID: 863086372}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13004,12 +13042,12 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1636823309}
   - {fileID: 484681137}
   - {fileID: 1159591497}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &1460145191
 GameObject:
   m_ObjectHideFlags: 0
@@ -13745,11 +13783,11 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 362798355}
   - {fileID: 1817538581}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &1550885731
 GameObject:
   m_ObjectHideFlags: 0
@@ -15183,8 +15221,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484614427}
   m_HandleRect: {fileID: 484614426}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.66762143
+  m_Value: 1
+  m_Size: 0.6676215
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15565,10 +15603,10 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1844877383}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &1763824070
 GameObject:
   m_ObjectHideFlags: 0
@@ -16282,12 +16320,12 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1709031329}
   - {fileID: 539144072}
   - {fileID: 1944352321}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &1830410698
 GameObject:
   m_ObjectHideFlags: 0
@@ -19172,6 +19210,7 @@ MonoBehaviour:
   mAccessoryName: {fileID: 288316072}
   mAccessoryExplain: {fileID: 264806809}
   ChargeButton: {fileID: 433556712}
+  mAccessoryCash: {fileID: 334953466}
   accessoryToggle:
   - {fileID: 1947770544}
   - {fileID: 2131763707}
@@ -19179,7 +19218,6 @@ MonoBehaviour:
   - {fileID: 1166633235}
   - {fileID: 489043012}
   accessoryLevel: 0
-  accessoryNowLevel: 0
 --- !u!1 &2113978786
 GameObject:
   m_ObjectHideFlags: 0

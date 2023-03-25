@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         {
             resourceName += DataManager.instance.currentCharcter;
         }
-        catch (NullReferenceException ex)
+        catch (NullReferenceException)
         {
             resourceName  +="Alchemist";
         }

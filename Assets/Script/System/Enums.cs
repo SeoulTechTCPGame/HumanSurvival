@@ -129,14 +129,14 @@ namespace Enums
         Script,
         Property
     }
-    public enum Character
-    {
-        Antonio,
-        Imelda,
-        Gennaro,
-        Arca,
-        Porta,
-        Poe,
-        Clerici
+    public enum CharacterType
+    { 
+        Rogue,//Antonio,
+        StormMage,//Imelda,      
+        Barbarian,//Gennaro,      
+        FireMage, //Arca
+        Necromancer,//Porta,
+        Warlock,//Poe,
+        Alchemist,//Clerici
     }
 }
