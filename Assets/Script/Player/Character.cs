@@ -68,7 +68,7 @@ public class Character : MonoBehaviour, IDamageable
             GameManager.instance.maxExp = mMaxExp;
             GameManager.instance.LevelUp();
         }
-        Debug.Log("Exp:" + GameManager.instance.exp);
+        //Debug.Log("Exp:" + GameManager.instance.exp);
     }
 
 

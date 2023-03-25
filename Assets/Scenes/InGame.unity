@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefabs:
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
-  - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
+  - {fileID: 943404134078784437, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
@@ -1739,7 +1739,7 @@ MonoBehaviour:
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   evolutionWeaponPrefabs:
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
-  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  - {fileID: 943404134078784437, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
