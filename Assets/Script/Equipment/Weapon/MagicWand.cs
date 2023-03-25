@@ -40,7 +40,7 @@ public class MagicWand : MonoBehaviour
                 Vector3 direction = FindClosestEnemyDirection();
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 //무기가 바라보는 방향 조절
-                newobs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
+                newobs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
                 //무기 발사
                 Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
                 rb.velocity = direction * ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
