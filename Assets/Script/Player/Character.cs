@@ -25,27 +25,6 @@ public class Character : MonoBehaviour, IDamageable
     {   
         mExp = 0;
         mMaxExp = 100;
-<<<<<<< HEAD
-
-        // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
-        CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-        Weapons = new List<Weapon>();
-        Accessories = new List<Accessory>();
-        TransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();
-        TransAccessoryIndex = Enumerable.Repeat<int>(-1, 21).ToArray<int>();
-        MasteredWeapons = new List<int>();
-        MasteredAccessories = new List<int>();
-        RandomPickUpSystem = new RandomPickUpSystem();
-        UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
-
-        // 임시
-        GetWeapon(1);
-        GetWeapon(7);
-        GetAccessory(0);
-        GetAccessory(1);
-
-=======
->>>>>>> 2cdaf9ab8bdd15d5b3a5110c0ef30ce4cc56f02b
     }
     public void RestoreHealth(float amount)
     {
