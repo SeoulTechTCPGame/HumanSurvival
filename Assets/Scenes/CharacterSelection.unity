@@ -1054,25 +1054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 4
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1178876488}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 96882773}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &96882776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3828,25 +3812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 5
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 819885034}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 897836104}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &897836107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4501,25 +4469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 3
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1353479736}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 937291887}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &937291890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6316,25 +6268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 7
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1421896127}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 1571871191}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &1571871194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6659,25 +6595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 6
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 991418868}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 1825428140}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &1825428143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6911,7 +6831,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1877939060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a678f8f5153622408a0cfdd72e5eb27, type: 3}
+  m_Script: {fileID: 11500000, guid: 02f0ce62d72bdfe40ad32aa28526570b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1912855214
@@ -7007,25 +6927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 2
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1158574706}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 1990242593}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &1990242596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7681,25 +7585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 1
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 2047682848}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 2132150298}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &2132150304
 MonoBehaviour:
   m_ObjectHideFlags: 0
