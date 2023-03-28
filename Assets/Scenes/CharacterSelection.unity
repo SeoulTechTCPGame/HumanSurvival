@@ -154,7 +154,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -624,7 +624,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -894,7 +894,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1054,25 +1054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 4
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1178876488}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 96882773}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &96882776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,7 +1221,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1456,7 +1440,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 85}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152407671
 MonoBehaviour:
@@ -1921,7 +1905,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2056,7 +2040,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2480,7 +2464,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2750,7 +2734,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3104,7 +3088,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3484,7 +3468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b78a767032f52f42aac7735648c31c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c45120f9f9da5344a577b16f70760ff, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3828,25 +3812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 5
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 819885034}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 897836104}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &897836107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4007,15 +3975,15 @@ RectTransform:
   m_GameObject: {fileID: 914950920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1044643410}
-  m_RootOrder: 0
+  m_Father: {fileID: 1877939061}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 120}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914950922
@@ -4501,25 +4469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 3
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1353479736}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 937291887}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &937291890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4846,7 +4798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7894316296babb34491c6f10967d0950, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cf59d619aa95cb4fabac922dd3c5f7c, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5030,7 +4982,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5163,11 +5115,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 914950921}
-  - {fileID: 1788514944}
+  m_Children: []
   m_Father: {fileID: 1877939061}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5409,7 +5359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0dd3c0294d3d8ee44844499fc6a3981c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a047e9e56ef75284dbe19999d6de82e1, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5485,7 +5435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d3d39f426994a94794d744aa435640b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 903b1a12fdbac9549a8a2c3d988f0870, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5744,7 +5694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa5dbf54711e0a5468ae2a0f5db0bb32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ae1a1506b908054090778528029d826, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5820,7 +5770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ???
+  m_text: Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
   m_sharedMaterial: {fileID: 1927474857956726295, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
@@ -5847,8 +5797,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5955,7 +5905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b290abebd884514c9e1bf1db2d6a845, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25a2497d0e881b44a824e1e2428dff8f, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6318,25 +6268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 7
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1421896127}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 1571871191}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &1571871194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6497,15 +6431,15 @@ RectTransform:
   m_GameObject: {fileID: 1788514943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1044643410}
-  m_RootOrder: 1
+  m_Father: {fileID: 1877939061}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788514945
@@ -6661,25 +6595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 6
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 991418868}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 1825428140}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &1825428143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6824,6 +6742,7 @@ GameObject:
   - component: {fileID: 1877939061}
   - component: {fileID: 1877939063}
   - component: {fileID: 1877939062}
+  - component: {fileID: 1877939064}
   m_Layer: 5
   m_Name: CharacterInfo
   m_TagString: Untagged
@@ -6844,7 +6763,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1373137499}
+  - {fileID: 914950921}
   - {fileID: 1044643410}
+  - {fileID: 1788514944}
   - {fileID: 96223571}
   - {fileID: 285419570}
   - {fileID: 707526228}
@@ -6901,6 +6822,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877939060}
   m_CullTransparentMesh: 1
+--- !u!114 &1877939064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877939060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f0ce62d72bdfe40ad32aa28526570b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1912855214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,25 +6927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 2
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 1158574706}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 1990242593}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &1990242596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7371,7 +7288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16091ca1288b253419a8c07d2479e3e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f5235cff85d84045b12bceb45f2b4fe, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7668,25 +7585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mCharacter: 1
-  mInfoImage: {fileID: 2017955206}
-  mButtonIamge: {fileID: 2047682848}
-  mCharacterName: {fileID: 152407671}
-  mCharacterName1: {fileID: 1373137500}
-  mCharacterExplain: {fileID: 95562946}
-  mCharacterMaxStamina: {fileID: 914950922}
-  mCharacterRecovery: {fileID: 1044643411}
-  mCharacterDefense: {fileID: 1788514945}
-  mCharacterSpeed: {fileID: 96223572}
-  mCharacterDamage: {fileID: 285419571}
-  mCharacterProjectileSpeed: {fileID: 707526229}
-  mCharacterDuration: {fileID: 127891951}
-  mCharacterAttackRange: {fileID: 530029159}
-  mCharacterCooldown: {fileID: 463938723}
-  mCharacterNumberOfProjectiles: {fileID: 54606820}
-  mCharacterMagnet: {fileID: 2338152}
-  mCharacterLuck: {fileID: 1033241846}
-  mCharacterGrowth: {fileID: 321645308}
+  characterButton: {fileID: 2132150298}
+  explain: {fileID: 1124102297}
+  selectedCharacter: {fileID: 1877939064}
 --- !u!114 &2132150304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7707,7 +7608,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132150298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
