@@ -8,26 +8,14 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
 {
     //Name, MaxStamina, Recovery, Defense, Speed, Damage, ProjectileSpeed, Durationn, AttackRange, Cooldown, NumberOfProjectiles, Magnet, Luck, Growth
     private TextMeshProUGUI[] textMeshes;
-    CharacterScriptableObject characterData;
 
     void Start()
     {
         textMeshes = GetComponentsInChildren<TextMeshProUGUI>();
-        //애니메이터 파일 이름을 설정
-        string resourceName = "Resources/";
-        try
-        {
-            resourceName += DataManager.instance.currentCharcter;
-        }
-        catch (NullReferenceException)
-        {
-            resourceName += "Alchemist";
-        }
-        characterData = Resources.Load<CharacterScriptableObject>(resourceName);
     }
-    public void LoadCharacterData()
+    public void LoadCharacterData(CharacterScriptableObject characterData)
     {
-        textMeshes[0].SetText("Name: " + characterData.name);
+        textMeshes[0].SetText(characterData.name);
         textMeshes[1].SetText("Max stamina: " + characterData.MaxHealth);
         textMeshes[2].SetText("Recovery: " + characterData.Recovery);
         textMeshes[3].SetText("Defense: " + characterData.Armor);

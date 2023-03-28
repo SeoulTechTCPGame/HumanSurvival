@@ -10,31 +10,39 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
 {
     public GameObject characterButton;
     public GameObject explain;
-    private Text characterName;
-    private Image explainImagege;
-    CharacterScriptableObject characterData;
     public CharacterInfoOfSelectionScene selectedCharacter;
 
+    private GameObject characterName;
+    private GameObject explainName;
+    private GameObject explainImage;
+    private GameObject explainText;
+
+    CharacterScriptableObject characterData;
+   
     private void Start()
     {
-        characterName = characterButton.GetComponentInChildren<Text>();
-        explainImagege = explain.GetComponentInChildren<Image>();
+        characterName = characterButton.transform.Find("Name").gameObject;
+        explainName = explain.transform.Find("CharaName").gameObject;
+        explainImage = explain.transform.Find("CharaImage").gameObject;
+        explainText = explain.transform.Find("CharaExplain").gameObject;
 
-        string resourceName = "Resources/";
+        string resourceName = "CharacterData/";
         try
         {
-            resourceName += DataManager.instance.currentCharcter;
+            resourceName += characterButton.GetComponent<SelectCharacter>().charname;
         }
         catch (NullReferenceException)
         {
             resourceName += "Alchemist";
         }
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
+        characterName.GetComponent<TextMeshProUGUI>().text = characterData.characterType.ToString();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        selectedCharacter.LoadCharacterData();
-        characterName.text = characterData.name;
-        explain.GetComponentInChildren<Image>().sprite = explainImagege.sprite;
+        selectedCharacter.LoadCharacterData(characterData);
+        explainName.GetComponent<TextMeshProUGUI>().text = characterData.characterType.ToString();
+        explainText.GetComponent<TextMeshProUGUI>().text = characterData.explain;
+        explainImage.GetComponent<Image>().sprite = characterButton.transform.Find("Image").GetComponent<Image>().sprite;
     }
 }
