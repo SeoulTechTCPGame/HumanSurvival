@@ -78,6 +78,7 @@ public class EquipmentManagementSystem : MonoBehaviour
     //ToDo: SkillFiringSystem이랑 연계 할 함수
     public void GetWeapon(int weaponIndex)
     {
+        GameManager.instance.weaponGetTime[weaponIndex] = GameManager.instance.gameTime;
         TransWeaponIndex[weaponIndex] = Weapons.Count;
         Weapon newWeapon = (skillFiringSystem.weaponPrefabs[weaponIndex]).GetComponent<Weapon>();
         newWeapon.WeaponDefalutSetting(weaponIndex);
