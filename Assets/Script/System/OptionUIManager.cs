@@ -109,25 +109,25 @@ public class OptionUIManager : MonoBehaviour
     public void SetStatUI(float[] characterStats)
     {
         StatVarText.text =
-            ((int)(characterStats[(int)Enums.Stat.MaxHealth] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.MaxHealth] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Recovery] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Recovery] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Armor] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Armor] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.MoveSpeed] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.MoveSpeed] * 100 )).ToString()) + "\n\n" +
-            ((int)(characterStats[(int)Enums.Stat.Might] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Might] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.ProjectileSpeed] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.ProjectileSpeed] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Duration] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Duration] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Area] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Area] * 100 )).ToString()) + "\n\n" +
-            ((int)(characterStats[(int)Enums.Stat.Cooldown] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Cooldown] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Amount] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Amount] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Revival] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Revival] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Magnet] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Magnet] * 100 )).ToString()) + "\n\n" +
-            ((int)(characterStats[(int)Enums.Stat.Luck] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Luck] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Growth] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Growth] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Greed] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Greed] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Curse] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Curse] * 100 )).ToString()) + "\n\n" +
-            ((int)(characterStats[(int)Enums.Stat.Reroll] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Reroll] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Skip] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Skip] * 100 )).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.Stat.Banish] * 100 ) == 0 ? "-" : ((int)(characterStats[(int)Enums.Stat.Banish] * 100 )).ToString());
+            (GameManager.instance.characterData.MaxHealth * characterStats[(int)Enums.Stat.MaxHealth]).ToString() + "\n" +
+            ((int)(characterStats[(int)Enums.Stat.Recovery] * 10) == 0 ? "-" : "+" +(characterStats[(int)Enums.Stat.Recovery]).ToString()) + "\n" +
+            ((int)(characterStats[(int)Enums.Stat.Armor]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Armor])).ToString()) + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.MoveSpeed] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.MoveSpeed] - 1) * 100 )).ToString() + "%") + "\n\n" +
+            ((int)((characterStats[(int)Enums.Stat.Might] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Might] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.ProjectileSpeed] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.ProjectileSpeed] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.Duration] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Duration] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.Area] - 1) * 100 ) == 0 ? "-" : ((int)((characterStats[(int)Enums.Stat.Area] - 1)) == 0 ? "+" + ((int)((characterStats[(int)Enums.Stat.Area] - 1) * 100)).ToString() + "%" : "+" + ((int)(characterStats[(int)Enums.Stat.Area] * 100)).ToString() + "%")) + "\n\n" +
+            ((int)((characterStats[(int)Enums.Stat.Cooldown] - 1) * 100 ) == 0 ? "-" : ((int)((characterStats[(int)Enums.Stat.Cooldown] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)(characterStats[(int)Enums.Stat.Amount]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Amount])).ToString()) + "\n" +
+            ((int)(characterStats[(int)Enums.Stat.Revival]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Revival])).ToString()) + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.Magnet] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Magnet] - 1) * 100 )).ToString() + "%") + "\n\n" +
+            ((int)((characterStats[(int)Enums.Stat.Luck] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Luck] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.Growth] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Growth] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.Greed] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Greed] - 1) * 100 )).ToString() + "%") + "\n" +
+            ((int)((characterStats[(int)Enums.Stat.Curse] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Curse] - 1) * 100 )).ToString() + "%") + "\n\n" +
+            ((int)(characterStats[(int)Enums.Stat.Reroll]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Reroll])).ToString()) + "\n" +
+            ((int)(characterStats[(int)Enums.Stat.Skip]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Skip])).ToString()) + "\n" +
+            ((int)(characterStats[(int)Enums.Stat.Banish]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Banish])).ToString());
     }
 
     public void SetItemUI(List<Weapon> weapons, List<Accessory> accessories)

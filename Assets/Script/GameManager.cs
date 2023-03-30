@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     public EquipmentManagementSystem equipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
     //캐릭터의 스탯지정
-    public CharacterScriptableObject characterData;
-    public float[] CharacterStats;
+    public CharacterScriptableObject characterData; // 초기값
+    public float[] CharacterStats; // 변하는 스텟
 
     [Header("# Game Object")]
     public PoolManager pool;
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
         CharacterStats[(int)Enums.Stat.Might] = characterData.Might + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Might];
         CharacterStats[(int)Enums.Stat.Armor] = characterData.Armor + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Armor];
-        CharacterStats[(int)Enums.Stat.MaxHealth] = characterData.MaxHealth + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.MaxHealth];
+        CharacterStats[(int)Enums.Stat.MaxHealth] = 1 + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.MaxHealth]; // characterData.MaxHealth(체력 값)랑 CharacterStats[MaxHealth](% 증가량)랑 다르다!
         CharacterStats[(int)Enums.Stat.Recovery] = characterData.Recovery + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Recovery];
         CharacterStats[(int)Enums.Stat.Cooldown] = characterData.Cooldown + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Cooldown];
         CharacterStats[(int)Enums.Stat.Area] = characterData.Area + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Area];
