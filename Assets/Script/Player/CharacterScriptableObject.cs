@@ -39,4 +39,5 @@ public class CharacterScriptableObject : ScriptableObject
     public int Reflection;
     public Weapon startingWeapon;
     //ToDo: 특수 능력 구현
+    public string explain;
 }

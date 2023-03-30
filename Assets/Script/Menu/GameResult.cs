@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameResult : MonoBehaviour
 {
-    [SerializeField] TMP_Text map = null;
+    //[SerializeField] TMP_Text map = null;
     [SerializeField] TMP_Text time = null;
     float gameTime;
     [SerializeField] TMP_Text coin = null;
@@ -34,6 +34,9 @@ public class GameResult : MonoBehaviour
         character.text=string.Format("{0}",charName);
         string source="CharacterSprite/"+ charName + "_0";
         characterImage.sprite = Resources.Load<Sprite>(source);
+
+        // Weapondamage = GameManager.instance.weaponDamage[필요한 무기 인덱스]
+        // WeapondamagePerSec = Weapondamage / (gameTime - GameManager.instance.weaponGetTime[필요한 무기 인덱스]) 이렇게 쓰시면 됩니당 누님 충성~
     }
     private void OnDestroy()
     {

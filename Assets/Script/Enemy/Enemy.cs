@@ -90,6 +90,7 @@ public class Enemy : MonoBehaviour,IDamageable
     public void TakeDamage(float damage, int weaponIndex)
     {
         health -= damage;
+        GameManager.instance.weaponDamage[weaponIndex] += damage;
 
         if (health > 0)
         {

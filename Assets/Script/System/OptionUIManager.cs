@@ -48,9 +48,9 @@ public class OptionUIManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            var weapons = player.GetComponent<Character>().Weapons;
-            var accessories = player.GetComponent<Character>().Accessories;
-            var characterStats = player.GetComponent<Character>().CharacterStats;
+            var weapons = GameManager.instance.equipManageSys.Weapons;
+            var accessories = GameManager.instance.equipManageSys.Accessories;
+            var characterStats =  GameManager.instance.CharacterStats;
             Time.timeScale = 0f;
             ItemUI.SetActive(true);
             StatUI.SetActive(true);

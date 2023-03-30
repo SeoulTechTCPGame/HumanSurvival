@@ -8,7 +8,7 @@ public class SkillFiringSystem : MonoBehaviour
     public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
     void Update()
     {
-        foreach (var weapon in GameManager.instance.player.GetComponent<Character>().Weapons)
+        foreach (var weapon in GameManager.instance.equipManageSys.Weapons)
         {
             Attack(weapon);
         }
@@ -20,13 +20,23 @@ public class SkillFiringSystem : MonoBehaviour
             case 0:     // Whip
                 break;
             case 1:     // MagicWand
+                if (!weapon.isEvoluction())
+                {
+                    weapon.GetComponent<MagicWand>().FireMagicWand(weaponPrefabs[1]);
+                }
+                else
+                {
+                    weapon.GetComponent<MagicWand>().FireMagicWand(evolutionWeaponPrefabs[1]);
+                }
                 break;
             case 2:     // Knife
-                if (!weapon.isEvoluction()) {
-                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
+                if (!weapon.isEvoluction())
+                {
+                    weapon.GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
                 }
-                else {
-                    GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[2]].GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
+                else
+                {
+                    weapon.GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
                 }
                 break;
             case 3:     // Axe
@@ -38,8 +48,7 @@ public class SkillFiringSystem : MonoBehaviour
             case 6:     // FireWand
                 break;
             case 7:     // Garlic
-                GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[7]].GetComponent<Gralic>().SpawnGralic(weaponPrefabs[7]);
-                break;
+                weapon.GetComponent<Gralic>().SpawnGralic(weaponPrefabs[7]); break;
             case 8:     // SantaWater
                 break;
             case 9:     // Peachone
