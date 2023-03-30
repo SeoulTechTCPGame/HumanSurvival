@@ -206,7 +206,7 @@ public class LevelUpUIManager : MonoBehaviour
             ((int)((characterStats[(int)Enums.Stat.Might] - 1) * 100) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Might] - 1) * 100)).ToString() + "%") + "\n" +
             ((int)((characterStats[(int)Enums.Stat.ProjectileSpeed] - 1) * 100) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.ProjectileSpeed] - 1) * 100)).ToString() + "%") + "\n" +
             ((int)((characterStats[(int)Enums.Stat.Duration] - 1) * 100) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.Stat.Duration] - 1) * 100)).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.Stat.Area] - 1) * 100) == 0 ? "-" : ((int)((characterStats[(int)Enums.Stat.Area] - 1)) == 0 ? "+" + ((int)((characterStats[(int)Enums.Stat.Area] - 1) * 100)).ToString() + "%" : "+" + ((int)(characterStats[(int)Enums.Stat.Area] * 100)).ToString() + "%")) + "\n\n" +
+            ((int)((characterStats[(int)Enums.Stat.Area] - 1) * 100) == 0 ? "-" : ((int)((characterStats[(int)Enums.Stat.Area] - 1)) == 0 ? "+" + ((int)((characterStats[(int)Enums.Stat.Area] - 1) * 100)).ToString() + "%" : "+" + ((int)(characterStats[(int)Enums.Stat.Area] * 100)).ToString() + "%")) + "\n\n" + // 초기 공격 범위가 1이 아닌 4일 때 즉 400% 일 때 300%로 표기되는 것을 막기 위해서 if문 하나 더 사용
             ((int)((characterStats[(int)Enums.Stat.Cooldown] - 1) * 100) == 0 ? "-" : ((int)((characterStats[(int)Enums.Stat.Cooldown] - 1) * 100)).ToString() + "%") + "\n" +
             ((int)(characterStats[(int)Enums.Stat.Amount]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Amount])).ToString()) + "\n" +
             ((int)(characterStats[(int)Enums.Stat.Revival]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.Stat.Revival])).ToString()) + "\n" +
