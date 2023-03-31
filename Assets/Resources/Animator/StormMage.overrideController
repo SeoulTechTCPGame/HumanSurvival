@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Storm Mage
+  m_Name: StormMage
   m_Controller: {fileID: 9100000, guid: c1e848102ae992c4f9d3e39c675d4074, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: e69c3878e926246408e63050b573c753, type: 2}

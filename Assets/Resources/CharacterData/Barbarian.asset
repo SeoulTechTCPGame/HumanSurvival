@@ -34,4 +34,5 @@ MonoBehaviour:
   Banish: 0
   Ommi: 0
   Reflection: 0
-  startingWeapon: {fileID: 0}
+  startingWeapon: 2
+  explain: 
