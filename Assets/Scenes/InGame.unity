@@ -343,7 +343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdc027fbe67fd3541a91ccba37d3cc04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a382a60e7e6af3544a4d93974e1eb1b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 60, y: 60}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 10, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &268694847
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdc027fbe67fd3541a91ccba37d3cc04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbcc1698b2d818540a5b536e08dbe9c1, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1076,6 +1076,34 @@ MonoBehaviour:
   exp: 0
   maxExp: 0
   coin: 0
+  weaponGetTime:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  weaponDamage:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   killCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   equipManageSys: {fileID: 0}
   characterData: {fileID: 0}
@@ -1083,7 +1111,7 @@ MonoBehaviour:
   pool: {fileID: 1068104046}
   player: {fileID: 1928233908}
   gameoverPanel: {fileID: 1724402127}
-  LevepUpUI: {fileID: 1219748136}
+  LevelUpUI: {fileID: 1219748136}
 --- !u!4 &551852910
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,7 +1765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdc027fbe67fd3541a91ccba37d3cc04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbcc1698b2d818540a5b536e08dbe9c1, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2111,7 +2139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdc027fbe67fd3541a91ccba37d3cc04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbcc1698b2d818540a5b536e08dbe9c1, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2994,7 +3022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 891942287, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f61806f2e5bfd6945ae3c56519d17844, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3347,7 +3375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4be4dfdf835cc2146ad84c4b3ef8d86f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab731b1ddcd13604eaa3ce9e83cef5b7, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3635,7 +3663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -110}
+  m_AnchoredPosition: {x: 10, y: -115}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1660416090
@@ -3720,7 +3748,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 60, y: 60}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 10, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1724402127 stripped
@@ -3833,7 +3861,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -50}
-  m_SizeDelta: {x: 510, y: 120}
+  m_SizeDelta: {x: 510, y: 125}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1998930001
 MonoBehaviour:
@@ -3848,7 +3876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.19215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

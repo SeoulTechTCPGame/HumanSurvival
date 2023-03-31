@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;
     public PlayerMovement player;
     public GameObject gameoverPanel;
-    public GameObject LevepUpUI;
+    public GameObject LevelUpUI;
 
     //  Singleton Instance 선언
     public static GameManager instance = null;
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(equipManageSys);
         Debug.Log(pickUps.Count);
-        LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
+        LevelUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
     }
     public void UpdateLuck(float luck)
     {

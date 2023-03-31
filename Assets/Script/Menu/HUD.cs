@@ -10,11 +10,19 @@ public class HUD : MonoBehaviour
     Text myText;
     Slider mySlider;
     Sprite[] weaponImages;
+    int [] currentWeapon;
+    int [] currentAccess;
+
     private void Awake()
     {
         mySlider = GetComponent<Slider>();
         myText = GetComponent<Text>();
        
+    }
+    private void Start()
+    {
+        currentWeapon = GameManager.instance.equipManageSys.TransWeaponIndex;
+        currentAccess = GameManager.instance.equipManageSys.TransAccessoryIndex;
     }
     private void LateUpdate()
     {
@@ -22,8 +30,7 @@ public class HUD : MonoBehaviour
         {
             case InfoType.Exp:
                 float curExp = GameManager.instance.exp;
-                float maxExp = GameManager.instance.maxExp;
-                
+                float maxExp = GameManager.instance.maxExp;            
                 mySlider.value = curExp / maxExp;
                 //Debug.Log(mySlider.value);
                 break;
@@ -45,8 +52,17 @@ public class HUD : MonoBehaviour
             case InfoType.Coin:
                 myText.text = string.Format("{0:F0}", GameManager.instance.coin);
                 break;
-            
-            
+
+            case InfoType.Weapon:
+                foreach(int i in currentWeapon)
+                {
+                    if (i==1)
+                    {
+                        //
+                    }
+                }
+                break;
+
         }
 
     }
