@@ -37,7 +37,7 @@ public class CharacterScriptableObject : ScriptableObject
     
     public int Ommi;
     public int Reflection;
-    public int startingWeapon; //weapon enum
+    public Weapon startingWeapon;
     //ToDo: 특수 능력 구현
     public string explain;
 }
