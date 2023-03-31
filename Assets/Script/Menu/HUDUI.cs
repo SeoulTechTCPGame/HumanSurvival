@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class  HUDUi: MonoBehaviour
+public class HUD : MonoBehaviour
 {
     public enum InfoType { Exp, Level,Kill,Time,Health,Coin}
     public InfoType type;
@@ -20,8 +20,7 @@ public class  HUDUi: MonoBehaviour
         {
             case InfoType.Exp:
                 float curExp = GameManager.instance.exp;
-                float maxExp = GameManager.instance.maxExp;
-                
+                float maxExp = GameManager.instance.maxExp;            
                 mySlider.value = curExp / maxExp;
                 //Debug.Log(mySlider.value);
                 break;
