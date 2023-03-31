@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     public EquipmentManagementSystem equipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
     //캐릭터의 스탯지정
-    public CharacterScriptableObject characterData;
-    public float[] CharacterStats;
+    public CharacterScriptableObject characterData; // 초기값
+    public float[] CharacterStats; // 변하는 스텟
 
     [Header("# Game Object")]
     public PoolManager pool;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {    
         //ToDo: 임시 초기화
-        CharacterStats = new float[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 70, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+        CharacterStats = new float[21] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         level = 1;
         RandomPickUpSystem = new RandomPickUpSystem();
         equipManageSys = new EquipmentManagementSystem();
@@ -74,8 +74,30 @@ public class GameManager : MonoBehaviour
 
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
         equipManageSys.Set(characterData.startingWeapon);
-        UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
 
+        CharacterStats[(int)Enums.Stat.Might] = characterData.Might + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Might];
+        CharacterStats[(int)Enums.Stat.Armor] = characterData.Armor + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Armor];
+        CharacterStats[(int)Enums.Stat.MaxHealth] = 1 + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.MaxHealth]; // characterData.MaxHealth(체력 값)랑 CharacterStats[MaxHealth](% 증가량)랑 다르다!
+        CharacterStats[(int)Enums.Stat.Recovery] = characterData.Recovery + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Recovery];
+        CharacterStats[(int)Enums.Stat.Cooldown] = characterData.Cooldown + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Cooldown];
+        CharacterStats[(int)Enums.Stat.Area] = characterData.Area + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Area];
+        CharacterStats[(int)Enums.Stat.ProjectileSpeed] = characterData.ProjectileSpeed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.ProjectileSpeed];
+        CharacterStats[(int)Enums.Stat.Duration] = characterData.Duration + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Duration];
+        CharacterStats[(int)Enums.Stat.Amount] = characterData.Amount + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Amount];
+        CharacterStats[(int)Enums.Stat.MoveSpeed] = characterData.MoveSpeed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.MoveSpeed];
+        CharacterStats[(int)Enums.Stat.Magnet] = characterData.MagnetBonus + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Magnet];
+        CharacterStats[(int)Enums.Stat.Luck] = characterData.Luck + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Luck];
+        CharacterStats[(int)Enums.Stat.Growth] = characterData.Growth + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Growth];
+        CharacterStats[(int)Enums.Stat.Greed] = characterData.Greed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Greed];
+        CharacterStats[(int)Enums.Stat.Curse] = characterData.Curse + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Curse];
+        CharacterStats[(int)Enums.Stat.Revival] = characterData.Revival + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Revival];
+        CharacterStats[(int)Enums.Stat.Reroll] = characterData.Reroll;
+        CharacterStats[(int)Enums.Stat.Skip] = characterData.Skip;
+        CharacterStats[(int)Enums.Stat.Banish] = characterData.Banish;
+        CharacterStats[(int)Enums.Stat.Ommi] = characterData.Ommi;
+        CharacterStats[(int)Enums.Stat.Reflection] = characterData.Reflection;
+
+        UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
     }
     private void Update()
     {

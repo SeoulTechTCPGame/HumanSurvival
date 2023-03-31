@@ -851,23 +851,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[9].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 0.1f)
         });
         AccessoryUpgrade[9].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 0.1f)
         });
         AccessoryUpgrade[9].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 0.1f)
         });
         AccessoryUpgrade[9].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 0.1f)
         });
         AccessoryUpgrade[9].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MoveSpeedPer, 0.1f)
         });
 
         // Attractorb
@@ -878,23 +878,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[10].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 33)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 0.33f)
         });
         AccessoryUpgrade[10].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 33)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 0.33f)
         });
         AccessoryUpgrade[10].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 25)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 0.25f)
         });
         AccessoryUpgrade[10].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 20)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 0.20f)
         });
         AccessoryUpgrade[10].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 33)
+            new Tuple<int, float>((int)Enums.AccessoryStat.MagnetPer, 0.33f)
         });
 
         // Clover
@@ -905,23 +905,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[11].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 0.1f)
         });
         AccessoryUpgrade[11].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 0.1f)
         });
         AccessoryUpgrade[11].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 0.1f)
         });
         AccessoryUpgrade[11].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 0.1f)
         });
         AccessoryUpgrade[11].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.LuckPer, 0.1f)
         });
 
         // Crown
@@ -932,23 +932,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[12].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 8)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 0.08f)
         });
         AccessoryUpgrade[12].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 8)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 0.08f)
         });
         AccessoryUpgrade[12].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 8)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 0.08f)
         });
         AccessoryUpgrade[12].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 8)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 0.08f)
         });
         AccessoryUpgrade[12].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 8)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GrowthPer, 0.08f)
         });
 
         // StoneMask
@@ -959,23 +959,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[13].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 0.1f)
         });
         AccessoryUpgrade[13].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 0.1f)
         });
         AccessoryUpgrade[13].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 0.1f)
         });
         AccessoryUpgrade[13].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 0.1f)
         });
         AccessoryUpgrade[13].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 0.1f)
         });
 
         // Tiragisu
@@ -1001,23 +1001,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
         AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
         AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
         AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
         AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 10)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
 
         // SilverRing

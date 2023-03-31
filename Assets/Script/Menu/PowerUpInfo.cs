@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class AccessoryInfo : MonoBehaviour, IPointerDownHandler
+public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] int mAccessoryIndex;
     [SerializeField] Image mThisAccessoryIamge;
@@ -115,7 +115,7 @@ public class AccessoryInfo : MonoBehaviour, IPointerDownHandler
         mAccessoryName.text = mThisAccessoryName.text;
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;
-        ChargeButton.GetComponent<ChargeAccessory>().nowAccessoryIndex = mAccessoryIndex - 1;
+        ChargeButton.GetComponent<ChargePowerUp>().nowAccessoryIndex = mAccessoryIndex - 1;
         mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[mAccessoryIndex - 1].ToString();
     }
     
