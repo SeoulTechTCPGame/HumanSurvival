@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
         equipManageSys.Set(characterData.startingWeapon);
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
-
     }
     private void Update()
     {
