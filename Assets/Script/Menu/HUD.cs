@@ -5,24 +5,14 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level,Kill,Time,Health,Coin,Weapon,Item}
+    public enum InfoType { Exp, Level,Kill,Time,Health,Coin}
     public InfoType type;
     Text myText;
     Slider mySlider;
-    Sprite[] weaponImages;
-    int [] currentWeapon;
-    int [] currentAccess;
-
     private void Awake()
     {
         mySlider = GetComponent<Slider>();
         myText = GetComponent<Text>();
-       
-    }
-    private void Start()
-    {
-        currentWeapon = GameManager.instance.equipManageSys.TransWeaponIndex;
-        currentAccess = GameManager.instance.equipManageSys.TransAccessoryIndex;
     }
     private void LateUpdate()
     {
@@ -52,19 +42,7 @@ public class HUD : MonoBehaviour
             case InfoType.Coin:
                 myText.text = string.Format("{0:F0}", GameManager.instance.coin);
                 break;
-
-            case InfoType.Weapon:
-                foreach(int i in currentWeapon)
-                {
-                    if (i==1)
-                    {
-                        //
-                    }
-                }
-                break;
-
         }
-
     }
 }
 

@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public PlayerMovement player;
     public GameObject gameoverPanel;
     public GameObject LevelUpUI;
+    public GameObject WeaponSlot;
+    public GameObject AccessarySlot;
 
     //  Singleton Instance 선언
     public static GameManager instance = null;
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
         level = 1;
         RandomPickUpSystem = new RandomPickUpSystem();
         equipManageSys = new EquipmentManagementSystem();
-        equipManageSys.Set();
+         
         // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
         string resourceName = "CharacterData/";
         try
@@ -71,7 +73,9 @@ public class GameManager : MonoBehaviour
         }
 
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
+        equipManageSys.Set(characterData.startingWeapon);
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
+
     }
     private void Update()
     {
