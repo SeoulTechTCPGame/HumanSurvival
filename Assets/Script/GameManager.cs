@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;
     public PlayerMovement player;
     public GameObject gameoverPanel;
-    public GameObject LevepUpUI;
+    public GameObject LevelUpUI;
+    public GameObject WeaponSlot;
+    public GameObject AccessarySlot;
 
     //  Singleton Instance 선언
     public static GameManager instance = null;
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
         level = 1;
         RandomPickUpSystem = new RandomPickUpSystem();
         equipManageSys = new EquipmentManagementSystem();
-        equipManageSys.Set();
+         
         // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
         string resourceName = "CharacterData/";
         try
@@ -71,6 +73,8 @@ public class GameManager : MonoBehaviour
         }
 
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
+        equipManageSys.Set(characterData.startingWeapon);
+
         CharacterStats[(int)Enums.Stat.Might] = characterData.Might + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Might];
         CharacterStats[(int)Enums.Stat.Armor] = characterData.Armor + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Armor];
         CharacterStats[(int)Enums.Stat.MaxHealth] = 1 + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.MaxHealth]; // characterData.MaxHealth(체력 값)랑 CharacterStats[MaxHealth](% 증가량)랑 다르다!
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
         CharacterStats[(int)Enums.Stat.Banish] = characterData.Banish;
         CharacterStats[(int)Enums.Stat.Ommi] = characterData.Ommi;
         CharacterStats[(int)Enums.Stat.Reflection] = characterData.Reflection;
+
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
     }
     private void Update()
@@ -126,7 +131,7 @@ public class GameManager : MonoBehaviour
         PauseGame();
         var pickUps = RandomPickUpSystem.RandomPickUp(equipManageSys);
         Debug.Log(pickUps.Count);
-        LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
+        LevelUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
     }
     public void UpdateLuck(float luck)
     {
