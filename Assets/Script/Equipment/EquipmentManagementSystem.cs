@@ -28,6 +28,8 @@ public class EquipmentManagementSystem : MonoBehaviour
         // 임시
         GetWeapon(1);
         GetWeapon(7);
+        GetWeapon(2);
+        GetWeapon(9);
         GetAccessory(0);
         GetAccessory(1);
     }
