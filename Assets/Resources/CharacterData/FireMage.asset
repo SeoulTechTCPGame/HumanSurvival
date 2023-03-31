@@ -16,7 +16,7 @@ MonoBehaviour:
   MaxHealth: 100
   Recovery: 0
   Armor: 0
-  MoveSpeed: 0
+  MoveSpeed: 1
   Might: 1.1
   Area: 1
   ProjectileSpeed: 1
@@ -35,3 +35,4 @@ MonoBehaviour:
   Ommi: 0
   Reflection: 0
   startingWeapon: {fileID: 0}
+  explain: 
