@@ -15,6 +15,7 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
     private GameObject characterName;
     private GameObject explainName;
     private GameObject explainImage;
+    private GameObject explainWeapon;
     private GameObject explainText;
 
     CharacterScriptableObject characterData;
@@ -25,6 +26,7 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         explainName = explain.transform.Find("CharaName").gameObject;
         explainImage = explain.transform.Find("CharaImage").gameObject;
         explainText = explain.transform.Find("CharaExplain").gameObject;
+        explainWeapon = explain.transform.Find("CharaWeapon").gameObject;
 
         string resourceName = "CharacterData/";
         try
@@ -44,5 +46,6 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         explainName.GetComponent<TextMeshProUGUI>().text = characterData.characterType.ToString();
         explainText.GetComponent<TextMeshProUGUI>().text = characterData.explain;
         explainImage.GetComponent<Image>().sprite = characterButton.transform.Find("Image").GetComponent<Image>().sprite;
+        explainWeapon.GetComponent<Image>().sprite = Resources.Load<Sprite>("Weapons");
     }
 }

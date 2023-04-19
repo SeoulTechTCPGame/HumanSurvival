@@ -31,7 +31,7 @@ public class UserCollection : MonoBehaviour
 
     void SetCollectionText(){
         for(int i = 0; i < Constants.MaxCollectionNumber; i++){
-            if(!UserInfo.instance.UserDataSet.Collection[i]){
+            if(UserInfo.instance.UserDataSet.Collection[i]){
                 collectionCount++;
             }
         }

@@ -35,12 +35,12 @@ public class UserInfo : MonoBehaviour
         UserDataSet.consumeGold = 0;
         UserDataManager.instance.SaveData();
     }
-    void UpdateColldection(int collectionIndex)
+    public void UpdateColldection(int collectionIndex)
     {
         UserDataSet.Collection[collectionIndex] = true;
         UserDataManager.instance.SaveData();
     }
-    void UpdateAchievement(int achievementIndexes)
+    public void UpdateAchievement(int achievementIndexes)
     {
         UserDataSet.Achievements[achievementIndexes] = true;
         UserDataManager.instance.SaveData();

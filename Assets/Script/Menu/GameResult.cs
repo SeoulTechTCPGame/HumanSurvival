@@ -13,13 +13,15 @@ public class GameResult : MonoBehaviour
     [SerializeField] TMP_Text level = null;
     [SerializeField] TMP_Text kill = null;
     [SerializeField] TMP_Text character = null;
-    [SerializeField] Image characterImage=null;
+    [SerializeField] Image characterImage = null;
 
-    Weapon weapon;
-    int Weaponname;
-    int Weaponlevel;
-    int Weapondamage;
-    int WeapondamagePerSec;
+    public GameObject Weaponlist;
+    GameObject weaponInfo;
+
+    TMP_Text Weaponname;
+    TMP_Text Weaponlevel;
+    TMP_Text Weapondamage;
+    TMP_Text WeapondamagePerSec;
 
     void Start()
     {
@@ -31,15 +33,23 @@ public class GameResult : MonoBehaviour
         float minutes = Mathf.Floor(gameTime / 60);
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         string charName = "" + DataManager.instance.currentCharcter;
-        character.text=string.Format("{0}",charName);
-        string source="CharacterSprite/"+ charName + "_0";
+        character.text = string.Format("{0}", charName);
+        string source = "CharacterSprite/" + charName + "_0";
         characterImage.sprite = Resources.Load<Sprite>(source);
+        for (int i = 0; i < 6; i++)
+        {
+            //갖고있는 무기 정보 출력
+            weaponInfo = Resources.Load<GameObject>("Weapons/WeaponInfo");
+            GameObject row = (GameObject)Instantiate(weaponInfo);
+            string adrs = "" + i;
+            Sprite image = Resources.Load<Sprite>(adrs);
+            row.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = image;
+            //row.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text=
+            //weaponInfo.transform.SetParent(Weaponlist.transform);
+        }
 
         // Weapondamage = GameManager.instance.weaponDamage[필요한 무기 인덱스]
         // WeapondamagePerSec = Weapondamage / (gameTime - GameManager.instance.weaponGetTime[필요한 무기 인덱스]) 이렇게 쓰시면 됩니당 누님 충성~
     }
-    private void OnDestroy()
-    {
-        
-    }
+
 }
