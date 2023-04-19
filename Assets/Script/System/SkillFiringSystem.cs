@@ -52,6 +52,14 @@ public class SkillFiringSystem : MonoBehaviour
             case 8:     // SantaWater
                 break;
             case 9:     // Peachone
+                if (!weapon.isEvoluction())
+                {
+                    weapon.GetComponent<Peachone>().FirePeachone(weaponPrefabs[9]);
+                }
+                else
+                {
+                    weapon.GetComponent<Peachone>().FirePeachone(evolutionWeaponPrefabs[9]);
+                }
                 break;
             case 10:    // EbonyWings
                 break;
