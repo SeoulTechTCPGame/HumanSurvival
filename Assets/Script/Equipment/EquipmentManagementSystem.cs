@@ -24,7 +24,8 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
-        GetWeapon(startingWeapon);
+        //GetWeapon(startingWeapon);
+        GetWeapon(9);
         GetAccessory(0);
         GetAccessory(1);
     }

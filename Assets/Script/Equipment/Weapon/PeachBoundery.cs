@@ -1,35 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PeachBoundery : MonoBehaviour
 {
-    [SerializeField] private Transform target;  // 움직이는 캐릭터
-    [SerializeField] private float distance = 10f;  // 오브젝트와 타겟 사이의 거리
-    [SerializeField] private float speed = 20f;  // 공전 속도
-
+    private float distance = 8f;  // 오브젝트와 타겟 사이의 거리
+    private float speed = 40f;  // 공전 속도
+    private float timer = 0;
+    private bool isClockwise = true;
     private GameObject mPeachObj;
-
-    private Vector3 targetPos;
 
     private void FixedUpdate()
     {
-        // 타겟 위치 계산
-        targetPos = target.position + Vector3.up * distance;
-
-        // 오브젝트 공전
-        transform.RotateAround(targetPos, Vector3.up, speed * Time.deltaTime);
+        timer += Time.deltaTime;
+        transform.position = getStartPosition(GameManager.instance.player.transform.position);
+        if(isClockwise)
+            transform.RotateAround(GameManager.instance.player.transform.position, Vector3.back, speed * timer);
+        else
+            transform.RotateAround(GameManager.instance.player.transform.position, -Vector3.back, speed * timer);
     }
 
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isClockwise)
+    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW)
     {
         GameObject newobs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
         newobs.transform.position = getStartPosition(GameManager.instance.player.transform.position);
+
+        if (!isCW)
+            isClockwise = false;
     }
 
     private Vector3 getStartPosition(Vector3 pos)
     {
-        pos.y += 1;
-        return pos;
+        return pos + Vector3.up * distance;
     }
 }
