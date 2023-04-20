@@ -6,6 +6,7 @@ public class SkillFiringSystem : MonoBehaviour
 {
     public GameObject[] weaponPrefabs; //무기 프리팹
     public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
+    public GameObject[] WeaponSubPrefabs; // 무기 서브 프리팹 (peachone의 공전원 등)
     void Update()
     {
         foreach (var weapon in GameManager.instance.equipManageSys.Weapons)
@@ -54,11 +55,11 @@ public class SkillFiringSystem : MonoBehaviour
             case 9:     // Peachone
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<Peachone>().FirePeachone(weaponPrefabs[9]);
+                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[9], WeaponSubPrefabs[9]);
                 }
                 else
                 {
-                    weapon.GetComponent<Peachone>().FirePeachone(evolutionWeaponPrefabs[9]);
+                    //weapon.GetComponent<Peachone>().CreateCircle(evolutionWeaponPrefabs[9], WeaponSubPrefabs[9]);
                 }
                 break;
             case 10:    // EbonyWings

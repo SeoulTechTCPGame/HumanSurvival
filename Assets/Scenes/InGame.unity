@@ -1368,6 +1368,20 @@ MonoBehaviour:
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
+  WeaponSubPrefabs:
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
 --- !u!4 &1142057798
 Transform:
   m_ObjectHideFlags: 0

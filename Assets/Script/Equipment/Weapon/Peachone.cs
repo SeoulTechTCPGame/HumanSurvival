@@ -8,48 +8,53 @@ public class Peachone : MonoBehaviour
     public Weapon ownWeapon;
 
     float timer = 0;
-    bool useWand = false;
+    bool usePeach = false;
     bool projectileDirUp = true; // 위 아래 번갈아가며
     int touch = 0;
-    int touchLimit;
+    int touchLimit= 60;
     private void Start()
     {
         ownWeapon = GetComponent<Weapon>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
-        if (!useWand) return;  //MagicWand 사용 안할 때 Update를 안 함
+        //if (!usePeach) return;
 
-
-
-        if (touchLimit <= touch)
-        {
-            animator.SetBool("Hit", true);
-            Destroy(this.gameObject);
-        }
+        //if (touchLimit <= touch)
+        //{
+        //    animator.SetBool("Hit", true);
+        //    Destroy(this.gameObject);
+        //}
     }
     public void FirePeachone(GameObject objPre)
     {
         timer += Time.deltaTime;
-        if (timer > ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (timer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            for (int i = 0; i < ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
+            for (int i = 0; i < objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
             {
-                //무기 세팅
-                GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
-                newobs.transform.position = GameManager.instance.peachone.transform.position;
-
-                Peachone newPeachone = newobs.GetComponent<Peachone>();
-                newPeachone.useWand = true;
-
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                //무기가 바라보는 방향 조절
-                newobs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
-                //무기 발사
+                GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+                Vector3 spawnPosition = GameManager.instance.player.transform.position;
+                if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
+                {
+                    spawnPosition.y -= ((int)objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Area)] * (i - 1)) / 2;
+                    spawnPosition.y += i * (int)objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+                }
+                newobs.transform.position = spawnPosition; //시작 위치
+                newobs.GetComponent<Peachone>().usePeach = true;
+                newobs.GetComponent<Peachone>().touchLimit = (int)objPre.GetComponent<Weapon>().WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
                 Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
             }
+            timer = 0;
+        }
+    }
+    public void CreateCircle(GameObject peachPre, GameObject bounderyPre)
+    {
+        timer += Time.deltaTime;
+        if (timer > peachPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        {
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true);
             timer = 0;
         }
     }
