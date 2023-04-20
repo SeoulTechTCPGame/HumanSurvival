@@ -40,8 +40,10 @@ public class PeachBoundery : MonoBehaviour
             else
                 pos -= perpendicular * 5f;
             
-            mPeachObj.GetComponent<Peachone>().FirePeachone(mPeachObj, transform, pos);
-
+            if(isClockwise)
+                mPeachObj.GetComponent<Peachone>().FirePeachone(mPeachObj, transform, pos);
+            else
+                mPeachObj.GetComponent<EbonyWings>().FireEbonyWings(mPeachObj, transform, pos);
             mProjectileDirUp = !mProjectileDirUp;
             mAccCooldown += mCooldown;
         }

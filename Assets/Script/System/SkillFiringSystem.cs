@@ -63,6 +63,14 @@ public class SkillFiringSystem : MonoBehaviour
                 }
                 break;
             case 10:    // EbonyWings
+                if (!weapon.isEvoluction())
+                {
+                    weapon.GetComponent<EbonyWings>().CreateCircle(weaponPrefabs[10], WeaponSubPrefabs[10], weapon);
+                }
+                else
+                {
+                    //weapon.GetComponent<Peachone>().CreateCircle(evolutionWeaponPrefabs[9], WeaponSubPrefabs[9]);
+                }
                 break;
             case 11:    // Runetracer
                 break;

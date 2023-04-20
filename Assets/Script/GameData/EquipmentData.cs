@@ -39,7 +39,7 @@ public class EquipmentData
             { 5, 1.00f, Constants.X, Constants.X, Constants.X, Constants.X, Constants.INF, 1, 8 },  // Garlic
             { 10, 4.50f, Constants.X, 2, 1, 20, Constants.INF, 1, 8 },  // SantaWater
             { 10, 12.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // Peachone
-            { 10, 1.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // EbonyWings
+            { 10, 12.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // EbonyWings
             { 10, 3.00f, 1.00f, 2.25f, 1, 25, Constants.INF, 1, 8 },    // Runetracer
             { 15, 4.50f, Constants.X, Constants.X, 2, 50, Constants.INF, 1, 8 } // LightningRing
         };
