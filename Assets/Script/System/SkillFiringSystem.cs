@@ -55,7 +55,7 @@ public class SkillFiringSystem : MonoBehaviour
             case 9:     // Peachone
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[9], WeaponSubPrefabs[9]);
+                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[9], WeaponSubPrefabs[9], weapon);
                 }
                 else
                 {

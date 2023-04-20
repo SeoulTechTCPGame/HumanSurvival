@@ -1,17 +1,21 @@
+using Enums;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 
 public class Peachone : MonoBehaviour
 {
     [SerializeField] Animator animator;
     public Weapon ownWeapon;
+    public Transform StartPoint = null;
+    public Transform EndPoint = null;
+    public Vector3 ControlPoint;
+    private Vector3 mDefaultScale = new Vector3(2, 2, 1);
 
-    float timer = 0;
-    bool usePeach = false;
-    bool projectileDirUp = true; // 위 아래 번갈아가며
-    int touch = 0;
-    int touchLimit= 60;
+    float Timer = 0;
+    bool UsePeach = false;
     private void Start()
     {
         ownWeapon = GetComponent<Weapon>();
@@ -19,50 +23,45 @@ public class Peachone : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //if (!usePeach) return;
+        if (!UsePeach)
+        {
+            return;
+        }
+        Timer += Time.deltaTime;
 
-        //if (touchLimit <= touch)
-        //{
-        //    animator.SetBool("Hit", true);
-        //    Destroy(this.gameObject);
-        //}
+        transform.position = calculateBezierPoint();
+        if(Timer > 1.1f)
+            Destroy(gameObject);
     }
-    public void FirePeachone(GameObject objPre)
+    public void FirePeachone(GameObject objPre, Transform dstTransform, Vector3 p)
     {
-        timer += Time.deltaTime;
-        if (timer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjPeachone = newobs.GetComponent<Peachone>();
+        newObjPeachone.StartPoint = GameManager.instance.player.transform;
+        newObjPeachone.ControlPoint = p;
+        newObjPeachone.EndPoint = dstTransform;
+        newObjPeachone.UsePeach = true;
+        newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
+    }
+    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon peachone)
+    {
+        Timer += Time.deltaTime;
+        if (Timer > peachone.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            for (int i = 0; i < objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
-            {
-                GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-                Vector3 spawnPosition = GameManager.instance.player.transform.position;
-                if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
-                {
-                    spawnPosition.y -= ((int)objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Area)] * (i - 1)) / 2;
-                    spawnPosition.y += i * (int)objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Area)];
-                }
-                newobs.transform.position = spawnPosition; //시작 위치
-                newobs.GetComponent<Peachone>().usePeach = true;
-                newobs.GetComponent<Peachone>().touchLimit = (int)objPre.GetComponent<Weapon>().WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
-                Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
-            }
-            timer = 0;
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, peachone);
+            Timer = 0;
+            peachPre.transform.localScale = mDefaultScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
         }
     }
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre)
+    private Vector3 calculateBezierPoint()
     {
-        timer += Time.deltaTime;
-        if (timer > peachPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
-        {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true);
-            timer = 0;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Monster")
-        {
-            touch++;
-        }
+        float u = 1f - Timer;
+        float tt = Timer * Timer;
+        float uu = u * u;
+        Vector3 nowPos = uu * StartPoint.position;
+        nowPos += 2f * u * Timer * ControlPoint;
+        nowPos += tt * EndPoint.position;
+
+        return nowPos;
     }
 }
