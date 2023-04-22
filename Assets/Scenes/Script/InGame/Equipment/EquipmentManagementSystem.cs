@@ -82,6 +82,8 @@ public class EquipmentManagementSystem : MonoBehaviour
         newWeapon.WeaponDefalutSetting(weaponIndex);
         Weapons.Add(newWeapon);
         GameManager.instance.WeaponSlot.GetComponent<SlotUI>().AddSlot(weaponIndex, 0);
+
+
     }
     public void UpgradeWeapon(int weaponIndex)
     {
