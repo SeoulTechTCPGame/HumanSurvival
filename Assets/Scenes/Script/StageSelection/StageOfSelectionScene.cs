@@ -7,9 +7,11 @@ public class StageOfSelectionScene : MonoBehaviour
 {
     //StageName, Time, DoubleSpeed, GoldCoinBonus, LuckBonus, ExperienceBonus
     private TextMeshProUGUI[] textMeshes;
+    [SerializeField] TMP_Text mMoneyText;
 
     void Start()
     {
+        SetMoneyText();
         textMeshes = GetComponentsInChildren<TextMeshProUGUI>();
     }
     public void LoadMapData(MapScriptableObject mapData)
@@ -20,5 +22,9 @@ public class StageOfSelectionScene : MonoBehaviour
         textMeshes[3].SetText("골드 보너스: " + mapData.GoldCoinBonus);
         textMeshes[4].SetText("행운 보너스: " + mapData.LuckBonus);
         textMeshes[5].SetText("경험치 보너스: " + mapData.ExperienceBonus);
+    }
+
+    void SetMoneyText(){
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }
