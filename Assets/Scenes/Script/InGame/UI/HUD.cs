@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class  HUDUi: MonoBehaviour
+public class  HUD: MonoBehaviour
 {
     public enum InfoType { Exp, Level,Kill,Time,Health,Coin}
     public InfoType type;
