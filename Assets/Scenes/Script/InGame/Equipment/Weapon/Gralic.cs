@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gralic : MonoBehaviour
 {
-    Weapon Stat;
     bool isExist = false;
     GameObject newobj;
     float timer = 0;
@@ -34,6 +31,5 @@ public class Gralic : MonoBehaviour
             }
             timer = 0;
         }
-        
     }
 }

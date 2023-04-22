@@ -1,6 +1,3 @@
-using Enums;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -77,7 +74,6 @@ public class OptionUIManager : MonoBehaviour
             Time.timeScale = 1f;
             player.GetComponent<PlayerMovement>().enabled = true;
         }
-        
     }
 
     public void UnSetItemUI()
