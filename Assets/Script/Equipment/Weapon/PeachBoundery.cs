@@ -36,9 +36,9 @@ public class PeachBoundery : MonoBehaviour
             Vector3 pos = startPos + (transform.position - startPos) * 0.2f; // player와 circle 사이 1:4 지점
             Vector3 perpendicular = Vector3.Cross((transform.position - startPos).normalized, Vector3.forward);
             if(mProjectileDirUp)
-                pos += perpendicular * 5f;
+                pos += perpendicular * 10f;
             else
-                pos -= perpendicular * 5f;
+                pos -= perpendicular * 10f;
             
             if(isClockwise)
                 mPeachObj.GetComponent<Peachone>().FirePeachone(mPeachObj, transform, pos);

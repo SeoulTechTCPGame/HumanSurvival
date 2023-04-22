@@ -148,7 +148,7 @@ MonoBehaviour:
   Mastered: 0
   weaponTotalStats:
   - 10
-  - 8
+  - 12
   - 0.8
   - 4
   - 4
@@ -166,8 +166,8 @@ TrailRenderer:
   m_GameObject: {fileID: 943404134078784437}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
@@ -177,7 +177,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2346c380ae66beb43b0250305f28a243, type: 2}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,8 +197,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Time: 2
+  m_SortingOrder: 1
+  m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -206,8 +206,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.028755188
+        value: 0.63235474
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -219,7 +219,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.21960784, g: 0.28235295, b: 0.8117647, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -250,7 +250,7 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    shadowBias: 0.5
+    shadowBias: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
@@ -269,6 +269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   ownWeapon: {fileID: 4026118149073244066}
-  StartPoint: {x: 0.055939507, y: -0.019381225, z: 0}
-  EndPoint: {x: 7.949426, y: 1.2817228, z: 0}
+  StartPoint: {fileID: 0}
+  EndPoint: {fileID: 0}
   ControlPoint: {x: 0.82144684, y: 5.1742687, z: 0}
