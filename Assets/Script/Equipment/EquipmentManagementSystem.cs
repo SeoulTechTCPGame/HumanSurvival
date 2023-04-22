@@ -24,8 +24,9 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
-        // 임시
-        GetWeapon(startingWeapon);
+        //GetWeapon(startingWeapon);
+        GetWeapon(9);
+        GetWeapon(10);
         GetAccessory(0);
         GetAccessory(1);
     }
@@ -105,4 +106,5 @@ public class EquipmentManagementSystem : MonoBehaviour
             MasteredAccessories.Add(accessoryIndex);
         }
     }
+
 }

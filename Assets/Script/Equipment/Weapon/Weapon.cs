@@ -27,7 +27,6 @@ public class Weapon : MonoBehaviour
     {
         this.WeaponIndex = weaponIndex;
         this.WeaponStats = Enumerable.Range(0, EquipmentData.defaultWeaponStats.GetLength(1)).Select(x => EquipmentData.defaultWeaponStats[weaponIndex, x]).ToArray();
-
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
         weaponTotalStats = WeaponStats;
