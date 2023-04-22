@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -25,9 +24,8 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredAccessories = new List<int>();
 
         //GetWeapon(startingWeapon);
-        GetWeapon(7);
-        GetWeapon(9);
-        GetWeapon(10);
+        GetWeapon(9); // 비둘기 제작중
+        GetWeapon(10); // 흑비둘기 제작중
         GetAccessory(0);
         GetAccessory(1);
     }
