@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEditor;
 
 [Serializable]
 public class UserData
@@ -48,11 +44,6 @@ public class UserDataManager : MonoBehaviour
         {
             DataReset();
         }
-    }
-
-    void applyData()
-    {
-        // 게임 시작시 저장 데이터 적용?
     }
     public void SaveData()
     {
