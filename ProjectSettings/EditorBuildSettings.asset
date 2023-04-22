@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainAchievements.unity
     guid: 01aa0b8070c004ec6aa0c52b8936b5a1
   - enabled: 1
-    path: Assets/Scenes/MainscreenOption.unity
+    path: Assets/Scenes/MainScreenOption.unity
     guid: a8cb04eee647dc8409dd8edcf291d1e3
   - enabled: 1
     path: Assets/Scenes/StageSelection.unity

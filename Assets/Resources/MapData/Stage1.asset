@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a50ad1217d56f4ebeb2ef1c4f165fe, type: 3}
   m_Name: Stage1
   m_EditorClassIdentifier: 
-  StageName: Grassland
+  StageName: "\uCD08\uC6D0"
   PlayTime: 30
   DoubleSpeed: 0
   GoldCoinBonus: 0
   LuckBonus: 0
   ExperienceBonus: 0
-  StageExplain: just Garss
+  StageExplain: "\uD478\uB974\uB514 \uD478\uB978 \uCD08\uC6D0"

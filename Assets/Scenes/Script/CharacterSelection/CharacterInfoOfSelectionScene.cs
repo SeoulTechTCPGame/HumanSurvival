@@ -16,18 +16,18 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
     public void LoadCharacterData(CharacterScriptableObject characterData)
     {
         textMeshes[0].SetText(characterData.name);
-        textMeshes[1].SetText("Max stamina: " + characterData.MaxHealth);
-        textMeshes[2].SetText("Recovery: " + characterData.Recovery);
-        textMeshes[3].SetText("Defense: " + characterData.Armor);
-        textMeshes[4].SetText("Speed: " + characterData.MoveSpeed);
-        textMeshes[5].SetText("Damage: " + characterData.Might);
-        textMeshes[6].SetText("Projectile Speed: " + characterData.ProjectileSpeed);
-        textMeshes[7].SetText("Duration: " + characterData.Duration);
-        textMeshes[8].SetText("Attack Range: " + characterData.Area);
-        textMeshes[9].SetText("Cooldown: " + characterData.Cooldown);
-        textMeshes[10].SetText("Number of projectiles: " + characterData.Amount);
-        textMeshes[11].SetText("Magnet: " + characterData.MagnetBonus);
-        textMeshes[12].SetText("Luck: " + characterData.Luck);
-        textMeshes[13].SetText("Growth: " + characterData.Growth);
+        textMeshes[1].SetText("체력: " + characterData.MaxHealth);
+        textMeshes[2].SetText("회복량: " + characterData.Recovery);
+        textMeshes[3].SetText("방어력: " + characterData.Armor);
+        textMeshes[4].SetText("이동속도: " + characterData.MoveSpeed);
+        textMeshes[5].SetText("공격력: " + characterData.Might);
+        textMeshes[6].SetText("투사체 속도: " + characterData.ProjectileSpeed);
+        textMeshes[7].SetText("지속시간: " + characterData.Duration);
+        textMeshes[8].SetText("공격 범위: " + characterData.Area);
+        textMeshes[9].SetText("쿨타임: " + characterData.Cooldown);
+        textMeshes[10].SetText("투사체 수: " + characterData.Amount);
+        textMeshes[11].SetText("자석: " + characterData.MagnetBonus);
+        textMeshes[12].SetText("행운: " + characterData.Luck);
+        textMeshes[13].SetText("성장: " + characterData.Growth);
     }
 }

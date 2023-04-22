@@ -6061,7 +6061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: "\uB098\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
   m_sharedMaterial: {fileID: 1927474857956726295, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
@@ -15221,8 +15221,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484614427}
   m_HandleRect: {fileID: 484614426}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6676215
+  m_Value: 1.0000002
+  m_Size: 0.66762143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
