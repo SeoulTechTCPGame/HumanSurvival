@@ -30,6 +30,7 @@ public class Weapon : MonoBehaviour
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
         weaponTotalStats = WeaponStats;
+        AttackCalculation();
     }
     public void Upgrade()
     {
@@ -68,7 +69,6 @@ public class Weapon : MonoBehaviour
         if (col.gameObject.tag == "Monster")
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
-            Debug.Log(WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
         }
         // for(int i = 0; i < col.Length; i++)
         // {
