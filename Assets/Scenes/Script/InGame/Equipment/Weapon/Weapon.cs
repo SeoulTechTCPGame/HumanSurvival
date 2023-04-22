@@ -30,6 +30,7 @@ public class Weapon : MonoBehaviour
         WeaponLevel = 1;
         WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
         weaponTotalStats = WeaponStats;
+        AttackCalculation();
     }
     public void Upgrade()
     {
@@ -68,7 +69,6 @@ public class Weapon : MonoBehaviour
         if (col.gameObject.tag == "Monster")
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
-            
         }
         // for(int i = 0; i < col.Length; i++)
         // {
@@ -100,27 +100,27 @@ public class Weapon : MonoBehaviour
     }
     private void DamageCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * (1 + GameManager.instance.player.GetComponent<Character>().Damage / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Might];
     }
     private void ProjectileSpeedCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * (1 + GameManager.instance.player.GetComponent<Character>().ProjectileSpeed / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * GameManager.instance.CharacterStats[(int)Enums.Stat.ProjectileSpeed];
     }
     private void DurationCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * (1 + GameManager.instance.player.GetComponent<Character>().Duration / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Duration];
     }
     private void AttackRangeCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * (1 + GameManager.instance.player.GetComponent<Character>().AttackRange / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Area];
     }
     private void CooldownCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * (1 + GameManager.instance.player.GetComponent<Character>().Cooldown / 100);
+        weaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Cooldown];
     }
     private void CalculateNumberOfProjectiles()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.player.GetComponent<Character>().NumberOfProjectiles;
+        weaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.Stat.Amount];
     }
     //Get, Set
     public float[] WeaponTotalStats { get { return weaponTotalStats; } }
