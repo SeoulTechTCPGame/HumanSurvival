@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageable
 {
-
     //예시를 위해 값은 무작위로 넣음
-
+    //ToDo: 스탯들을 변수를 리스트 형식으로 바꾸기 + GameMager에서 가져오기
     [SerializeField] HealthBar HpBar;
     private bool isDead;
     private float currentHp = 100;
@@ -19,8 +18,6 @@ public class Character : MonoBehaviour, IDamageable
     private float mExp;
     private int mMaxExp;
 
-    
-
     void Start()
     {   
         mExp = 0;
@@ -28,7 +25,6 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void RestoreHealth(float amount)
     {
-        
         //if(currentHp< CharacterStats[(int)Enums.Stat.MaxHealth])
         if(currentHp<maxHp)
         { 
@@ -46,9 +42,7 @@ public class Character : MonoBehaviour, IDamageable
             GameManager.instance.GameOverPanelUp();
             isDead = true;
         }
-
         HpBar.SetState(currentHp, maxHp);
-        
     }
 
     public void TempLoad()
@@ -72,7 +66,7 @@ public class Character : MonoBehaviour, IDamageable
     }
 
 
-    //Get,Set함수 자동 구현
+    //Get,Set함수 구현
     public float Damage
     {
         get { return mDamage; }

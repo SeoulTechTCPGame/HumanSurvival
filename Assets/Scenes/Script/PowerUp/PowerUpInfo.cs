@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -118,6 +116,4 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
         ChargeButton.GetComponent<ChargePowerUp>().nowAccessoryIndex = mAccessoryIndex - 1;
         mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[mAccessoryIndex - 1].ToString();
     }
-    
-    
 }
