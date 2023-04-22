@@ -8,9 +8,11 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
 {
     //Name, MaxStamina, Recovery, Defense, Speed, Damage, ProjectileSpeed, Durationn, AttackRange, Cooldown, NumberOfProjectiles, Magnet, Luck, Growth
     private TextMeshProUGUI[] textMeshes;
+    [SerializeField] TMP_Text mMoneyText;
 
     void Start()
     {
+        SetMoneyText();
         textMeshes = GetComponentsInChildren<TextMeshProUGUI>();
     }
     public void LoadCharacterData(CharacterScriptableObject characterData)
@@ -29,5 +31,9 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
         textMeshes[11].SetText("자석: " + characterData.MagnetBonus);
         textMeshes[12].SetText("행운: " + characterData.Luck);
         textMeshes[13].SetText("성장: " + characterData.Growth);
+    }
+
+    void SetMoneyText(){
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }
