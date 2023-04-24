@@ -33,22 +33,22 @@ public class EbonyWings : MonoBehaviour
         if (Timer > 1.1f)
             Destroy(gameObject);
     }
-    public void FireEbonyWings(GameObject objPre, Transform dstTransform, Vector3 p)
+    public void FireEbonyWings(GameObject objPre, Transform dstTransform, Vector3 p, Transform sourceP)
     {
         GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
         var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
-        newObjEbonyWings.StartPoint = GameManager.instance.player.transform;
+        newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = p;
         newObjEbonyWings.EndPoint = dstTransform;
         newObjEbonyWings.UseEbony = true;
-        newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
+        newobs.transform.position = sourceP.position; //시작 위치
     }
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon EbonyWings)
     {
         Timer += Time.deltaTime;
         if (Timer > EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings, StartPoint);
             Timer = 0;
             peachPre.transform.localScale = mDefaultScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
         }
@@ -63,5 +63,12 @@ public class EbonyWings : MonoBehaviour
         nowPos += tt * EndPoint.position;
 
         return nowPos;
+    }
+    public void SpawnBlackBird(GameObject bird)
+    {
+        GameObject newobs = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
+        var newObjBird = newobs.GetComponent<Bird>();
+        newObjBird.PlayerTransform = GameManager.instance.player.transform;
+        StartPoint = newObjBird.transform;
     }
 }

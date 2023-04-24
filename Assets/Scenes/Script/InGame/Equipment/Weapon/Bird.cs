@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 
 public class Bird : MonoBehaviour
 {
-    private Animator mBirdAni;
-    private Transform mPlayerTransform;
-    private float mMaxDist = 4f;
-    private float mSpeed   = 2f;
+    public Animator BirdAni;
+    public Transform PlayerTransform;
+    private float mMaxDist;
+    private float mSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
+        mSpeed = Random.Range(0.14f, 0.18f);
+        mMaxDist = Random.Range(7f, 15f);
         if (isOutOfRange())
         {
             changeHeadDir();
-            transform.position = Vector3.MoveTowards(transform.position, mPlayerTransform.position, mSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, PlayerTransform.position, mSpeed);
         }
     }
 
@@ -25,13 +28,14 @@ public class Bird : MonoBehaviour
     {
         if(isOutOfRange())
         {
-            transform.position = Vector3.MoveTowards(transform.position, mPlayerTransform.position, mMaxDist);
+            changeHeadDir();
+            transform.position = Vector3.MoveTowards(transform.position, PlayerTransform.position, mSpeed);
         }
     }
 
     bool isOutOfRange()
     {
-        var distSq = Mathf.Pow(transform.position.x - mPlayerTransform.position.x, 2) + Mathf.Pow(transform.position.y - mPlayerTransform.position.y, 2);
+        var distSq = Mathf.Pow(transform.position.x - PlayerTransform.position.x, 2) + Mathf.Pow(transform.position.y - PlayerTransform.position.y, 2);
         if (distSq > mMaxDist)
             return true;
         return false;
@@ -39,21 +43,29 @@ public class Bird : MonoBehaviour
 
     void changeHeadDir()
     {
-        var dX = transform.position.x - mPlayerTransform.position.x;
-        var dY = transform.position.y - mPlayerTransform.position.y;
+        var dX = PlayerTransform.position.x - transform.position.x;
+        var dY = PlayerTransform.position.y - transform.position.y;
+        allResetTrigger();
         if(Mathf.Abs(dX) > Mathf.Abs(dY))
         {
             if(dX > 0)
-                mBirdAni.SetTrigger("Up");
+                BirdAni.SetTrigger("Right");
             else
-                mBirdAni.SetTrigger("Down");
+                BirdAni.SetTrigger("Left");
         }
         else
         {
-            if (dY < 0)
-                mBirdAni.SetTrigger("Left");
+            if (dY > 0)
+                BirdAni.SetTrigger("Up");
             else
-                mBirdAni.SetTrigger("Right");
+                BirdAni.SetTrigger("Down");
+        }
+    }
+    void allResetTrigger()
+    {
+        foreach(var param in BirdAni.parameters)
+        {
+            BirdAni.ResetTrigger(param.name);
         }
     }
 }

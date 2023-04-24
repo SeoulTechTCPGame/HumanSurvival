@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 943404134078784437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5199976, y: 3, z: 0}
-  m_LocalScale: {x: 2.02, y: 2.02, z: 1.01}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,14 +147,14 @@ MonoBehaviour:
   WeaponMaxLevel: 8
   Mastered: 0
   weaponTotalStats:
-  - 0
-  - 12.36
-  - 0.808
-  - 4.12
-  - 5
+  - 10
+  - 12
+  - 0.8
+  - 4
+  - 4
   - 60
   - 1e+10
-  - 1.01
+  - 1
   - 8
 --- !u!96 &7596873339338999605
 TrailRenderer:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PeachBoundery : MonoBehaviour
@@ -15,6 +16,7 @@ public class PeachBoundery : MonoBehaviour
     private bool isClockwise = true;
     bool mProjectileDirUp = true; // 위 아래 번갈아가며
     private GameObject mPeachObj;
+    private Transform mBirdTransform;
 
     private void FixedUpdate()
     {
@@ -32,8 +34,8 @@ public class PeachBoundery : MonoBehaviour
         if(mTimer <= mDuration && mTimer >= mAccCooldown)
         {
             // peachone 소환
-            var startPos = GameManager.instance.player.transform.position;
-            Vector3 pos = startPos + (transform.position - startPos) * 0.2f; // player와 circle 사이 1:4 지점
+            var startPos = mBirdTransform.position;
+            Vector3 pos = startPos + (transform.position - startPos) * 0.2f; // bird와 circle 사이 1:4 지점
             Vector3 perpendicular = Vector3.Cross((transform.position - startPos).normalized, Vector3.forward);
             if(mProjectileDirUp)
                 pos += perpendicular * 10f;
@@ -41,19 +43,20 @@ public class PeachBoundery : MonoBehaviour
                 pos -= perpendicular * 10f;
             
             if(isClockwise)
-                mPeachObj.GetComponent<Peachone>().FirePeachone(mPeachObj, transform, pos);
+                mPeachObj.GetComponent<Peachone>().FirePeachone(mPeachObj, transform, pos, mBirdTransform);
             else
-                mPeachObj.GetComponent<EbonyWings>().FireEbonyWings(mPeachObj, transform, pos);
+                mPeachObj.GetComponent<EbonyWings>().FireEbonyWings(mPeachObj, transform, pos, mBirdTransform);
             mProjectileDirUp = !mProjectileDirUp;
             mAccCooldown += mCooldown;
         }
     }
 
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW, Weapon peachone)
+    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW, Weapon peachone, Transform birdTransform)
     {
         GameObject newobs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
         newobs.transform.position = getStartPosition(GameManager.instance.player.transform.position);
         var newPeachoneBoundery = newobs.GetComponent<PeachBoundery>();
+        newPeachoneBoundery.mBirdTransform = birdTransform;
         newPeachoneBoundery.mDuration = peachone.WeaponTotalStats[((int)Enums.WeaponStat.Duration)] * 2.5f;
         newPeachoneBoundery.mRealDuration = newPeachoneBoundery.mDuration + 1.5f;
         newPeachoneBoundery.mSpeed = mSpeed * peachone.WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
