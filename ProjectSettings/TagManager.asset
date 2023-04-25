@@ -13,6 +13,7 @@ TagManager:
   - Area
   - CoinsObj
   - Boundary
+  - WeaponSub
   layers:
   - Default
   - TransparentFX

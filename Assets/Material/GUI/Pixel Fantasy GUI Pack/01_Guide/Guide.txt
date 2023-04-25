@@ -1,6 +1,0 @@
-
-1.Examples of usage can be found in 00_Examples.
-2.The resource is in 02_Sprites
-3.You can check the finished scene and prefab at 03_Demo
-
-Thank You
