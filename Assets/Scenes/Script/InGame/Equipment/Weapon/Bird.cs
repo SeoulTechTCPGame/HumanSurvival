@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    public Animator BirdAni;
+    [SerializeField] Animator BirdAni;
     public Transform PlayerTransform;
     private float mMaxDist;
     private float mSpeed;

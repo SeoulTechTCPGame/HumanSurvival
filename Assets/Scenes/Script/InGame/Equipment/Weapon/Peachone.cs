@@ -8,30 +8,29 @@ using UnityEngine;
 public class Peachone : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public Weapon ownWeapon;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
-    private Vector3 mDefaultScale = new Vector3(2, 2, 1);
+    private bool mbHolding = false;
 
     float Timer = 0;
     bool UsePeach = false;
-    private void Start()
-    {
-        ownWeapon = GetComponent<Weapon>();
-        //animator = GetComponent<Animator>();
-    }
     private void FixedUpdate()
     {
-        if (!UsePeach)
+        if (!UsePeach || mbHolding)
         {
             return;
         }
         Timer += Time.deltaTime;
 
         transform.position = calculateBezierPoint();
-        if(Timer > 1.1f)
-            Destroy(gameObject);
+        if (Timer > 1.1f)
+        {
+            mbHolding = true;
+            Destroy(gameObject, 1f);
+            animator.SetTrigger("Hold");
+            GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
     public void FirePeachone(GameObject objPre, Transform dstTransform, Vector3 p, Transform sourceP)
     {
@@ -50,7 +49,7 @@ public class Peachone : MonoBehaviour
         {
             bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, peachone, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = mDefaultScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            peachPre.transform.localScale = transform.localScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
         }
     }
     private Vector3 calculateBezierPoint()

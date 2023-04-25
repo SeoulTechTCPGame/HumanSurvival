@@ -8,22 +8,16 @@ using UnityEngine;
 public class EbonyWings : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public Weapon ownWeapon;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
-    private Vector3 mDefaultScale = new Vector3(2, 2, 1);
+    private bool mbHolding = false;
 
     float Timer = 0;
     bool UseEbony = false;
-    private void Start()
-    {
-        ownWeapon = GetComponent<Weapon>();
-        //animator = GetComponent<Animator>();
-    }
     private void FixedUpdate()
     {
-        if (!UseEbony)
+        if (!UseEbony || mbHolding)
         {
             return;
         }
@@ -31,7 +25,12 @@ public class EbonyWings : MonoBehaviour
 
         transform.position = calculateBezierPoint();
         if (Timer > 1.1f)
-            Destroy(gameObject);
+        {
+            mbHolding = true;
+            Destroy(gameObject, 1f);
+            animator.SetTrigger("Hold");
+            GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
     public void FireEbonyWings(GameObject objPre, Transform dstTransform, Vector3 p, Transform sourceP)
     {
@@ -50,7 +49,7 @@ public class EbonyWings : MonoBehaviour
         {
             bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = mDefaultScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            peachPre.transform.localScale = transform.localScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
         }
     }
     private Vector3 calculateBezierPoint()

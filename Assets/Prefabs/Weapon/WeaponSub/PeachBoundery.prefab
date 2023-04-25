@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 891077723031153294}
   - component: {fileID: 891077723031153329}
   - component: {fileID: -7157911653050671542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PeachBoundery
   m_TagString: WeaponSub
   m_Icon: {fileID: 0}

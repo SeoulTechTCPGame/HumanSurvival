@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 565907555867252794}
   - component: {fileID: -7207326076435524550}
   - component: {fileID: -521303657908198328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueBird
   m_TagString: WeaponSub
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 969022289, guid: 7af9c8c59ad0164468d7e87c00309caa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

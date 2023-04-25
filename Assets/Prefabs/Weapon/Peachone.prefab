@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4026118149073244066}
   - component: {fileID: 7596873339338999605}
   - component: {fileID: 8057862940404335296}
+  - component: {fileID: -3587038025473463999}
   m_Layer: 8
   m_Name: Peachone
   m_TagString: Weapon
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 943404134078784437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5199976, y: 3, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 943404134078784437}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fc80e615f18d27469f5504799b6b9f3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 28775efc86f76dd40b9ae0c9b5ffe869, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -198,7 +199,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Time: 0.4
+  m_Time: 0.8
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -267,8 +268,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979423e495ffb304b85e402ecbe964f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  ownWeapon: {fileID: 4026118149073244066}
+  animator: {fileID: 4988606761751433582}
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0.82144684, y: 5.1742687, z: 0}
+--- !u!58 &-3587038025473463999
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943404134078784437}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.075
