@@ -40,7 +40,7 @@ public class Character : MonoBehaviour, IDamageable
     public void TakeDamage(float damage, int weaponIndex)
     {
         if (isDead == true) return;
-        currentHp -= damage;
+        currentHp -= Time.deltaTime*damage*2;
         if (currentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
