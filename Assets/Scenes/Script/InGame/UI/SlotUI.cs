@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SlotUI : MonoBehaviour
 {
-    public enum slotType { Weapon,Accessory} //0 ,1
     GridLayoutGroup grid;
     GameObject slotprefab;
     public GameObject list;
@@ -12,10 +11,10 @@ public class SlotUI : MonoBehaviour
     {
         grid = gameObject.GetComponent<GridLayoutGroup>();
     }
-    public void AddSlot(int index,int type)
+    public void AddSlot(int index,int slotType)
     {
         string resourceName;
-        switch (type)
+        switch (slotType)
         {
             case 0:
                 resourceName = "Weapons/"+index;
