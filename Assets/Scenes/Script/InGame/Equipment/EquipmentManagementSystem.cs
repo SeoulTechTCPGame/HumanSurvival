@@ -23,9 +23,7 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
-        //GetWeapon(startingWeapon);
-        GetWeapon(9); // 비둘기 제작중
-        GetWeapon(10); // 흑비둘기 제작중
+        GetWeapon(startingWeapon);
         GetAccessory(0);
         GetAccessory(1);
     }
@@ -96,6 +94,7 @@ public class EquipmentManagementSystem : MonoBehaviour
         TransAccessoryIndex[accessoryIndex] = Accessories.Count;
         Accessories.Add(new Accessory(accessoryIndex));
         UpgradeAccessory(accessoryIndex);
+        GameManager.instance.AccessorySlot.GetComponent<SlotUI>().AddSlot(accessoryIndex, 1);
     }
     public void UpgradeAccessory(int accessoryIndex)
     {

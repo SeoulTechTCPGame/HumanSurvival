@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameoverPanel;
     public GameObject LevepUpUI;
     public GameObject WeaponSlot;
-    public GameObject AccessarySlot;
+    public GameObject AccessorySlot;
     //  Singleton Instance 선언
     public static GameManager instance = null;
 

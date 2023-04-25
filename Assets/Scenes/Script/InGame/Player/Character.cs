@@ -12,6 +12,8 @@ public class Character : MonoBehaviour, IDamageable
     private float mExp;
     private int mMaxExp;
 
+    public float hpRegenerationTimer;
+
     void Start()
     {   
         mExp = 0;
@@ -20,13 +22,23 @@ public class Character : MonoBehaviour, IDamageable
         maxHp = GameManager.instance.characterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.Stat.MaxHealth];
 
     }
-    public void RestoreHealth(float amount)
+    private void Update()
     {
-        //if(currentHp< CharacterStats[(int)Enums.Stat.MaxHealth])
+        //체력 재생력
+        hpRegenerationTimer += Time.deltaTime * GameManager.instance.CharacterStats[(int)Enums.Stat.Recovery];
+        if (hpRegenerationTimer > 1f)
+        {
+            RestoreHealth(1);
+            hpRegenerationTimer -= 1f;
+
+        }
+    }
+        public void RestoreHealth(float amount)
+    {
         if(currentHp<maxHp)
         { 
             currentHp += amount;
-            if (currentHp > 100) currentHp = 100;
+            if (currentHp > maxHp) currentHp = maxHp;
             HpBar.SetState(currentHp, maxHp);
         }
     }
@@ -34,7 +46,7 @@ public class Character : MonoBehaviour, IDamageable
     {
         Debug.Log(currentHp);
         if (isDead == true) return;
-        currentHp -= damage;
+        currentHp -= Time.deltaTime*damage*2;
         if (currentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
