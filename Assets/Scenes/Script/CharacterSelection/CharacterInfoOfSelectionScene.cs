@@ -17,7 +17,7 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
     }
     public void LoadCharacterData(CharacterScriptableObject characterData)
     {
-        textMeshes[0].SetText(characterData.name);
+        textMeshes[0].SetText(characterData.characterType.ToString());
         textMeshes[1].SetText("체력: " + characterData.MaxHealth);
         textMeshes[2].SetText("회복량: " + characterData.Recovery);
         textMeshes[3].SetText("방어력: " + characterData.Armor);

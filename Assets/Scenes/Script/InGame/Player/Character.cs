@@ -6,14 +6,8 @@ public class Character : MonoBehaviour, IDamageable
     //ToDo: 스탯들을 변수를 리스트 형식으로 바꾸기 + GameMager에서 가져오기
     [SerializeField] HealthBar HpBar;
     private bool isDead;
-    private float currentHp = 100;
-    private float maxHp = 100;
-    private float mDamage = 10;              //피해량
-    private float mProjectileSpeed = 1;     //투사체 속도
-    private float mDuration = 3;            //지속 시간
-    private float mAttackRange = 1;         //공격범위
-    private float mCooldown = 3;            //쿨타임
-    private int mNumberOfProjectiles = 1;     //투사체 수
+    private float currentHp;
+    private float maxHp;
 
     private float mExp;
     private int mMaxExp;
@@ -22,6 +16,9 @@ public class Character : MonoBehaviour, IDamageable
     {   
         mExp = 0;
         mMaxExp = 100;
+        currentHp = GameManager.instance.characterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.Stat.MaxHealth];
+        maxHp = GameManager.instance.characterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.Stat.MaxHealth];
+
     }
     public void RestoreHealth(float amount)
     {
@@ -35,6 +32,7 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
+        Debug.Log(currentHp);
         if (isDead == true) return;
         currentHp -= damage;
         if (currentHp <= 0)
@@ -63,38 +61,5 @@ public class Character : MonoBehaviour, IDamageable
             GameManager.instance.LevelUp();
         }
         //Debug.Log("Exp:" + GameManager.instance.exp);
-    }
-
-
-    //Get,Set함수 구현
-    public float Damage
-    {
-        get { return mDamage; }
-        set { mDamage = value; }
-    }
-    public float ProjectileSpeed
-    {
-        get { return mProjectileSpeed; }
-        set { mProjectileSpeed = value; }
-    }
-    public float Duration
-    {
-        get { return mDuration; }
-        set { mDuration = value; }
-    }
-    public float AttackRange
-    {
-        get { return mAttackRange; }
-        set { mAttackRange = value; }
-    }
-    public float Cooldown
-    {
-        get { return mCooldown; }
-        set { mCooldown = value; }
-    }
-    public int NumberOfProjectiles
-    {
-        get { return mNumberOfProjectiles; }
-        set { mNumberOfProjectiles = value; }
     }
 }

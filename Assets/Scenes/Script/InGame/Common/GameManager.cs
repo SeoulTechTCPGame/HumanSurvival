@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
             resourceName += "Alchemist";
         }
         characterData = Resources.Load<CharacterScriptableObject>(resourceName);
-        equipManageSys.Set(characterData.startingWeapon);
         CharacterStats[(int)Enums.Stat.Might] = characterData.Might + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Might];
         CharacterStats[(int)Enums.Stat.Armor] = characterData.Armor + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.Armor];
         CharacterStats[(int)Enums.Stat.MaxHealth] = 1 + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.Stat.MaxHealth]; // characterData.MaxHealth(체력 값)랑 CharacterStats[MaxHealth](% 증가량)랑 다르다!
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
         CharacterStats[(int)Enums.Stat.Banish] = characterData.Banish;
         CharacterStats[(int)Enums.Stat.Ommi] = characterData.Ommi;
         CharacterStats[(int)Enums.Stat.Reflection] = characterData.Reflection;
+        equipManageSys.Set(characterData.startingWeapon);
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
     }
     private void Update()
