@@ -13,7 +13,7 @@ public class Peachone : MonoBehaviour
     public Vector3 ControlPoint;
     private bool mbHolding = false;
 
-    float Timer = 0;
+    float Timer = 100;
     bool UsePeach = false;
     private void FixedUpdate()
     {
