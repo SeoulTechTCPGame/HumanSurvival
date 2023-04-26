@@ -70,4 +70,8 @@ public class Peachone : MonoBehaviour
         newObjBird.PlayerTransform = GameManager.instance.player.transform;
         StartPoint = newObjBird.transform;
     }
+    public void EvolutionProcess()
+    {
+
+    }
 }

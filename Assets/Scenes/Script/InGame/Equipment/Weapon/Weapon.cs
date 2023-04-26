@@ -14,15 +14,13 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
-    private bool mEvolution = false;
+    public bool bEvolution = false;
     private float enemyHealth;
 
     private float[] WeaponStats;
     public float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
 
-    private EquipmentData EquipmentData;
     private PoolManager pool;
-    
     public void WeaponDefalutSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
@@ -38,23 +36,76 @@ public class Weapon : MonoBehaviour
         foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[WeaponIndex][WeaponLevel])
         {
             WeaponStats[statIndex] += data;
-        }  
+        }
+        evolution();
     }
     public bool IsMaster()
     {
         return WeaponLevel == WeaponMaxLevel;
     }
     //진화 조건 충족 확인
+    public void EvolutionSub()
+    {
+
+    }
     public bool isEvoluction()
     {
-        bool evoluction = IsMaster();
-        var characterTrans = GameManager.instance.equipManageSys.TransAccessoryIndex;
-        if (evoluction && (this.WeaponIndex == characterTrans[EquipmentData.EvoAccNeedWeaponIndex[this.WeaponIndex]]))
+        return bEvolution;
+    }
+    private void evolution()
+    {
+        if (!IsMaster())
+            return;
+
+        var equipManageSys = GameManager.instance.equipManageSys;
+        int evoPairAccIndex = EquipmentData.EvoWeaponNeedAccIndex[WeaponIndex];
+        if (evoPairAccIndex < 0)    // 짝이 되는 악세서리의 index = -1 -> 짝이 무기인 경우
+            evolutionException(equipManageSys);
+        else if (equipManageSys.HasAcc(evoPairAccIndex))
+            bEvolution = true;
+
+        if (bEvolution)
+            EvolutionProcess();
+    }
+    private void evolutionException(EquipmentManagementSystem equipManageSys)     // 진화에 필요한 짝이 악세서리가 아닌 무기인 경우(예시 - 비둘기, 흑비둘기)
+    {
+        var evoPairWeaponIndex = EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex];
+        if (equipManageSys.HasWeapon(evoPairWeaponIndex) && equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].IsMaster())
+            bEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].bEvolution = true;
+    }
+    public void EvolutionProcess()
+    {
+        switch (WeaponIndex)
         {
-            mEvolution = true;
-            return mEvolution;
+            case 0:     // Whip
+                break;
+            case 1:     // MagicWand
+                break;
+            case 2:     // Knife
+                break;
+            case 3:     // Axe
+                break;
+            case 4:     // Cross
+                break;
+            case 5:     //KingBible
+                break;
+            case 6:     // FireWand
+                break;
+            case 7:     // Garlic
+                break;
+            case 8:     // SantaWater
+                break;
+            case 9:     // Peachone
+                GetComponent<Peachone>().EvolutionProcess();
+                break;
+            case 10:    // EbonyWings
+                GetComponent<EbonyWings>().EvolutionProcess();
+                break;
+            case 11:    // Runetracer
+                break;
+            case 12:   // LightningRing
+                break;
         }
-        else { return mEvolution; }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {

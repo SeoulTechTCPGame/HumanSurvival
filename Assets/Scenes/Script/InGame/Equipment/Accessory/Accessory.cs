@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class Accessory
 {
@@ -6,7 +7,6 @@ public class Accessory
     public int AccessoryLevel;
     public int AccessoryMaxLevel;
 
-    public EquipmentData EquipmentData;
     public Accessory(int accessoryIndex)
     {
         AccessoryIndex = accessoryIndex;
@@ -27,6 +27,24 @@ public class Accessory
             if (statIndex == (int)Enums.Stat.Luck)
             {
                 GameManager.instance.UpdateLuck(GameManager.instance.CharacterStats[statIndex]);
+            }
+        }
+        evolution();
+    }
+    private void evolution()
+    {
+        if (AccessoryLevel != 1) // 해당 악세서리를 처음 획득했을 때만 진입
+            return;
+
+        var equipManageSys = GameManager.instance.equipManageSys;
+        int evoPairWeaponIndex = EquipmentData.EvoAccNeedWeaponIndex[AccessoryIndex];
+        if (equipManageSys.HasWeapon(evoPairWeaponIndex))
+        {
+            var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]];
+            if(pairWeapon.IsMaster())
+            {
+                pairWeapon.bEvolution = true;
+                pairWeapon.EvolutionProcess();
             }
         }
     }

@@ -71,6 +71,14 @@ public class EquipmentManagementSystem : MonoBehaviour
                 break;
         }
     }
+    public bool HasWeapon(int weaponIndex)
+    {
+        return TransWeaponIndex[weaponIndex] >= 0;
+    }
+    public bool HasAcc(int accIndex)
+    {
+        return TransAccessoryIndex[accIndex] >= 0;
+    }
     //ToDo: SkillFiringSystem이랑 연계 할 함수
     public void GetWeapon(int weaponIndex)
     {
