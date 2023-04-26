@@ -80,6 +80,8 @@ public class EquipmentManagementSystem : MonoBehaviour
         newWeapon.WeaponDefalutSetting(weaponIndex);
         Weapons.Add(newWeapon);
         GameManager.instance.WeaponSlot.GetComponent<SlotUI>().AddSlot(weaponIndex, 0);
+
+        processWeaponSub(weaponIndex, newWeapon);
     }
     public void UpgradeWeapon(int weaponIndex)
     {
@@ -104,5 +106,16 @@ public class EquipmentManagementSystem : MonoBehaviour
             MasteredAccessories.Add(accessoryIndex);
         }
     }
-
+    private void processWeaponSub(int weaponIndex, Weapon weapon)
+    {
+        switch(weaponIndex) 
+        {
+            case 9: // peachOne
+                weapon.GetComponent<Peachone>().SpawnBlueBird(skillFiringSystem.Birds[0]);
+                break;
+            case 10: // ebonyWings
+                weapon.GetComponent<EbonyWings>().SpawnBlackBird(skillFiringSystem.Birds[1]);
+                break;
+        }
+    }
 }

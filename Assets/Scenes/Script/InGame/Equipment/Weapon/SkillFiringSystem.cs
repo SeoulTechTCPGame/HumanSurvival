@@ -7,6 +7,7 @@ public class SkillFiringSystem : MonoBehaviour
     public GameObject[] weaponPrefabs; //무기 프리팹
     public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
     public GameObject[] WeaponSubPrefabs; // 무기 서브 프리팹 (peachone의 공전원 등)
+    public GameObject[] Birds; // peachone, EbonyWings, 둘의 진화체에 등장하는 새
     void Update()
     {
         foreach (var weapon in GameManager.instance.equipManageSys.Weapons)

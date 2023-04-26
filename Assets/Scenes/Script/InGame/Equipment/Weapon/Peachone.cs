@@ -8,49 +8,48 @@ using UnityEngine;
 public class Peachone : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public Weapon ownWeapon;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
-    private Vector3 mDefaultScale = new Vector3(2, 2, 1);
+    private bool mbHolding = false;
 
-    float Timer = 0;
+    float Timer = 100;
     bool UsePeach = false;
-    private void Start()
-    {
-        ownWeapon = GetComponent<Weapon>();
-        //animator = GetComponent<Animator>();
-    }
     private void FixedUpdate()
     {
-        if (!UsePeach)
+        if (!UsePeach || mbHolding)
         {
             return;
         }
         Timer += Time.deltaTime;
 
         transform.position = calculateBezierPoint();
-        if(Timer > 1.1f)
-            Destroy(gameObject);
+        if (Timer > 1.1f)
+        {
+            mbHolding = true;
+            Destroy(gameObject, 1f);
+            animator.SetTrigger("Hold");
+            GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
-    public void FirePeachone(GameObject objPre, Transform dstTransform, Vector3 p)
+    public void FirePeachone(GameObject objPre, Transform dstTransform, Vector3 p, Transform sourceP)
     {
         GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
         var newObjPeachone = newobs.GetComponent<Peachone>();
-        newObjPeachone.StartPoint = GameManager.instance.player.transform;
+        newObjPeachone.StartPoint = sourceP;
         newObjPeachone.ControlPoint = p;
         newObjPeachone.EndPoint = dstTransform;
         newObjPeachone.UsePeach = true;
-        newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
+        newobs.transform.position = sourceP.position; //시작 위치
     }
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon peachone)
     {
         Timer += Time.deltaTime;
         if (Timer > peachone.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, peachone);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, peachone, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = mDefaultScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            peachPre.transform.localScale = transform.localScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
         }
     }
     private Vector3 calculateBezierPoint()
@@ -63,5 +62,12 @@ public class Peachone : MonoBehaviour
         nowPos += tt * EndPoint.position;
 
         return nowPos;
+    }
+    public void SpawnBlueBird(GameObject bird)
+    {
+        GameObject newobs = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
+        var newObjBird = newobs.GetComponent<Bird>();
+        newObjBird.PlayerTransform = GameManager.instance.player.transform;
+        StartPoint = newObjBird.transform;
     }
 }

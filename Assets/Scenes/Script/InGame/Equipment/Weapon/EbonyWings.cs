@@ -8,22 +8,16 @@ using UnityEngine;
 public class EbonyWings : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public Weapon ownWeapon;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
-    private Vector3 mDefaultScale = new Vector3(2, 2, 1);
+    private bool mbHolding = false;
 
-    float Timer = 0;
+    float Timer = 100;
     bool UseEbony = false;
-    private void Start()
-    {
-        ownWeapon = GetComponent<Weapon>();
-        //animator = GetComponent<Animator>();
-    }
     private void FixedUpdate()
     {
-        if (!UseEbony)
+        if (!UseEbony || mbHolding)
         {
             return;
         }
@@ -31,26 +25,31 @@ public class EbonyWings : MonoBehaviour
 
         transform.position = calculateBezierPoint();
         if (Timer > 1.1f)
-            Destroy(gameObject);
+        {
+            mbHolding = true;
+            Destroy(gameObject, 1f);
+            animator.SetTrigger("Hold");
+            GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
-    public void FireEbonyWings(GameObject objPre, Transform dstTransform, Vector3 p)
+    public void FireEbonyWings(GameObject objPre, Transform dstTransform, Vector3 p, Transform sourceP)
     {
         GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
         var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
-        newObjEbonyWings.StartPoint = GameManager.instance.player.transform;
+        newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = p;
         newObjEbonyWings.EndPoint = dstTransform;
         newObjEbonyWings.UseEbony = true;
-        newobs.transform.position = GameManager.instance.player.transform.position; //시작 위치
+        newobs.transform.position = sourceP.position; //시작 위치
     }
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon EbonyWings)
     {
         Timer += Time.deltaTime;
         if (Timer > EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = mDefaultScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            peachPre.transform.localScale = transform.localScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
         }
     }
     private Vector3 calculateBezierPoint()
@@ -63,5 +62,12 @@ public class EbonyWings : MonoBehaviour
         nowPos += tt * EndPoint.position;
 
         return nowPos;
+    }
+    public void SpawnBlackBird(GameObject bird)
+    {
+        GameObject newobs = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
+        var newObjBird = newobs.GetComponent<Bird>();
+        newObjBird.PlayerTransform = GameManager.instance.player.transform;
+        StartPoint = newObjBird.transform;
     }
 }

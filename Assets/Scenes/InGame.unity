@@ -1382,6 +1382,10 @@ MonoBehaviour:
   - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
   - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
   - {fileID: 891077723031153331, guid: be27ac4ad5720ce45bc1080b1460695d, type: 3}
+  Birds:
+  - {fileID: 4663107328518171263, guid: b1678cb622f462f4f9b95e519ce2ccf1, type: 3}
+  - {fileID: 4663107328518171263, guid: 13c8de833e99a314d972b76adc0b9d1d, type: 3}
+  - {fileID: 4663107328518171263, guid: b1678cb622f462f4f9b95e519ce2ccf1, type: 3}
 --- !u!4 &1142057798
 Transform:
   m_ObjectHideFlags: 0
