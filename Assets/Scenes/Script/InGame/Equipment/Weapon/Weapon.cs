@@ -96,11 +96,21 @@ public class Weapon : MonoBehaviour
             case 8:     // SantaWater
                 break;
             case 9:     // Peachone
-                GetComponent<Peachone>().EvolutionProcess();
+            {
+                var equipManageSys = GameManager.instance.equipManageSys;
+                var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+                GetComponent<Peachone>().EvolutionProcess(equipManageSys.skillFiringSystem.Birds[2], pairWeapon);
+                pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
                 break;
+            }
             case 10:    // EbonyWings
+            {
+                var equipManageSys = GameManager.instance.equipManageSys;
+                var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+                pairWeapon.GetComponent<Peachone>().EvolutionProcess(equipManageSys.skillFiringSystem.Birds[2], this);
                 GetComponent<EbonyWings>().EvolutionProcess();
                 break;
+            }
             case 11:    // Runetracer
                 break;
             case 12:   // LightningRing

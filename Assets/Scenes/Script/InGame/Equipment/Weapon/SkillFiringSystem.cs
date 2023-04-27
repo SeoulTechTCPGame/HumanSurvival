@@ -6,8 +6,8 @@ public class SkillFiringSystem : MonoBehaviour
 {
     public GameObject[] weaponPrefabs; //무기 프리팹
     public GameObject[] evolutionWeaponPrefabs; //진화 무기 프리팹
-    public GameObject[] WeaponSubPrefabs; // 무기 서브 프리팹 (peachone의 공전원 등)
     public GameObject[] Birds; // peachone, EbonyWings, 둘의 진화체에 등장하는 새
+    public GameObject[] Circles;
     void Update()
     {
         foreach (var weapon in GameManager.instance.equipManageSys.Weapons)
@@ -56,21 +56,21 @@ public class SkillFiringSystem : MonoBehaviour
             case 9:     // Peachone
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[9], WeaponSubPrefabs[9], weapon);
+                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[9], Circles[0], weapon);
                 }
                 else
                 {
-                    //weapon.GetComponent<Peachone>().CreateCircle(evolutionWeaponPrefabs[9], WeaponSubPrefabs[9]);
+                    weapon.GetComponent<Peachone>().CreateEvoCircle(evolutionWeaponPrefabs[9], Circles[1], weapon);
                 }
                 break;
             case 10:    // EbonyWings
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<EbonyWings>().CreateCircle(weaponPrefabs[10], WeaponSubPrefabs[10], weapon);
+                    weapon.GetComponent<EbonyWings>().CreateCircle(weaponPrefabs[10], Circles[0], weapon);
                 }
                 else
                 {
-                    //weapon.GetComponent<Peachone>().CreateCircle(evolutionWeaponPrefabs[9], WeaponSubPrefabs[9]);
+                    weapon.GetComponent<EbonyWings>().CreateEvoCircle(evolutionWeaponPrefabs[10], Circles[1], weapon);
                 }
                 break;
             case 11:    // Runetracer
