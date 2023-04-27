@@ -1,0 +1,639 @@
+﻿{
+    "Collection": [
+        {
+            "Name": "채찍",
+            "Explain": "좌우로 적을 관통해 공격합니다.",
+            "Rank": "black"
+        },
+
+        {
+            "Name": "피눈물",
+            "Explain": "채찍의 진화형. 치명타 피해를 입히고 HP를 흡수합니다.",
+            "Rank": "black"
+        },
+
+        {
+            "Name": "마법 지팡이",
+            "Explain": "가장 가까운 적을 공격합니다.",
+            "Rank": "black"
+        },
+
+        {
+            "Name": "신성한 지팡이",
+            "Explain": "마법 지팡이의 진화형. 지연 없이 발사됩니다.",
+            "Rank": "black"
+        },
+
+        {
+            "Name": "단검",
+            "Explain": "바라보는 방향으로 단검을 투척합니다",
+            "Rank": "black"
+        },
+
+        {
+            "Name": "천개의 칼날",
+            "Explain": "단검의 진화형. 지연 없이 발사됩니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "성경",
+            "Explain": "주변을 회전하며 공격합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "불경한 기도문",
+            "Explain": "성경의 진화형. 사라지지 않습니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "불의 지팡이",
+            "Explain": "무작위 방향으로 향해 발사되며 큰 피해를 줍니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "헬파이어",
+            "Explain": "불의 지팡이의 진화형. 적을 관통합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "마늘",
+            "Explain": "범위 내의 적에게 피해를 줍니다. 적의 넉백, 빙결저항을 감소시킵니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "영혼 포식자",
+            "Explain": "마늘의 진화형. 적 처치 시 체력을 흡수하며 체력흡수 시 피해량이 증가합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "성수",
+            "Explain": "피해 구역를 생성합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "정화자",
+            "Explain": "성수의 진화형. 피해 구역이 점점 커지며 캐릭터를 따릅니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "번개 반지",
+            "Explain": "무작위 적에게 번개를 내려칩니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "번개 고리",
+            "Explain": "번개 반지의 진화형. 투사체가 2회 공격합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "하얀 비둘기",
+            "Explain": "원형의 구역을 폭격합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "검은 비둘기",
+            "Explain": "원형의 구역을 폭격합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "파괴자",
+            "Explain": "하얀 비둘기와 검은 비둘기의 진화형.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "시곗바늘",
+            "Explain": "적들을 잠시 얼려 움직이지 못하게 합니다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "시금치",
+            "Explain": "공격력이 10% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "갑옷",
+            "Explain": "방어력이 1, 반격 대미지가 10% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "검은 심장",
+            "Explain": "최대 체력이 20% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "붉은 심장",
+            "Explain": "매 초 0.2 의 체력이 회복된다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "빈 책",
+            "Explain": "쿨타임이 8% 감소한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "촛대",
+            "Explain": "공격범위가 10% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "팔 보호대",
+            "Explain": "투사체 속도가 10% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "복제 반지",
+            "Explain": "투사체 수가 1개 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "날개",
+            "Explain": "이동속도가 10% 상승한다.",
+            "Rank": "black"
+        },
+
+        {
+            "Name": "매혹구",
+            "Explain": "아이템 획득 범위가 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "클로버",
+            "Explain": "행운이 10% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "왕관",
+            "Explain": "경험치 획득량이 8% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "돌가면",
+            "Explain": "골드 획득량이 10% 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "토로나의 상자",
+            "Explain": "피해량, 투사체 속도, 지속시간, 공격범위가 증가한다. 9레벨에 저주가 증가한다.",
+            "Rank": "black"
+        },
+            
+        {
+            "Name": "경험치 보석",
+            "Explain": "경험치를 증가시킵니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "금화",
+            "Explain": "획득시 1골드를 획득합니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "금화 주머니",
+            "Explain": "획득시 10골드를 획득합니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "거대한 금화 주머니",
+            "Explain": "획득시 100골드를 획득합니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "묵주",
+            "Explain": "시야 내 모든 적을 파괴합니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "은두자 프리타",
+            "Explain": "바라보는 방향으로 화염을 방사합니다. 플레이어 스탯에 영향을 받습니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "회중시계",
+            "Explain": "10초동안 모든 적을 얼려버립니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "흡입기",
+            "Explain": "지면의 모든 경험치 보석을 모아줍니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "치킨",
+            "Explain": "체력 30을 회복합니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "금박 클로버",
+            "Explain": "땅에 떨어진 모든 금화를 흡수하고 황금의 피버타임을 가집니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "작은 클로버",
+            "Explain": "획득시 행운이 10% 증가합니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "보물 상자",
+            "Explain": "골드와 무작위 파워 업을 획득합니다. 강력한 적에게서만 획득 할 수 있습니다.",
+            "Rank": "green"
+        },
+            
+        {
+            "Name": "엄숙한 마도서",
+            "Explain": "일시 정지 메뉴에서 발견한 무기 진화, 조합법을 영구적으로 확인할 수 있습니다.",
+            "Rank": "pink"
+        },
+
+        {
+            "Name": "은하수 지도",
+            "Explain": "일시정지 화면에서 지도를 활성화하여 필드의 아이템 위치를 표시합니다.",
+            "Rank": "pink"
+        },
+            
+        {
+            "Name": "매직 뱅거",
+            "Explain": "스테이지 선택에서 음악을 영구적으로 변경할 수 있습니다.",
+            "Rank": "pink"
+        },
+            
+        {
+            "Name": "마녀의 눈물",
+            "Explain": "스테이지 선택에서 게임을 영구적으로 가속할 수 있습니다.",
+            "Rank": "pink"
+        },
+            
+        {
+            "Name": "코주부 안경",
+            "Explain": "캐릭터의 외형을 변경 가능하게 해줍니다. 또한 게임 시작 전에 소지 가능한 최대 무기의 수량을 지정할 수 있습니다.",
+            "Rank": "pink"
+        },
+            
+        {
+            "Name": "공주의 비련",
+            "Explain": "포르타 레벨 99 달성",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "푸른 강철의 의지",
+            "Explain": "젠나로 레벨 99 달성",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "광기의 그루브",
+            "Explain": "광기의 숲에서 31분 생존",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "신성한 혈통",
+            "Explain": "클레리씨 수녀 레벨 99 달성",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "근원",
+            "Explain": "안토니오 레벨 99 달성",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "진주의 왈츠",
+            "Explain": "이멜다 레벨 99 달성",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "황금 디스코",
+            "Explain": "화려한 도서관 31분 생존",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "불의 심장",
+            "Explain": "아르카 레벨 99 달성",
+            "Rank": "purple"
+        },
+            
+        {
+            "Name": "블러드 아스트로노미아",
+            "Explain": "포 랏초 99 레벨 달성",
+            "Rank": "purple"
+        }],
+
+    "Achievement": [
+        {
+            "Explain": "레벨 5에 도달",
+            "Obtain": "날개"
+        },
+
+        {
+            "Explain": "레벨 10에 도달",
+            "Obtain": "왕관"
+        },
+
+        {
+            "Explain": "광기의 숲에서 레벨 20에 도달",
+            "Obtain": "화려한 도서관"
+        },
+
+        {
+            "Explain": "아무 캐릭터로 1분 생존",
+            "Obtain": "검은 심장"
+        },
+
+        {
+            "Explain": "젠나로로 5분 생존",
+            "Obtain": "붉은 심장"
+        },
+
+        {
+            "Explain": "아무 캐릭터로 10분 생존",
+            "Obtain": "하얀 비둘기"
+        },
+
+        {
+            "Explain": "성경 레벨 4까지 올리기",
+            "Obtain": "팔 보호대"
+        },
+
+        {
+            "Explain": "성수 레벨 4까지 올리기",
+            "Obtain": "촛대"
+        },
+
+        {
+            "Explain": "불의 지팡이 레벨 4까지 올리기",
+            "Obtain": "아르카"
+        },
+
+        {
+            "Explain": "번개 반지 레벨 4까지 올리기",
+            "Obtain": "포르타"
+        },
+
+        {
+            "Explain": "마법 지팡이 레벨 7까지 올리기",
+            "Obtain": "복제 반지"
+        },
+
+        {
+            "Explain": "하얀 비둘기 레벨 7까지 올리기",
+            "Obtain": "검은 비둘기"
+        },
+
+        {
+            "Explain": "마늘을 레벨 7까지 올리기",
+            "Obtain": "포"
+        },
+
+        {
+            "Explain": "토로나의 상자 레벨 9 달성",
+            "Obtain": "전능"
+        },
+
+        {
+            "Explain": "동시에 무기 6가지 진화",
+            "Obtain": "토로나의 상자"
+        },
+
+        {
+            "Explain": "6개의 무기를 소지",
+            "Obtain": "빈 책"
+        },
+
+        {
+            "Explain": "누적 1,000의 체력을 회복",
+            "Obtain": "시스터 클레리씨"
+        },
+
+        {
+            "Explain": "빛 물체 20개 파괴",
+            "Obtain": "불의 지팡이"
+        },
+
+        {
+            "Explain": "치킨 5개 발견",
+            "Obtain": "마늘"
+        },
+
+        {
+            "Explain": "작은 클로버 발견",
+            "Obtain": "클로버"
+        },
+        
+        {
+            "Explain": "흡입기 발견",
+            "Obtain": "매혹구"
+        },
+
+        {
+            "Explain": "회중시계 발견",
+            "Obtain": "시곗바늘"
+        },
+
+        {
+            "Explain": "묵주 발견",
+            "Obtain": "십자가"
+        },
+
+        {
+            "Explain": "돌가면 발견",
+            "Obtain": "돌가면"
+        },
+
+        {
+            "Explain": "그림 그리모어 발견",
+            "Obtain": "진화 목록"
+        },
+
+        {
+            "Explain": "매직 뱅어 발견",
+            "Obtain": "음악 선택"
+        },
+
+        {
+            "Explain": "은하수 지도 발견",
+            "Obtain": "일시정지 메뉴 지도"
+        },
+
+        {
+            "Explain": "마녀의 눈물 발견",
+            "Obtain": "단축 모드"
+        },
+        
+        {
+            "Explain": "누적 3,000마리 적을 처치",
+            "Obtain": "번개 반지"
+        },
+
+        {
+            "Explain": "컬렉션에 50개의 항목을 채우기",
+            "Obtain": "캐릭터 커스터마이징"
+        },
+
+        {
+            "Explain": "컬렉션에 60개의 항목을 채우기",
+            "Obtain": "지우기"
+        },
+
+        {
+            "Explain": "채찍 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "마법 지팡이 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "단검 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "성수 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "번개 반지 진화 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "성경 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "불의 지팡이 진화",
+            "Obtain": "골드 500개"
+        },
+
+        {
+            "Explain": "마늘 진화",
+            "Obtain": "골드 500개"
+        }],
+
+    "PowerUp": [
+            {
+                "Explain": "랭크당 피해량이 5% 증가합니다\n(최대 +25%)",
+                "accessoryLevel": 5
+            },
+
+            {
+                "Explain": "랭크당 피격 피해량이 1 줄어듭니다\n(최대 -3)",
+                "accessoryLevel": 3
+            },
+
+            {
+                "Explain": "랭크당 최대 체력이 10% 증가합니다\n(최대 +30%)",
+                "accessoryLevel": 3
+            },
+
+            {
+                "Explain": "랭크당 초당 체력 회복량이 0.1 증가합니다\n(최대 0.5)",
+                "accessoryLevel": 5
+            },
+
+            {
+                "Explain": "랭크당 무기 쿨타임이 2.5% 감소합니다\n(최대 5%)",
+                "accessoryLevel": 2
+            },
+
+            {
+                "Explain": "랭크당 공격 범위가 5% 증가합니다\n(최대 +10%)",
+                "accessoryLevel": 2
+            },
+
+            {
+                "Explain": "랭크당 투사체가 10% 빨라집니다\n(최대 20%)",
+                "accessoryLevel": 2
+            },
+
+            {
+                "Explain": "랭크당 무기의 효과 지속 시간이 15% 연장됩니다\n(최대 +30%)",
+                "accessoryLevel": 2
+            },
+
+            {
+                "Explain": "투사체를 1개 더 발사합니다\n(모든 무기)",
+                "accessoryLevel": 1
+            },
+
+            {
+                "Explain": "랭크당 이동 속도가 5% 빨라집니다\n(최대 10%)",
+                "accessoryLevel": 2
+            },
+
+            {
+                "Explain": "랭크당 아이템 획득 범위가 25% 증가합니다\n(최대 +50%)",
+                "accessoryLevel": 2
+            },
+
+            {
+                "Explain": "랭크당 행운이 10% 증가합니다\n(최대 +30%)",
+                "accessoryLevel": 3
+            },
+
+            {
+                "Explain": "랭크당 3%의 추가 경험치를 획득합니다\n(최대 15%)",
+                "accessoryLevel": 5
+            },
+
+            {
+                "Explain": "랭크당 10%의 추가 골드를 획득합니다\n(최대 +50%)",
+                "accessoryLevel": 5
+            },
+
+            {
+                "Explain": "랭크당 10%씩 적들의 속도, 체력, 개체수, 스폰율이 증가합니다\n(최대 +50%)",
+                "accessoryLevel": 5
+            },
+            
+            {
+                "Explain": "50% 체력으로 1회 부활합니다",
+                "accessoryLevel": 1
+            }]
+}
