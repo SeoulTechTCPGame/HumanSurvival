@@ -12,7 +12,11 @@ public class EbonyWings : MonoBehaviour
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
+    public Vector3 ProjectileScale;
     private bool mbHolding = false;
+    private static Color[] mColors = { new Color(0.85f, 0.13f, 0.19f, 1), new Color(1, 0.46f, 0, 1), new Color(0.89f, 0.87f, 0.88f, 1)
+            , new Color(0.51f, 0.93f, 0.17f, 1), new Color(0.13f, 0.89f, 0.51f, 1), new Color(0.13f, 0.75f, 1, 1), new Color(0.17f, 0.14f, 0.91f, 1), new Color(0.84f, 0.27f, 0.86f, 1) };
+    private int mColorCnt = 0;
 
     float Timer = 100;
     bool UseEbony = false;
@@ -25,7 +29,7 @@ public class EbonyWings : MonoBehaviour
         Timer += Time.deltaTime;
 
         transform.position = calculateBezierPoint();
-        if (Timer > 1.1f)
+        if (Timer > 1.0f)
         {
             mbHolding = true;
             Destroy(gameObject, 1f);
@@ -41,26 +45,32 @@ public class EbonyWings : MonoBehaviour
         newObjEbonyWings.ControlPoint = secondPoint;
         newObjEbonyWings.EndPoint = dstTransform;
         newObjEbonyWings.UseEbony = true;
+        newObjEbonyWings.Timer = 0;
+        newObjEbonyWings.transform.localScale = ProjectileScale;
+        newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
+        mColorCnt++;
         newobs.transform.position = sourceP.position; //시작 위치
     }
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon EbonyWings)
+    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
     {
         Timer += Time.deltaTime;
-        if (Timer > EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings, StartPoint);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = transform.localScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            mColorCnt = 0;
         }
     }
-    public void CreateEvoCircle(GameObject peachPre, GameObject bounderyPre, Weapon peachone)
+    public void CreateEvoCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
     {
         Timer += Time.deltaTime;
-        if (Timer > peachone.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, peachone, StartPoint);
+            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = transform.localScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            mColorCnt = 0;
         }
     }
     private Vector3 calculateBezierPoint()

@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 943404134078784437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.5199976, y: 3, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 1.8}
+  m_LocalScale: {x: 3.3, y: 3.3, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -144,19 +144,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 10
-  WeaponLevel: 7
+  WeaponLevel: 8
   WeaponMaxLevel: 8
   Mastered: 0
-  bEvolution: 0
+  bEvolution: 1
   weaponTotalStats:
   - 30
   - 11.4
   - 0.8
   - 4
-  - 10
+  - 11
   - 60
   - 1e+10
-  - 1.8
+  - 2.2
   - 8
 --- !u!96 &7596873339338999605
 TrailRenderer:
@@ -274,6 +274,7 @@ MonoBehaviour:
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0, y: 0, z: 0}
+  ProjectileScale: {x: 5.5, y: 5.5, z: 0}
 --- !u!58 &6392157819826877399
 CircleCollider2D:
   m_ObjectHideFlags: 0

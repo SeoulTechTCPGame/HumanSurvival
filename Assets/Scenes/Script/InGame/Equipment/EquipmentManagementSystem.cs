@@ -23,27 +23,9 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
-        //GetWeapon(startingWeapon);
-        GetWeapon(9);
-        GetWeapon(10);
-        Weapons[0].Upgrade();
-        Weapons[0].Upgrade();
-        Weapons[0].Upgrade();
-        Weapons[0].Upgrade();
-        Weapons[0].Upgrade();
-        Weapons[0].Upgrade();
-        Weapons[0].Upgrade();
-
-        Weapons[1].Upgrade();
-        Weapons[1].Upgrade();
-        Weapons[1].Upgrade();
-        Weapons[1].Upgrade();
-        Weapons[1].Upgrade();
-        Weapons[1].Upgrade();
-        //Weapons[1].Upgrade();
-
-        //GetAccessory(0);
-        //GetAccessory(1);
+        GetWeapon(startingWeapon);
+        GetAccessory(0);
+        GetAccessory(1);
     }
 
     public void ApplyItem(Tuple<int, int, int> pickUp)
