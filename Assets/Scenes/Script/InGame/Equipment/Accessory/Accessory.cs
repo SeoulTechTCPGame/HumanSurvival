@@ -38,6 +38,8 @@ public class Accessory
 
         var equipManageSys = GameManager.instance.equipManageSys;
         int evoPairWeaponIndex = EquipmentData.EvoAccNeedWeaponIndex[AccessoryIndex];
+        if (evoPairWeaponIndex < 0)
+            return;
         if (equipManageSys.HasWeapon(evoPairWeaponIndex))
         {
             var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]];
