@@ -8,10 +8,15 @@ using UnityEngine;
 public class EbonyWings : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    public GameObject Bird = null;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
+    public Vector3 ProjectileScale;
     private bool mbHolding = false;
+    private static Color[] mColors = { new Color(0.85f, 0.13f, 0.19f, 1), new Color(1, 0.46f, 0, 1), new Color(0.89f, 0.87f, 0.88f, 1)
+            , new Color(0.51f, 0.93f, 0.17f, 1), new Color(0.13f, 0.89f, 0.51f, 1), new Color(0.13f, 0.75f, 1, 1), new Color(0.17f, 0.14f, 0.91f, 1), new Color(0.84f, 0.27f, 0.86f, 1) };
+    private int mColorCnt = 0;
 
     float Timer = 100;
     bool UseEbony = false;
@@ -24,7 +29,7 @@ public class EbonyWings : MonoBehaviour
         Timer += Time.deltaTime;
 
         transform.position = calculateBezierPoint();
-        if (Timer > 1.1f)
+        if (Timer > 1.0f)
         {
             mbHolding = true;
             Destroy(gameObject, 1f);
@@ -32,24 +37,40 @@ public class EbonyWings : MonoBehaviour
             GetComponent<CircleCollider2D>().enabled = true;
         }
     }
-    public void FireEbonyWings(GameObject objPre, Transform dstTransform, Vector3 p, Transform sourceP)
+    public void Fire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
         GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
         var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
         newObjEbonyWings.StartPoint = sourceP;
-        newObjEbonyWings.ControlPoint = p;
+        newObjEbonyWings.ControlPoint = secondPoint;
         newObjEbonyWings.EndPoint = dstTransform;
         newObjEbonyWings.UseEbony = true;
+        newObjEbonyWings.Timer = 0;
+        newObjEbonyWings.transform.localScale = ProjectileScale;
+        newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
+        mColorCnt++;
         newobs.transform.position = sourceP.position; //시작 위치
     }
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon EbonyWings)
+    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
     {
         Timer += Time.deltaTime;
-        if (Timer > EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, EbonyWings, StartPoint);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
             Timer = 0;
-            peachPre.transform.localScale = transform.localScale * EbonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            mColorCnt = 0;
+        }
+    }
+    public void CreateEvoCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
+    {
+        Timer += Time.deltaTime;
+        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        {
+            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
+            Timer = 0;
+            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            mColorCnt = 0;
         }
     }
     private Vector3 calculateBezierPoint()
@@ -65,13 +86,13 @@ public class EbonyWings : MonoBehaviour
     }
     public void SpawnBlackBird(GameObject bird)
     {
-        GameObject newobs = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
-        var newObjBird = newobs.GetComponent<Bird>();
+        Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
+        var newObjBird = Bird.GetComponent<Bird>();
         newObjBird.PlayerTransform = GameManager.instance.player.transform;
         StartPoint = newObjBird.transform;
     }
     public void EvolutionProcess()
     {
-
+        StartPoint = Bird.GetComponent<Bird>().transform;
     }
 }
