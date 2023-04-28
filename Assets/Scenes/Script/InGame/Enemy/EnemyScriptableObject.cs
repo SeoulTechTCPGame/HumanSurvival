@@ -6,6 +6,9 @@ using UnityEngine;
 public class EnemyScriptableObject : ScriptableObject
 {
     [SerializeField]
+    string Ename;
+    public string EName{get=>Ename; private set => Ename=value;}
+    [SerializeField]
     int spriteType;
     public int SpriteType{get=>spriteType; private set => spriteType=value;}
     [SerializeField]

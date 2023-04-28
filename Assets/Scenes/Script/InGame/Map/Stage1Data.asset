@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2fd965e5999b24a9843d767cd810de, type: 3}
+  m_Name: Stage1Data
+  m_EditorClassIdentifier: 
+  stageEvents:
+  - eventType: 0
+    time: 0
+    message: wave 1
+    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    count: 10
+  - eventType: 0
+    time: 10
+    message: wave 2
+    enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
+    count: 10
+  - eventType: 0
+    time: 15
+    message: wave 2 elite bat
+    enemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
+    count: 1
+  - eventType: 0
+    time: 20
+    message: wave 3
+    enemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
+    count: 20

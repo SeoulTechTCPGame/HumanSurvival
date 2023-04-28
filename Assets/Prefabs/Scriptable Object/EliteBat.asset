@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
-  m_Name: Skeleton
+  m_Name: EliteBat
   m_EditorClassIdentifier: 
-  Ename: Skeleton
-  spriteType: 1
-  spawnTime: 0.5
-  speed: 100
+  Ename: Bat
+  spriteType: 3
+  spawnTime: 0.7
+  speed: 140
   power: 10
   knockback: 1
   maxKnockback: 3
-  deathKB: 5
-  xp: 2
-  end: 18
+  deathKB: 2
+  xp: 30
+  end: 29
   level: 1
-  maxHP: 1.5
+  maxHP: 5

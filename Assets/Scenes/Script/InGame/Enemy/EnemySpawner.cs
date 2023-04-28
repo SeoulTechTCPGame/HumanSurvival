@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     int level;
     float timer;
 
-    private void Update()
+    /*private void Update()
     {
         timer += Time.deltaTime;
         //float형 시간에 따라 int형 레벨 설정
@@ -23,19 +23,17 @@ public class EnemySpawner : MonoBehaviour
             timer = 0;
         }
     }
+    */
 
-
-    private void Spawn()
+    public void SpawnEnemy(EnemyScriptableObject enemyToSpawn)
     {
         //player의 위치 값에 랜덤 pos를 더해 스폰 지점 설정
         Vector3 position = GenerateRandomPos();
         position += player.transform.position;
-
-        GameObject newEnemy= GameManager.instance.pool.Get("enemy",level);
+        GameObject newEnemy= GameManager.instance.pool.Get("enemy",enemyToSpawn.SpriteType);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
-
-        newEnemy.GetComponent<Enemy>().InitEnemy(spawnData[level]);
+        newEnemy.GetComponent<Enemy>().InitEnemy(enemyToSpawn);
     }
 
     private Vector3 GenerateRandomPos()
