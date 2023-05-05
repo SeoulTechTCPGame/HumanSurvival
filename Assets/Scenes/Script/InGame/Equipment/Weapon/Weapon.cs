@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     //무기의 스탯 지정
     //예시를 위해 값은 무작위로 넣음
     public int WeaponIndex;
-    public int WeaponLevel;
+    public int WeaponLevel = 1;
     public int WeaponMaxLevel;
     public bool Mastered = false;
 
@@ -43,11 +43,6 @@ public class Weapon : MonoBehaviour
     {
         return WeaponLevel == WeaponMaxLevel;
     }
-    //진화 조건 충족 확인
-    public void EvolutionSub()
-    {
-
-    }
     public bool isEvoluction()
     {
         return bEvolution;
@@ -56,7 +51,6 @@ public class Weapon : MonoBehaviour
     {
         if (!IsMaster())
             return;
-
         var equipManageSys = GameManager.instance.equipManageSys;
         int evoPairAccIndex = EquipmentData.EvoWeaponNeedAccIndex[WeaponIndex];
         if (evoPairAccIndex < 0)    // 짝이 되는 악세서리의 index = -1 -> 짝이 무기인 경우

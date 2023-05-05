@@ -24,8 +24,6 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredAccessories = new List<int>();
 
         GetWeapon(startingWeapon);
-        GetAccessory(0);
-        GetAccessory(1);
     }
 
     public void ApplyItem(Tuple<int, int, int> pickUp)
