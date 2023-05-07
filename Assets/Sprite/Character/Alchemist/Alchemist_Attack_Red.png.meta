@@ -595,7 +595,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alchemist_Attack_Red_8: 21300016
+      Alchemist_Attack_Red_12: 21300024
       Alchemist_Attack_Red_2: 21300004
       Alchemist_Attack_Red_15: 21300030
       Alchemist_Attack_Red_9: 21300018
@@ -614,7 +614,7 @@ TextureImporter:
       Alchemist_Attack_Red_4: 21300008
       Alchemist_Attack_Red_11: 21300022
       Alchemist_Attack_Red_14: 21300028
-      Alchemist_Attack_Red_12: 21300024
+      Alchemist_Attack_Red_8: 21300016
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

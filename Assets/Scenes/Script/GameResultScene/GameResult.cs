@@ -18,10 +18,10 @@ public class GameResult : MonoBehaviour
     public GameObject Weaponlist;
     GameObject weaponInfo;
 
-    TMP_Text Weaponname;
-    TMP_Text Weaponlevel;
-    TMP_Text Weapondamage;
-    TMP_Text WeapondamagePerSec;
+    GameObject Weaponname=null;
+    GameObject Weaponlevel=null;
+    GameObject Weapondamage=null;
+    GameObject WeapondamagePerSec=null;
 
     void Start()
     {
@@ -36,20 +36,12 @@ public class GameResult : MonoBehaviour
         character.text = string.Format("{0}", charName);
         string source = "CharacterSprite/" + charName + "_0";
         characterImage.sprite = Resources.Load<Sprite>(source);
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < GameManager.instance.equipManageSys.Weapons.Count; i++)
         {
-            //갖고있는 무기 정보 출력
             weaponInfo = Resources.Load<GameObject>("Weapons/WeaponInfo");
-            GameObject row = (GameObject)Instantiate(weaponInfo);
-            string adrs = "" + i;
-            Sprite image = Resources.Load<Sprite>(adrs);
-            row.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = image;
-            //row.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text=
-            //weaponInfo.transform.SetParent(Weaponlist.transform);
+            GameObject row = Instantiate(weaponInfo);
+            row.GetComponent<WeaponListUI>().SetWeaponResultData(GameManager.instance.equipManageSys.Weapons[i].WeaponIndex, gameTime);
+            row.transform.SetParent(Weaponlist.transform, false); 
         }
-
-        // Weapondamage = GameManager.instance.weaponDamage[필요한 무기 인덱스]
-        // WeapondamagePerSec = Weapondamage / (gameTime - GameManager.instance.weaponGetTime[필요한 무기 인덱스]) 이렇게 쓰시면 됩니당 누님 충성~
     }
-
 }

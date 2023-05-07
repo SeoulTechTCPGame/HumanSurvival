@@ -33,3 +33,8 @@ MonoBehaviour:
     message: wave 3
     enemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
     count: 20
+  - eventType: 0
+    time: 25
+    message: wave 4
+    enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
+    count: 20
