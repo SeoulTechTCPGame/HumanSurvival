@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
+        Debug.Log(equipManageSys.Weapons.Count);
         player.enabled = false; // Character object 비활성화
         pool.enabled = false;
         Time.timeScale = 0;

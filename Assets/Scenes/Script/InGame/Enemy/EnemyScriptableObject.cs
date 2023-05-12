@@ -11,9 +11,9 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField]
     int spriteType;
     public int SpriteType{get=>spriteType; private set => spriteType=value;}
-    [SerializeField]
-    float spawnTime;
-    public float SpawnTime { get => spawnTime; private set => spawnTime = value; }
+    //[SerializeField]
+    //float spawnTime;
+    //public float SpawnTime { get => spawnTime; private set => spawnTime = value; }
     [SerializeField]
     public int speed; //몬스터의 이동 속도
     public int Speed { get => speed; private set => speed = value; }

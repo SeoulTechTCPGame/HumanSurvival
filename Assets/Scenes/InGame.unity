@@ -1352,6 +1352,7 @@ MonoBehaviour:
   - {fileID: 9127071239993843719, guid: fca21f12d44d59346abba0164516d799, type: 3}
   - {fileID: 1886036213109440174, guid: c1ccc03b76848804faf85e0437349fc5, type: 3}
   - {fileID: 807355772286374456, guid: 5c68810c317284949b22204c34c26745, type: 3}
+  - {fileID: 807355772286374456, guid: 4b9696ee2f7378b43ac3b10d80037f24, type: 3}
   expPrefabs:
   - {fileID: 3915139561794565461, guid: bb17956b9b777e743b643480f8b43503, type: 3}
   - {fileID: 3915139561794565461, guid: c22fbf40d947c8e49b8b055d4fb021aa, type: 3}
@@ -2186,7 +2187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a87cfd4fd80714dbc1e5a619a2ac84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {x: 10, y: 10}
+  spawnArea: {x: 15, y: 12}
   player: {fileID: 1928233905}
   spawnData:
   - {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}

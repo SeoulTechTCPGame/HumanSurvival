@@ -19,9 +19,19 @@ MonoBehaviour:
     enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
     count: 10
   - eventType: 0
+    time: 1
+    message: Bat Bevy
+    enemyToSpawn: {fileID: 11400000, guid: f68536f96474ca1458be3a23ce57ea2f, type: 2}
+    count: 1
+  - eventType: 0
     time: 10
     message: wave 2
     enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
+    count: 10
+  - eventType: 0
+    time: 11
+    message: wave 2
+    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
     count: 10
   - eventType: 0
     time: 15
@@ -31,10 +41,15 @@ MonoBehaviour:
   - eventType: 0
     time: 20
     message: wave 3
-    enemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
+    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
     count: 20
   - eventType: 0
     time: 25
+    message: wave 3 bat bevy
+    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    count: 1
+  - eventType: 0
+    time: 30
     message: wave 4
     enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
     count: 20

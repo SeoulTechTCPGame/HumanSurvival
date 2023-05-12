@@ -3,7 +3,7 @@ using System.Linq;
 using System;
 using UnityEngine;
 
-public class EquipmentManagementSystem : MonoBehaviour
+public class EquipmentManagementSystem 
 {
     public List<Weapon> Weapons;
     public List<Accessory> Accessories;

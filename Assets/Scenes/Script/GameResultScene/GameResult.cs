@@ -18,10 +18,10 @@ public class GameResult : MonoBehaviour
     public GameObject Weaponlist;
     GameObject weaponInfo;
 
-    GameObject Weaponname=null;
-    GameObject Weaponlevel=null;
-    GameObject Weapondamage=null;
-    GameObject WeapondamagePerSec=null;
+    //GameObject Weaponname=null;
+    //GameObject Weaponlevel=null;
+    //GameObject Weapondamage=null;
+    //GameObject WeapondamagePerSec=null;
 
     void Start()
     {
@@ -40,8 +40,8 @@ public class GameResult : MonoBehaviour
         {
             weaponInfo = Resources.Load<GameObject>("Weapons/WeaponInfo");
             GameObject row = Instantiate(weaponInfo);
-            row.GetComponent<WeaponListUI>().SetWeaponResultData(GameManager.instance.equipManageSys.Weapons[i].WeaponIndex, gameTime);
-            row.transform.SetParent(Weaponlist.transform, false); 
+            row.GetComponent<WeaponListUI>().SetWeaponResultData(i,GameManager.instance.equipManageSys.Weapons[i].WeaponIndex, gameTime);
+            row.transform.SetParent(Weaponlist.transform, false);
         }
     }
 }
