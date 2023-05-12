@@ -475,6 +475,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      LightningEffect_13: 21300026
       LightningEffect_9: 21300018
       LightningEffect_7: 21300014
       LightningEffect_6: 21300012
@@ -485,7 +486,6 @@ TextureImporter:
       LightningEffect_14: 21300028
       LightningEffect_5: 21300010
       LightningEffect_12: 21300024
-      LightningEffect_13: 21300026
       LightningEffect_2: 21300004
       LightningEffect_1: 21300002
       LightningEffect_11: 21300022

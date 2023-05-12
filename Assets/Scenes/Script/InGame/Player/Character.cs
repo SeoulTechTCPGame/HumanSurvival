@@ -6,6 +6,7 @@ public class Character : MonoBehaviour, IDamageable
     //ToDo: 스탯들을 변수를 리스트 형식으로 바꾸기 + GameMager에서 가져오기
     [SerializeField] HealthBar HpBar;
     private bool isDead;
+    [SerializeField]
     private float currentHp;
     private float maxHp;
     private float armor;

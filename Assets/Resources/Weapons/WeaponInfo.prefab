@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5990085624551470906}
+  - component: {fileID: 1769779460791779689}
   m_Layer: 5
   m_Name: WeaponInfo
   m_TagString: Untagged
@@ -42,6 +43,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1769779460791779689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990085624551470909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f607dcfdcdca19c428443e596749cb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weaponlist: {fileID: 0}
+  WeaponImage: {fileID: 5990085626637141963}
+  Weaponname: {fileID: 5990085626286033653}
+  Weaponlevel: {fileID: 5990085626278154053}
+  Weapondamage: {fileID: 5990085625810313430}
+  WeaponTime: {fileID: 5990085625183249794}
+  WeaponDamagePerSec: {fileID: 5990085625515709014}
 --- !u!1 &5990085625183249796
 GameObject:
   m_ObjectHideFlags: 0

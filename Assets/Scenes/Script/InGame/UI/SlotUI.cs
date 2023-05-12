@@ -25,7 +25,7 @@ public class SlotUI : MonoBehaviour
                 slotprefab = Resources.Load<GameObject>(resourceName);
                 break;
         }
-        GameObject slot=(GameObject)Instantiate(slotprefab);
+        GameObject slot=Instantiate(slotprefab);
         slot.transform.SetParent(list.transform);
     }
 }

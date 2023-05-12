@@ -3,7 +3,7 @@ using System.Linq;
 using System;
 using UnityEngine;
 
-public class EquipmentManagementSystem : MonoBehaviour
+public class EquipmentManagementSystem 
 {
     public List<Weapon> Weapons;
     public List<Accessory> Accessories;
@@ -24,8 +24,6 @@ public class EquipmentManagementSystem : MonoBehaviour
         MasteredAccessories = new List<int>();
 
         GetWeapon(startingWeapon);
-        GetAccessory(0);
-        GetAccessory(1);
     }
 
     public void ApplyItem(Tuple<int, int, int> pickUp)

@@ -427,7 +427,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Warlock_DeathNoBlood_1: 21300002
+      Warlock_DeathNoBlood_4: 21300008
       Warlock_DeathNoBlood_5: 21300010
       Warlock_DeathNoBlood_9: 21300018
       Warlock_DeathNoBlood_0: 21300000
@@ -439,7 +439,7 @@ TextureImporter:
       Warlock_DeathNoBlood_7: 21300014
       Warlock_DeathNoBlood_10: 21300020
       Warlock_DeathNoBlood_3: 21300006
-      Warlock_DeathNoBlood_4: 21300008
+      Warlock_DeathNoBlood_1: 21300002
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
