@@ -47,6 +47,18 @@ public class EbonyWings : MonoBehaviour
         newObjEbonyWings.UseEbony = true;
         newObjEbonyWings.Timer = 0;
         newObjEbonyWings.transform.localScale = ProjectileScale;
+        newobs.transform.position = sourceP.position; //시작 위치
+    }
+    public void EvoFire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
+    {
+        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
+        newObjEbonyWings.StartPoint = sourceP;
+        newObjEbonyWings.ControlPoint = secondPoint;
+        newObjEbonyWings.EndPoint = dstTransform;
+        newObjEbonyWings.UseEbony = true;
+        newObjEbonyWings.Timer = 0;
+        newObjEbonyWings.transform.localScale = ProjectileScale;
         newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
         mColorCnt++;
         newobs.transform.position = sourceP.position; //시작 위치

@@ -34,7 +34,7 @@ public class EvoPeachBoundery : MonoBehaviour
             // peachone 소환
             var startPos = mBirdTransform.position;
             Vector3 pos = getSecondPosition();
-            mPeachObj.GetComponent<Peachone>().Fire(mPeachObj, transform, pos, mBirdTransform);
+            mPeachObj.GetComponent<Peachone>().EvoFire(mPeachObj, transform, pos, mBirdTransform);
             mAccCooldown += mCooldown;
         }
     }
