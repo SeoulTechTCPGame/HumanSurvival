@@ -1,11 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChargePowerUp : MonoBehaviour
 {
     [SerializeField] GameObject[] mAccessory;
     [SerializeField] GameObject mChargeObject;
+    [SerializeField] GameObject mActiveObject;
+    [SerializeField] Toggle mActiveToggle;
     public int nowAccessoryIndex;
     private float[] upgradeStat = new float[16] { 0.05f, 1, 0.1f, 0.1f, -0.025f, 0.05f, 0.1f, 0.15f, 1, 0.05f, 0.25f, 0.1f, 0.03f, 0.1f, 0.1f, 1 };
+    private float[] tempSaveStat = new float[16];
 
     public void Charge()
     {
@@ -28,6 +32,12 @@ public class ChargePowerUp : MonoBehaviour
             }
             mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex].ToString();
         }
+        if(UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] == mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryLevel)
+        {
+            tempSaveStat[nowAccessoryIndex] = UserInfo.instance.UserDataSet.PowerUpStat[nowAccessoryIndex];
+            mChargeObject.SetActive(false);
+            mActiveObject.SetActive(true);
+        }
     }
 
     public void Refund()
@@ -45,5 +55,19 @@ public class ChargePowerUp : MonoBehaviour
         UserInfo.instance.getGold(UserInfo.instance.UserDataSet.consumeGold);
         UserInfo.instance.RefundGold();
         mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex].ToString();
+        mChargeObject.SetActive(true);
+        mActiveObject.SetActive(false);
+    }
+
+    public void StatActive()
+    {
+        if(mActiveToggle.isOn)
+        {
+            UserInfo.instance.UserDataSet.PowerUpStat[nowAccessoryIndex] = tempSaveStat[nowAccessoryIndex];
+        }
+        else
+        {
+            UserInfo.instance.UserDataSet.PowerUpStat[nowAccessoryIndex] = 0;
+        }
     }
 }

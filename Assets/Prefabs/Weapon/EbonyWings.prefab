@@ -144,10 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 10
-  WeaponLevel: 8
+  WeaponLevel: 1
   WeaponMaxLevel: 8
   Mastered: 0
-  bEvolution: 1
+  bEvolution: 0
   weaponTotalStats:
   - 30
   - 11.4

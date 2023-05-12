@@ -46,6 +46,18 @@ public class Peachone : MonoBehaviour
         newObjPeachone.UsePeach = true;
         newObjPeachone.Timer = 0;
         newObjPeachone.transform.localScale = ProjectileScale;
+        newobs.transform.position = sourceP.position; //시작 위치
+    }
+    public void EvoFire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
+    {
+        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjPeachone = newobs.GetComponent<Peachone>();
+        newObjPeachone.StartPoint = sourceP;
+        newObjPeachone.ControlPoint = secondPoint;
+        newObjPeachone.EndPoint = dstTransform;
+        newObjPeachone.UsePeach = true;
+        newObjPeachone.Timer = 0;
+        newObjPeachone.transform.localScale = ProjectileScale;
         newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
         mColorCnt++;
         newobs.transform.position = sourceP.position; //시작 위치
