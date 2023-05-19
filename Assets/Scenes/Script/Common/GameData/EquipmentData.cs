@@ -20,35 +20,32 @@ public class EquipmentData
     public static void EvolutionPairData()
     {
         // 짝이 없는 무기, 악세서리의 경우는 -1로 초기화
-        EvoWeaponNeedAccIndex = new int[13] {2,4,6,5,11,7,0,3,10,-1,-1,1,8};
-        EvoWeaponNeedWeaponIndex = new int[13] { -1, -1, -1, -1, -1, -1, -1, -1, -1, 10, 9, -1, -1 };
-        EvoAccNeedWeaponIndex = new int[21] { 6, 11, 0, 7, 1, 3, 2, 5, 12, -1, 8, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+        EvoWeaponNeedAccIndex       = new int[10] { 2, 4, 6, 11, 7, 0, 3, -1, -1, 8 };
+        EvoWeaponNeedWeaponIndex    = new int[10] { -1, -1, -1, -1, -1, -1, -1, 10, 9, -1 };
+        EvoAccNeedWeaponIndex       = new int[15] { 6, 11, 0, 7, 1, 3, 2, 5, 12, -1, 8, 4, -1, -1, -1 };
     }
 
     public static void levelOneWeaponPreprocessing()
     {
-        defaultWeaponStats = new float[13, 9]
+        defaultWeaponStats = new float[10, 9]
         {
-            //Might,Cooldown,ProjectileSpeed,Duration,Amount,AmountLimit,Piercing,Area,MaxLevel
-            { 10, 1.35f, Constants.X, Constants.X, 1, 30, Constants.INF, 1, 8 },    // Whip
-            { 10, 1.20f, 1, Constants.X, 1, 60, 1, 1, 8 },  // MagicWand
-            { 6.5f, 1.00f, 1, Constants.X, 1, 70, 1, 1, 8 },    // Knife
-            { 20, 4.00f, 1, Constants.X, 1, 70, 3, 1, 8 },  // Axe
-            { 5, 2.00f, 1, Constants.X, 1, 30, Constants.INF, 1, 8 },   // Cross
-            { 10, 3.00f, 1, 3, 1, 50, Constants.INF, 1, 8 },    //KingBible
-            { 20, 3.00f, 1, Constants.X, 3, 30, 1, 1, 8 },  // FireWand
-            { 5, 1.00f, Constants.X, Constants.X, Constants.X, Constants.X, Constants.INF, 1, 8 },  // Garlic
-            { 10, 4.50f, Constants.X, 2, 1, 20, Constants.INF, 1, 8 },  // SantaWater
-            { 10, 12.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // Peachone
-            { 10, 12.00f, 0.80f, 4, 4, 60, Constants.INF, 1, 8 },    // EbonyWings
-            { 10, 3.00f, 1.00f, 2.25f, 1, 25, Constants.INF, 1, 8 },    // Runetracer
-            { 15, 4.50f, Constants.X, Constants.X, 2, 50, Constants.INF, 1, 8 } // LightningRing
+       //   Might, Cooldown,  ProjectileSpeed,  Duration,     Amount,       AmountLimit,        Piercing,       Area, MaxLevel
+            { 10,   1.35f,      Constants.X,    Constants.X,    1,              30,             Constants.INF,  1,      8   },  // Whip
+            { 10,   1.20f,      1,              Constants.X,    1,              60,             1,              1,      8   },  // MagicWand
+            { 6.5f, 1.00f,      1,              Constants.X,    1,              70,             1,              1,      8   },  // Knife
+            { 5,    2.00f,      1,              Constants.X,    1,              30,             Constants.INF,  1,      8   },  // Cross
+            { 10,   3.00f,      1,              3,              1,              50,             Constants.INF,  1,      8   },  // KingBible
+            { 20,   3.00f,      1,              Constants.X,    3,              30,             1,              1,      8   },  // FireWand
+            { 5,    1.00f,      Constants.X,    Constants.X,    Constants.X,    Constants.X,    Constants.INF,  1,      8   },  // Garlic
+            { 10,   12.00f,     0.80f,          4,              4,              60,             Constants.INF,  1,      8   },  // Peachone
+            { 10,   12.00f,     0.80f,          4,              4,              60,             Constants.INF,  1,      8   },  // EbonyWings
+            { 15,   4.50f,      Constants.X,    Constants.X,    2,              50,             Constants.INF,  1,      8   }   // LightningRing
         };
     }
 
     public static void weaponUpgradePreprocessing()
     {
-        WeaponUpgrade = new List<List<Tuple<int, float>>>[13];
+        WeaponUpgrade = new List<List<Tuple<int, float>>>[10];
         // Whip
         WeaponUpgrade[0] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[0].Add(new List<Tuple<int, float>>
@@ -170,7 +167,7 @@ public class EquipmentData
             new Tuple<int, float>((int)Enums.WeaponStat.Piercing, 1)
         });
 
-        // Axe
+        // Cross
         WeaponUpgrade[3] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[3].Add(new List<Tuple<int, float>>
         {
@@ -182,15 +179,25 @@ public class EquipmentData
         });
         WeaponUpgrade[3].Add(new List<Tuple<int, float>>
         {
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+        });
+        WeaponUpgrade[3].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.25f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.10f)
+        });
+        WeaponUpgrade[3].Add(new List<Tuple<int, float>>
+        {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
         WeaponUpgrade[3].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 20)
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[3].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Piercing, 2)
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.25f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.10f)
         });
         WeaponUpgrade[3].Add(new List<Tuple<int, float>>
         {
@@ -198,18 +205,10 @@ public class EquipmentData
         });
         WeaponUpgrade[3].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 20)
-        });
-        WeaponUpgrade[3].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Piercing, 2)
-        });
-        WeaponUpgrade[3].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 20)
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
 
-        // Cross
+        //KingBible
         WeaponUpgrade[4] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
@@ -221,12 +220,17 @@ public class EquipmentData
         });
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.25f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.10f)
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.30f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.25f)
+        });
+        WeaponUpgrade[4].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.5f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
@@ -234,23 +238,20 @@ public class EquipmentData
         });
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.30f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.25f)
         });
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.25f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.10f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.5f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[4].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
-        });
-        WeaponUpgrade[4].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
 
-        //KingBible
+        // FireWand
         WeaponUpgrade[5] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[5].Add(new List<Tuple<int, float>>
         {
@@ -262,38 +263,37 @@ public class EquipmentData
         });
         WeaponUpgrade[5].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
-        });
-        WeaponUpgrade[5].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.30f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.25f)
-        });
-        WeaponUpgrade[5].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.5f),
             new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[5].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
         });
         WeaponUpgrade[5].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.30f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.25f)
-        });
-        WeaponUpgrade[5].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.5f),
             new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[5].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
+        });
+        WeaponUpgrade[5].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+        });
+        WeaponUpgrade[5].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
+            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
+        });
+        WeaponUpgrade[5].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
 
-        // FireWand
+        // Garlic
         WeaponUpgrade[6] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
@@ -305,37 +305,41 @@ public class EquipmentData
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 2)
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.1f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.1f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 2)
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.1f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
         });
         WeaponUpgrade[6].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 2)
         });
 
-        // Garlic
+        // Peachone
         WeaponUpgrade[7] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
@@ -347,41 +351,41 @@ public class EquipmentData
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 2)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.1f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.1f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 2)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.1f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 1)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
         });
         WeaponUpgrade[7].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 2)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
         });
 
-        // SantaWater
+        // EbonyWings
         WeaponUpgrade[8] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[8].Add(new List<Tuple<int, float>>
         {
@@ -394,40 +398,40 @@ public class EquipmentData
         WeaponUpgrade[8].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f)
-        });
-        WeaponUpgrade[8].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.5f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
         });
         WeaponUpgrade[8].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f)
-        });
-        WeaponUpgrade[8].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10),
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.3f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
         WeaponUpgrade[8].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
         });
         WeaponUpgrade[8].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 5),
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.3f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
         });
         WeaponUpgrade[8].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 5),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.20f)
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
+        });
+        WeaponUpgrade[8].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
+        });
+        WeaponUpgrade[8].Add(new List<Tuple<int, float>>
+        {
+            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
+            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
         });
 
-        // Peachone
+        // LightningRing
         WeaponUpgrade[9] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
@@ -439,174 +443,39 @@ public class EquipmentData
         });
         WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
-        });
-        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
-        });
-        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
-        });
-        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
-        });
-        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
-        });
-        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
-        });
-        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
-        });
-
-        // EbonyWings
-        WeaponUpgrade[10] = new List<List<Tuple<int, float>>>();
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 0.0f)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 0.0f)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Cooldown, -0.3f)
-        });
-        WeaponUpgrade[10].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1),
-            new Tuple<int, float>((int)Enums.WeaponStat.Area, 0.40f)
-        });
-
-        // Runetracer
-        WeaponUpgrade[11] = new List<List<Tuple<int, float>>>();
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 0.0f)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 0.0f)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 5),
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 5),
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.3f)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 5),
-            new Tuple<int, float>((int)Enums.WeaponStat.ProjectileSpeed, 0.20f)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 5),
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.3f)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
-        });
-        WeaponUpgrade[11].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Duration, 0.5f)
-        });
-
-        // LightningRing
-        WeaponUpgrade[12] = new List<List<Tuple<int, float>>>();
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 0.0f)
-        });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Might, 0.0f)
-        });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
-        });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
+        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Area, 1),
             new Tuple<int, float>((int)Enums.WeaponStat.Might, 10)
         });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
+        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
+        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Area, 1),
             new Tuple<int, float>((int)Enums.WeaponStat.Might, 20)
         });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
+        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
+        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Area, 1),
             new Tuple<int, float>((int)Enums.WeaponStat.Might, 20)
         });
-        WeaponUpgrade[12].Add(new List<Tuple<int, float>>
+        WeaponUpgrade[9].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.WeaponStat.Amount, 1)
         });
     }
     private static void AccessoryUpgradePreprocessing()
     {
-        AccessoryUpgrade = new List<List<Tuple<int, float>>>[21];
+        AccessoryUpgrade = new List<List<Tuple<int, float>>>[15];
         // 앞의 한 개(index상 0에 해당)는 더미 데이터
         // Spinach
         AccessoryUpgrade[0] = new List<List<Tuple<int, float>>>();
@@ -979,7 +848,7 @@ public class EquipmentData
             new Tuple<int, float>((int)Enums.AccessoryStat.GreedPer, 0.1f)
         });
 
-        // Tiragisu
+        // Skull
         AccessoryUpgrade[14] = new List<List<Tuple<int, float>>>();
         AccessoryUpgrade[14].Add(new List<Tuple<int, float>>()
         {
@@ -987,299 +856,27 @@ public class EquipmentData
         });
         AccessoryUpgrade[14].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Revival, 1)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
         AccessoryUpgrade[14].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Revival, 1)
+            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
-
-        // Skull
-        AccessoryUpgrade[15] = new List<List<Tuple<int, float>>>();
-        AccessoryUpgrade[15].Add(new List<Tuple<int, float>>()
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.0f)
-        });
-        AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
+        AccessoryUpgrade[14].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
-        AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
+        AccessoryUpgrade[14].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
-        AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
-        });
-        AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
-        });
-        AccessoryUpgrade[15].Add(new List<Tuple<int, float>>
+        AccessoryUpgrade[14].Add(new List<Tuple<int, float>>
         {
             new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 0.1f)
         });
 
-        // SilverRing
-        AccessoryUpgrade[16] = new List<List<Tuple<int, float>>>();
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>()
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.0f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-        AccessoryUpgrade[16].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.05f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.05f)
-        });
-
-        // GoldRing
-        AccessoryUpgrade[17] = new List<List<Tuple<int, float>>>();
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>()
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.0f)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[17].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-
-        // MetaglioLeft
-        AccessoryUpgrade[18] = new List<List<Tuple<int, float>>>();
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>()
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.0f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-        AccessoryUpgrade[18].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.Recovery, 0.1f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.MaxHealthPer, 0.05f)
-        });
-
-        // MetaglioRight
-        AccessoryUpgrade[19] = new List<List<Tuple<int, float>>>();
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>()
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.0f)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-        AccessoryUpgrade[19].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 5)
-        });
-
-        // TorronaBox
-        AccessoryUpgrade[20] = new List<List<Tuple<int, float>>>();
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>()
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.0f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.MightPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.ProjectileSpeedPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.DurationPer, 0.03f),
-            new Tuple<int, float>((int)Enums.AccessoryStat.AreaPer, 0.03f)
-        });
-        AccessoryUpgrade[20].Add(new List<Tuple<int, float>>
-        {
-            new Tuple<int, float>((int)Enums.AccessoryStat.CursePer, 100)
-        });
-
-        AccessoriesMaxLevel = new int[21];
-        for (int i = 0; i < 21; i++)
+        AccessoriesMaxLevel = new int[15];
+        for (int i = 0; i < AccessoriesMaxLevel.Length; i++)
         {
             AccessoriesMaxLevel[i] = AccessoryUpgrade[i].Count - 1;
         }
