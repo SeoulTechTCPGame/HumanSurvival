@@ -20,14 +20,14 @@ public class EquipmentData
     public static void EvolutionPairData()
     {
         // 짝이 없는 무기, 악세서리의 경우는 -1로 초기화
-        EvoWeaponNeedAccIndex       = new int[10] { 2, 4, 6, 11, 7, 0, 3, -1, -1, 8 };
-        EvoWeaponNeedWeaponIndex    = new int[10] { -1, -1, -1, -1, -1, -1, -1, 10, 9, -1 };
-        EvoAccNeedWeaponIndex       = new int[15] { 6, 11, 0, 7, 1, 3, 2, 5, 12, -1, 8, 4, -1, -1, -1 };
+        EvoWeaponNeedAccIndex       = new int[Constants.MaxWeaponNumber] { 2, 4, 6, 11, 7, 0, 3, -1, -1, 8 };
+        EvoWeaponNeedWeaponIndex    = new int[Constants.MaxWeaponNumber] { -1, -1, -1, -1, -1, -1, -1, 10, 9, -1 };
+        EvoAccNeedWeaponIndex       = new int[Constants.MaxAccessoryNumber] { 6, 11, 0, 7, 1, 3, 2, 5, 12, -1, 8, 4, -1, -1, -1 };
     }
 
     public static void levelOneWeaponPreprocessing()
     {
-        defaultWeaponStats = new float[10, 9]
+        defaultWeaponStats = new float[Constants.MaxWeaponNumber, 9]
         {
        //   Might, Cooldown,  ProjectileSpeed,  Duration,     Amount,       AmountLimit,        Piercing,       Area, MaxLevel
             { 10,   1.35f,      Constants.X,    Constants.X,    1,              30,             Constants.INF,  1,      8   },  // Whip
@@ -45,7 +45,7 @@ public class EquipmentData
 
     public static void weaponUpgradePreprocessing()
     {
-        WeaponUpgrade = new List<List<Tuple<int, float>>>[10];
+        WeaponUpgrade = new List<List<Tuple<int, float>>>[Constants.MaxWeaponNumber];
         // Whip
         WeaponUpgrade[0] = new List<List<Tuple<int, float>>>();
         WeaponUpgrade[0].Add(new List<Tuple<int, float>>
@@ -475,7 +475,7 @@ public class EquipmentData
     }
     private static void AccessoryUpgradePreprocessing()
     {
-        AccessoryUpgrade = new List<List<Tuple<int, float>>>[15];
+        AccessoryUpgrade = new List<List<Tuple<int, float>>>[Constants.MaxAccessoryNumber];
         // 앞의 한 개(index상 0에 해당)는 더미 데이터
         // Spinach
         AccessoryUpgrade[0] = new List<List<Tuple<int, float>>>();

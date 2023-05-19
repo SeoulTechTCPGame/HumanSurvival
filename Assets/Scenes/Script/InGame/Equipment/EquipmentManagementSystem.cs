@@ -18,8 +18,8 @@ public class EquipmentManagementSystem
         skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>();
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
-        TransWeaponIndex = Enumerable.Repeat<int>(-1, 13).ToArray<int>();
-        TransAccessoryIndex = Enumerable.Repeat<int>(-1, 21).ToArray<int>();
+        TransWeaponIndex = Enumerable.Repeat<int>(-1, 10).ToArray<int>();
+        TransAccessoryIndex = Enumerable.Repeat<int>(-1, 15).ToArray<int>();
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 

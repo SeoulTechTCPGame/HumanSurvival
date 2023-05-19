@@ -24,58 +24,52 @@ public class SkillFiringSystem : MonoBehaviour
             case 1:     // MagicWand
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<MagicWand>().FireMagicWand(weaponPrefabs[1]);
+                    weapon.GetComponent<MagicWand>().FireMagicWand(weaponPrefabs[weapon.WeaponIndex]);
                 }
                 else
                 {
-                    weapon.GetComponent<MagicWand>().FireMagicWand(evolutionWeaponPrefabs[1]);
+                    weapon.GetComponent<MagicWand>().FireMagicWand(evolutionWeaponPrefabs[weapon.WeaponIndex]);
                 }
                 break;
             case 2:     // Knife
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<Knife>().FireKnife(weaponPrefabs[2]);
+                    weapon.GetComponent<Knife>().FireKnife(weaponPrefabs[weapon.WeaponIndex]);
                 }
                 else
                 {
-                    weapon.GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[2]);
+                    weapon.GetComponent<Knife>().FireKnife(evolutionWeaponPrefabs[weapon.WeaponIndex]);
                 }
                 break;
-            case 3:     // Axe
+            case 3:     // Cross
                 break;
-            case 4:     // Cross
+            case 4:     //KingBible
                 break;
-            case 5:     //KingBible
+            case 5:     // FireWand
                 break;
-            case 6:     // FireWand
-                break;
-            case 7:     // Garlic
-                weapon.GetComponent<Gralic>().SpawnGralic(weaponPrefabs[7]); break;
-            case 8:     // SantaWater
-                break;
-            case 9:     // Peachone
+            case 6:     // Garlic
+                weapon.GetComponent<Gralic>().SpawnGralic(weaponPrefabs[weapon.WeaponIndex]); break;
+            case 7:     // Peachone
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[9], Circles[0], weapon);
+                    weapon.GetComponent<Peachone>().CreateCircle(weaponPrefabs[weapon.WeaponIndex], Circles[0], weapon);
                 }
                 else
                 {
-                    weapon.GetComponent<Peachone>().CreateEvoCircle(evolutionWeaponPrefabs[9], Circles[1], weapon);
+                    weapon.GetComponent<Peachone>().CreateEvoCircle(evolutionWeaponPrefabs[weapon.WeaponIndex], Circles[1], weapon);
                 }
                 break;
-            case 10:    // EbonyWings
+            case 8:    // EbonyWings
                 if (!weapon.isEvoluction())
                 {
-                    weapon.GetComponent<EbonyWings>().CreateCircle(weaponPrefabs[10], Circles[0], weapon);
+                    weapon.GetComponent<EbonyWings>().CreateCircle(weaponPrefabs[weapon.WeaponIndex], Circles[0], weapon);
                 }
                 else
                 {
-                    weapon.GetComponent<EbonyWings>().CreateEvoCircle(evolutionWeaponPrefabs[10], Circles[1], weapon);
+                    weapon.GetComponent<EbonyWings>().CreateEvoCircle(evolutionWeaponPrefabs[weapon.WeaponIndex], Circles[1], weapon);
                 }
                 break;
-            case 11:    // Runetracer
-                break;
-            case 12:   // LightningRing
+            case 9:   // LightningRing
                 break;
         }
     }

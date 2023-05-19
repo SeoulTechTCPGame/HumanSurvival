@@ -466,7 +466,6 @@ MonoBehaviour:
   - 0
   - 0
   killCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  equipManageSys: {fileID: 0}
   characterData: {fileID: 0}
   CharacterStats: []
   pool: {fileID: 1068104046}
@@ -905,8 +904,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1928233905}
     - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
+      propertyPath: WeaponImages.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
       propertyPath: AccessoryImages.Array.size
-      value: 21
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
       propertyPath: AccessoryImages.Array.data[0]
@@ -975,11 +978,11 @@ PrefabInstance:
     - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
       propertyPath: AccessoryImages.Array.data[14]
       value: 
-      objectReference: {fileID: 21300000, guid: c1f353695a1384c6289dafc78e1b771e, type: 3}
+      objectReference: {fileID: 21300000, guid: 690921c94618c4c7086339de0d8584e7, type: 3}
     - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
       propertyPath: AccessoryImages.Array.data[15]
       value: 
-      objectReference: {fileID: 21300000, guid: 690921c94618c4c7086339de0d8584e7, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8749342266032977155, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1399,13 +1402,10 @@ MonoBehaviour:
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
-  - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
-  - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 891077723031153331, guid: b55225a7fcb1344f49de46c6a15bca2d, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 943404134078784437, guid: bcb40c9ce7e3764408c1eeb8b961c753, type: 3}
   - {fileID: 943404134078784437, guid: a76fa4dffe69bc14a8d60e03231a8063, type: 3}
-  - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   - {fileID: 3490114021777649618, guid: 54c52f567d5d29a4aa1c723bce0c3df3, type: 3}
   evolutionWeaponPrefabs:
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
@@ -1415,11 +1415,8 @@ MonoBehaviour:
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
-  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
-  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 943404134078784437, guid: d127358dfc53fce46a853df2b53ea01a, type: 3}
   - {fileID: 943404134078784437, guid: d127358dfc53fce46a853df2b53ea01a, type: 3}
-  - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   Birds:
   - {fileID: 4663107328518171263, guid: b1678cb622f462f4f9b95e519ce2ccf1, type: 3}
@@ -1647,6 +1644,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1928233905}
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: WeaponImages.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: AccessoryImages.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: AccessoryImages.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 0bfc425f59fd04232932b2cc78f232bc, type: 3}
@@ -1713,11 +1718,11 @@ PrefabInstance:
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: AccessoryImages.Array.data[14]
       value: 
-      objectReference: {fileID: 21300000, guid: c1f353695a1384c6289dafc78e1b771e, type: 3}
+      objectReference: {fileID: 21300000, guid: 690921c94618c4c7086339de0d8584e7, type: 3}
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: AccessoryImages.Array.data[15]
       value: 
-      objectReference: {fileID: 21300000, guid: 690921c94618c4c7086339de0d8584e7, type: 3}
+      objectReference: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
     - target: {fileID: 4164668107607884191, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
