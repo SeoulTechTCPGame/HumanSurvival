@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
         CharacterStats[(int)Enums.Stat.Banish] = characterData.Banish;
         CharacterStats[(int)Enums.Stat.Ommi] = characterData.Ommi;
         CharacterStats[(int)Enums.Stat.Reflection] = characterData.Reflection;
+
         equipManageSys.Set(characterData.startingWeapon);
         UpdateLuck(CharacterStats[(int)Enums.Stat.Luck]);
     }

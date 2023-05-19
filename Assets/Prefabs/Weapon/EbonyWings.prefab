@@ -143,20 +143,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponIndex: 10
+  WeaponIndex: 8
   WeaponLevel: 1
   WeaponMaxLevel: 8
-  Mastered: 0
   bEvolution: 0
   weaponTotalStats:
-  - 30
-  - 11.4
+  - 10
+  - 12
   - 0.8
   - 4
-  - 11
+  - 4
   - 60
   - 1e+10
-  - 2.2
+  - 1
   - 8
 --- !u!96 &7596873339338999605
 TrailRenderer:
@@ -274,7 +273,7 @@ MonoBehaviour:
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0, y: 0, z: 0}
-  ProjectileScale: {x: 5.5, y: 5.5, z: 0}
+  ProjectileScale: {x: 13.2, y: 13.2, z: 0}
 --- !u!58 &6392157819826877399
 CircleCollider2D:
   m_ObjectHideFlags: 0

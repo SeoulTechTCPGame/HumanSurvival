@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 943404134078784437}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8e8bd494b8d3244580c253715b24beb, type: 2}
+  m_Controller: {fileID: 9100000, guid: fc922a976b93c3741b795828c248f2ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -143,10 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponIndex: 9
+  WeaponIndex: 8
   WeaponLevel: 1
   WeaponMaxLevel: 8
-  Mastered: 0
   bEvolution: 0
   weaponTotalStats:
   - 30
