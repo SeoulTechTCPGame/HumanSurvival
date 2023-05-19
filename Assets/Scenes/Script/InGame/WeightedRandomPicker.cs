@@ -85,7 +85,8 @@ namespace Rito
         /// <summary> 새로운 아이템-가중치 쌍 추가 </summary>
         public void Add(T item, double weight)
         {
-            CheckDuplicatedItem(item);
+            if (CheckDuplicatedItem(item))
+                return;
             CheckValidWeight(weight);
 
             itemWeightDict.Add(item, weight);
@@ -97,7 +98,8 @@ namespace Rito
         {
             foreach (var pair in pairs)
             {
-                CheckDuplicatedItem(pair.item);
+                if (CheckDuplicatedItem(pair.item))
+                    return;
                 CheckValidWeight(pair.weight);
 
                 itemWeightDict.Add(pair.item, pair.weight);
@@ -232,10 +234,12 @@ namespace Rito
         }
 
         /// <summary> 이미 아이템이 존재하는지 여부 검사 </summary>
-        private void CheckDuplicatedItem(T item)
+        private bool CheckDuplicatedItem(T item)
         {
-            if(itemWeightDict.ContainsKey(item))
-                throw new Exception($"이미 [{item}] 아이템이 존재합니다.");
+            if (itemWeightDict.ContainsKey(item))
+                return true;
+                //throw new Exception($"이미 [{item}] 아이템이 존재합니다.");
+            return false;
         }
 
         /// <summary> 존재하지 않는 아이템인 경우 </summary>

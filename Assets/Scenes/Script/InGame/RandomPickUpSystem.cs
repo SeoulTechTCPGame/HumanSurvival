@@ -14,8 +14,8 @@ public class RandomPickUpSystem
     
     static RandomPickUpSystem()
     {
-        mWeaponRarity = new int[13] { 100, 100, 100, 100, 80, 80, 80, 70, 100, 50, 50, 80, 80 };
-        mAccessoryRarity = new int[21] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 60, 50, 50, 50, 40, 40, 40 }; // 임시
+        mWeaponRarity = new int[10] { 100, 100, 100, 80, 80, 80, 70, 50, 50, 80 };
+        mAccessoryRarity = new int[15] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 50 }; // 임시
     }
     public void UpdateWeaponPickUpList()
     {
@@ -25,16 +25,16 @@ public class RandomPickUpSystem
         {
             for (int i = 0; i < mWeaponRarity.Length; i++)
             {
-                if (GameManager.instance.equipManageSys.TransWeaponIndex[i] >= 0 && GameManager.instance.equipManageSys.Weapons[GameManager.instance.equipManageSys.TransWeaponIndex[i]].Mastered)
+                if (GameManager.instance.equipManageSys.HasWeapon(i) && GameManager.instance.equipManageSys.Weapons[GameManager.instance.equipManageSys.TransWeaponIndex[i]].IsMaster())
                     continue;
                 mWeaponPicker.Add(i, (mWeaponRarity[i] + luck) / (double)mWeaponRarity[i]);
             }
         }
         else
         {
-            for (int i = 0; i < GameManager.instance.equipManageSys.Weapons.Count; i++)
+                for (int i = 0; i < GameManager.instance.equipManageSys.Weapons.Count; i++)
             {
-                if (GameManager.instance.equipManageSys.Weapons[i].Mastered)
+                if (GameManager.instance.equipManageSys.Weapons[i].IsMaster())
                     continue;
                 int nowIdx = GameManager.instance.equipManageSys.Weapons[i].WeaponIndex;
                 mWeaponPicker.Add(nowIdx, (mWeaponRarity[nowIdx] + luck) / (double)mWeaponRarity[nowIdx]);
@@ -49,6 +49,8 @@ public class RandomPickUpSystem
         {
             for (int i = 0; i < mAccessoryRarity.Length; i++)
             {
+                if (GameManager.instance.equipManageSys.HasAcc(i) && GameManager.instance.equipManageSys.Accessories[GameManager.instance.equipManageSys.TransAccessoryIndex[i]].IsMaster())
+                    continue;
                 mAccessoryPicker.Add(i, (mAccessoryRarity[i] + luck) / (double)mAccessoryRarity[i]);
             }
         }
@@ -56,7 +58,7 @@ public class RandomPickUpSystem
         {
             for (int i = 0; i < GameManager.instance.equipManageSys.Accessories.Count; i++)
             {
-                if (GameManager.instance.equipManageSys.Accessories[i].AccessoryLevel == GameManager.instance.equipManageSys.Accessories[i].AccessoryMaxLevel)
+                if (GameManager.instance.equipManageSys.Accessories[i].IsMaster())
                     continue;
                 int nowIdx = GameManager.instance.equipManageSys.Accessories[i].AccessoryIndex;
                 mAccessoryPicker.Add(nowIdx, (mAccessoryRarity[nowIdx] + luck) / (double)mAccessoryRarity[nowIdx]);
@@ -65,6 +67,8 @@ public class RandomPickUpSystem
     }
     public List<Tuple<int, int, int>> RandomPickUp(EquipmentManagementSystem equipManageSys)
     {
+        UpdateAccessoryPickUpList();
+        UpdateWeaponPickUpList();
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
         getPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
 

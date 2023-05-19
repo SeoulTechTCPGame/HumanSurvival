@@ -137,10 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponIndex: 7
+  WeaponIndex: 6
   WeaponLevel: 1
   WeaponMaxLevel: 8
-  Mastered: 0
+  bEvolution: 0
+  weaponTotalStats: []
 --- !u!114 &3480771746808503802
 MonoBehaviour:
   m_ObjectHideFlags: 0

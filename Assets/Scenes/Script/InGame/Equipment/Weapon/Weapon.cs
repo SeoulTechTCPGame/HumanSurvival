@@ -12,7 +12,6 @@ public class Weapon : MonoBehaviour
     public int WeaponIndex;
     public int WeaponLevel = 1;
     public int WeaponMaxLevel;
-    public bool Mastered = false;
 
     public bool bEvolution = false;
     private float enemyHealth;
@@ -77,19 +76,15 @@ public class Weapon : MonoBehaviour
                 break;
             case 2:     // Knife
                 break;
-            case 3:     // Axe
+            case 3:     // Cross
                 break;
-            case 4:     // Cross
+            case 4:     //KingBible
                 break;
-            case 5:     //KingBible
+            case 5:     // FireWand
                 break;
-            case 6:     // FireWand
+            case 6:     // Garlic
                 break;
-            case 7:     // Garlic
-                break;
-            case 8:     // SantaWater
-                break;
-            case 9:     // Peachone
+            case 7:     // Peachone
             {
                 var equipManageSys = GameManager.instance.equipManageSys;
                 var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
@@ -97,7 +92,7 @@ public class Weapon : MonoBehaviour
                 pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
                 break;
             }
-            case 10:    // EbonyWings
+            case 8:    // EbonyWings
             {
                 var equipManageSys = GameManager.instance.equipManageSys;
                 var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
@@ -105,9 +100,7 @@ public class Weapon : MonoBehaviour
                 GetComponent<EbonyWings>().EvolutionProcess();
                 break;
             }
-            case 11:    // Runetracer
-                break;
-            case 12:   // LightningRing
+            case 9:   // LightningRing
                 break;
         }
     }

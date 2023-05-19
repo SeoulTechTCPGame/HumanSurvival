@@ -143,10 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponIndex: 9
+  WeaponIndex: 7
   WeaponLevel: 1
   WeaponMaxLevel: 8
-  Mastered: 0
   bEvolution: 0
   weaponTotalStats:
   - 10

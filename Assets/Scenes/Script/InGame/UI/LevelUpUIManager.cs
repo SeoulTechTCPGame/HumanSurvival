@@ -83,15 +83,12 @@ public class LevelUpUIManager : MonoBehaviour
                 "Whip 설명",
                 "MagicWand 설명",
                 "Knife 설명",
-                "Axe 설명",
                 "Cross 설명",
                 "KingBible 설명",
                 "FireWand 설명",
                 "Garlic 설명",
-                "SantaWater 설명",
                 "Peachone 설명",
                 "EbonyWings 설명",
-                "Runetracer 설명",
                 "LightningRing 설명"
             });
         TypeScripts.Add(new string[Constants.MaxAccessoryNumber]
@@ -110,13 +107,7 @@ public class LevelUpUIManager : MonoBehaviour
             "Clover 설명",
             "Crown 설명",
             "StoneMask 설명",
-            "Tiragisu 설명",
             "Skull 설명",
-            "SilverRing 설명",
-            "GoldRing 설명",
-            "MetaglioLeft 설명",
-            "MetaglioRight 설명",
-            "TorronaBox 설명"
         });
         TypeScripts.Add(new string[Constants.MaxEtcNumber]
             {
@@ -294,12 +285,6 @@ public class LevelUpUIManager : MonoBehaviour
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         int selectedIndex = clickedButton.GetComponent<PickButton>().index;
         GameManager.instance.equipManageSys.ApplyItem(mPickUps[selectedIndex]);
-
-        if (mPickUps[selectedIndex].Item1 == (int)Enums.PickUpType.Weapon)
-            GameManager.instance.RandomPickUpSystem.UpdateWeaponPickUpList();
-        else if (mPickUps[selectedIndex].Item1 == (int)Enums.PickUpType.Accessory)
-            GameManager.instance.RandomPickUpSystem.UpdateAccessoryPickUpList();
-
         UnloadLevelUpUI();
         GameObject.Find("GameManager").GetComponent<GameManager>().ResumeGame();
     }

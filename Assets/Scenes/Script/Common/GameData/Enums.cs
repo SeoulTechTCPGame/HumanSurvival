@@ -71,24 +71,21 @@ namespace Enums
         ReflectionPer,
     }
 
-    public enum Weapon
+    public enum Weapon // 10개
     {
         Whip,
         MagicWand,
         Knife,
-        Axe,
         Cross,
         KingBible,
         FireWand,
         Garlic,
-        SantaWater,
         Peachone,
         EbonyWings,
-        Runetracer,
-        LightningRing // 13개
+        LightningRing
     }
 
-    public enum Accessory
+    public enum Accessory // 15개
     {
         Spinach,
         Armor,
@@ -104,13 +101,7 @@ namespace Enums
         Clover,
         Crown,
         StoneMask,
-        Tiragisu,
-        Skull,
-        SilverRing,
-        GoldRing,
-        MetaglioLeft,
-        MetaglioRight,
-        TorronaBox  // 21개
+        Skull
     }
     public enum PickUpType
     {
