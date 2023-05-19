@@ -1,8 +1,3 @@
-using Enums;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 
 public class Peachone : MonoBehaviour

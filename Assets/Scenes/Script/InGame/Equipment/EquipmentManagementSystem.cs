@@ -18,8 +18,8 @@ public class EquipmentManagementSystem
         skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>();
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
-        TransWeaponIndex = Enumerable.Repeat<int>(-1, 10).ToArray<int>();
-        TransAccessoryIndex = Enumerable.Repeat<int>(-1, 15).ToArray<int>();
+        TransWeaponIndex = Enumerable.Repeat<int>(-1, Constants.MaxWeaponNumber).ToArray<int>();
+        TransAccessoryIndex = Enumerable.Repeat<int>(-1, Constants.MaxAccessoryNumber).ToArray<int>();
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
@@ -71,10 +71,14 @@ public class EquipmentManagementSystem
     }
     public bool HasWeapon(int weaponIndex)
     {
+        if (weaponIndex < 0 || weaponIndex >= Constants.MaxWeaponNumber)
+            return false;
         return TransWeaponIndex[weaponIndex] >= 0;
     }
     public bool HasAcc(int accIndex)
     {
+        if (accIndex < 0 || accIndex >= Constants.MaxAccessoryNumber)
+            return false;
         return TransAccessoryIndex[accIndex] >= 0;
     }
     //ToDo: SkillFiringSystem이랑 연계 할 함수
@@ -116,10 +120,10 @@ public class EquipmentManagementSystem
     {
         switch(weaponIndex) 
         {
-            case 9: // peachOne
+            case 7: // peachOne
                 weapon.GetComponent<Peachone>().SpawnBlueBird(skillFiringSystem.Birds[0]);
                 break;
-            case 10: // ebonyWings
+            case 8: // ebonyWings
                 weapon.GetComponent<EbonyWings>().SpawnBlackBird(skillFiringSystem.Birds[1]);
                 break;
         }
