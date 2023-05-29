@@ -16,8 +16,9 @@ public class WeaponListUI : MonoBehaviour
     [SerializeField] TMP_Text Weapondamage = null;
     [SerializeField] TMP_Text WeaponTime = null;
     [SerializeField] TMP_Text WeaponDamagePerSec = null;
-    public void SetWeaponResultData(int orderIndex,int weaponIndex, float gameTime)
+    public void SetWeaponResultData(int orderIndex,int weaponIndex)
     {
+        float gameTime = GameManager.instance.gameTime;
         string source = "Weapons/" + weaponIndex + "Img";
         //string source = "Weapons/0Img";
         WeaponImage.sprite = Resources.Load<Sprite>(source); 
@@ -34,11 +35,11 @@ public class WeaponListUI : MonoBehaviour
         WeaponTime.text = string.Format("{0}:{1:00}", weaponMinutes, weaponSeconds);// 무기 시간
         if (gameTime - weaponTime == 0)
         {
-            WeaponDamagePerSec.text = string.Format("{0:N1}", weaponDamage / (gameTime ));// 무기 초당데미지
+            WeaponDamagePerSec.text = string.Format("{0:N1}", weaponDamage / gameTime );// 무기 초당데미지
         }
         else
         {
-            WeaponDamagePerSec.text = string.Format("{0:N1}", weaponDamage / (gameTime - weaponTime));// 무기 초당데미지
+            WeaponDamagePerSec.text = string.Format("{0:N1}", weaponDamage /  weaponTime);// 무기 초당데미지
         }
     }
 }
