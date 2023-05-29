@@ -27,8 +27,19 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy(EnemyScriptableObject enemyToSpawn)
     {
+        Vector3 position;
         //player의 위치 값에 랜덤 pos를 더해 스폰 지점 설정
-        Vector3 position = GenerateRandomPos();
+        if (enemyToSpawn.SpriteType == 5)
+        {
+            position = player.transform.position;
+            position.y += spawnArea.y;
+        }
+        else
+        {
+             position= GenerateRandomPos();
+
+        }
+        
         position += player.transform.position;
         GameObject newEnemy= GameManager.instance.pool.Get("enemy",enemyToSpawn.SpriteType);
         newEnemy.transform.position = position;
@@ -55,4 +66,5 @@ public class EnemySpawner : MonoBehaviour
         position.z = 0;
         return position;
     }
+
 }
