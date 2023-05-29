@@ -18,10 +18,7 @@ public class GameResult : MonoBehaviour
     public GameObject Weaponlist;
     GameObject weaponInfo;
 
-    //GameObject Weaponname=null;
-    //GameObject Weaponlevel=null;
-    //GameObject Weapondamage=null;
-    //GameObject WeapondamagePerSec=null;
+    public GameObject Accessorylist;
 
     void Start()
     {
@@ -42,6 +39,10 @@ public class GameResult : MonoBehaviour
             GameObject row = Instantiate(weaponInfo);
             row.GetComponent<WeaponListUI>().SetWeaponResultData(i,GameManager.instance.equipManageSys.Weapons[i].WeaponIndex);
             row.transform.SetParent(Weaponlist.transform, false);
+        }
+        for(int i = 0; i < GameManager.instance.equipManageSys.Accessories.Count; i++)
+        {
+            //밑에 숫자가 뭘까..
         }
     }
 }
