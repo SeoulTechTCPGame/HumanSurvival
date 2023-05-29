@@ -40,7 +40,7 @@ public class GameResult : MonoBehaviour
         {
             weaponInfo = Resources.Load<GameObject>("Weapons/WeaponInfo");
             GameObject row = Instantiate(weaponInfo);
-            row.GetComponent<WeaponListUI>().SetWeaponResultData(i,GameManager.instance.equipManageSys.Weapons[i].WeaponIndex, gameTime);
+            row.GetComponent<WeaponListUI>().SetWeaponResultData(i,GameManager.instance.equipManageSys.Weapons[i].WeaponIndex);
             row.transform.SetParent(Weaponlist.transform, false);
         }
     }
