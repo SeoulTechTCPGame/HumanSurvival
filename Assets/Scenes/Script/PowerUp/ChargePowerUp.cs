@@ -20,7 +20,7 @@ public class ChargePowerUp : MonoBehaviour
             {
                 if (UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] == i)
                 {
-                    mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryToggle[i].isOn = true;
+                    mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryToggle[i].isOn = true;
                     UserInfo.instance.UpdatePowerUpLevel(nowAccessoryIndex);
                     UserInfo.instance.UpdatePowerUpStat(nowAccessoryIndex, upgradeStat[nowAccessoryIndex]);
                     break;
@@ -46,7 +46,7 @@ public class ChargePowerUp : MonoBehaviour
         {
             for (int j = 0; j < mAccessory[i].GetComponent<PowerUpInfo>().accessoryLevel; j++)
             {
-                mAccessory[i].GetComponent<PowerUpInfo>().accessoryToggle[j].isOn = false;
+                mAccessory[i].GetComponent<PowerUpInfo>().mAccessoryToggle[j].isOn = false;
             }
             UserInfo.instance.RefundPowerUpLevel(i);
             UserInfo.instance.RefundPowerUpStat(i);
