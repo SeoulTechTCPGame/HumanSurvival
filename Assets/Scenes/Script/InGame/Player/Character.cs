@@ -49,9 +49,6 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
-        Debug.Log(currentHp);
-        Debug.Log(damage);
-        Debug.Log(armor);
         if (isDead == true) return;
         if (damage - armor <= 0)
         {
@@ -86,6 +83,5 @@ public class Character : MonoBehaviour, IDamageable
             GameManager.instance.maxExp = mMaxExp;
             GameManager.instance.LevelUp();
         }
-        //Debug.Log("Exp:" + GameManager.instance.exp);
     }
 }
