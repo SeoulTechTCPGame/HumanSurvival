@@ -24,6 +24,11 @@ MonoBehaviour:
     enemyToSpawn: {fileID: 11400000, guid: f68536f96474ca1458be3a23ce57ea2f, type: 2}
     count: 1
   - eventType: 0
+    time: 5
+    message: flower wall
+    enemyToSpawn: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
+    count: 1
+  - eventType: 0
     time: 10
     message: wave 2
     enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
