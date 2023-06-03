@@ -1,27 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 public class SlotUI : MonoBehaviour
 {
-    GridLayoutGroup grid;
     GameObject slotprefab;
     public GameObject list;
-    private void Awake()
-    {
-        grid = gameObject.GetComponent<GridLayoutGroup>();
-    }
+
     public void AddSlot(int index,int slotType)
     {
         string resourceName;
         switch (slotType)
         {
             case 0:
-                resourceName = "Weapons/"+index;
+                Enums.Weapon[] enumValuesW = (Enums.Weapon[])System.Enum.GetValues(typeof(Enums.Weapon));
+                Enums.Weapon weapon = enumValuesW[index];
+                resourceName = "Weapons/" + weapon.ToString()+"Slot";
                 slotprefab = Resources.Load<GameObject>(resourceName);
                 break;
             case 1:
-                resourceName = "Accessory/" + index;
+                Enums.Accessory[] enumValuesA = (Enums.Accessory[])System.Enum.GetValues(typeof(Enums.Accessory));
+                Enums.Accessory accessory = enumValuesA[index];
+                resourceName = "Accessory/" + accessory.ToString()+"Slot";
                 slotprefab = Resources.Load<GameObject>(resourceName);
                 break;
         }
