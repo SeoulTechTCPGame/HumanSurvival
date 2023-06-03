@@ -19,7 +19,9 @@ public class WeaponListUI : MonoBehaviour
     public void SetWeaponResultData(int orderIndex,int weaponIndex)
     {
         float gameTime = GameManager.instance.gameTime;
-        string source = "Weapons/" + weaponIndex + "Img";
+        Enums.Weapon[] enumValuesW = (Enums.Weapon[])System.Enum.GetValues(typeof(Enums.Weapon));
+        Enums.Weapon weapon = enumValuesW[weaponIndex];
+        string source = "Weapons/" + weapon;
         //string source = "Weapons/0Img";
         WeaponImage.sprite = Resources.Load<Sprite>(source); 
          //무기 이미지

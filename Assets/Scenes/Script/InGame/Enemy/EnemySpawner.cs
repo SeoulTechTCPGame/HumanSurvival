@@ -32,19 +32,29 @@ public class EnemySpawner : MonoBehaviour
         if (enemyToSpawn.SpriteType == 5)
         {
             position = player.transform.position;
-            position.y += spawnArea.y;
+            Debug.Log(position);
         }
         else
         {
-             position= GenerateRandomPos();
+            position= GenerateRandomPos();
+            position += player.transform.position;
 
         }
-        
-        position += player.transform.position;
+
         GameObject newEnemy= GameManager.instance.pool.Get("enemy",enemyToSpawn.SpriteType);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
-        newEnemy.GetComponent<Enemy>().InitEnemy(enemyToSpawn);
+        switch (enemyToSpawn.SpriteType)
+        {
+            case 4:
+            case 5:
+                newEnemy.GetComponentsInChildren<Enemy>()[0].InitEnemy(enemyToSpawn);
+                break;
+            default:
+                newEnemy.GetComponent<Enemy>().InitEnemy(enemyToSpawn);
+                break;
+        }
+        
     }
 
     private Vector3 GenerateRandomPos()

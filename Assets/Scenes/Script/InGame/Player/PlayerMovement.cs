@@ -1,18 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector2 movement;    //입력값
-    private Vector2 clickTarget;    //마우스 클릭
     private float moveSpeed = 8f;   //속도
 
     Vector2 preMovement; //이전 이동 방향 벡터 가져오기
-
-    // private Sprite[] charSprites;
-    bool moving;
 
     [SerializeField] Rigidbody2D rb;    //리디지바디
     [SerializeField] SpriteRenderer spriter;    //스프라이트
@@ -35,19 +29,8 @@ public class PlayerMovement : MonoBehaviour
         //실행중에 에니메이터 바꾸기. Resources.Load()는 path의 파일을 load한다. Asset>Resource가 root 경로
         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
     }
-    void Start()
-    {
-        clickTarget = transform.position;
-    }
     void Update()
     {
-        // click 이벤트
-        if (Input.GetMouseButtonDown(0))
-        {
-            clickTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            animator.SetBool("Moving", true);
-            moving = true;
-        }
         if (movement != Vector2.zero)
         {
             preMovement = movement;
@@ -57,18 +40,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //movement 조정
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
-
-        //click 시 movement 코드
-        if (moving && rb.position != clickTarget)
-        {
-            float step = moveSpeed * Time.fixedDeltaTime;
-            rb.position = Vector2.MoveTowards(rb.position, clickTarget, step);
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
-            moving = false;
-        }
     }
 
     private void LateUpdate()   //모든 Update 함수가 호출된 후, 마지막으로 호출되는 함수
@@ -93,8 +64,12 @@ public class PlayerMovement : MonoBehaviour
     {
         movement = value.Get<Vector2>();
     }
-    public Vector2 Movement {
+    public Vector2 Movement
+    {
         get { return movement; }
     }
-    public Vector2 PreMovement { get { return preMovement; } }
+    public Vector2 PreMovement
+    {
+        get { return preMovement; }
+    }
 }
