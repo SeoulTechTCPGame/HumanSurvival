@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 340334438811729015}
   - component: {fileID: 4988606761751433582}
   - component: {fileID: 745888990948752621}
-  - component: {fileID: 4026118149073244066}
-  - component: {fileID: 7596873339338999605}
-  - component: {fileID: 8057862940404335296}
   - component: {fileID: -3587038025473463999}
+  - component: {fileID: 7596873339338999605}
+  - component: {fileID: 4026118149073244066}
+  - component: {fileID: 8057862940404335296}
   m_Layer: 8
   m_Name: EvoPeachone
   m_TagString: Weapon
@@ -131,32 +131,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4026118149073244066
-MonoBehaviour:
+--- !u!58 &-3587038025473463999
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943404134078784437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponIndex: 8
-  WeaponLevel: 1
-  WeaponMaxLevel: 8
-  bEvolution: 0
-  weaponTotalStats:
-  - 30
-  - 11.4
-  - 0.8
-  - 4
-  - 11
-  - 60
-  - 1e+10
-  - 2.2
-  - 8
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.075
 --- !u!96 &7596873339338999605
 TrailRenderer:
   serializedVersion: 2
@@ -256,6 +246,32 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &4026118149073244066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943404134078784437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponIndex: 8
+  WeaponLevel: 1
+  WeaponMaxLevel: 8
+  bEvolution: 0
+  weaponTotalStats:
+  - 30
+  - 11.4
+  - 0.8
+  - 4
+  - 11
+  - 60
+  - 1e+10
+  - 2.2
+  - 8
 --- !u!114 &8057862940404335296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,19 +290,3 @@ MonoBehaviour:
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0.82144684, y: 5.1742687, z: 0}
   ProjectileScale: {x: 7.26, y: 7.26, z: 0}
---- !u!58 &-3587038025473463999
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943404134078784437}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.075

@@ -1,25 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Enums;
 using System;
 using System.Linq;
 
 public class Weapon : MonoBehaviour
 {
-    //무기의 스탯 지정
-    //예시를 위해 값은 무작위로 넣음
     public int WeaponIndex;
     public int WeaponLevel = 1;
     public int WeaponMaxLevel;
-
     public bool bEvolution = false;
-    private float enemyHealth;
-
-    private float[] WeaponStats;
     public float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
 
-    private PoolManager pool;
+    private float[] WeaponStats;
+
     public void WeaponDefalutSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
@@ -170,6 +162,5 @@ public class Weapon : MonoBehaviour
     {
         weaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.Stat.Amount];
     }
-    //Get, Set
     public float[] WeaponTotalStats { get { return weaponTotalStats; } }
 }
