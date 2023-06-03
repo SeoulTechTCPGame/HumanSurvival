@@ -1,8 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using System;
-using System.Collections.Generic;
 
 public class CharacterInfoOfSelectionScene : MonoBehaviour
 {
@@ -33,7 +30,8 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
         textMeshes[13].SetText("성장: " + characterData.Growth);
     }
 
-    void SetMoneyText(){
+    void SetMoneyText()
+    {
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }
