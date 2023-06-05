@@ -177,14 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 12
-  mAchiToggle: {fileID: 23085689}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 508775981}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 937098542}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &23085689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,14 +1080,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 14
-  mAchiToggle: {fileID: 100730900}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 558221810}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 703970648}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &100730900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,14 +2340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 6
-  mAchiToggle: {fileID: 205242519}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1943798392}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 261540265}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &205242519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2749,14 +2731,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 24
-  mAchiToggle: {fileID: 253403835}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 324135285}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1718476382}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &253403835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2994,14 +2970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 25
-  mAchiToggle: {fileID: 286136764}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 564552965}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 446894022}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &286136764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3104,14 +3074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 11
-  mAchiToggle: {fileID: 296549521}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1630792941}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1521551842}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &296549521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3214,14 +3178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 17
-  mAchiToggle: {fileID: 310344450}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1035909523}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 701623150}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &310344450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3612,14 +3570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 30
-  mAchiToggle: {fileID: 324334236}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1603781290}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 404602762}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &324334236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3951,14 +3903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 8
-  mAchiToggle: {fileID: 383416068}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 398056981}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1418608174}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &383416068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4272,14 +4218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 37
-  mAchiToggle: {fileID: 398614464}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 2085645333}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 42341408}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &398614464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4728,14 +4668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 26
-  mAchiToggle: {fileID: 442873111}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1659940640}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 572734306}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &442873111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5787,14 +5721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 16
-  mAchiToggle: {fileID: 510718387}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 877885785}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 731993116}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &510718387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5897,14 +5825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 2
-  mAchiToggle: {fileID: 514724195}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 172678283}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1384575007}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &514724195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6055,14 +5977,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 1
-  mAchiToggle: {fileID: 515153326}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 2009753251}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 695952629}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,14 +6228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 4
-  mAchiToggle: {fileID: 543446511}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 606391213}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 312102422}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &543446511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6422,14 +6332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 39
-  mAchiToggle: {fileID: 547124767}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 124922937}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1082186990}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &547124767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7532,14 +7436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 34
-  mAchiToggle: {fileID: 604306744}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 889536188}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 638095853}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &604306744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8005,14 +7903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 38
-  mAchiToggle: {fileID: 650222500}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1715317089}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 394897492}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &650222500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9250,14 +9142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 36
-  mAchiToggle: {fileID: 793111256}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 634822593}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1065240652}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &793111256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9648,14 +9534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 5
-  mAchiToggle: {fileID: 844205200}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 895089479}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 947245776}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &844205200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10216,14 +10096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 9
-  mAchiToggle: {fileID: 878228179}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1419276227}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 780253298}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &878228179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11343,14 +11217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 28
-  mAchiToggle: {fileID: 1005932230}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 357762039}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 2084698666}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1005932230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11681,14 +11549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 21
-  mAchiToggle: {fileID: 1050783448}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 733020679}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 590730187}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1050783448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12395,14 +12257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 33
-  mAchiToggle: {fileID: 1087650776}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1180809113}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1998061645}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1087650776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12793,14 +12649,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 23
-  mAchiToggle: {fileID: 1125713156}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 118297147}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 50918619}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1125713156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13458,14 +13308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 13
-  mAchiToggle: {fileID: 1186311256}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 43653772}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 832386174}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1186311256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13568,14 +13412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 20
-  mAchiToggle: {fileID: 1192317072}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 856136021}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 2141328270}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1192317072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14038,14 +13876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 7
-  mAchiToggle: {fileID: 1239097282}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 855655594}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 557015501}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1239097282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14301,14 +14133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 31
-  mAchiToggle: {fileID: 1251246421}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1775229166}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 989195366}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1251246421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14969,14 +14795,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 18
-  mAchiToggle: {fileID: 1406861703}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1552467948}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1174733273}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1406861703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15594,14 +15414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 3
-  mAchiToggle: {fileID: 1447855579}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1713072246}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1284638994}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1447855579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15780,14 +15594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 19
-  mAchiToggle: {fileID: 1490597760}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 675284370}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1768797989}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1490597760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15890,14 +15698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 27
-  mAchiToggle: {fileID: 1491603515}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1217815345}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 559119919}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1491603515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16000,14 +15802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 29
-  mAchiToggle: {fileID: 1503477379}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1723920006}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1092723828}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1503477379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16533,14 +16329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 32
-  mAchiToggle: {fileID: 1552591690}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 2004447710}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 490018996}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1552591690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17483,14 +17273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 22
-  mAchiToggle: {fileID: 1717652796}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 133406601}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 149470912}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1717652796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19515,14 +19299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 10
-  mAchiToggle: {fileID: 1906366341}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1132468564}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 466078558}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1906366341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20141,14 +19919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 35
-  mAchiToggle: {fileID: 1998330402}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1656015729}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1888897465}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &1998330402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20480,14 +20252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAchi: 15
-  mAchiToggle: {fileID: 2051931967}
-  mAchiImage: {fileID: 1433767418}
-  mThisAchiIamge: {fileID: 1062238178}
-  mAchiImageBG: {fileID: 1797285939}
-  mThisAchiName: {fileID: 1539310209}
-  mAchiName: {fileID: 239565837}
-  mAchiExplain: {fileID: 1853643578}
-  mAchiObtain: {fileID: 1744506791}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
 --- !u!114 &2051931967
 MonoBehaviour:
   m_ObjectHideFlags: 0

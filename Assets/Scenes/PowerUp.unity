@@ -926,18 +926,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 8
-  mThisAccessoryIamge: {fileID: 1108712186}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 776335637}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 369238994}
-  - {fileID: 1258547202}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &80155789
 GameObject:
@@ -1033,18 +1025,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 11
-  mThisAccessoryIamge: {fileID: 1568549633}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1999783439}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 635917333}
-  - {fileID: 41898973}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &88975276
 GameObject:
@@ -1629,18 +1613,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 10
-  mThisAccessoryIamge: {fileID: 1430907995}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 693148564}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1835408334}
-  - {fileID: 1383947590}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &117848510
 GameObject:
@@ -2421,21 +2397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 15
-  mThisAccessoryIamge: {fileID: 2022863538}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 569753284}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 110811803}
-  - {fileID: 1158114870}
-  - {fileID: 2058241641}
-  - {fileID: 665743873}
-  - {fileID: 1166574492}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &164830549
 GameObject:
@@ -4186,21 +4151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 14
-  mThisAccessoryIamge: {fileID: 449312872}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 2137473248}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1715590876}
-  - {fileID: 96413886}
-  - {fileID: 1336207431}
-  - {fileID: 1782489867}
-  - {fileID: 1056389621}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &362798353
 GameObject:
@@ -6359,19 +6313,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 12
-  mThisAccessoryIamge: {fileID: 1938244430}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1186570917}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 409964879}
-  - {fileID: 1720820320}
-  - {fileID: 117848512}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &635917331
 GameObject:
@@ -7312,21 +7257,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 4
-  mThisAccessoryIamge: {fileID: 716919720}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 152708524}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 95319124}
-  - {fileID: 206863838}
-  - {fileID: 1042907278}
-  - {fileID: 1165588163}
-  - {fileID: 1469408646}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &776335635
 GameObject:
@@ -8175,21 +8109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 1
-  mThisAccessoryIamge: {fileID: 1515408761}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1550885733}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1222813408}
-  - {fileID: 244535981}
-  - {fileID: 1860291138}
-  - {fileID: 988052852}
-  - {fileID: 1148102825}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &863086371
 GameObject:
@@ -8697,17 +8620,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 16
-  mThisAccessoryIamge: {fileID: 1908119731}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 32005852}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 2048720744}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &921408911
 GameObject:
@@ -9033,18 +8949,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 6
-  mThisAccessoryIamge: {fileID: 892426188}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1593731702}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 638145803}
-  - {fileID: 25318705}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &988052850
 GameObject:
@@ -12990,18 +12898,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 5
-  mThisAccessoryIamge: {fileID: 1800798925}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1917471018}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 2113978788}
-  - {fileID: 1144663864}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &1426973686
 GameObject:
@@ -13408,19 +13308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 2
-  mThisAccessoryIamge: {fileID: 1623260746}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1620782831}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1636823309}
-  - {fileID: 484681137}
-  - {fileID: 1159591497}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &1460145191
 GameObject:
@@ -14151,18 +14042,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 7
-  mThisAccessoryIamge: {fileID: 1376641627}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 835167143}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 362798355}
-  - {fileID: 1817538581}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &1550885731
 GameObject:
@@ -15597,8 +15480,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484614427}
   m_HandleRect: {fileID: 484614426}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6676215
+  m_Value: 1.0000002
+  m_Size: 0.66762143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15973,17 +15856,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 9
-  mThisAccessoryIamge: {fileID: 1953092365}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 519708492}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1844877383}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &1763824070
 GameObject:
@@ -16692,19 +16568,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 3
-  mThisAccessoryIamge: {fileID: 1354129983}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 458962674}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1709031329}
-  - {fileID: 539144072}
-  - {fileID: 1944352321}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &1830410698
 GameObject:
@@ -19661,21 +19528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAccessoryIndex: 13
-  mThisAccessoryIamge: {fileID: 184116799}
-  mAccessoryImage: {fileID: 164830551}
-  mThisAccessoryName: {fileID: 1918837916}
-  mAccessoryName: {fileID: 288316072}
-  mAccessoryExplain: {fileID: 264806809}
-  ChargeButton: {fileID: 433556712}
-  mChargeObject: {fileID: 1055911648}
-  mActiveObject: {fileID: 46229260}
+  mContext: {fileID: 1517833368}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
-  accessoryToggle:
-  - {fileID: 1947770544}
-  - {fileID: 2131763707}
-  - {fileID: 2143957040}
-  - {fileID: 1166633235}
-  - {fileID: 489043012}
+  mAccessoryToggle: []
   accessoryLevel: 0
 --- !u!1 &2113978786
 GameObject:

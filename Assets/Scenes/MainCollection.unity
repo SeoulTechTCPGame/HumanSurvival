@@ -175,14 +175,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 9
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1700945}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1700945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,14 +350,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 19
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 35736406}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &35736406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,14 +446,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 10
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 37410262}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &37410262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,14 +542,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 8
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 47610579}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &47610579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,14 +706,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 39
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 78049930}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &78049930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,14 +802,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 22
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 88292128}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &88292128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,14 +898,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 51
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 101120683}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &101120683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,14 +1161,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 33
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 133708514}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &133708514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,14 +1501,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 5
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 159082605}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &159082605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,14 +1597,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 60
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 188176662}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &188176662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,14 +1693,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 56
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 198228240}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &198228240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,7 +1749,7 @@ GameObject:
   - component: {fileID: 239565838}
   - component: {fileID: 239565837}
   m_Layer: 5
-  m_Name: WeaponName
+  m_Name: ItemName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1946,14 +1924,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 7
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 307205305}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &307205305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,14 +2020,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 17
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 339710950}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &339710950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2188,14 +2162,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 34
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 485122295}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &485122295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,14 +2258,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 18
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 505811932}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &505811932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2502,14 +2472,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 12
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 525579233}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &525579233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2600,14 +2568,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 58
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 546557999}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &546557999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,14 +2664,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 44
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 565550564}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &565550564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2796,14 +2760,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 28
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 693545453}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &693545453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2894,14 +2856,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 21
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 697590001}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &697590001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,14 +2952,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 11
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 704069598}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &704069598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,14 +3048,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 4
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 795906849}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &795906849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3188,14 +3144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 29
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 842358203}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &842358203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3286,14 +3240,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 23
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 865137656}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &865137656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3384,14 +3336,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 52
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 876681957}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &876681957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3482,14 +3432,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 20
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 907675969}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &907675969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3580,14 +3528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 53
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 978834551}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &978834551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3678,14 +3624,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 57
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 983466127}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &983466127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3776,14 +3720,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 31
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 998217064}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &998217064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3874,14 +3816,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 13
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1017630941}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1017630941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3972,14 +3912,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 2
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1040271477}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1040271477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4175,14 +4113,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 43
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1141947306}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1141947306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4273,14 +4209,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 40
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1168815129}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1168815129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4371,14 +4305,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 6
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1175412580}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1175412580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4605,14 +4537,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 41
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1224569472}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1224569472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4832,14 +4762,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 3
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1239859387}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1239859387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4930,14 +4858,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 46
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1241212744}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1241212744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5104,14 +5030,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 55
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1252989780}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1252989780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5337,14 +5261,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 35
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1268094141}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1268094141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5435,14 +5357,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 38
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1271106940}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1271106940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,14 +5453,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 14
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1416622402}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1416622402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5591,7 +5509,7 @@ GameObject:
   - component: {fileID: 1433767419}
   - component: {fileID: 1433767418}
   m_Layer: 5
-  m_Name: WeaponImage
+  m_Name: ItemImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5707,14 +5625,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 42
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1455635762}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1455635762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5805,14 +5721,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 48
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1471283689}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1471283689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,14 +5817,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 32
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1546189345}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1546189345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6079,14 +5991,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 47
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1716544005}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1716544005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6304,14 +6214,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 45
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1724849650}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1724849650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6402,14 +6310,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 37
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1745772777}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1745772777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6500,14 +6406,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 49
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1796771952}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1796771952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6837,7 +6741,7 @@ GameObject:
   - component: {fileID: 1853643579}
   - component: {fileID: 1853643578}
   m_Layer: 5
-  m_Name: WeaponExplain
+  m_Name: ItemExplain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7012,14 +6916,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 27
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1858458907}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1858458907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7110,14 +7012,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 25
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1865967726}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1865967726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7208,14 +7108,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 50
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1869090179}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1869090179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7306,14 +7204,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 16
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1913269158}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1913269158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7404,14 +7300,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 24
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1933411746}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1933411746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7502,14 +7396,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 54
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1946398875}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1946398875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7600,14 +7492,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 30
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 1960685377}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &1960685377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7698,14 +7588,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 26
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 2004366244}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &2004366244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7834,14 +7722,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 1
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 2009753251}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!1 &2014602229
 GameObject:
   m_ObjectHideFlags: 0
@@ -7894,14 +7780,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 36
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 2014602232}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &2014602232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7992,14 +7876,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 15
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 2063179109}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &2063179109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8090,14 +7972,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mItemIndex: 59
-  mItemImage: {fileID: 1433767418}
-  mThisItemIamge: {fileID: 2065126702}
+  mContext: {fileID: 1183330394}
+  mExplainBG: {fileID: 1797285937}
   mBlackImage: {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mGreenImage: {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
   mPinkImage: {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
   mPurpleImage: {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mWeaponItemName: {fileID: 239565837}
-  mWeaponExplain: {fileID: 1853643578}
 --- !u!114 &2065126702
 MonoBehaviour:
   m_ObjectHideFlags: 0

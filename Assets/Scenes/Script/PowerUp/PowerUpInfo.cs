@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 using TMPro;
 
 [System.Serializable]
@@ -19,20 +20,41 @@ class PowerUpInfoData
 public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] int mAccessoryIndex;
-    [SerializeField] Image mThisAccessoryIamge;
-    [SerializeField] Image mAccessoryImage;
-    [SerializeField] TMP_Text mThisAccessoryName;
-    [SerializeField] TMP_Text mAccessoryName;
-    [SerializeField] TMP_Text mAccessoryExplain;
-    [SerializeField] Button ChargeButton;
-    [SerializeField] GameObject mChargeObject;
-    [SerializeField] GameObject mActiveObject;
+    [SerializeField] GameObject mContext;
+    [SerializeField] GameObject mExplainBG;
+
+    private Image mThisAccessoryIamge;
+    private TMP_Text mThisAccessoryName;
+    private Image mAccessoryImage;
+    private TMP_Text mAccessoryName;
+    private TMP_Text mAccessoryExplain;
+    private Button ChargeButton;
+    private GameObject mChargeObject;
+    private GameObject mActiveObject;
     public TMP_Text mAccessoryCash;
-    public Toggle[] accessoryToggle;
+    public List<Toggle> mAccessoryToggle;
 
     PowerUpInfoData InfoData;
     string mExplain;
     public int accessoryLevel;
+
+    void Awake() 
+    {
+        Transform Accessory = mContext.transform.GetChild(mAccessoryIndex - 1);
+        mThisAccessoryName = Accessory.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        mThisAccessoryIamge = Accessory.transform.GetChild(1).GetComponent<Image>();
+        mAccessoryImage = mExplainBG.transform.Find("AccessoryImage").GetComponent<Image>();
+        mAccessoryName = mExplainBG.transform.Find("AccessoryName").GetComponent<TextMeshProUGUI>();
+        mAccessoryExplain = mExplainBG.transform.Find("AccessoryExplain").GetComponent<TextMeshProUGUI>();
+        mChargeObject = mExplainBG.transform.Find("ChargeObject").gameObject;
+        mActiveObject = mExplainBG.transform.Find("ActiveObject").gameObject;
+        ChargeButton = mChargeObject.transform.Find("ChargeButton").GetComponent<Button>();
+        mAccessoryCash = mChargeObject.transform.Find("Charge").GetComponent<TextMeshProUGUI>();
+        for(int i = 2; i < Accessory.transform.childCount; i++)
+        {
+            mAccessoryToggle.Add(Accessory.transform.GetChild(i).GetComponent<Toggle>());
+        }
+    }
 
     void Start()
     {   
@@ -42,7 +64,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
 
         for (int i = 0; i < UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1]; i++)
         {
-            accessoryToggle[i].isOn = true;
+            mAccessoryToggle[i].isOn = true;
         }
     }
     
