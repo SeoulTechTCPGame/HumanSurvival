@@ -13,8 +13,7 @@ public class OptionUIManager : MonoBehaviour
 
     [SerializeField] GameObject ItemUI;
     [SerializeField] GameObject StatUI;
-    [SerializeField] GameObject OptionPage1UI;
-    [SerializeField] GameObject OptionPage2UI;
+    [SerializeField] GameObject OptionPageUI;
     [SerializeField] GameObject OptionButtonUI;
     [SerializeField] GameObject BackButtonUI;
     [SerializeField] GameObject QuitButtonUI;
@@ -32,8 +31,7 @@ public class OptionUIManager : MonoBehaviour
     {
         ItemUI.SetActive(false);
         StatUI.SetActive(false);
-        OptionPage1UI.SetActive(false);
-        OptionPage2UI.SetActive(false);
+        OptionPageUI.SetActive(false);
         OptionButtonUI.SetActive(false);
         BackButtonUI.SetActive(false);
         QuitButtonUI.SetActive(false);
@@ -57,7 +55,6 @@ public class OptionUIManager : MonoBehaviour
             SetStatUI(characterStats);
             player.GetComponent<PlayerMovement>().enabled = false;
         }
-        
     }
 
     public void Resume()
@@ -66,8 +63,7 @@ public class OptionUIManager : MonoBehaviour
         {  
             ItemUI.SetActive(false);
             StatUI.SetActive(false);
-            OptionPage1UI.SetActive(false);
-            OptionPage2UI.SetActive(false);
+            OptionPageUI.SetActive(false);
             OptionButtonUI.SetActive(false);
             BackButtonUI.SetActive(false);
             QuitButtonUI.SetActive(false);

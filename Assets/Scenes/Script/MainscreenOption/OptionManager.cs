@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
-using System.IO;
 using System;
 
 public class OptionManager : MonoBehaviour
 {
-    public GameObject DefaultPanel; //OptionBackground
-    public GameObject FirstPanel;   //OptionMenu_1Page
-    public GameObject SecondPanel;  //OptionMenu_2Page
-    public GameObject ThirdPanel;   //DataRecovery
-    public GameObject DataRecovery;
+    public GameObject BGPanel; //OptionBackground
+    public GameObject DefaultPanel;   //OptionMenu
+    public GameObject DataPanel;   //DataRecovery
     public GameObject WarningPanel;
     public GameObject ParsingErrorPanel;
     public TMP_Text buttonText; //DataRecovery텍스트
@@ -23,10 +17,9 @@ public class OptionManager : MonoBehaviour
     private void Awake()
     {
         SetMoneyText();
+        BGPanel.SetActive(true);
         DefaultPanel.SetActive(true);
-        FirstPanel.SetActive(true);
-        SecondPanel.SetActive(false);
-        ThirdPanel.SetActive(false);
+        DataPanel.SetActive(false);
         WarningPanel.SetActive(false);
         ParsingErrorPanel.SetActive(false);
     }
@@ -41,24 +34,17 @@ public class OptionManager : MonoBehaviour
     //뒤로가기 버튼
     public void ClickBackButton()
     {
-        if (FirstPanel.activeSelf == true)
+        if (DefaultPanel.activeSelf == true)
         {
             SceneManager.LoadScene("MainScreen");
-        }
-        else if (SecondPanel.activeSelf == true)
-        {
-            SecondPanel.SetActive(false);
-            FirstPanel.SetActive(true);
-            DataRecovery.SetActive(true);
         }
         else
         {
             buttonText.text = "data\nrecovery";
-            ThirdPanel.SetActive(false);
-            FirstPanel.SetActive(true);
+            DataPanel.SetActive(false);
+            DefaultPanel.SetActive(true);
         }
     }
-    
     void SetMoneyText()
     {
         moneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
