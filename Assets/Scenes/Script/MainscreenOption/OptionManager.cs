@@ -79,7 +79,6 @@ public class OptionManager : MonoBehaviour
         SoundManager soundManager = SoundManager.instance;
         soundManager.soundEffectVolume = value;
         Debug.Log(soundManager.soundEffectVolume);
-
     }
     void SetMoneyText()
     {
