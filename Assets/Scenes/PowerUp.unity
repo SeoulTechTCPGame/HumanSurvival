@@ -927,7 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 8
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 11
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 10
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -2398,7 +2398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 15
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -4152,7 +4152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 14
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -6314,7 +6314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 12
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -7258,7 +7258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 4
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -8110,7 +8110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 1
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -8621,7 +8621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 16
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -8950,7 +8950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 6
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -12899,7 +12899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 5
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -13309,7 +13309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 2
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -14043,7 +14043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 7
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -15480,8 +15480,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 484614427}
   m_HandleRect: {fileID: 484614426}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6676215
+  m_Value: 1.0000002
+  m_Size: 0.66762143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15857,7 +15857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 9
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -16569,7 +16569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 3
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0
@@ -19529,7 +19529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAccessoryIndex: 13
   mContext: {fileID: 1517833368}
-  mAccessoryExplains: {fileID: 1449948762}
+  mExplainBG: {fileID: 1449948762}
   mAccessoryCash: {fileID: 334953466}
   mAccessoryToggle: []
   accessoryLevel: 0

@@ -21,7 +21,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] int mAccessoryIndex;
     [SerializeField] GameObject mContext;
-    [SerializeField] GameObject mAccessoryExplains;
+    [SerializeField] GameObject mExplainBG;
 
     private Image mThisAccessoryIamge;
     private TMP_Text mThisAccessoryName;
@@ -38,15 +38,16 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     string mExplain;
     public int accessoryLevel;
 
-    void Awake() {
+    void Awake() 
+    {
         Transform Accessory = mContext.transform.GetChild(mAccessoryIndex - 1);
         mThisAccessoryName = Accessory.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         mThisAccessoryIamge = Accessory.transform.GetChild(1).GetComponent<Image>();
-        mAccessoryImage = mAccessoryExplains.transform.Find("AccessoryImage").GetComponent<Image>();
-        mAccessoryName = mAccessoryExplains.transform.Find("AccessoryName").GetComponent<TextMeshProUGUI>();
-        mAccessoryExplain = mAccessoryExplains.transform.Find("AccessoryExplain").GetComponent<TextMeshProUGUI>();
-        mChargeObject = mAccessoryExplains.transform.Find("ChargeObject").gameObject;
-        mActiveObject = mAccessoryExplains.transform.Find("ActiveObject").gameObject;
+        mAccessoryImage = mExplainBG.transform.Find("AccessoryImage").GetComponent<Image>();
+        mAccessoryName = mExplainBG.transform.Find("AccessoryName").GetComponent<TextMeshProUGUI>();
+        mAccessoryExplain = mExplainBG.transform.Find("AccessoryExplain").GetComponent<TextMeshProUGUI>();
+        mChargeObject = mExplainBG.transform.Find("ChargeObject").gameObject;
+        mActiveObject = mExplainBG.transform.Find("ActiveObject").gameObject;
         ChargeButton = mChargeObject.transform.Find("ChargeButton").GetComponent<Button>();
         mAccessoryCash = mChargeObject.transform.Find("Charge").GetComponent<TextMeshProUGUI>();
         for(int i = 2; i < Accessory.transform.childCount; i++)

@@ -20,20 +20,31 @@ class CollectionInfoData
 public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] int mItemIndex;
-    [SerializeField] Image mItemImage;
-    [SerializeField] Image mThisItemIamge;
+    [SerializeField] GameObject mContext;
+    [SerializeField] GameObject mExplainBG;
     [SerializeField] Sprite mBlackImage;
     [SerializeField] Sprite mGreenImage;
     [SerializeField] Sprite mPinkImage;
     [SerializeField] Sprite mPurpleImage;
 
-    [SerializeField] TMP_Text mWeaponItemName;
-    [SerializeField] TMP_Text mWeaponExplain;
+    private Image mThisItemIamge;
+    private Image mExplainBGItemImage;
+    private TMP_Text mExplainBGItemName;
+    private TMP_Text mExplainBGItemExplain;
 
     CollectionInfoData InfoData;
     string mItemName;
     string mExplain;
     string mRank;
+
+    void Awake() 
+    {
+        Transform Item = mContext.transform.GetChild(mItemIndex - 1);
+        mThisItemIamge = Item.transform.GetComponent<Image>();
+        mExplainBGItemName = mExplainBG.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+        mExplainBGItemExplain = mExplainBG.transform.Find("ItemExplain").GetComponent<TextMeshProUGUI>();
+        mExplainBGItemImage = mExplainBG.transform.Find("ItemImage").GetComponent<Image>();
+    }
 
     // Start is called before the first frame update
     void Start(){
@@ -61,9 +72,9 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
         }
     }
     public void OnPointerEnter(PointerEventData eventData) {
-        mWeaponItemName.text = this.mItemName;
-        mWeaponExplain.text = this.mExplain;
-        mItemImage.GetComponent<Image>().sprite = mThisItemIamge.GetComponent<Image>().sprite;
+        mExplainBGItemName.text = this.mItemName;
+        mExplainBGItemExplain.text = this.mExplain;
+        mExplainBGItemImage.GetComponent<Image>().sprite = mThisItemIamge.GetComponent<Image>().sprite;
     }
 
 }
