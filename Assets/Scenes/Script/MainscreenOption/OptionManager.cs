@@ -1,64 +1,85 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
-using System.IO;
 using System;
 
 public class OptionManager : MonoBehaviour
 {
-    public GameObject DefaultPanel; //OptionBackground
-    public GameObject FirstPanel;   //OptionMenu_1Page
-    public GameObject SecondPanel;  //OptionMenu_2Page
-    public GameObject ThirdPanel;   //DataRecovery
-    public GameObject DataRecovery;
-    public GameObject WarningPanel;
-    public GameObject ParsingErrorPanel;
-    public TMP_Text buttonText; //DataRecovery텍스트
-    public TMP_Text moneyText;
-    //Panel초기화
+    [SerializeField] GameObject BGPanel; //OptionBackground
+    [SerializeField] GameObject DefaultPanel;   //OptionMenu
+    [SerializeField] GameObject DataPanel;   //DataRecovery
+    [SerializeField] GameObject WarningPanel;   // 경고
+    [SerializeField] GameObject ParsingErrorPanel;
+    [SerializeField] TMP_Text buttonText; //DataRecovery텍스트
+    [SerializeField] TMP_Text moneyText;    //돈 표시
+
     private void Awake()
     {
         SetMoneyText();
+        BGPanel.SetActive(true);
         DefaultPanel.SetActive(true);
-        FirstPanel.SetActive(true);
-        SecondPanel.SetActive(false);
-        ThirdPanel.SetActive(false);
+        DataPanel.SetActive(false);
         WarningPanel.SetActive(false);
         ParsingErrorPanel.SetActive(false);
     }
+    private void Start()
+    {
+        // 저장된 볼륨 값 로드
+        SoundManager soundManager = SoundManager.instance;
 
+        // defaultPanel의 자식 요소들을 가져와서 슬라이더를 초기화
+        Slider[] sliders = DefaultPanel.GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliders)
+        {
+            switch (slider.name)
+            {
+                case "BgmSlider":
+                    slider.value = soundManager.bgmVolume;
+                    slider.onValueChanged.AddListener(OnBgmVolumeChanged);
+                    break;
+                case "SoundEffectSlider":
+                    slider.value = soundManager.soundEffectVolume;
+                    slider.onValueChanged.AddListener(OnSoundEffectVolumeChanged);
+                    break;
+            }
+        }
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
             SceneManager.LoadScene("MainScreen");
         }
     }
-
     //뒤로가기 버튼
     public void ClickBackButton()
     {
-        if (FirstPanel.activeSelf == true)
+        if (DefaultPanel.activeSelf == true)
         {
             SceneManager.LoadScene("MainScreen");
-        }
-        else if (SecondPanel.activeSelf == true)
-        {
-            SecondPanel.SetActive(false);
-            FirstPanel.SetActive(true);
-            DataRecovery.SetActive(true);
         }
         else
         {
             buttonText.text = "data\nrecovery";
-            ThirdPanel.SetActive(false);
-            FirstPanel.SetActive(true);
+            DataPanel.SetActive(false);
+            DefaultPanel.SetActive(true);
         }
     }
-    
+    void OnBgmVolumeChanged(float value)
+    {
+        // BGM 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.bgmVolume = value;
+        Debug.Log(soundManager.bgmVolume);
+    }
+    void OnSoundEffectVolumeChanged(float value)
+    {
+        // 사운드 이펙트 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.soundEffectVolume = value;
+        Debug.Log(soundManager.soundEffectVolume);
+    }
     void SetMoneyText()
     {
         moneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();

@@ -13,8 +13,7 @@ public class OptionUIManager : MonoBehaviour
 
     [SerializeField] GameObject ItemUI;
     [SerializeField] GameObject StatUI;
-    [SerializeField] GameObject OptionPage1UI;
-    [SerializeField] GameObject OptionPage2UI;
+    [SerializeField] GameObject OptionPageUI;
     [SerializeField] GameObject OptionButtonUI;
     [SerializeField] GameObject BackButtonUI;
     [SerializeField] GameObject QuitButtonUI;
@@ -27,20 +26,38 @@ public class OptionUIManager : MonoBehaviour
     [SerializeField] Sprite[] EtcImages;
     [SerializeField] Sprite[] MiniLevelImages;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         ItemUI.SetActive(false);
         StatUI.SetActive(false);
-        OptionPage1UI.SetActive(false);
-        OptionPage2UI.SetActive(false);
+        OptionPageUI.SetActive(false);
         OptionButtonUI.SetActive(false);
         BackButtonUI.SetActive(false);
         QuitButtonUI.SetActive(false);
         UnSetItemUI();
     }
+    private void Start()
+    {
+        // 저장된 볼륨 값 로드
+        SoundManager soundManager = SoundManager.instance;
 
-    // Update is called once per frame
+        // defaultPanel의 자식 요소들을 가져와서 슬라이더를 초기화
+        Slider[] sliders = OptionPageUI.GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliders)
+        {
+            switch (slider.name)
+            {
+                case "BgmSlider":
+                    slider.value = soundManager.bgmVolume;
+                    slider.onValueChanged.AddListener(OnBgmVolumeChanged);
+                    break;
+                case "SoundEffectSlider":
+                    slider.value = soundManager.soundEffectVolume;
+                    slider.onValueChanged.AddListener(OnSoundEffectVolumeChanged);
+                    break;
+            }
+        }
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -57,17 +74,14 @@ public class OptionUIManager : MonoBehaviour
             SetStatUI(characterStats);
             player.GetComponent<PlayerMovement>().enabled = false;
         }
-        
     }
-
     public void Resume()
     {
         if(EventSystem.current.IsPointerOverGameObject())
         {  
             ItemUI.SetActive(false);
             StatUI.SetActive(false);
-            OptionPage1UI.SetActive(false);
-            OptionPage2UI.SetActive(false);
+            OptionPageUI.SetActive(false);
             OptionButtonUI.SetActive(false);
             BackButtonUI.SetActive(false);
             QuitButtonUI.SetActive(false);
@@ -75,7 +89,20 @@ public class OptionUIManager : MonoBehaviour
             player.GetComponent<PlayerMovement>().enabled = true;
         }
     }
-
+    void OnBgmVolumeChanged(float value)
+    {
+        // BGM 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.bgmVolume = value;
+        Debug.Log(soundManager.bgmVolume);
+    }
+    void OnSoundEffectVolumeChanged(float value)
+    {
+        // 사운드 이펙트 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.soundEffectVolume = value;
+        Debug.Log(soundManager.soundEffectVolume);
+    }
     public void UnSetItemUI()
     {
         foreach (var image in OwnWeaponImages)
@@ -101,7 +128,6 @@ public class OptionUIManager : MonoBehaviour
             }
         }
     }
-
     public void SetStatUI(float[] characterStats)
     {
         StatVarText.text =
