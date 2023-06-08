@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float[] weaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] weaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
     public int[] killCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
+    public int EvoGralicRestoreCount = 0;
     public EquipmentManagementSystem equipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
     //캐릭터의 스탯지정
