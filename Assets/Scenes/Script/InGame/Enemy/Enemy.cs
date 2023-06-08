@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour,IDamageable
     float health;
     float maxHealth;
     bool isLive ;
+    int knockbackpower = 0;
 
     DropSystem drops;
     Character targetCharacter;
@@ -97,6 +98,13 @@ public class Enemy : MonoBehaviour,IDamageable
             StartCoroutine(KnockBack());
             anim.SetTrigger("Hit");
             Debug.Log("Hit");
+            if(weaponIndex == 6)
+            {
+                if(knockbackpower < 3)
+                {
+                    knockbackpower++;
+                }
+            }
         }
         else
         {
@@ -116,6 +124,6 @@ public class Enemy : MonoBehaviour,IDamageable
         yield return wait;
         Vector3 playerPos = GameManager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
-        rb.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
+        rb.AddForce(dirVec.normalized * (3 + knockbackpower), ForceMode2D.Impulse);
     }
 }
