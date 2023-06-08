@@ -109,6 +109,16 @@ public class Weapon : MonoBehaviour
         if (col.gameObject.tag == "Monster")
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
+            if(WeaponIndex == 6 && bEvolution)
+            {
+                GameManager.instance.character.RestoreHealth(1);
+                GameManager.instance.EvoGralicRestoreCount++;
+                if(GameManager.instance.EvoGralicRestoreCount == 60)
+                {
+                    GameManager.instance.EvoGralicRestoreCount = 0;
+                    WeaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
+                }
+            }
         }
         // for(int i = 0; i < col.Length; i++)
         // {

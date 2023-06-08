@@ -48,7 +48,15 @@ public class SkillFiringSystem : MonoBehaviour
             case 5:     // FireWand
                 break;
             case 6:     // Garlic
-                weapon.GetComponent<Gralic>().SpawnGralic(weaponPrefabs[weapon.WeaponIndex]); break;
+                if (!weapon.isEvoluction())
+                {
+                    weapon.GetComponent<Gralic>().SpawnGralic(weaponPrefabs[weapon.WeaponIndex]);
+                }
+                else
+                {
+                    weapon.GetComponent<Gralic>().SpawnGralic(evolutionWeaponPrefabs[weapon.WeaponIndex]);
+                }
+                break;
             case 7:     // Peachone
                 if (!weapon.isEvoluction())
                 {
