@@ -466,6 +466,7 @@ MonoBehaviour:
   - 0
   - 0
   killCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  EvoGralicRestoreCount: 0
   characterData: {fileID: 0}
   CharacterStats: []
   pool: {fileID: 1068104046}
@@ -2199,7 +2200,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
   - {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
   - {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
-  - {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
+  - {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
+  - {fileID: 11400000, guid: f68536f96474ca1458be3a23ce57ea2f, type: 2}
+  - {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
 --- !u!1 &1310574634
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,51 +1,119 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class EnemiesSpawnGroup
+{
+    public EnemyScriptableObject enemyData;
+    public int count;
+    public bool isBoss;
+
+    public float repeatTimer;
+    public float timeBetweenSpawn;
+    public int repeatCount;
+
+    public EnemiesSpawnGroup(EnemyScriptableObject enemyData,int count,bool isBoss)
+    {
+        this.enemyData = enemyData;
+        this.count = count;
+        this.isBoss = isBoss;
+    }
+public void SetRepeatSpawn(float timeBetweenSpawns,int repeatCount)
+    {
+        this.timeBetweenSpawn = timeBetweenSpawns;
+        this.repeatCount = repeatCount;
+        repeatTimer = timeBetweenSpawn;
+    }
+}
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Vector2 spawnArea;
     [SerializeField] GameObject player;
     public EnemyScriptableObject[] spawnData;
-    int level;
-    float timer;
 
-    /*private void Update()
+    List<EnemiesSpawnGroup> enemiesSpawnGroupList;
+    List<EnemiesSpawnGroup> repeatedSpawnGroupList;
+
+    private void Update()
     {
-        timer += Time.deltaTime;
-        //float형 시간에 따라 int형 레벨 설정
-        level =Mathf.Min(Mathf.FloorToInt( GameManager.instance.gameTime / 10f),spawnData.Length-1);
+        EnemyWaveSpawn();
+        EnemyWaveRepeatedSpawnGroups();
+    }
 
-        //레벨을 활용해 몬스터 각각의 소환 타이밍 변경하기
-        if (timer >(spawnData[level].SpawnTime))
+    private void EnemyWaveRepeatedSpawnGroups()
+    {
+        if (repeatedSpawnGroupList == null) return;
+        for (int i = repeatedSpawnGroupList.Count-1;i>=0; i--)
         {
-            Spawn();
-            timer = 0;
+            repeatedSpawnGroupList[i].repeatTimer -= Time.deltaTime;
+            if (repeatedSpawnGroupList[i].repeatTimer < 0)
+            {
+                repeatedSpawnGroupList[i].repeatTimer = repeatedSpawnGroupList[i].timeBetweenSpawn;
+                AddGroupToSpawn(repeatedSpawnGroupList[i].enemyData, repeatedSpawnGroupList[i].count, repeatedSpawnGroupList[i].isBoss);
+                repeatedSpawnGroupList[i].repeatCount -= 1;
+                if (repeatedSpawnGroupList[i].repeatCount <= 0)
+                {
+                    repeatedSpawnGroupList.RemoveAt(i);
+                }
+            }
         }
     }
-    */
+
+    private void EnemyWaveSpawn()
+    {
+        if (enemiesSpawnGroupList == null) return;
+        if (enemiesSpawnGroupList.Count > 0)
+        {
+            SpawnEnemy(enemiesSpawnGroupList[0].enemyData);
+            enemiesSpawnGroupList[0].count -= 1;
+            if (enemiesSpawnGroupList[0].count <= 0)
+            {
+                enemiesSpawnGroupList.RemoveAt(0);
+            }
+        }
+    }
+
+    public void AddGroupToSpawn(EnemyScriptableObject enemyToSpawn, int count, bool isBoss)
+    {
+        EnemiesSpawnGroup newGroupToSpawn = new EnemiesSpawnGroup(enemyToSpawn, count, isBoss);
+        if (enemiesSpawnGroupList == null)
+        {
+            enemiesSpawnGroupList = new List<EnemiesSpawnGroup>();    
+        }
+        enemiesSpawnGroupList.Add(newGroupToSpawn);
+    }
+
+    public void AddReapeatedSpawn(StageEvent stageEvent,bool isBoss)
+    {
+        EnemiesSpawnGroup repeatSpawnGroup = new EnemiesSpawnGroup(stageEvent.enemyToSpawn, stageEvent.enemyCount, isBoss);
+        repeatSpawnGroup.SetRepeatSpawn(stageEvent.repeatEverySeconds,stageEvent.repeatCount);
+        if (repeatedSpawnGroupList == null)
+        {
+            repeatedSpawnGroupList = new List<EnemiesSpawnGroup>();
+        }
+        repeatedSpawnGroupList.Add(repeatSpawnGroup);
+    }
 
     public void SpawnEnemy(EnemyScriptableObject enemyToSpawn)
     {
         Vector3 position;
         //player의 위치 값에 랜덤 pos를 더해 스폰 지점 설정
-        if (enemyToSpawn.SpriteType == 5)
+        if (enemyToSpawn.SpriteType == 5)//flower wall
         {
             position = player.transform.position;
-            Debug.Log(position);
         }
         else
         {
             position= GenerateRandomPos();
             position += player.transform.position;
-
         }
 
         GameObject newEnemy= GameManager.instance.pool.Get("enemy",enemyToSpawn.SpriteType);
         newEnemy.transform.position = position;
         newEnemy.transform.parent = transform;
         switch (enemyToSpawn.SpriteType)
-        {
+        {   //bat bevy,flower wall
             case 4:
             case 5:
                 newEnemy.GetComponentsInChildren<Enemy>()[0].InitEnemy(enemyToSpawn);
@@ -54,7 +122,6 @@ public class EnemySpawner : MonoBehaviour
                 newEnemy.GetComponent<Enemy>().InitEnemy(enemyToSpawn);
                 break;
         }
-        
     }
 
     private Vector3 GenerateRandomPos()
@@ -71,10 +138,7 @@ public class EnemySpawner : MonoBehaviour
             position.y = UnityEngine.Random.Range(-spawnArea.y, spawnArea.y);
             position.x = spawnArea.x * f;
         }
-
-
         position.z = 0;
         return position;
     }
-
 }
