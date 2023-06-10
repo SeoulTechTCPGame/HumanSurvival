@@ -7,22 +7,22 @@ public class ChargePowerUp : MonoBehaviour
     [SerializeField] GameObject mChargeObject;
     [SerializeField] GameObject mActiveObject;
     [SerializeField] Toggle mActiveToggle;
-    public int nowAccessoryIndex;
-    private float[] upgradeStat = new float[16] { 0.05f, 1, 0.1f, 0.1f, -0.025f, 0.05f, 0.1f, 0.15f, 1, 0.05f, 0.25f, 0.1f, 0.03f, 0.1f, 0.1f, 1 };
-    private float[] tempSaveStat = new float[16];
+    public int NowAccessoryIndex;
+    private float[] mUpgradeStat = new float[16] { 0.05f, 1, 0.1f, 0.1f, -0.025f, 0.05f, 0.1f, 0.15f, 1, 0.05f, 0.25f, 0.1f, 0.03f, 0.1f, 0.1f, 1 };
+    private float[] mTempSaveStat = new float[16];
 
     public void Charge()
     {
-        if(UserInfo.instance.UserDataSet.Gold > UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex] && UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] != mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryLevel)
+        if(UserInfo.instance.UserDataSet.Gold > UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex] && UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] != mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel)
         {
-            UserInfo.instance.ConsumeGold(-UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex]);
-            for (int i = 0; i < mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryLevel; i++)
+            UserInfo.instance.ConsumeGold(-UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex]);
+            for (int i = 0; i < mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel; i++)
             {
-                if (UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] == i)
+                if (UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] == i)
                 {
-                    mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryToggle[i].isOn = true;
-                    UserInfo.instance.UpdatePowerUpLevel(nowAccessoryIndex);
-                    UserInfo.instance.UpdatePowerUpStat(nowAccessoryIndex, upgradeStat[nowAccessoryIndex]);
+                    mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryToggle[i].isOn = true;
+                    UserInfo.instance.UpdatePowerUpLevel(NowAccessoryIndex);
+                    UserInfo.instance.UpdatePowerUpStat(NowAccessoryIndex, mUpgradeStat[NowAccessoryIndex]);
                     break;
                 }
             }
@@ -30,11 +30,11 @@ public class ChargePowerUp : MonoBehaviour
             {
                 UserInfo.instance.UpdatePowerUpCash(i);
             }
-            mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex].ToString();
+            mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex].ToString();
         }
-        if(UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] == mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryLevel)
+        if(UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] == mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel)
         {
-            tempSaveStat[nowAccessoryIndex] = UserInfo.instance.UserDataSet.PowerUpStat[nowAccessoryIndex];
+            mTempSaveStat[NowAccessoryIndex] = UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex];
             mChargeObject.SetActive(false);
             mActiveObject.SetActive(true);
         }
@@ -44,9 +44,9 @@ public class ChargePowerUp : MonoBehaviour
     {
         for (int i = 0; i < 16; i++)
         {
-            for (int j = 0; j < mAccessory[i].GetComponent<PowerUpInfo>().accessoryLevel; j++)
+            for (int j = 0; j < mAccessory[i].GetComponent<PowerUpInfo>().AccessoryMaxLevel; j++)
             {
-                mAccessory[i].GetComponent<PowerUpInfo>().mAccessoryToggle[j].isOn = false;
+                mAccessory[i].GetComponent<PowerUpInfo>().AccessoryToggle[j].isOn = false;
             }
             UserInfo.instance.RefundPowerUpLevel(i);
             UserInfo.instance.RefundPowerUpStat(i);
@@ -54,7 +54,7 @@ public class ChargePowerUp : MonoBehaviour
         }
         UserInfo.instance.ConsumeGold(UserInfo.instance.UserDataSet.consumedGold);
         UserInfo.instance.RefundGold();
-        mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex].ToString();
+        mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex].ToString();
         mChargeObject.SetActive(true);
         mActiveObject.SetActive(false);
     }
@@ -63,11 +63,11 @@ public class ChargePowerUp : MonoBehaviour
     {
         if(mActiveToggle.isOn)
         {
-            UserInfo.instance.UserDataSet.PowerUpStat[nowAccessoryIndex] = tempSaveStat[nowAccessoryIndex];
+            UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex] = mTempSaveStat[NowAccessoryIndex];
         }
         else
         {
-            UserInfo.instance.UserDataSet.PowerUpStat[nowAccessoryIndex] = 0;
+            UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex] = 0;
         }
     }
 }

@@ -7,32 +7,31 @@ public class UserCollection : MonoBehaviour
     [SerializeField] TMP_Text mMoneyText;
     [SerializeField] TMP_Text mCollectText;
 
-    int collectionCount = 0;
-    // Start is called before the first frame update
-    void Start()
+    int mCollectionCount = 0;
+
+    private void Start()
     {
         SetMoneyText();
         SetCollectionText();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            SceneManager.LoadScene("MainScreen");
+            GetComponent<SceneMove>().ToBack();
         }
     }
 
-    void SetMoneyText(){
+    private void SetMoneyText(){
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 
-    void SetCollectionText(){
+    private void SetCollectionText(){
         for(int i = 0; i < Constants.MaxCollectionNumber; i++){
             if(UserInfo.instance.UserDataSet.Collection[i]){
-                collectionCount++;
+                mCollectionCount++;
             }
         }
-        mCollectText.text = "Collection : " + collectionCount.ToString() + " / " + Constants.MaxCollectionNumber;
+        mCollectText.text = "Collection : " + mCollectionCount.ToString() + " / " + Constants.MaxCollectionNumber;
     }
 }

@@ -2493,9 +2493,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730d0c52f8e150c458a449891f15ef3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageButton: {fileID: 1437334921}
-  stageData: {fileID: 11400000, guid: 0a12c0d7c1e92784ba3aeabefb13d159, type: 2}
-  selectedStage: {fileID: 1310176857}
+  mStageButton: {fileID: 1437334921}
+  mStageData: {fileID: 11400000, guid: 0a12c0d7c1e92784ba3aeabefb13d159, type: 2}
+  mSelectedStage: {fileID: 1310176857}
 --- !u!1 &1465476255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,9 +3094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730d0c52f8e150c458a449891f15ef3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageButton: {fileID: 1722028499}
-  stageData: {fileID: 11400000, guid: 0a12c0d7c1e92784ba3aeabefb13d159, type: 2}
-  selectedStage: {fileID: 1310176857}
+  mStageButton: {fileID: 1722028499}
+  mStageData: {fileID: 11400000, guid: 0a12c0d7c1e92784ba3aeabefb13d159, type: 2}
+  mSelectedStage: {fileID: 1310176857}
 --- !u!1 &1779011792
 GameObject:
   m_ObjectHideFlags: 0

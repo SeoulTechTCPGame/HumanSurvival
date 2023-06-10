@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         string resourceName = "CharacterData/";
         try
         {
-            resourceName += DataManager.instance.currentCharcter;
+            resourceName += DataManager.instance.CurrentCharcter;
         }
         catch (NullReferenceException)
         {

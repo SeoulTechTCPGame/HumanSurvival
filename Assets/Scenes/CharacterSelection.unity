@@ -1014,7 +1014,7 @@ GameObject:
   - component: {fileID: 96882775}
   - component: {fileID: 96882779}
   m_Layer: 5
-  m_Name: Caracter (3)
+  m_Name: Character (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,9 +1054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 96882773}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 96882773}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &96882776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 3
+  Charname: 3
 --- !u!61 &96882780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2282,7 +2282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3212bb3e3bcc742903b98d3010748c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCharcter: 0
+  CurrentCharcter: 0
 --- !u!4 &377482576
 Transform:
   m_ObjectHideFlags: 0
@@ -3772,7 +3772,7 @@ GameObject:
   - component: {fileID: 897836106}
   - component: {fileID: 897836110}
   m_Layer: 5
-  m_Name: Caracter (4)
+  m_Name: Character (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3812,9 +3812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 897836104}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 897836104}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &897836107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3921,7 +3921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 4
+  Charname: 4
 --- !u!61 &897836111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4429,7 +4429,7 @@ GameObject:
   - component: {fileID: 937291889}
   - component: {fileID: 937291893}
   m_Layer: 5
-  m_Name: Caracter (2)
+  m_Name: Character (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4469,9 +4469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 937291887}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 937291887}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &937291890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4578,7 +4578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 2
+  Charname: 2
 --- !u!61 &937291894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6305,7 +6305,7 @@ GameObject:
   - component: {fileID: 1571871193}
   - component: {fileID: 1571871197}
   m_Layer: 5
-  m_Name: Caracter (6)
+  m_Name: Character (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6345,9 +6345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 1571871191}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 1571871191}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &1571871194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6454,7 +6454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 6
+  Charname: 6
 --- !u!61 &1571871198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6632,7 +6632,7 @@ GameObject:
   - component: {fileID: 1825428142}
   - component: {fileID: 1825428146}
   m_Layer: 5
-  m_Name: Caracter (5)
+  m_Name: Character (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6672,9 +6672,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 1825428140}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 1825428140}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &1825428143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6781,7 +6781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 5
+  Charname: 5
 --- !u!61 &1825428147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6965,7 +6965,7 @@ GameObject:
   - component: {fileID: 1990242595}
   - component: {fileID: 1990242599}
   m_Layer: 5
-  m_Name: Caracter (1)
+  m_Name: Character (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7005,9 +7005,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 1990242593}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 1990242593}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &1990242596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7114,7 +7114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 1
+  Charname: 1
 --- !u!61 &1990242600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7529,7 +7529,7 @@ GameObject:
   - component: {fileID: 2132150303}
   - component: {fileID: 2132150304}
   m_Layer: 5
-  m_Name: Caracter
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7663,9 +7663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff3068f0c37faf4da9410a36fb91ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButton: {fileID: 2132150298}
-  explain: {fileID: 1124102297}
-  selectedCharacter: {fileID: 1877939064}
+  mCharacterButton: {fileID: 2132150298}
+  mExplain: {fileID: 1124102297}
+  mSelectedCharacter: {fileID: 1877939064}
 --- !u!114 &2132150304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7678,7 +7678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9a29a276f6cac4f9bf50a98ff17744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charname: 0
+  Charname: 0
 --- !u!61 &2132150305
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class GameResult : MonoBehaviour
         float seconds = Mathf.Floor(gameTime % 60);
         float minutes = Mathf.Floor(gameTime / 60);
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        string charName = "" + DataManager.instance.currentCharcter;
+        string charName = "" + DataManager.instance.CurrentCharcter;
         character.text = string.Format("{0}", charName);
         string source = "CharacterSprite/" + charName + "_0";
         characterImage.sprite = Resources.Load<Sprite>(source);

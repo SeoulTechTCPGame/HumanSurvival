@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         string resourceName = "Animator/";
         try
         {
-            resourceName += DataManager.instance.currentCharcter;
+            resourceName += DataManager.instance.CurrentCharcter;
         }
         catch (NullReferenceException)
         {

@@ -7,22 +7,22 @@ using System;
 
 public class OptionManager : MonoBehaviour
 {
-    [SerializeField] GameObject BGPanel; //OptionBackground
-    [SerializeField] GameObject DefaultPanel;   //OptionMenu
-    [SerializeField] GameObject DataPanel;   //DataRecovery
-    [SerializeField] GameObject WarningPanel;   // 경고
-    [SerializeField] GameObject ParsingErrorPanel;
-    [SerializeField] TMP_Text buttonText; //DataRecovery텍스트
-    [SerializeField] TMP_Text moneyText;    //돈 표시
+    [SerializeField] GameObject mBGPanel; //OptionBackground
+    [SerializeField] GameObject mDefaultPanel;   //OptionMenu
+    [SerializeField] GameObject mDataPanel;   //DataRecovery
+    [SerializeField] GameObject mWarningPanel;   // 경고
+    [SerializeField] GameObject mParsingErrorPanel;
+    [SerializeField] TMP_Text mButtonText; //DataRecovery텍스트
+    [SerializeField] TMP_Text mMoneyText;    //돈 표시
 
     private void Awake()
     {
         SetMoneyText();
-        BGPanel.SetActive(true);
-        DefaultPanel.SetActive(true);
-        DataPanel.SetActive(false);
-        WarningPanel.SetActive(false);
-        ParsingErrorPanel.SetActive(false);
+        mBGPanel.SetActive(true);
+        mDefaultPanel.SetActive(true);
+        mDataPanel.SetActive(false);
+        mWarningPanel.SetActive(false);
+        mParsingErrorPanel.SetActive(false);
     }
     private void Start()
     {
@@ -30,7 +30,7 @@ public class OptionManager : MonoBehaviour
         SoundManager soundManager = SoundManager.instance;
 
         // defaultPanel의 자식 요소들을 가져와서 슬라이더를 초기화
-        Slider[] sliders = DefaultPanel.GetComponentsInChildren<Slider>();
+        Slider[] sliders = mDefaultPanel.GetComponentsInChildren<Slider>();
         foreach (Slider slider in sliders)
         {
             switch (slider.name)
@@ -49,78 +49,78 @@ public class OptionManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            SceneManager.LoadScene("MainScreen");
+            GetComponent<SceneMove>().ToBack();
         }
     }
     //뒤로가기 버튼
     public void ClickBackButton()
     {
-        if (DefaultPanel.activeSelf == true)
+        if (mDefaultPanel.activeSelf == true)
         {
-            SceneManager.LoadScene("MainScreen");
+            GetComponent<SceneMove>().ToBack();
         }
         else
         {
-            buttonText.text = "data\nrecovery";
-            DataPanel.SetActive(false);
-            DefaultPanel.SetActive(true);
+            mButtonText.text = "data\nrecovery";
+            mDataPanel.SetActive(false);
+            mDefaultPanel.SetActive(true);
         }
     }
-    void OnBgmVolumeChanged(float value)
+    private void OnBgmVolumeChanged(float value)
     {
         // BGM 볼륨 값을 변경
         SoundManager soundManager = SoundManager.instance;
         soundManager.bgmVolume = value;
         Debug.Log(soundManager.bgmVolume);
     }
-    void OnSoundEffectVolumeChanged(float value)
+    private void OnSoundEffectVolumeChanged(float value)
     {
         // 사운드 이펙트 볼륨 값을 변경
         SoundManager soundManager = SoundManager.instance;
         soundManager.soundEffectVolume = value;
         Debug.Log(soundManager.soundEffectVolume);
     }
-    void SetMoneyText()
+    private void SetMoneyText()
     {
-        moneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
     public void LoadSystemData()
     {
         string filePath = EditorUtility.OpenFilePanel("Json Explorer", "", "json");
-        bool IsErrorFile;
+        bool bErrorFile;
         try
         {
-            IsErrorFile = !UserDataManager.instance.LoadData(filePath);
+            bErrorFile = !UserDataManager.instance.LoadData(filePath);
         }
         catch (ArgumentException)
         {
             return;
         }
 
-        WarningPanel.SetActive(false);
-        if (IsErrorFile)
+        mWarningPanel.SetActive(false);
+        if (bErrorFile)
         {
             LoadParsingError();
         }
         else
         {
-            SceneManager.LoadScene("MainScreen");
+            GetComponent<SceneMove>().ToBack();
         }
     }
     public void LoadWarning()
     {
-        WarningPanel.SetActive(true);
+        mWarningPanel.SetActive(true);
     }
     public void NoOnWarning()
     {
-        WarningPanel.SetActive(false);
+        mWarningPanel.SetActive(false);
     }
     public void LoadParsingError()
     {
-        ParsingErrorPanel.SetActive(true);
+        mParsingErrorPanel.SetActive(true);
     }
     public void YesOnParsingError()
     {
-        ParsingErrorPanel.SetActive(false);
+        mParsingErrorPanel.SetActive(false);
     }
 }
