@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 113c8d589a453cd45adf3f2bf6fb113e
+  - enabled: 1
     path: Assets/Scenes/MainScreen.unity
     guid: 0b61ce453f6bfd04ab6bd94f5b4b9d47
   - enabled: 1
@@ -15,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainAchievements.unity
     guid: 01aa0b8070c004ec6aa0c52b8936b5a1
   - enabled: 1
-    path: Assets/Scenes/MainScreenOption.unity
+    path: Assets/Scenes/MainscreenOption.unity
     guid: a8cb04eee647dc8409dd8edcf291d1e3
   - enabled: 1
     path: Assets/Scenes/StageSelection.unity

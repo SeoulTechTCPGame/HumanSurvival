@@ -9,7 +9,16 @@ public class DataManager : MonoBehaviour
     public CharacterType currentCharcter;
     private void Awake()
     {
-        instance = this;
+        // Scene에 이미 인스턴스가 존재 하는지 확인 후 처리
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         DontDestroyOnLoad(gameObject);
     }
 }
