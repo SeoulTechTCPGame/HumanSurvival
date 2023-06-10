@@ -6050,6 +6050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676220912}
   - component: {fileID: 1676220913}
+  - component: {fileID: 1676220914}
   m_Layer: 0
   m_Name: OptionManager
   m_TagString: Untagged
@@ -6084,13 +6085,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c67ccd16de908499018c3533e66917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGPanel: {fileID: 1070727818}
-  DefaultPanel: {fileID: 1090297366}
-  DataPanel: {fileID: 777631595}
-  WarningPanel: {fileID: 2000624291}
-  ParsingErrorPanel: {fileID: 2126950038}
-  buttonText: {fileID: 2041295067}
-  moneyText: {fileID: 71754639}
+  mBGPanel: {fileID: 1070727818}
+  mDefaultPanel: {fileID: 1090297366}
+  mDataPanel: {fileID: 777631595}
+  mWarningPanel: {fileID: 2000624291}
+  mParsingErrorPanel: {fileID: 2126950038}
+  mButtonText: {fileID: 2041295067}
+  mMoneyText: {fileID: 71754639}
+--- !u!114 &1676220914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676220911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714848849
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,12 @@ public class SceneMove : MonoBehaviour
 {
     public void ToAchievements()
     {
-        SceneManager.LoadScene("MainAchievements");
+        SceneManager.LoadScene("Achievements");
     }
 
     public void ToBack()
     {
-        SceneManager.LoadScene("MainScreen");
+        SceneManager.LoadScene("Main");
     }
 
     public void ToCharacterSelection()
@@ -20,12 +20,12 @@ public class SceneMove : MonoBehaviour
 
     public void ToCollection()
     {
-        SceneManager.LoadScene("MainCollection");
+        SceneManager.LoadScene("Collection");
     }
 
     public void ToOption()
     {
-        SceneManager.LoadScene("MainscreenOption");
+        SceneManager.LoadScene("Option");
     }
 
     public void ToPowerUp()
@@ -44,7 +44,7 @@ public class SceneMove : MonoBehaviour
     }
     public void ToResultScene()
     {
-        SceneManager.LoadScene("GameResultScene");
+        SceneManager.LoadScene("GameResult");
     }
     public void OnClickExit()
     {

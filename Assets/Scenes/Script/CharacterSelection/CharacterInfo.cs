@@ -6,48 +6,47 @@ using System;
 
 public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
 {
-    public GameObject characterButton;
-    public GameObject explain;
-    public CharacterInfoOfSelectionScene selectedCharacter;
+    [SerializeField] GameObject mCharacterButton;
+    [SerializeField] GameObject mExplain;
+    [SerializeField] CharacterInfoOfSelectionScene mSelectedCharacter;
 
-    private GameObject characterName;
-    private GameObject explainName;
-    private GameObject explainImage;
-    private GameObject explainWeapon;
-    private GameObject explainText;
+    private GameObject mCharacterName;
+    private GameObject mExplainName;
+    private GameObject mExplainImage;
+    private GameObject mExplainWeapon;
+    private GameObject mExplainText;
 
-    CharacterScriptableObject characterData;
+    private CharacterScriptableObject mCharacterData;
    
     private void Start()
     {
-        characterName = characterButton.transform.Find("Name").gameObject;
-        explainName = explain.transform.Find("CharaName").gameObject;
-        explainImage = explain.transform.Find("CharaImage").gameObject;
-        explainText = explain.transform.Find("CharaExplain").gameObject;
-        explainWeapon = explain.transform.Find("CharaWeapon").gameObject;
+        mCharacterName = mCharacterButton.transform.Find("Name").gameObject;
+        mExplainName = mExplain.transform.Find("CharaName").gameObject;
+        mExplainImage = mExplain.transform.Find("CharaImage").gameObject;
+        mExplainText = mExplain.transform.Find("CharaExplain").gameObject;
+        mExplainWeapon = mExplain.transform.Find("CharaWeapon").gameObject;
 
         string resourceName = "CharacterData/";
         try
         {
-            resourceName += characterButton.GetComponent<SelectCharacter>().charname;
+            resourceName += mCharacterButton.GetComponent<SelectCharacter>().Charname;
         }
         catch (NullReferenceException)
         {
             resourceName += "Alchemist";
         }
-        characterData = Resources.Load<CharacterScriptableObject>(resourceName);
-        characterName.GetComponent<TextMeshProUGUI>().text = characterData.characterType.ToString();
+        mCharacterData = Resources.Load<CharacterScriptableObject>(resourceName);
+        mCharacterName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        selectedCharacter.LoadCharacterData(characterData);
-        explainName.GetComponent<TextMeshProUGUI>().text = characterData.characterType.ToString();
-        explainText.GetComponent<TextMeshProUGUI>().text = characterData.explain;
-        explainImage.GetComponent<Image>().sprite = characterButton.transform.Find("Image").GetComponent<Image>().sprite;
+        mSelectedCharacter.LoadCharacterData(mCharacterData);
+        mExplainName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();
+        mExplainText.GetComponent<TextMeshProUGUI>().text = mCharacterData.explain;
+        mExplainImage.GetComponent<Image>().sprite = mCharacterButton.transform.Find("Image").GetComponent<Image>().sprite;
         Enums.Weapon[] enumValues = (Enums.Weapon[])System.Enum.GetValues(typeof(Enums.Weapon));
-        Enums.Weapon weapon = enumValues[characterData.startingWeapon];
+        Enums.Weapon weapon = enumValues[mCharacterData.startingWeapon];
         string weapoonName = "Weapons/" + weapon.ToString();
-        Debug.Log(weapoonName);
-        explainWeapon.GetComponent<Image>().sprite = Resources.Load<Sprite>(weapoonName);
+        mExplainWeapon.GetComponent<Image>().sprite = Resources.Load<Sprite>(weapoonName);
     }
 }

@@ -8,7 +8,7 @@ using TMPro;
 class PowerUpData
 {
     public string Explain;
-    public int accessoryLevel;
+    public int AccessoryLevel;
 }
 
 [System.Serializable]
@@ -28,43 +28,43 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     private Image mAccessoryImage;
     private TMP_Text mAccessoryName;
     private TMP_Text mAccessoryExplain;
-    private Button ChargeButton;
+    private Button mChargeButton;
     private GameObject mChargeObject;
     private GameObject mActiveObject;
-    public TMP_Text mAccessoryCash;
-    public List<Toggle> mAccessoryToggle;
+    public TMP_Text AccessoryCash;
+    public List<Toggle> AccessoryToggle;
 
-    PowerUpInfoData InfoData;
-    string mExplain;
-    public int accessoryLevel;
+    private PowerUpInfoData mInfoData;
+    private string mExplain;
+    public int AccessoryMaxLevel;
 
     void Awake() 
     {
-        Transform Accessory = mContext.transform.GetChild(mAccessoryIndex - 1);
-        mThisAccessoryName = Accessory.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        mThisAccessoryIamge = Accessory.transform.GetChild(1).GetComponent<Image>();
+        Transform accessory = mContext.transform.GetChild(mAccessoryIndex - 1);
+        mThisAccessoryName = accessory.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        mThisAccessoryIamge = accessory.transform.GetChild(1).GetComponent<Image>();
         mAccessoryImage = mExplainBG.transform.Find("AccessoryImage").GetComponent<Image>();
         mAccessoryName = mExplainBG.transform.Find("AccessoryName").GetComponent<TextMeshProUGUI>();
         mAccessoryExplain = mExplainBG.transform.Find("AccessoryExplain").GetComponent<TextMeshProUGUI>();
         mChargeObject = mExplainBG.transform.Find("ChargeObject").gameObject;
         mActiveObject = mExplainBG.transform.Find("ActiveObject").gameObject;
-        ChargeButton = mChargeObject.transform.Find("ChargeButton").GetComponent<Button>();
-        mAccessoryCash = mChargeObject.transform.Find("Charge").GetComponent<TextMeshProUGUI>();
-        for(int i = 2; i < Accessory.transform.childCount; i++)
+        mChargeButton = mChargeObject.transform.Find("ChargeButton").GetComponent<Button>();
+        AccessoryCash = mChargeObject.transform.Find("Charge").GetComponent<TextMeshProUGUI>();
+        for(int i = 2; i < accessory.transform.childCount; i++)
         {
-            mAccessoryToggle.Add(Accessory.transform.GetChild(i).GetComponent<Toggle>());
+            AccessoryToggle.Add(accessory.transform.GetChild(i).GetComponent<Toggle>());
         }
     }
 
     void Start()
     {   
-        InfoData = JsonUtility.FromJson<PowerUpInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
-        this.mExplain = InfoData.PowerUp[mAccessoryIndex-1].Explain;
-        this.accessoryLevel = InfoData.PowerUp[mAccessoryIndex-1].accessoryLevel;
+        mInfoData = JsonUtility.FromJson<PowerUpInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
+        this.mExplain = mInfoData.PowerUp[mAccessoryIndex-1].Explain;
+        this.AccessoryMaxLevel = mInfoData.PowerUp[mAccessoryIndex-1].AccessoryLevel;
 
         for (int i = 0; i < UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1]; i++)
         {
-            mAccessoryToggle[i].isOn = true;
+            AccessoryToggle[i].isOn = true;
         }
     }
     
@@ -73,9 +73,9 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
         mAccessoryName.text = mThisAccessoryName.text;
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;
-        ChargeButton.GetComponent<ChargePowerUp>().nowAccessoryIndex = mAccessoryIndex - 1;
-        mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[mAccessoryIndex - 1].ToString();
-        if(UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1] == accessoryLevel)
+        mChargeButton.GetComponent<ChargePowerUp>().NowAccessoryIndex = mAccessoryIndex - 1;
+        AccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[mAccessoryIndex - 1].ToString();
+        if(UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1] == AccessoryMaxLevel)
         {
             mChargeObject.SetActive(false);
             mActiveObject.SetActive(true);

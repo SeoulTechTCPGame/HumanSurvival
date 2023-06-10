@@ -32,26 +32,25 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
     private TMP_Text mExplainBGItemName;
     private TMP_Text mExplainBGItemExplain;
 
-    CollectionInfoData InfoData;
-    string mItemName;
-    string mExplain;
-    string mRank;
+    private CollectionInfoData mInfoData;
+    private string mItemName;
+    private string mExplain;
+    private string mRank;
 
-    void Awake() 
+    private void Awake() 
     {
-        Transform Item = mContext.transform.GetChild(mItemIndex - 1);
-        mThisItemIamge = Item.transform.GetComponent<Image>();
+        Transform item = mContext.transform.GetChild(mItemIndex - 1);
+        mThisItemIamge = item.transform.GetComponent<Image>();
         mExplainBGItemName = mExplainBG.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
         mExplainBGItemExplain = mExplainBG.transform.Find("ItemExplain").GetComponent<TextMeshProUGUI>();
         mExplainBGItemImage = mExplainBG.transform.Find("ItemImage").GetComponent<Image>();
     }
 
-    // Start is called before the first frame update
-    void Start(){
-        InfoData = JsonUtility.FromJson<CollectionInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
-        this.mItemName = InfoData.Collection[mItemIndex-1].Name;
-        this.mExplain = InfoData.Collection[mItemIndex-1].Explain;
-        this.mRank = InfoData.Collection[mItemIndex-1].Rank;
+    private void Start(){
+        mInfoData = JsonUtility.FromJson<CollectionInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
+        this.mItemName = mInfoData.Collection[mItemIndex-1].Name;
+        this.mExplain = mInfoData.Collection[mItemIndex-1].Explain;
+        this.mRank = mInfoData.Collection[mItemIndex-1].Rank;
 
         
         if (!UserInfo.instance.UserDataSet.Collection[mItemIndex]) {
@@ -76,5 +75,4 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
         mExplainBGItemExplain.text = this.mExplain;
         mExplainBGItemImage.GetComponent<Image>().sprite = mThisItemIamge.GetComponent<Image>().sprite;
     }
-
 }

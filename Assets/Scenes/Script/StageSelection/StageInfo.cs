@@ -4,22 +4,22 @@ using UnityEngine.EventSystems;
 
 public class StageInfo : MonoBehaviour, IPointerEnterHandler
 {
-    public GameObject stageButton;
-    public MapScriptableObject stageData;
-    public StageOfSelectionScene selectedStage;
+    [SerializeField] GameObject mStageButton;
+    [SerializeField] MapScriptableObject mStageData;
+    [SerializeField] StageOfSelectionScene mSelectedStage;
 
-    private GameObject MapName;
-    private GameObject explainText;
+    private GameObject mMapName;
+    private GameObject mExplainText;
 
     private void Start()
     {
-        MapName = stageButton.transform.Find("Name").gameObject;
-        explainText = stageButton.transform.Find("Explain").gameObject;
-        MapName.GetComponent<TextMeshProUGUI>().text = stageData.StageName.ToString();
+        mMapName = mStageButton.transform.Find("Name").gameObject;
+        mExplainText = mStageButton.transform.Find("Explain").gameObject;
+        mMapName.GetComponent<TextMeshProUGUI>().text = mStageData.StageName.ToString();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        selectedStage.LoadMapData(stageData);
-        explainText.GetComponent<TextMeshProUGUI>().text = stageData.StageExplain;
+        mSelectedStage.LoadMapData(mStageData);
+        mExplainText.GetComponent<TextMeshProUGUI>().text = mStageData.StageExplain;
     }
 }

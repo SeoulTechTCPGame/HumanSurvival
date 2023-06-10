@@ -31,16 +31,16 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
     private TMP_Text mAchiExplain;
     private TMP_Text mAchiObtain;
 
-    AchiInfoData InfoData;
-    string mExplain;
-    string mObtain;
+    private AchiInfoData mInfoData;
+    private string mExplain;
+    private string mObtain;
 
-    void Awake() 
+    private void Awake() 
     {
-        Transform Achi = mContext.transform.GetChild(mAchi - 1);
-        mThisAchiToggle = Achi.GetComponent<Toggle>();
-        mThisAchiName = Achi.transform.Find("ObtainExplain").GetComponent<TextMeshProUGUI>();
-        mThisAchiIamge = Achi.transform.Find("AchiImage").GetComponent<Image>();
+        Transform achi = mContext.transform.GetChild(mAchi - 1);
+        mThisAchiToggle = achi.GetComponent<Toggle>();
+        mThisAchiName = achi.transform.Find("ObtainExplain").GetComponent<TextMeshProUGUI>();
+        mThisAchiIamge = achi.transform.Find("AchiImage").GetComponent<Image>();
         mAchiImageBG = mExplainBG.GetComponent<Image>();
         mAchiImage = mExplainBG.transform.Find("AchiImage").GetComponent<Image>();
         mAchiName = mExplainBG.transform.Find("AchiName").GetComponent<TextMeshProUGUI>();
@@ -49,10 +49,10 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
 }
 
     // Start is called before the first frame update
-    void Start(){
-        InfoData = JsonUtility.FromJson<AchiInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
-        this.mExplain = InfoData.Achievement[mAchi-1].Explain;
-        this.mObtain = InfoData.Achievement[mAchi-1].Obtain;
+    private void Start(){
+        mInfoData = JsonUtility.FromJson<AchiInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
+        this.mExplain = mInfoData.Achievement[mAchi-1].Explain;
+        this.mObtain = mInfoData.Achievement[mAchi-1].Obtain;
 
         if (UserInfo.instance.UserDataSet.Achievements[mAchi]) {
             mThisAchiToggle.GetComponent<Toggle>().isOn = true;

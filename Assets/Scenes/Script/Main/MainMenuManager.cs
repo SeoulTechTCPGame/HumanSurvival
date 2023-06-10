@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 using TMPro;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine.SceneManagement;
 
-public enum State { Quit, MainscreenOption, CharacterSelection, PowerUp, Collection, Achievements };
+public enum EState { Quit, Option, CharacterSelection, PowerUp, Collection, Achievements };
 
 
 public class MainMenuManager : MonoBehaviour
@@ -19,8 +15,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] int mSelectState;
     void Start()
     {
-        mSelectState = (int)State.CharacterSelection;
-        setSelect(mButtons[mSelectState]);
+        mSelectState = (int)EState.CharacterSelection;
+        SetSelect(mButtons[mSelectState]);
         SetMoneyText();
     }
 
@@ -28,61 +24,61 @@ public class MainMenuManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if(mSelectState > (int)State.MainscreenOption && mSelectState <= (int)State.Collection)
+            if(mSelectState > (int)EState.Option && mSelectState <= (int)EState.Collection)
             {
                 mSelectState--;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
         }
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (mSelectState == (int)State.MainscreenOption)
+            if (mSelectState == (int)EState.Option)
             {
                 mSelectState--;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
-            else if(mSelectState == (int)State.PowerUp)
+            else if(mSelectState == (int)EState.PowerUp)
             {
                 mSelectState++;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
-            else if (mSelectState == (int)State.Achievements)
+            else if (mSelectState == (int)EState.Achievements)
             {
                 mSelectState -= 2;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (mSelectState > (int)State.Quit && mSelectState < (int)State.PowerUp)
+            if (mSelectState > (int)EState.Quit && mSelectState < (int)EState.PowerUp)
             {
                 mSelectState++;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (mSelectState == (int)State.Quit)
+            if (mSelectState == (int)EState.Quit)
             {
                 mSelectState++;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
-            else if(mSelectState == (int)State.PowerUp)
+            else if(mSelectState == (int)EState.PowerUp)
             {
                 mSelectState += 2;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
-            else if (mSelectState == (int)State.Collection)
+            else if (mSelectState == (int)EState.Collection)
             {
                 mSelectState--;
-                setSelect(mButtons[mSelectState]);
+                SetSelect(mButtons[mSelectState]);
             }
         }
         else if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            if (mSelectState != (int)State.Quit)
+            if (mSelectState != (int)EState.Quit)
             {
-                SceneManager.LoadScene(((State)mSelectState).ToString());
+                SceneManager.LoadScene(((EState)mSelectState).ToString());
             }
             else
             {
@@ -97,12 +93,12 @@ public class MainMenuManager : MonoBehaviour
         SetMoneyText();
     }
 
-    void SetMoneyText()
+    private void SetMoneyText()
     {
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 
-    private void setSelect(GameObject nowObject)
+    private void SetSelect(GameObject nowObject)
     {
         mUserSelect.transform.position = nowObject.transform.position;
     }
