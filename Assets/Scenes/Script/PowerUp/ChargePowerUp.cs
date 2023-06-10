@@ -15,7 +15,7 @@ public class ChargePowerUp : MonoBehaviour
     {
         if(UserInfo.instance.UserDataSet.Gold > UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex] && UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] != mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryLevel)
         {
-            UserInfo.instance.getGold(-UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex]);
+            UserInfo.instance.ConsumeGold(-UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex]);
             for (int i = 0; i < mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().accessoryLevel; i++)
             {
                 if (UserInfo.instance.UserDataSet.PowerUpLevel[nowAccessoryIndex] == i)
@@ -52,7 +52,7 @@ public class ChargePowerUp : MonoBehaviour
             UserInfo.instance.RefundPowerUpStat(i);
             UserInfo.instance.RefundPowerUpCash(i);
         }
-        UserInfo.instance.getGold(UserInfo.instance.UserDataSet.consumeGold);
+        UserInfo.instance.ConsumeGold(UserInfo.instance.UserDataSet.consumedGold);
         UserInfo.instance.RefundGold();
         mAccessory[nowAccessoryIndex].GetComponent<PowerUpInfo>().mAccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[nowAccessoryIndex].ToString();
         mChargeObject.SetActive(true);

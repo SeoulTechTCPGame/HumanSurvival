@@ -39,21 +39,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         // Scene에 이미 인스턴스가 존재 하는지 확인 후 처리
-        /*if (instance==null)
-        {
-            instance = this;
-        }else if (instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        */
+        instance = this;
         // Scene 이동 시 삭제 되지 않도록 처리
         DontDestroyOnLoad(this.gameObject);
         level = 1;
         exp = 0;
         maxExp = 100;
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
     }
     private void Start()
     {    

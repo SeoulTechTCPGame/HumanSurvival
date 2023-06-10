@@ -2701,6 +2701,7 @@ GameObject:
   - component: {fileID: 8749342264929198751}
   - component: {fileID: 8749342264929198748}
   - component: {fileID: 6112149582255413004}
+  - component: {fileID: 5144593371852512306}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2811,6 +2812,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5144593371852512306}
+        m_TargetAssemblyTypeName: QuitInGame, Assembly-CSharp
+        m_MethodName: DestroyGM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6112149582255413004}
         m_TargetAssemblyTypeName: SceneMove, Assembly-CSharp
         m_MethodName: ToBack
@@ -2833,6 +2846,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5144593371852512306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8749342264929198747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34baa016b44e44c8fa361da05f7b40f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8749342264950941459
