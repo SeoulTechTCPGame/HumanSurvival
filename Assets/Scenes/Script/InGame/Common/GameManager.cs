@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         level = 1;
         exp = 0;
         maxExp = 100;
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
     private void Start()
     {    
