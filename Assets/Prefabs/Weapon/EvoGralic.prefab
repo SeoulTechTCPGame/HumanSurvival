@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 891077723031153295}
   - component: {fileID: 891077723031153294}
   - component: {fileID: 891077723031153329}
-  - component: {fileID: 891077723031153328}
   - component: {fileID: 3480771746808503802}
   - component: {fileID: -6530908867929979824}
   m_Layer: 8
@@ -126,23 +125,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &891077723031153328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891077723031153331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponIndex: 6
-  WeaponLevel: 1
-  WeaponMaxLevel: 8
-  bEvolution: 0
-  weaponTotalStats: []
 --- !u!114 &3480771746808503802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1d851a15ab24324bc1677b72b642c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponIndex: 0
+  WeaponLevel: 1
+  WeaponMaxLevel: 0
+  bEvolution: 0
+  weaponTotalStats: []
 --- !u!82 &-6530908867929979824
 AudioSource:
   m_ObjectHideFlags: 0

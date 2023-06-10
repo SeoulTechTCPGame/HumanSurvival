@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Peachone : MonoBehaviour
+public class Peachone : Weapon
 {
     [SerializeField] Animator animator;
     public GameObject Bird = null;
@@ -57,25 +57,32 @@ public class Peachone : MonoBehaviour
         mColorCnt++;
         newobs.transform.position = sourceP.position; //시작 위치
     }
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon peachone)
+    public override void Attack()
+    {
+        if (isEvoluction())
+            evoAttack(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
+        else
+            Attack(SkillFiringSystem.instance.weaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[0]);
+    }
+    public void Attack(GameObject peachPre, GameObject bounderyPre)
     {
         Timer += Time.deltaTime;
-        if (Timer > peachone.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, peachone, StartPoint);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, this, StartPoint);
             Timer = 0;
-            ProjectileScale = transform.localScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.WeaponStat.Area)];
             mColorCnt = 0;
         }
     }
-    public void CreateEvoCircle(GameObject peachPre, GameObject bounderyPre, Weapon peachone)
+    public void evoAttack(GameObject peachPre, GameObject bounderyPre)
     {
         Timer += Time.deltaTime;
-        if (Timer > peachone.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, true, peachone, StartPoint);
+            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, true, this, StartPoint);
             Timer = 0;
-            ProjectileScale = transform.localScale * peachone.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.WeaponStat.Area)];
             mColorCnt = 0;
         }
     }
@@ -97,16 +104,22 @@ public class Peachone : MonoBehaviour
         newObjBird.PlayerTransform = GameManager.instance.player.transform;
         StartPoint = newObjBird.transform;
     }
-    public void EvolutionProcess(GameObject bird, Weapon pairWeapon)
-    {
-        Destroy(Bird, pairWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Cooldown] - Timer);
-        Destroy(pairWeapon.GetComponent<EbonyWings>().Bird, pairWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Cooldown] - Timer);
-        SpawnWhiteBird(bird, pairWeapon);
-        StartPoint = Bird.GetComponent<Bird>().transform;
-    }
     private void SpawnWhiteBird(GameObject bird, Weapon pairWeapon)
     {
         Bird = pairWeapon.GetComponent<EbonyWings>().Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
         Bird.GetComponent<Bird>().PlayerTransform = GameManager.instance.player.transform;
+    }
+    public override void EvolutionProcess()
+    {
+        var equipManageSys = GameManager.instance.equipManageSys;
+        var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+        var bird = SkillFiringSystem.instance.Birds[2];
+        pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
+
+        Destroy(Bird, pairWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Cooldown] - Timer);
+        Destroy(pairWeapon.GetComponent<EbonyWings>().Bird, pairWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Cooldown] - Timer);
+        SpawnWhiteBird(bird, pairWeapon);
+        StartPoint = Bird.GetComponent<Bird>().transform;
+        pairWeapon.GetComponent<EbonyWings>().StartPoint = pairWeapon.GetComponent<EbonyWings>().Bird.GetComponent<Bird>().transform;
     }
 }

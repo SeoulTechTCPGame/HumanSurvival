@@ -58,57 +58,18 @@ public class Weapon : MonoBehaviour
         if (equipManageSys.HasWeapon(evoPairWeaponIndex) && equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].IsMaster())
             bEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].bEvolution = true;
     }
-    public void EvolutionProcess()
-    {
-        switch (WeaponIndex)
-        {
-            case 0:     // Whip
-                break;
-            case 1:     // MagicWand
-                break;
-            case 2:     // Knife
-                break;
-            case 3:     // Cross
-                break;
-            case 4:     //KingBible
-                break;
-            case 5:     // FireWand
-                break;
-            case 6:     // Garlic
-                break;
-            case 7:     // Peachone
-            {
-                var equipManageSys = GameManager.instance.equipManageSys;
-                var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
-                GetComponent<Peachone>().EvolutionProcess(equipManageSys.skillFiringSystem.Birds[2], pairWeapon);
-                pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
-                break;
-            }
-            case 8:    // EbonyWings
-            {
-                var equipManageSys = GameManager.instance.equipManageSys;
-                var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
-                pairWeapon.GetComponent<Peachone>().EvolutionProcess(equipManageSys.skillFiringSystem.Birds[2], this);
-                GetComponent<EbonyWings>().EvolutionProcess();
-                break;
-            }
-            case 9:   // LightningRing
-                break;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
-
+                destructible.TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
+            col.gameObject.GetComponent<Enemy>().TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
             if(WeaponIndex == 6 && bEvolution)
             {
                 GameManager.instance.character.RestoreHealth(1);
@@ -116,18 +77,10 @@ public class Weapon : MonoBehaviour
                 if(GameManager.instance.EvoGralicRestoreCount == 60)
                 {
                     GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
+                    weaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
                 }
             }
         }
-        // for(int i = 0; i < col.Length; i++)
-        // {
-        //     IDamageable e = col[i].GetComponent<IDamageable>();
-        //     if(e != null)
-        //     {
-        //         e.TakeDamage(GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[WeaponIndex]].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
-        //     }
-        // }
     }
     private void OnTriggerExit2D(Collider2D col)
     {
@@ -173,4 +126,6 @@ public class Weapon : MonoBehaviour
         weaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.Stat.Amount];
     }
     public float[] WeaponTotalStats { get { return weaponTotalStats; } }
+    public virtual void EvolutionProcess() { }
+    public virtual void Attack() { }
 }
