@@ -26,6 +26,8 @@ public class OptionUIManager : MonoBehaviour
     [SerializeField] Sprite[] EtcImages;
     [SerializeField] Sprite[] MiniLevelImages;
 
+    private bool pauseGame = false;
+
     void Awake()
     {
         ItemUI.SetActive(false);
@@ -62,17 +64,34 @@ public class OptionUIManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            var weapons = GameManager.instance.equipManageSys.Weapons;
-            var accessories = GameManager.instance.equipManageSys.Accessories;
-            var characterStats =  GameManager.instance.CharacterStats;
-            Time.timeScale = 0f;
-            ItemUI.SetActive(true);
-            StatUI.SetActive(true);
-            OptionButtonUI.SetActive(true);
-            BackButtonUI.SetActive(true);
-            SetItemUI(weapons, accessories);
-            SetStatUI(characterStats);
-            player.GetComponent<PlayerMovement>().enabled = false;
+            if(!pauseGame)
+            {
+                var weapons = GameManager.instance.equipManageSys.Weapons;
+                var accessories = GameManager.instance.equipManageSys.Accessories;
+                var characterStats =  GameManager.instance.CharacterStats;
+                Time.timeScale = 0f;
+                ItemUI.SetActive(true);
+                StatUI.SetActive(true);
+                OptionButtonUI.SetActive(true);
+                BackButtonUI.SetActive(true);
+                SetItemUI(weapons, accessories);
+                SetStatUI(characterStats);
+                player.GetComponent<PlayerMovement>().enabled = false;
+                pauseGame = true;
+            }
+            else
+            {
+                ItemUI.SetActive(false);
+                StatUI.SetActive(false);
+                OptionPageUI.SetActive(false);
+                OptionButtonUI.SetActive(false);
+                BackButtonUI.SetActive(false);
+                QuitButtonUI.SetActive(false);
+                Time.timeScale = 1f;
+                player.GetComponent<PlayerMovement>().enabled = true;
+                pauseGame = false;
+            }
+            
         }
     }
     public void Resume()
