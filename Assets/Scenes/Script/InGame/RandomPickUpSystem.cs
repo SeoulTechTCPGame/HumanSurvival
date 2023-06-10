@@ -68,8 +68,36 @@ public class RandomPickUpSystem
     public List<Tuple<int, int, int>> RandomPickUp(int n)
     {
         var equipManageSys = GameManager.instance.equipManageSys;
+        UpdateAccessoryPickUpList();
+        UpdateWeaponPickUpList();
+        int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
+        getPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
 
+        int maxChoice = System.Math.Min(getChoice(), possibleWeaponChoice + possibleAccessoryChoice);
 
+        List<Tuple<int, int, int>> pickUps = new List<Tuple<int, int, int>>();
+        if (maxChoice == 0)
+        {
+            // TODO: 25골드 or hp 30 회복 선택지
+            pickUps.Add(new Tuple<int, int, int>(2, 0, 1));
+            pickUps.Add(new Tuple<int, int, int>(2, 1, 1));
+        }
+        else
+        {
+            List<int> pickedWeaponList = new List<int>();
+            List<int> pickedAccessoryList = new List<int>();
+            for (int i = 0; i < maxChoice; i++)
+            {
+                var pick = getOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
+                pickUps.Add(pick);
+                if (pick.Item1 == 0)
+                    possibleWeaponChoice--;
+                else
+                    possibleAccessoryChoice--;
+            }
+        }
+
+        return pickUps;
     }
         public List<Tuple<int, int, int>> RandomPickUp()
     {
