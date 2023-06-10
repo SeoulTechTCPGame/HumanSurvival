@@ -9,13 +9,11 @@ public class EquipmentManagementSystem
     public List<Accessory> Accessories;
     public List<int> MasteredWeapons;
     public List<int> MasteredAccessories;
-    public SkillFiringSystem skillFiringSystem;
     public int[] TransWeaponIndex; // 해당 index의 weapon이 현재 보유중인 Weapons의 몇 번째 index에 있는지 반환하는 배열, 없다면 -1 반환
     public int[] TransAccessoryIndex; // 위와 같으나 Accessory에 해당
 
     public void Set(int startingWeapon)
     {
-        skillFiringSystem = GameObject.Find("SkillFiringSystem").GetComponent<SkillFiringSystem>();
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
         TransWeaponIndex = Enumerable.Repeat<int>(-1, Constants.MaxWeaponNumber).ToArray<int>();
@@ -23,7 +21,7 @@ public class EquipmentManagementSystem
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
-        GetWeapon(startingWeapon);
+        SetNewWeapon(startingWeapon);
     }
 
     public void ApplyItem(Tuple<int, int, int> pickUp)
@@ -44,7 +42,7 @@ public class EquipmentManagementSystem
     private void applyWeapon(int weaponIndex, int hasWeapon)
     {
         if (hasWeapon == 0)
-            GetWeapon(weaponIndex);
+            SetNewWeapon(weaponIndex);
         else
             UpgradeWeapon(weaponIndex);
     }
@@ -82,16 +80,25 @@ public class EquipmentManagementSystem
         return TransAccessoryIndex[accIndex] >= 0;
     }
     //ToDo: SkillFiringSystem이랑 연계 할 함수
-    public void GetWeapon(int weaponIndex)
+    public void SetNewWeapon(int weaponIndex)
     {
         GameManager.instance.weaponGetTime[weaponIndex] = GameManager.instance.gameTime;
         TransWeaponIndex[weaponIndex] = Weapons.Count;
-        Weapon newWeapon = (skillFiringSystem.weaponPrefabs[weaponIndex]).GetComponent<Weapon>();
-        newWeapon.WeaponDefalutSetting(weaponIndex);
-        Weapons.Add(newWeapon);
+
+        addNewWeapon(weaponIndex);
+        Weapons.Last().WeaponDefalutSetting(weaponIndex);
         GameManager.instance.WeaponSlot.GetComponent<SlotUI>().AddSlot(weaponIndex, 0);
 
-        processWeaponSub(weaponIndex, newWeapon);
+        processWeaponSub(weaponIndex, Weapons.Last());
+    }
+    public Weapon GetWeapon(int weaponIndex)
+    {
+        if (TransWeaponIndex[weaponIndex] < 0)
+            Debug.Log("없는 무기 호출");
+        // TODO: 없는 무기 호출시 에러! 제대로 작성
+        Debug.Log(TransWeaponIndex[weaponIndex]);
+        Debug.Log(Weapons[TransWeaponIndex[weaponIndex]]);
+        return Weapons[TransWeaponIndex[weaponIndex]];
     }
     public void UpgradeWeapon(int weaponIndex)
     {
@@ -121,10 +128,46 @@ public class EquipmentManagementSystem
         switch(weaponIndex) 
         {
             case 7: // peachOne
-                weapon.GetComponent<Peachone>().SpawnBlueBird(skillFiringSystem.Birds[0]);
+                weapon.GetComponent<Peachone>().SpawnBlueBird(SkillFiringSystem.instance.Birds[0]);
                 break;
             case 8: // ebonyWings
-                weapon.GetComponent<EbonyWings>().SpawnBlackBird(skillFiringSystem.Birds[1]);
+                weapon.GetComponent<EbonyWings>().SpawnBlackBird(SkillFiringSystem.instance.Birds[1]);
+                break;
+        }
+    }
+    private void addNewWeapon(int weaponIndex)
+    {
+        switch (weaponIndex)
+        {
+            case 0: // Whip
+                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Whip>());
+                break;
+            case 1: // MagicWand
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<MagicWand>());
+                break;
+            case 2: // Knife
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Knife>());
+                break;
+            case 3: // Cross
+                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Cross>());
+                break;
+            case 4: // KingBible
+                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<KingBible>());
+                break;
+            case 5: // FireWand
+                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<FireWand>());
+                break;
+            case 6: // Garlic
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Gralic>());
+                break;
+            case 7: // peachOne
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Peachone>());
+                break;
+            case 8: // ebonyWings
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<EbonyWings>());
+                break;
+            case 9: // LightningRing
+                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<LightningRing>());
                 break;
         }
     }

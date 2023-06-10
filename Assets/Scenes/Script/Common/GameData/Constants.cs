@@ -18,4 +18,5 @@ static class Constants
     public const int MaxOptionNumber = 0; // 옵션 구현 후 설정
     public const int MaxStageNumber = 2;
     public const int MaxCharacterNumber = 7;
+    public const int WeaponStatNumber = 9;
 }

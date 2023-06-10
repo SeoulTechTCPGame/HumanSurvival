@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gralic : MonoBehaviour
+public class Gralic : Weapon
 {
     bool isExist = false;
     GameObject newobj;
@@ -12,10 +12,15 @@ public class Gralic : MonoBehaviour
         transform.position = GameManager.instance.player.transform.position + new Vector3(0, 0.5f, 0);
     }
 
-    public void SpawnGralic(GameObject objPre)
+    public override void Attack()
     {
+        GameObject objPre;
+        if (isEvoluction())
+            objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
+        else
+            objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
         timer += Time.deltaTime;
-        if (timer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
             if(!isExist)
             {
@@ -31,5 +36,9 @@ public class Gralic : MonoBehaviour
             }
             timer = 0;
         }
+    }
+    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
+    {
+
     }
 }

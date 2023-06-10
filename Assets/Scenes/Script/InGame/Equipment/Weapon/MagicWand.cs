@@ -1,8 +1,7 @@
 using UnityEngine;
-public class MagicWand : MonoBehaviour
+public class MagicWand : Weapon
 {
     [SerializeField] Animator animator;
-    public Weapon ownWeapon;
 
     float timer = 0;
     bool useWand = false;
@@ -10,7 +9,6 @@ public class MagicWand : MonoBehaviour
     int touchLimit;
     private void Start()
     {
-        ownWeapon = GetComponent<Weapon>();
         animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
@@ -22,33 +20,59 @@ public class MagicWand : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void FireMagicWand(GameObject objPre)
+    public override void Attack()
     {
+        GameObject objPre;
+        if (isEvoluction()) 
+            objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
+        else
+            objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
         timer += Time.deltaTime;
-        if (timer > ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            for (int i = 0; i < ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
+            for (int i = 0; i < WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
             {
                 //무기 세팅
                 GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
                 newobs.transform.position = GameManager.instance.player.transform.position;
                 MagicWand newWand = newobs.GetComponent<MagicWand>();
                 newWand.useWand = true;
-                newWand.touchLimit = (int)ownWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
+                newWand.touchLimit = (int)WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
                 Vector3 direction = FindClosestEnemyDirection();
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 //무기가 바라보는 방향 조절
                 newobs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
                 //무기 발사
                 Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * ownWeapon.WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
+                rb.velocity = direction * WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
             }
             timer = 0;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.gameObject.tag == "Monster")
+        if (col.CompareTag("DestructibleObj"))
+        {
+            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
+            {
+                destructible.TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
+            }
+        }
+        if (col.gameObject.tag == "Monster")
+        {
+            col.gameObject.GetComponent<Enemy>().TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
+            if (WeaponIndex == 6 && bEvolution)
+            {
+                GameManager.instance.character.RestoreHealth(1);
+                GameManager.instance.EvoGralicRestoreCount++;
+                if (GameManager.instance.EvoGralicRestoreCount == 60)
+                {
+                    GameManager.instance.EvoGralicRestoreCount = 0;
+                    weaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
+                }
+            }
+        }
+        if (col.gameObject.tag == "Monster")
         {
             touch++;
         }
@@ -85,5 +109,9 @@ public class MagicWand : MonoBehaviour
         {
             return Vector3.right;
         }
+    }
+    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
+    {
+
     }
 }

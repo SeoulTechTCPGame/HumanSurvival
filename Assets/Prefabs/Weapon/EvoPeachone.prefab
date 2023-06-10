@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 745888990948752621}
   - component: {fileID: -3587038025473463999}
   - component: {fileID: 7596873339338999605}
-  - component: {fileID: 4026118149073244066}
   - component: {fileID: 8057862940404335296}
   m_Layer: 8
   m_Name: EvoPeachone
@@ -246,32 +245,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &4026118149073244066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943404134078784437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponIndex: 8
-  WeaponLevel: 1
-  WeaponMaxLevel: 8
-  bEvolution: 0
-  weaponTotalStats:
-  - 30
-  - 11.4
-  - 0.8
-  - 4
-  - 11
-  - 60
-  - 1e+10
-  - 2.2
-  - 8
 --- !u!114 &8057862940404335296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979423e495ffb304b85e402ecbe964f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponIndex: 0
+  WeaponLevel: 1
+  WeaponMaxLevel: 0
+  bEvolution: 0
+  weaponTotalStats: []
   animator: {fileID: 4988606761751433582}
   Bird: {fileID: 0}
   StartPoint: {fileID: 0}

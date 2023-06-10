@@ -5,7 +5,7 @@ using System.Net;
 using UnityEditor.U2D.Path;
 using UnityEngine;
 
-public class EbonyWings : MonoBehaviour
+public class EbonyWings : Weapon
 {
     [SerializeField] Animator animator;
     public GameObject Bird = null;
@@ -63,25 +63,32 @@ public class EbonyWings : MonoBehaviour
         mColorCnt++;
         newobs.transform.position = sourceP.position; //시작 위치
     }
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
+    public override void Attack() 
+    {
+        if (isEvoluction())
+            evoAttack(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
+        else
+            Attack(SkillFiringSystem.instance.weaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[0]);
+    }
+    public void Attack(GameObject peachPre, GameObject bounderyPre)
     {
         Timer += Time.deltaTime;
-        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, this, StartPoint);
             Timer = 0;
-            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.WeaponStat.Area)];
             mColorCnt = 0;
         }
     }
-    public void CreateEvoCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
+    public void evoAttack(GameObject peachPre, GameObject bounderyPre)
     {
         Timer += Time.deltaTime;
-        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        if (Timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
+            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, this, StartPoint);
             Timer = 0;
-            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.WeaponStat.Area)];
             mColorCnt = 0;
         }
     }
@@ -103,8 +110,10 @@ public class EbonyWings : MonoBehaviour
         newObjBird.PlayerTransform = GameManager.instance.player.transform;
         StartPoint = newObjBird.transform;
     }
-    public void EvolutionProcess()
+    public override void EvolutionProcess()
     {
-        StartPoint = Bird.GetComponent<Bird>().transform;
+        var equipManageSys = GameManager.instance.equipManageSys;
+        var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+        pairWeapon.EvolutionProcess();
     }
 }

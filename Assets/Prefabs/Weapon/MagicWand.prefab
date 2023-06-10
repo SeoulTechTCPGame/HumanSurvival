@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4988606761751433582}
   - component: {fileID: 745888990948752621}
   - component: {fileID: 5098682408450118709}
-  - component: {fileID: 4026118149073244066}
   - component: {fileID: 4905319741149529243}
   m_Layer: 8
   m_Name: MagicWand
@@ -146,32 +145,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.48, y: 0.32}
   m_Direction: 0
---- !u!114 &4026118149073244066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943404134078784437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponIndex: 1
-  WeaponLevel: 1
-  WeaponMaxLevel: 8
-  Mastered: 0
-  weaponTotalStats:
-  - 10
-  - 1.2
-  - 1
-  - -1
-  - 1
-  - 60
-  - 1
-  - 1
-  - 8
 --- !u!114 &4905319741149529243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,5 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97aaae1345e87148b043ee478efd3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponIndex: 0
+  WeaponLevel: 1
+  WeaponMaxLevel: 0
+  bEvolution: 0
+  weaponTotalStats: []
   animator: {fileID: 0}
-  ownWeapon: {fileID: 4026118149073244066}
