@@ -5,8 +5,10 @@ using UnityEngine;
 [Serializable]
 public class UserData
 {
-    public int Gold;
-    public int consumeGold = 0;
+    public int Gold = 0;
+    public int consumedGold = 0;
+    public float accumulatedTime = 0;
+    public int accumulatedKill = 0;
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

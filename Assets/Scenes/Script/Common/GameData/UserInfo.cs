@@ -24,15 +24,30 @@ public class UserInfo : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    public void getGold(int gold)
+    public void UpdateAccumulatedTime(float time)
+    {
+        UserDataSet.accumulatedTime += time;
+        UserDataManager.instance.SaveData();
+    }
+    public void UpdateAccumulatedKill(int kill)
+    {
+        UserDataSet.accumulatedKill += kill;
+        UserDataManager.instance.SaveData();
+    }   
+    public void UpdateGold(int gold)
     {
         UserDataSet.Gold += gold;
-        UserDataSet.consumeGold -= gold;
+        UserDataManager.instance.SaveData();
+    }
+    public void ConsumeGold(int gold)
+    {
+        UserDataSet.Gold += gold;
+        UserDataSet.consumedGold -= gold;
         UserDataManager.instance.SaveData();
     }
     public void RefundGold()
     {
-        UserDataSet.consumeGold = 0;
+        UserDataSet.consumedGold = 0;
         UserDataManager.instance.SaveData();
     }
     public void UpdateColldection(int collectionIndex)

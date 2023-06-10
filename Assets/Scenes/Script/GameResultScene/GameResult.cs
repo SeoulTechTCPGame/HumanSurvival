@@ -45,4 +45,11 @@ public class GameResult : MonoBehaviour
             //밑에 숫자가 뭘까..
         }
     }
+
+    public void ClickCompleteBtn()
+    {
+        UserInfo.instance.UpdateAccumulatedTime(GameManager.instance.gameTime);
+        UserInfo.instance.UpdateAccumulatedKill(GameManager.instance.kill);
+        UserInfo.instance.UpdateGold(GameManager.instance.coin);
+    }
 }
