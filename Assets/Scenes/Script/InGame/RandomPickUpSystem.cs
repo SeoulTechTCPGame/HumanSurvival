@@ -65,8 +65,15 @@ public class RandomPickUpSystem
             }
         }
     }
-    public List<Tuple<int, int, int>> RandomPickUp(EquipmentManagementSystem equipManageSys)
+    public List<Tuple<int, int, int>> RandomPickUp(int n)
     {
+        var equipManageSys = GameManager.instance.equipManageSys;
+
+
+    }
+        public List<Tuple<int, int, int>> RandomPickUp()
+    {
+        var equipManageSys = GameManager.instance.equipManageSys;
         UpdateAccessoryPickUpList();
         UpdateWeaponPickUpList();
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;

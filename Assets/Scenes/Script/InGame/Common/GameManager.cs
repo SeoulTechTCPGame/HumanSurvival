@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
     {
         level++;
         PauseGame();
-        var pickUps = RandomPickUpSystem.RandomPickUp(equipManageSys);
+        var pickUps = RandomPickUpSystem.RandomPickUp();
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, equipManageSys.Weapons, equipManageSys.Accessories);
     }
     public void UpdateLuck(float luck)
