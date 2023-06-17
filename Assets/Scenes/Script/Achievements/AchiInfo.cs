@@ -53,13 +53,16 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
         this.mExplain = mInfoData.Achievement[mAchi-1].Explain;
         this.mObtain = mInfoData.Achievement[mAchi-1].Obtain;
 
-        if (UserInfo.instance.UserDataSet.BAchievements[mAchi]) {
+        if (UserInfo.instance.UserDataSet.BAchievements[mAchi]) 
+        {
             mThisAchiToggle.GetComponent<Toggle>().isOn = true;
         }
         mThisAchiName.text = this.mExplain;
     }
-    public void OnPointerEnter(PointerEventData eventData) {
-        if (UserInfo.instance.UserDataSet.BAchievements[mAchi]) {
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (UserInfo.instance.UserDataSet.BAchievements[mAchi])
+        {
             mAchiName.text = "획득";
             mAchiImageBG.color = new Color(0f, 1f, 1f, 1f);
         }

@@ -1,6 +1,7 @@
 using Rito;
 using System;
 using System.Collections.Generic;
+
 public class RandomPickUpSystem
 {
     private static int[] mWeaponRarity;
@@ -97,13 +98,21 @@ public class RandomPickUpSystem
     private void GetPossibleChoice(ref int possibleWeaponChoice, ref int possibleAccessoryChoice, EquipmentManagementSystem equipManageSys)
     {
         if (equipManageSys.Weapons.Count == Constants.MAX_WEAPON_COUNT)
+        {
             possibleWeaponChoice = Constants.MAX_WEAPON_COUNT - equipManageSys.MasteredWeapons.Count;
+        }
         else
+        {
             possibleWeaponChoice = Constants.MAX_WEAPON_COUNT - equipManageSys.MasteredWeapons.Count;
+        }
         if (equipManageSys.Accessories.Count == Constants.MAX_ACCESSORY_COUNT)
+        {
             possibleAccessoryChoice = Constants.MAX_ACCESSORY_COUNT - equipManageSys.MasteredAccessories.Count;
+        }
         else
+        {
             possibleAccessoryChoice = Constants.MAX_ACCESSORY_COUNT - equipManageSys.MasteredAccessories.Count;
+        }
     }
 
     private Tuple<int, int, int> GetOnePickUp(int possibleWeaponNum, int possibleAccessoryNum, List<int> pickedWeaponList, List<int> pickedAccessoryList, EquipmentManagementSystem equipManagerSys)
@@ -115,13 +124,17 @@ public class RandomPickUpSystem
         {
             pick = GetWeaponRandomPick(pickedWeaponList);
             if (equipManagerSys.TransWeaponIndex[pick] < 0)
+            {
                 hasPick = 0;
+            }
         }
         else
         {
             pick = GetAccessoryRandomPick(pickedAccessoryList);
             if (equipManagerSys.TransAccessoryIndex[pick] < 0)
+            {
                 hasPick = 0;
+            }
         }
 
         return new Tuple<int, int, int>(pickType, pick, hasPick);
@@ -140,15 +153,23 @@ public class RandomPickUpSystem
     private int GetPickType(int possibleWeaponNum, int possibleAccessoryNum)    // 0: weapon, 1: accessory
     {
         if (possibleWeaponNum == 0)
+        {
             return 1;
+        }
         else if (possibleAccessoryNum == 0)
+        {
             return 0;
+        }
         else
         {
             if (UnityEngine.Random.Range(0, 2) == 0)
+            {
                 return 0;
+            }
             else
+            {
                 return 1;
+            }
         }
     }
     private int GetWeaponRandomPick(List<int> pickedWeaponList)

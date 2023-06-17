@@ -66,24 +66,6 @@ public class OptionManager : MonoBehaviour
             mDefaultPanel.SetActive(true);
         }
     }
-    private void OnBgmVolumeChanged(float value)
-    {
-        // BGM 볼륨 값을 변경
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.BgmVolume = value;
-        Debug.Log(soundManager.BgmVolume);
-    }
-    private void OnSoundEffectVolumeChanged(float value)
-    {
-        // 사운드 이펙트 볼륨 값을 변경
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.SoundEffectVolume = value;
-        Debug.Log(soundManager.SoundEffectVolume);
-    }
-    private void SetMoneyText()
-    {
-        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
-    }
     public void LoadSystemData()
     {
         string filePath = EditorUtility.OpenFilePanel("Json Explorer", "", "json");
@@ -122,5 +104,23 @@ public class OptionManager : MonoBehaviour
     public void YesOnParsingError()
     {
         mParsingErrorPanel.SetActive(false);
+    }
+    private void OnBgmVolumeChanged(float value)
+    {
+        // BGM 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.BgmVolume = value;
+        Debug.Log(soundManager.BgmVolume);
+    }
+    private void OnSoundEffectVolumeChanged(float value)
+    {
+        // 사운드 이펙트 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.SoundEffectVolume = value;
+        Debug.Log(soundManager.SoundEffectVolume);
+    }
+    private void SetMoneyText()
+    {
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }
