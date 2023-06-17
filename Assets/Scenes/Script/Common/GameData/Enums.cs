@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
 namespace Enums
 {
-    public enum Stat
+    public enum EStat
     {
         Might,
         Armor,
@@ -33,7 +25,7 @@ namespace Enums
         Reflection,
     }
 
-    public enum WeaponStat
+    public enum EWeaponStat
     {
         Might,
         Cooldown,
@@ -46,7 +38,7 @@ namespace Enums
         MaxLevel
     }
 
-    public enum AccessoryStat
+    public enum EAccessoryStat
     {
         MightPer,
         Armor,
@@ -71,7 +63,7 @@ namespace Enums
         ReflectionPer,
     }
 
-    public enum Weapon // 10개
+    public enum EWeapon // 10개
     {
         Whip,
         MagicWand,
@@ -85,7 +77,7 @@ namespace Enums
         LightningRing
     }
 
-    public enum Accessory // 15개
+    public enum EAccessory // 15개
     {
         Spinach,
         Armor,
@@ -103,24 +95,24 @@ namespace Enums
         StoneMask,
         Skull
     }
-    public enum PickUpType
+    public enum EPickUpType
     {
         Weapon,
         Accessory,
         Etc
     }
-    public enum Etc
+    public enum EEtc
     {
         Money,
         Food
     }
-    public enum Button
+    public enum EButton
     {
         Name,
         Script,
         Property
     }
-    public enum CharacterType
+    public enum ECharacterType
     { 
         Rogue,//Antonio,
         StormMage,//Imelda,      

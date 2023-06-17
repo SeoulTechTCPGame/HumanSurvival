@@ -635,9 +635,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf169700c21ed34e94f7b8714fceee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmVolume: 1
-  soundEffectVolume: 1
-  buttonSoundClip: {fileID: 8300000, guid: 1a5b147cfa4857f4f8dc71e79cab6f7f, type: 3}
+  BgmVolume: 1
+  SoundEffectVolume: 1
+  ButtonSoundClip: {fileID: 8300000, guid: 1a5b147cfa4857f4f8dc71e79cab6f7f, type: 3}
 --- !u!4 &1267347125
 Transform:
   m_ObjectHideFlags: 0

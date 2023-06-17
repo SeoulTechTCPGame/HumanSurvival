@@ -43,9 +43,8 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         mExplainName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();
         mExplainText.GetComponent<TextMeshProUGUI>().text = mCharacterData.explain;
         mExplainImage.GetComponent<Image>().sprite = mCharacterButton.transform.Find("Image").GetComponent<Image>().sprite;
-
-        Enums.Weapon[] enumValues = (Enums.Weapon[])System.Enum.GetValues(typeof(Enums.Weapon));
-        Enums.Weapon weapon = enumValues[mCharacterData.startingWeapon];
+        Enums.EWeapon[] enumValues = (Enums.EWeapon[])System.Enum.GetValues(typeof(Enums.EWeapon));
+        Enums.EWeapon weapon = enumValues[mCharacterData.startingWeapon];
         string weapoonName = "Weapons/" + weapon.ToString();
         mExplainWeapon.GetComponent<Image>().sprite = Resources.Load<Sprite>(weapoonName);
     }

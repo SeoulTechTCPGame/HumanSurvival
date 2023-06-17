@@ -2,32 +2,32 @@ using UnityEngine;
 
 public class Peachone : Weapon
 {
-    [SerializeField] Animator animator;
     public GameObject Bird = null;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
     public Vector3 ProjectileScale;
+    [SerializeField] Animator mAnimator;
     private bool mbHolding = false;
     private static Color[] mColors = { new Color(0.85f, 0.13f, 0.19f, 1), new Color(1, 0.46f, 0, 1), new Color(0.89f, 0.87f, 0.88f, 1)
             , new Color(0.51f, 0.93f, 0.17f, 1), new Color(0.13f, 0.89f, 0.51f, 1), new Color(0.13f, 0.75f, 1, 1), new Color(0.17f, 0.14f, 0.91f, 1), new Color(0.84f, 0.27f, 0.86f, 1) };
     private int mColorCnt = 0;
-    float Timer = 100;
-    bool UsePeach = false;
+    private float mTimer = 100;
+    private bool mbUsePeach = false;
     private void FixedUpdate()
     {
-        if (!UsePeach || mbHolding)
+        if (!mbUsePeach || mbHolding)
         {
             return;
         }
-        Timer += Time.deltaTime;
+        mTimer += Time.deltaTime;
 
-        transform.position = calculateBezierPoint();
-        if (Timer > 1.0f)
+        transform.position = CalculateBezierPoint();
+        if (mTimer > 1.0f)
         {
             mbHolding = true;
             Destroy(gameObject, 1f);
-            animator.SetTrigger("Hold");
+            mAnimator.SetTrigger("Hold");
             GetComponent<CircleCollider2D>().enabled = true;
         }
     }
@@ -38,8 +38,8 @@ public class Peachone : Weapon
         newObjPeachone.StartPoint = sourceP;
         newObjPeachone.ControlPoint = secondPoint;
         newObjPeachone.EndPoint = dstTransform;
-        newObjPeachone.UsePeach = true;
-        newObjPeachone.Timer = 0;
+        newObjPeachone.mbUsePeach = true;
+        newObjPeachone.mTimer = 0;
         newObjPeachone.transform.localScale = ProjectileScale;
         newobs.transform.position = sourceP.position; //시작 위치
     }
@@ -50,8 +50,8 @@ public class Peachone : Weapon
         newObjPeachone.StartPoint = sourceP;
         newObjPeachone.ControlPoint = secondPoint;
         newObjPeachone.EndPoint = dstTransform;
-        newObjPeachone.UsePeach = true;
-        newObjPeachone.Timer = 0;
+        newObjPeachone.mbUsePeach = true;
+        newObjPeachone.mTimer = 0;
         newObjPeachone.transform.localScale = ProjectileScale;
         newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
         mColorCnt++;
@@ -59,40 +59,40 @@ public class Peachone : Weapon
     }
     public override void Attack()
     {
-        if (isEvoluction())
-            evoAttack(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
+        if (IsEvoluction())
+            EvoAttack(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
         else
             Attack(SkillFiringSystem.instance.weaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[0]);
     }
     public void Attack(GameObject peachPre, GameObject bounderyPre)
     {
-        Timer += Time.deltaTime;
-        if (Timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
             bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, true, this, StartPoint);
-            Timer = 0;
-            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            mTimer = 0;
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
             mColorCnt = 0;
         }
     }
-    public void evoAttack(GameObject peachPre, GameObject bounderyPre)
+    public void EvoAttack(GameObject peachPre, GameObject bounderyPre)
     {
-        Timer += Time.deltaTime;
-        if (Timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
             bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, true, this, StartPoint);
-            Timer = 0;
-            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            mTimer = 0;
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
             mColorCnt = 0;
         }
     }
-    private Vector3 calculateBezierPoint()
+    private Vector3 CalculateBezierPoint()
     {
-        float u = 1f - Timer;
-        float tt = Timer * Timer;
+        float u = 1f - mTimer;
+        float tt = mTimer * mTimer;
         float uu = u * u;
         Vector3 nowPos = uu * StartPoint.position;
-        nowPos += 2f * u * Timer * ControlPoint;
+        nowPos += 2f * u * mTimer * ControlPoint;
         nowPos += tt * EndPoint.position;
 
         return nowPos;
@@ -101,23 +101,23 @@ public class Peachone : Weapon
     {
         Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
         var newObjBird = Bird.GetComponent<Bird>();
-        newObjBird.PlayerTransform = GameManager.instance.player.transform;
+        newObjBird.PlayerTransform = GameManager.instance.Player.transform;
         StartPoint = newObjBird.transform;
     }
     private void SpawnWhiteBird(GameObject bird, Weapon pairWeapon)
     {
         Bird = pairWeapon.GetComponent<EbonyWings>().Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
-        Bird.GetComponent<Bird>().PlayerTransform = GameManager.instance.player.transform;
+        Bird.GetComponent<Bird>().PlayerTransform = GameManager.instance.Player.transform;
     }
     public override void EvolutionProcess()
     {
-        var equipManageSys = GameManager.instance.equipManageSys;
+        var equipManageSys = GameManager.instance.EquipManageSys;
         var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
         var bird = SkillFiringSystem.instance.Birds[2];
         pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
 
-        Destroy(Bird, pairWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Cooldown] - Timer);
-        Destroy(pairWeapon.GetComponent<EbonyWings>().Bird, pairWeapon.WeaponTotalStats[(int)Enums.WeaponStat.Cooldown] - Timer);
+        Destroy(Bird, pairWeapon.WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown] - mTimer);
+        Destroy(pairWeapon.GetComponent<EbonyWings>().Bird, pairWeapon.WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown] - mTimer);
         SpawnWhiteBird(bird, pairWeapon);
         StartPoint = Bird.GetComponent<Bird>().transform;
         pairWeapon.GetComponent<EbonyWings>().StartPoint = pairWeapon.GetComponent<EbonyWings>().Bird.GetComponent<Bird>().transform;

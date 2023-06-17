@@ -16,8 +16,8 @@ public class EquipmentManagementSystem
     {
         Weapons = new List<Weapon>();
         Accessories = new List<Accessory>();
-        TransWeaponIndex = Enumerable.Repeat<int>(-1, Constants.MaxWeaponNumber).ToArray<int>();
-        TransAccessoryIndex = Enumerable.Repeat<int>(-1, Constants.MaxAccessoryNumber).ToArray<int>();
+        TransWeaponIndex = Enumerable.Repeat<int>(-1, Constants.MAX_WEAPON_NUMBER).ToArray<int>();
+        TransAccessoryIndex = Enumerable.Repeat<int>(-1, Constants.MAX_ACCESSORY_NUMBER).ToArray<int>();
         MasteredWeapons = new List<int>();
         MasteredAccessories = new List<int>();
 
@@ -26,41 +26,41 @@ public class EquipmentManagementSystem
 
     public void ApplyItem(Tuple<int, int, int> pickUp)
     {
-        switch ((Enums.PickUpType)pickUp.Item1)
+        switch ((Enums.EPickUpType)pickUp.Item1)
         {
-            case Enums.PickUpType.Weapon:
-                applyWeapon(pickUp.Item2, pickUp.Item3);
+            case Enums.EPickUpType.Weapon:
+                ApplyWeapon(pickUp.Item2, pickUp.Item3);
                 break;
-            case Enums.PickUpType.Accessory:
-                applyAccessory(pickUp.Item2, pickUp.Item3);
+            case Enums.EPickUpType.Accessory:
+                ApplyAccessory(pickUp.Item2, pickUp.Item3);
                 break;
             default:
-                applyEtc(pickUp.Item2);
+                ApplyEtc(pickUp.Item2);
                 break;
         }
     }
-    private void applyWeapon(int weaponIndex, int hasWeapon)
+    private void ApplyWeapon(int weaponIndex, int hasWeapon)
     {
         if (hasWeapon == 0)
             SetNewWeapon(weaponIndex);
         else
             UpgradeWeapon(weaponIndex);
     }
-    private void applyAccessory(int accessoryIndex, int hasAccessory)
+    private void ApplyAccessory(int accessoryIndex, int hasAccessory)
     {
         if (hasAccessory == 0)
             GetAccessory(accessoryIndex);
         else
             UpgradeAccessory(accessoryIndex);
     }
-    private void applyEtc(int etcIndex)
+    private void ApplyEtc(int etcIndex)
     {
-        switch ((Enums.Etc)etcIndex)
+        switch ((Enums.EEtc)etcIndex)
         {
-            case Enums.Etc.Food:
+            case Enums.EEtc.Food:
                 // TODO: 체력 회복 함수와 연결
                 break;
-            case Enums.Etc.Money:
+            case Enums.EEtc.Money:
                 // TODO: 재화 획득 함수와 연결
                 break;
             default:
@@ -69,27 +69,27 @@ public class EquipmentManagementSystem
     }
     public bool HasWeapon(int weaponIndex)
     {
-        if (weaponIndex < 0 || weaponIndex >= Constants.MaxWeaponNumber)
+        if (weaponIndex < 0 || weaponIndex >= Constants.MAX_WEAPON_NUMBER)
             return false;
         return TransWeaponIndex[weaponIndex] >= 0;
     }
     public bool HasAcc(int accIndex)
     {
-        if (accIndex < 0 || accIndex >= Constants.MaxAccessoryNumber)
+        if (accIndex < 0 || accIndex >= Constants.MAX_ACCESSORY_NUMBER)
             return false;
         return TransAccessoryIndex[accIndex] >= 0;
     }
     //ToDo: SkillFiringSystem이랑 연계 할 함수
     public void SetNewWeapon(int weaponIndex)
     {
-        GameManager.instance.weaponGetTime[weaponIndex] = GameManager.instance.gameTime;
+        GameManager.instance.WeaponGetTime[weaponIndex] = GameManager.instance.GameTime;
         TransWeaponIndex[weaponIndex] = Weapons.Count;
 
-        addNewWeapon(weaponIndex);
+        AddNewWeapon(weaponIndex);
         Weapons.Last().WeaponDefalutSetting(weaponIndex);
         GameManager.instance.WeaponSlot.GetComponent<SlotUI>().AddSlot(weaponIndex, 0);
 
-        processWeaponSub(weaponIndex, Weapons.Last());
+        ProcessWeaponSub(weaponIndex, Weapons.Last());
     }
     public Weapon GetWeapon(int weaponIndex)
     {
@@ -123,7 +123,7 @@ public class EquipmentManagementSystem
             MasteredAccessories.Add(accessoryIndex);
         }
     }
-    private void processWeaponSub(int weaponIndex, Weapon weapon)
+    private void ProcessWeaponSub(int weaponIndex, Weapon weapon)
     {
         switch(weaponIndex) 
         {
@@ -135,7 +135,7 @@ public class EquipmentManagementSystem
                 break;
         }
     }
-    private void addNewWeapon(int weaponIndex)
+    private void AddNewWeapon(int weaponIndex)
     {
         switch (weaponIndex)
         {

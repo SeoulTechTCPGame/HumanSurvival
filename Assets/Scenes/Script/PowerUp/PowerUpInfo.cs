@@ -73,7 +73,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;
         mChargeButton.GetComponent<ChargePowerUp>().NowAccessoryIndex = mAccessoryIndex - 1;
-        AccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[mAccessoryIndex - 1].ToString();
+        AccessoryCash.text = UserInfo.instance.UserDataSet.NowPowerUpCash[mAccessoryIndex - 1].ToString();
         if(UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1] == AccessoryMaxLevel)
         {
             mChargeObject.SetActive(false);

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EvoPeachBoundery : MonoBehaviour
@@ -11,7 +9,7 @@ public class EvoPeachBoundery : MonoBehaviour
     private float mRealDuration;
     private float mCooldown = 2f;
     private float mAccCooldown = 0;
-    private bool isClockwise = true;
+    private bool mbClockwise = true;
     private GameObject mPeachObj;
     private Transform mBirdTransform;
     private Transform mPlayerTransform;
@@ -24,16 +22,16 @@ public class EvoPeachBoundery : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.position = getStartPosition(GameManager.instance.player.transform.position);
-        if (isClockwise)
-            transform.RotateAround(GameManager.instance.player.transform.position, Vector3.back, mSpeed * mTimer);
+        transform.position = GetStartPosition(GameManager.instance.Player.transform.position);
+        if (mbClockwise)
+            transform.RotateAround(GameManager.instance.Player.transform.position, Vector3.back, mSpeed * mTimer);
         else
-            transform.RotateAround(GameManager.instance.player.transform.position, -Vector3.back, mSpeed * mTimer);
+            transform.RotateAround(GameManager.instance.Player.transform.position, -Vector3.back, mSpeed * mTimer);
         if (mTimer <= mDuration && mTimer >= mAccCooldown)
         {
             // peachone 소환
             var startPos = mBirdTransform.position;
-            Vector3 pos = getSecondPosition();
+            Vector3 pos = GetSecondPosition();
             mPeachObj.GetComponent<Peachone>().EvoFire(mPeachObj, transform, pos, mBirdTransform);
             mAccCooldown += mCooldown;
         }
@@ -42,24 +40,24 @@ public class EvoPeachBoundery : MonoBehaviour
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW, Weapon peachone, Transform birdTransform)
     {
         GameObject newobs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
-        newobs.transform.position = getStartPosition(GameManager.instance.player.transform.position);
+        newobs.transform.position = GetStartPosition(GameManager.instance.Player.transform.position);
         var newPeachoneBoundery = newobs.GetComponent<EvoPeachBoundery>();
         newPeachoneBoundery.mBirdTransform = birdTransform;
-        newPeachoneBoundery.mDuration = peachone.WeaponTotalStats[((int)Enums.WeaponStat.Duration)] * 2.5f;
+        newPeachoneBoundery.mDuration = peachone.WeaponTotalStats[((int)Enums.EWeaponStat.Duration)] * 2.5f;
         newPeachoneBoundery.mRealDuration = newPeachoneBoundery.mDuration + 1.5f;
-        newPeachoneBoundery.mSpeed = mSpeed * peachone.WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
-        newPeachoneBoundery.mCooldown = mCooldown / peachone.WeaponTotalStats[((int)Enums.WeaponStat.Amount)];
+        newPeachoneBoundery.mSpeed = mSpeed * peachone.WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+        newPeachoneBoundery.mCooldown = mCooldown / peachone.WeaponTotalStats[((int)Enums.EWeaponStat.Amount)];
         newPeachoneBoundery.mPeachObj = peachPre;
-        newPeachoneBoundery.mPlayerTransform = GameManager.instance.player.transform;
+        newPeachoneBoundery.mPlayerTransform = GameManager.instance.Player.transform;
         if (!isCW)
-            newPeachoneBoundery.isClockwise = false;
+            newPeachoneBoundery.mbClockwise = false;
     }
 
-    private Vector3 getStartPosition(Vector3 pos)
+    private Vector3 GetStartPosition(Vector3 pos)
     {
         return pos + Vector3.left * mDistance;
     }
-    private Vector3 getSecondPosition()
+    private Vector3 GetSecondPosition()
     {
         return mPlayerTransform.position + Vector3.up * mDistance;
     }

@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
   m_Name: Ghoul
   m_EditorClassIdentifier: 
-  Ename: Ghoul
+  enemyName: Ghoul
   spriteType: 2
-  spawnTime: 0.2
   speed: 100
   power: 10
   knockback: 0.8

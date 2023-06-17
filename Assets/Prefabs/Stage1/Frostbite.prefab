@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drops:
-  - name: heart
-    prefabsIndex: 0
-    dropRate: 100
-  - name: coin
-    prefabsIndex: 0
-    dropRate: 100
+  DropList:
+  - Name: heart
+    PrefabsIndex: 0
+    DropRate: 100
+  - Name: coin
+    PrefabsIndex: 0
+    DropRate: 100

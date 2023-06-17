@@ -5,7 +5,7 @@ using Enums;
 public class CharacterScriptableObject : ScriptableObject
 {
     [Header("#Main Info")]
-    public CharacterType CharacterType;
+    public ECharacterType CharacterType;
     
     public int MaxHealth;//100hp
     public float Recovery;//0 HP/s

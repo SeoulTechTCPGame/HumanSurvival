@@ -2,68 +2,63 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageable
 {
-    //예시를 위해 값은 무작위로 넣음
-    //ToDo: 스탯들을 변수를 리스트 형식으로 바꾸기 + GameMager에서 가져오기
-    [SerializeField] HealthBar HpBar;
-    private bool isDead;
-    [SerializeField]
-    private float currentHp;
-    private float maxHp;
-    private float armor;
-
+    public float HpRegenerationTimer;
+    [SerializeField] HealthBar mHpBar;
+    [SerializeField] float mCurrentHp;
+    private bool mbDead;
+    private float mMaxHp;
+    private float mArmor;
     private float mExp;
     private int mMaxExp;
 
-    public float hpRegenerationTimer;
-
-    void Start()
+    private void Start()
     {
         mExp = 0;
         mMaxExp = 100;
-        currentHp = GameManager.instance.characterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.Stat.MaxHealth];
-        maxHp = GameManager.instance.characterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.Stat.MaxHealth];
-        armor = GameManager.instance.CharacterStats[(int)Enums.Stat.Armor];
+        mCurrentHp = GameManager.instance.CharacterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.EStat.MaxHealth];
+        mMaxHp = GameManager.instance.CharacterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.EStat.MaxHealth];
+        mArmor = GameManager.instance.CharacterStats[(int)Enums.EStat.Armor];
     }
     private void Update()
     {
         // 장신구 레벨업시 스텟이 적용되려면 Start가 아니라 Update에서도 계속 값을 업데이트해야지 적용된다.
-        maxHp = GameManager.instance.characterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.Stat.MaxHealth];
-        armor = GameManager.instance.CharacterStats[(int)Enums.Stat.Armor];
+        mMaxHp = GameManager.instance.CharacterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.EStat.MaxHealth];
+        mArmor = GameManager.instance.CharacterStats[(int)Enums.EStat.Armor];
         //체력 재생력
-        hpRegenerationTimer += Time.deltaTime * GameManager.instance.CharacterStats[(int)Enums.Stat.Recovery];
-        if (hpRegenerationTimer > 1f)
+        HpRegenerationTimer += Time.deltaTime * GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery];
+        if (HpRegenerationTimer > 1f)
         {
             RestoreHealth(1);
-            hpRegenerationTimer -= 1f;
+            HpRegenerationTimer -= 1f;
 
         }
     }
     public void RestoreHealth(float amount)
     {
-        if (currentHp < maxHp)
+        if (mCurrentHp < mMaxHp)
         {
-            currentHp += amount;
-            if (currentHp > maxHp) currentHp = maxHp;
-            HpBar.SetState(currentHp, maxHp);
+            mCurrentHp += amount;
+            if (mCurrentHp > mMaxHp) mCurrentHp = mMaxHp;
+            mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
-        if (isDead == true) return;
-        if (damage - armor <= 0)
+        if (mbDead == true) return;
+        if (damage - mArmor <= 0)
         {
-            currentHp -= Time.deltaTime * 0 * 2;
+            mCurrentHp -= Time.deltaTime * 0 * 2;
         }
         else
         {
-            currentHp -= Time.deltaTime * (damage - armor) * 2;
+            mCurrentHp -= Time.deltaTime * (damage - mArmor) * 2;
         }
-        if (currentHp <= 0)
+        if (mCurrentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
-            isDead = true;
+            mbDead = true;
         }
-        HpBar.SetState(currentHp, maxHp);
+        mHpBar.SetState(mCurrentHp, mMaxHp);
     }
 
     public void TempLoad()
@@ -75,12 +70,12 @@ public class Character : MonoBehaviour, IDamageable
     {
         // TODO: stat의 growth 적용하여 경험치 획득
         mExp += exp;
-        GameManager.instance.exp = mExp;
+        GameManager.instance.Exp = mExp;
         while (mExp >= mMaxExp)
         {
             mExp -= mMaxExp;
-            mMaxExp += Constants.DeltaExp;
-            GameManager.instance.maxExp = mMaxExp;
+            mMaxExp += Constants.DELTA_EXP;
+            GameManager.instance.MaxExp = mMaxExp;
             GameManager.instance.LevelUp();
         }
     }

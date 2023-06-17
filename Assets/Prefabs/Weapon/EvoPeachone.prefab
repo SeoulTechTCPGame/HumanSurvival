@@ -260,11 +260,11 @@ MonoBehaviour:
   WeaponIndex: 0
   WeaponLevel: 1
   WeaponMaxLevel: 0
-  bEvolution: 0
-  weaponTotalStats: []
-  animator: {fileID: 4988606761751433582}
+  BEvolution: 0
+  WeaponTotalStatList: []
   Bird: {fileID: 0}
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0.82144684, y: 5.1742687, z: 0}
   ProjectileScale: {x: 7.26, y: 7.26, z: 0}
+  mAnimator: {fileID: 4988606761751433582}

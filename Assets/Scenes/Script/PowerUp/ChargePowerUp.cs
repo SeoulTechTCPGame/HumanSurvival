@@ -15,9 +15,9 @@ public class ChargePowerUp : MonoBehaviour
 
     public void Charge()
     {
-        if(UserInfo.instance.UserDataSet.Gold > UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex] && UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] != mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel)
+        if(UserInfo.instance.UserDataSet.Gold > UserInfo.instance.UserDataSet.NowPowerUpCash[NowAccessoryIndex] && UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] != mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel)
         {
-            UserInfo.instance.ConsumeGold(-UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex]);
+            UserInfo.instance.ConsumeGold(-UserInfo.instance.UserDataSet.NowPowerUpCash[NowAccessoryIndex]);
             for (int i = 0; i < mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel; i++)
             {
                 if (UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] == i)
@@ -32,7 +32,7 @@ public class ChargePowerUp : MonoBehaviour
             {
                 UserInfo.instance.UpdatePowerUpCash(i);
             }
-            mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex].ToString();
+            mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryCash.text = UserInfo.instance.UserDataSet.NowPowerUpCash[NowAccessoryIndex].ToString();
         }
         if(UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] == mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel)
         {
@@ -53,10 +53,9 @@ public class ChargePowerUp : MonoBehaviour
             UserInfo.instance.RefundPowerUpStat(i);
             UserInfo.instance.RefundPowerUpCash(i);
         }
-        UserInfo.instance.ConsumeGold(UserInfo.instance.UserDataSet.consumedGold);
+        UserInfo.instance.ConsumeGold(UserInfo.instance.UserDataSet.ConsumedGold);
         UserInfo.instance.RefundGold();
-        mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryCash.text = UserInfo.instance.UserDataSet.nowPowerUpCash[NowAccessoryIndex].ToString();
-        
+        mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryCash.text = UserInfo.instance.UserDataSet.NowPowerUpCash[NowAccessoryIndex].ToString();
         mChargeObject.SetActive(true);
         mActiveObject.SetActive(false);
     }

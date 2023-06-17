@@ -51,9 +51,9 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
         this.mItemName = mInfoData.Collection[mItemIndex-1].Name;
         this.mExplain = mInfoData.Collection[mItemIndex-1].Explain;
         this.mRank = mInfoData.Collection[mItemIndex-1].Rank;
+
         
-        if (!UserInfo.instance.UserDataSet.Collection[mItemIndex]) 
-        {
+        if (!UserInfo.instance.UserDataSet.BCollection[mItemIndex]) {
             this.mItemName = "???";
             this.mExplain = "아직 발견하지 못했습니다.";
             if(this.mRank == "black")

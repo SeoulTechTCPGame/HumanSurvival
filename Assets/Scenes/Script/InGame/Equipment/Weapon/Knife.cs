@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Knife : Weapon
 {
-    float timer = 0;
-    bool useKnife = false;
-    int touch = 0;
-    int touchLimit;
-    void Update()
+    private float mTimer = 0;
+    private bool mbUseKnife = false;
+    private int mTouch = 0;
+    private int mTouchLimit;
+    private void Update()
     {
-        if (!useKnife) return;  //knife 사용 안할 때 Update를 안 함
-        if(touchLimit <= touch)
+        if (!mbUseKnife) return;  //knife 사용 안할 때 Update를 안 함
+        if(mTouchLimit <= mTouch)
         {
             Destroy(this.gameObject);
         }
@@ -17,29 +17,29 @@ public class Knife : Weapon
     public override void Attack()
     {
         GameObject objPre;
-        if (isEvoluction())
+        if (IsEvoluction())
             objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
         else
             objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
-        timer += Time.deltaTime;
-        if (timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
-            for (int i = 0; i < WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
+            for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-                Vector3 spawnPosition = GameManager.instance.player.transform.position;
+                Vector3 spawnPosition = GameManager.instance.Player.transform.position;
                 if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
                 {
-                    spawnPosition.y -= ((int)WeaponTotalStats[((int)Enums.WeaponStat.Area)] * (i-1)) / 2;
-                    spawnPosition.y += i * (int)WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+                    spawnPosition.y -= ((int)WeaponTotalStats[((int)Enums.EWeaponStat.Area)] * (i-1)) / 2;
+                    spawnPosition.y += i * (int)WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
                 }
                 newobs.transform.position = spawnPosition; //시작 위치
-                newobs.GetComponent<Knife>().useKnife = true;
-                newobs.GetComponent<Knife>().touchLimit = (int)WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
+                newobs.GetComponent<Knife>().mbUseKnife = true;
+                newobs.GetComponent<Knife>().mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
                 Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
-                rb.velocity = setDirection(newobs) * WeaponTotalStats[(int)Enums.WeaponStat.ProjectileSpeed];
+                rb.velocity = setDirection(newobs) * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
             }
-            timer = 0;
+            mTimer = 0;
         }
     }
     private void OnTriggerEnter2D(Collider2D col)
@@ -48,54 +48,54 @@ public class Knife : Weapon
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                destructible.TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
+                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && bEvolution)
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            if (WeaponIndex == 6 && BEvolution)
             {
-                GameManager.instance.character.RestoreHealth(1);
+                GameManager.instance.Character.RestoreHealth(1);
                 GameManager.instance.EvoGralicRestoreCount++;
                 if (GameManager.instance.EvoGralicRestoreCount == 60)
                 {
                     GameManager.instance.EvoGralicRestoreCount = 0;
-                    weaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
+                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
                 }
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            touch++;
+            mTouch++;
         }
     }
     private Vector3 setDirection(GameObject obj) {
         //칼날 방향
-        if (GameManager.instance.player.Movement.x > 0)
+        if (GameManager.instance.Player.Movement.x > 0)
         {
             obj.GetComponent<SpriteRenderer>().flipY = true;
-            if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 135); }
-            else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 45); }
+            if (GameManager.instance.Player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 135); }
+            else if (GameManager.instance.Player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 45); }
             else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90); }
         }
-        else if (GameManager.instance.player.Movement.x < 0)
+        else if (GameManager.instance.Player.Movement.x < 0)
         {
             obj.GetComponent<SpriteRenderer>().flipY = false;
-            if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 45); }
-            else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 135); }
+            if (GameManager.instance.Player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 45); }
+            else if (GameManager.instance.Player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 135); }
             else { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90); }
         }
         else
         {
-            if (GameManager.instance.player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0); }
-            else if (GameManager.instance.player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180); }
-            else { obj.GetComponent<Transform>().rotation = Quaternion.FromToRotation(Vector3.up, GameManager.instance.player.PreMovement); }
+            if (GameManager.instance.Player.Movement.y > 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0); }
+            else if (GameManager.instance.Player.Movement.y < 0) { obj.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180); }
+            else { obj.GetComponent<Transform>().rotation = Quaternion.FromToRotation(Vector3.up, GameManager.instance.Player.PreMovement); }
         }
         //이동 방향을 가져옴
-        if (GameManager.instance.player.PreMovement == Vector2.zero){ obj.GetComponent<SpriteRenderer>().flipY = true; return Vector3.right;}
-        else if (GameManager.instance.player.Movement == Vector2.zero & GameManager.instance.player.PreMovement != Vector2.zero) { return GameManager.instance.player.PreMovement;}
-        else { return GameManager.instance.player.Movement; }
+        if (GameManager.instance.Player.PreMovement == Vector2.zero){ obj.GetComponent<SpriteRenderer>().flipY = true; return Vector3.right;}
+        else if (GameManager.instance.Player.Movement == Vector2.zero & GameManager.instance.Player.PreMovement != Vector2.zero) { return GameManager.instance.Player.PreMovement;}
+        else { return GameManager.instance.Player.Movement; }
     }
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {

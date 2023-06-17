@@ -3,19 +3,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    private Vector2 movement;    //입력값
-    private float moveSpeed = 8f;   //속도
+    private Vector2 mMovement;    //입력값
+    private float mMoveSpeed = 8f;   //속도
 
-    Vector2 preMovement; //이전 이동 방향 벡터 가져오기
+    private Vector2 mPreMovement; //이전 이동 방향 벡터 가져오기
 
-    [SerializeField] Rigidbody2D rb;    //리디지바디
-    [SerializeField] SpriteRenderer spriter;    //스프라이트
-    [SerializeField] Animator animator;  //애니메이션
+    [SerializeField] Rigidbody2D mRb;    //리디지바디
+    [SerializeField] SpriteRenderer mSpriter;    //스프라이트
+    [SerializeField] Animator mAnimator;  //애니메이션
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriter = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        mRb = GetComponent<Rigidbody2D>();
+        mSpriter = GetComponent<SpriteRenderer>();
+        mAnimator = GetComponent<Animator>();
         //애니메이터 파일 이름을 설정 ex> Animator/Heroknight
         string resourceName = "Animator/";
         try
@@ -24,52 +24,52 @@ public class PlayerMovement : MonoBehaviour
         }
         catch (NullReferenceException)
         {
-            resourceName  +="Alchemist";
+            resourceName += "Alchemist";
         }
         //실행중에 에니메이터 바꾸기. Resources.Load()는 path의 파일을 load한다. Asset>Resource가 root 경로
-        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
+        mAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(resourceName);
     }
-    void Update()
+    private void Update()
     {
-        if (movement != Vector2.zero)
+        if (mMovement != Vector2.zero)
         {
-            preMovement = movement;
+            mPreMovement = mMovement;
         }
     }
     private void FixedUpdate()//물리 계산 할 때 사용
     {
         //movement 조정
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
+        mRb.MovePosition(mRb.position + mMovement * mMoveSpeed * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
     }
 
     private void LateUpdate()   //모든 Update 함수가 호출된 후, 마지막으로 호출되는 함수
     {
         //키보드로 움직임 확인
-        if (movement.magnitude != 0)
+        if (mMovement.magnitude != 0)
         {
-            animator.SetBool("Moving", true);
+            mAnimator.SetBool("Moving", true);
         }
         else
         {
-            animator.SetBool("Moving", false);
+            mAnimator.SetBool("Moving", false);
         }
-        animator.SetFloat("Speed", movement.magnitude);
+        mAnimator.SetFloat("Speed", mMovement.magnitude);
 
-        if (movement.x != 0)    //x의 입력값이 있는 경우
+        if (mMovement.x != 0)    //x의 입력값이 있는 경우
         {
-            spriter.flipX = movement.x < 0; //방향 뒤집기
+            mSpriter.flipX = mMovement.x < 0; //방향 뒤집기
         }
     }
     private void OnMove(InputValue value)   //InputSystem으로 키입력을 받는 함수
     {
-        movement = value.Get<Vector2>();
+        mMovement = value.Get<Vector2>();
     }
     public Vector2 Movement
     {
-        get { return movement; }
+        get { return mMovement; }
     }
     public Vector2 PreMovement
     {
-        get { return preMovement; }
+        get { return mPreMovement; }
     }
 }

@@ -16257,8 +16257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678e905208501a94497589345de30d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 40
-  y: 40
-  probability: 10
-  prefab: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
-  respawn: {fileID: 0}
+  X: 40
+  Y: 40
+  Probability: 10
+  Prefab: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+  Respawn: {fileID: 0}

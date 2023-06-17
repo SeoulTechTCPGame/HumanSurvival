@@ -1,52 +1,52 @@
 using UnityEngine;
 public class MagicWand : Weapon
 {
-    [SerializeField] Animator animator;
+    [SerializeField] Animator mAnimator;
 
-    float timer = 0;
-    bool useWand = false;
-    int touch = 0;
-    int touchLimit;
+    private float mTimer = 0;
+    private bool mbUseWand = false;
+    private int mTouch = 0;
+    private int mTouchLimit;
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        mAnimator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
-        if (!useWand) return;  //MagicWand 사용 안할 때 Update를 안 함
-        if (touchLimit <= touch)
+        if (!mbUseWand) return;  //MagicWand 사용 안할 때 Update를 안 함
+        if (mTouchLimit <= mTouch)
         {
-            animator.SetBool("Hit", true);
+            mAnimator.SetBool("Hit", true);
             Destroy(this.gameObject);
         }
     }
     public override void Attack()
     {
         GameObject objPre;
-        if (isEvoluction()) 
+        if (IsEvoluction()) 
             objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
         else
             objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
-        timer += Time.deltaTime;
-        if (timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
-            for (int i = 0; i < WeaponTotalStats[((int)Enums.WeaponStat.Amount)]; i++)
+            for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 //무기 세팅
                 GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
-                newobs.transform.position = GameManager.instance.player.transform.position;
+                newobs.transform.position = GameManager.instance.Player.transform.position;
                 MagicWand newWand = newobs.GetComponent<MagicWand>();
-                newWand.useWand = true;
-                newWand.touchLimit = (int)WeaponTotalStats[(int)Enums.WeaponStat.Piercing];
+                newWand.mbUseWand = true;
+                newWand.mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
                 Vector3 direction = FindClosestEnemyDirection();
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 //무기가 바라보는 방향 조절
                 newobs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
                 //무기 발사
                 Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
+                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
             }
-            timer = 0;
+            mTimer = 0;
         }
     }
     private void OnTriggerEnter2D(Collider2D col)
@@ -55,26 +55,26 @@ public class MagicWand : Weapon
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                destructible.TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
+                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(weaponTotalStats[(int)Enums.WeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && bEvolution)
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            if (WeaponIndex == 6 && BEvolution)
             {
-                GameManager.instance.character.RestoreHealth(1);
+                GameManager.instance.Character.RestoreHealth(1);
                 GameManager.instance.EvoGralicRestoreCount++;
                 if (GameManager.instance.EvoGralicRestoreCount == 60)
                 {
                     GameManager.instance.EvoGralicRestoreCount = 0;
-                    weaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
+                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
                 }
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            touch++;
+            mTouch++;
         }
     }
     private GameObject FindClosestEnemy() 

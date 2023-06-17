@@ -8806,7 +8806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39341509ce77a4dc4bd4019e44e1ed90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponLevelsUI:
+  mWeaponLevelsUI:
   - MiniLevel:
     - {fileID: 8749342265251387899}
     - {fileID: 8749342266115451412}
@@ -8867,14 +8867,14 @@ MonoBehaviour:
     - {fileID: 8749342264966545877}
     - {fileID: 8749342264757728941}
     - {fileID: 8749342264874723790}
-  OwnWeaponImages:
+  mOwnWeaponImages:
   - {fileID: 8749342265825262503}
   - {fileID: 8749342264659786482}
   - {fileID: 8749342264665357956}
   - {fileID: 8749342265192726390}
   - {fileID: 8749342264798543349}
   - {fileID: 8749342266518579238}
-  AccessoryLevelsUI:
+  mAccessoryLevelsUI:
   - MiniLevel:
     - {fileID: 8749342266218987097}
     - {fileID: 8749342266543965695}
@@ -8935,64 +8935,53 @@ MonoBehaviour:
     - {fileID: 8749342266476732868}
     - {fileID: 8749342265950376806}
     - {fileID: 8749342265453889389}
-  OwnAccessoryImages:
+  mOwnAccessoryImages:
   - {fileID: 8749342265531162625}
   - {fileID: 8749342265675898688}
   - {fileID: 8749342265749163323}
   - {fileID: 8749342264953796233}
   - {fileID: 8749342266170754829}
   - {fileID: 8749342265206241673}
-  ItemUI: {fileID: 8749342265327775834}
-  StatUI: {fileID: 8749342265162781742}
-  OptionPageUI: {fileID: 8749342266105152327}
-  OptionButtonUI: {fileID: 8749342265335260556}
-  BackButtonUI: {fileID: 8749342264635923864}
-  QuitButtonUI: {fileID: 8749342264929198747}
-  player: {fileID: 0}
-  StatVarText: {fileID: 8749342265023629262}
-  WeaponImages:
+  mItemUI: {fileID: 8749342265327775834}
+  mStatUI: {fileID: 8749342265162781742}
+  mOptionPageUI: {fileID: 8749342266105152327}
+  mOptionButtonUI: {fileID: 8749342265335260556}
+  mBackButtonUI: {fileID: 8749342264635923864}
+  mQuitButtonUI: {fileID: 8749342264929198747}
+  mPlayer: {fileID: 0}
+  mStatVarText: {fileID: 8749342265023629262}
+  mWeaponImages:
   - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  AccessoryImages:
   - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  EtcImages:
   - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  MiniLevelImages:
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  mAccessoryImages:
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  mEtcImages:
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
+  mMiniLevelImages:
   - {fileID: 21300000, guid: 3326f3cbb3f6c453d99a26777b0da0bd, type: 3}
   - {fileID: 21300000, guid: bccc15d6698834ddba116a343dd7972d, type: 3}
 --- !u!1 &8749342265973039740

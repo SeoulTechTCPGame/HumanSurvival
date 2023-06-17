@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public  enum StageEventType
+public enum EStageEventType
 {
     SpawnEnemy,
     SpawnEnemyBoss, 
@@ -13,18 +12,18 @@ public  enum StageEventType
 [Serializable]
 public class StageEvent
 {
-    public StageEventType eventType;
-    public float time; //time 부터 stage 시작
-    public string message;
+    public EStageEventType EventType;
+    public float Time; //time 부터 stage 시작
+    public string Message;
 
-    public EnemyScriptableObject enemyToSpawn;
-    public int enemyCount; //스폰될 적 수
-    public bool isRepeatedEvent;
-    public float repeatEverySeconds;
-    public int repeatCount;
+    public EnemyScriptableObject EnemyToSpawn;
+    public int EnemyCount; //스폰될 적 수
+    public bool BRepeatedEvent;
+    public float RepeatEverySeconds;
+    public int RepeatCount;
 }
 [CreateAssetMenu]
 public class StageData : ScriptableObject
 {
-    public List<StageEvent> stageEvents;
+    public List<StageEvent> StageEvents;
 }

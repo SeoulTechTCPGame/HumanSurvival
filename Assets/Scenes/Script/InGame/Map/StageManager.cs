@@ -1,46 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    [SerializeField] StageData stageData;
-    [SerializeField] EnemySpawner enemySpawner;
-    int eventIndexer;
+    [SerializeField] StageData mStageData;
+    [SerializeField] EnemySpawner mEnemySpawner;
+    private int mEventIndexer;
     private void Start()
     {
-        enemySpawner = FindObjectOfType<EnemySpawner>();
+        mEnemySpawner = FindObjectOfType<EnemySpawner>();
     }
     private void Update()
     {
-        if (eventIndexer >= stageData.stageEvents.Count) return;
+        if (mEventIndexer >= mStageData.StageEvents.Count) return;
         //게임 시간> stageData의 time일때 이벤트 실행
-        if (GameManager.instance.gameTime > stageData.stageEvents[eventIndexer].time)
+        if (GameManager.instance.GameTime > mStageData.StageEvents[mEventIndexer].Time)
         {
-            Debug.Log(stageData.stageEvents[eventIndexer].message);
-            switch (stageData.stageEvents[eventIndexer].eventType)
+            Debug.Log(mStageData.StageEvents[mEventIndexer].Message);
+            switch (mStageData.StageEvents[mEventIndexer].EventType)
             {
-                case StageEventType.SpawnEnemy:
+                case EStageEventType.SpawnEnemy:
                     SpawnEnemy(false);
                     break;
-                case StageEventType.SpawnEnemyBoss:
+                case EStageEventType.SpawnEnemyBoss:
                     SpawnEnemy(true);
                     break;
-                case StageEventType.SpawnObjcet://chest spawn
+                case EStageEventType.SpawnObjcet://chest spawn
                     break;
-                case StageEventType.WinStage:
+                case EStageEventType.WinStage:
                     break;
             }
-            eventIndexer += 1;
+            mEventIndexer += 1;
         }   
     }
-    private void SpawnEnemy(bool isBoss)
+    private void SpawnEnemy(bool bBoss)
     {
-        StageEvent currentEvent = stageData.stageEvents[eventIndexer];
-        enemySpawner.AddGroupToSpawn(currentEvent.enemyToSpawn,currentEvent.enemyCount,isBoss);
-        if (currentEvent.isRepeatedEvent == true)
+        StageEvent currentEvent = mStageData.StageEvents[mEventIndexer];
+        mEnemySpawner.AddGroupToSpawn(currentEvent.EnemyToSpawn,currentEvent.EnemyCount,bBoss);
+        if (currentEvent.BRepeatedEvent == true)
         {
-            enemySpawner.AddReapeatedSpawn(currentEvent, isBoss);
+            mEnemySpawner.AddReapeatedSpawn(currentEvent, bBoss);
         }
     }
 }
