@@ -10,6 +10,7 @@ public class UserAchi : MonoBehaviour
     [SerializeField] GameObject[]   mAchiObject;
 
     private int mAchiCount = 0;
+
     private void Start()
     {
         SetMoneyText();
@@ -22,29 +23,13 @@ public class UserAchi : MonoBehaviour
             GetComponent<SceneMove>().ToBack();
         }
     }
-
-    private void SetMoneyText()
-    {
-        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
-    }
-
-    private void SetCollectionText()
-    {
-        for(int i = 0; i < Constants.MAX_ACHIEVEMENT_NUMBER; i++){
-            if(UserInfo.instance.UserDataSet.BAchievements[i]){
-                mAchiCount++;
-            }
-        }
-        mAchiText.text = "잠금 해제됨 : " + mAchiCount.ToString() + " / " + Constants.MAX_ACHIEVEMENT_NUMBER;
-    }
-
     public void CompleteHide()
     {
-        if(mCompleteHide.GetComponent<Toggle>().isOn)
+        if (mCompleteHide.GetComponent<Toggle>().isOn)
         {
-            for(int i = 1; i <= Constants.MAX_ACHIEVEMENT_NUMBER; i++)
+            for (int i = 1; i <= Constants.MAX_ACHIEVEMENT_NUMBER; i++)
             {
-                if(UserInfo.instance.UserDataSet.BAchievements[i])
+                if (UserInfo.instance.UserDataSet.BAchievements[i])
                 {
                     mAchiObject[i - 1].SetActive(false);
                 }
@@ -52,13 +37,28 @@ public class UserAchi : MonoBehaviour
         }
         else
         {
-            for(int i = 1; i <= Constants.MAX_ACHIEVEMENT_NUMBER; i++)
+            for (int i = 1; i <= Constants.MAX_ACHIEVEMENT_NUMBER; i++)
             {
-                if(UserInfo.instance.UserDataSet.BAchievements[i])
+                if (UserInfo.instance.UserDataSet.BAchievements[i])
                 {
                     mAchiObject[i - 1].SetActive(true);
                 }
             }
         }
+    }
+    private void SetMoneyText()
+    {
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
+    }
+    private void SetCollectionText()
+    {
+        for(int i = 0; i < Constants.MAX_ACHIEVEMENT_NUMBER; i++)
+        {
+            if(UserInfo.instance.UserDataSet.BAchievements[i])
+            {
+                mAchiCount++;
+            }
+        }
+        mAchiText.text = "잠금 해제됨 : " + mAchiCount.ToString() + " / " + Constants.MAX_ACHIEVEMENT_NUMBER;
     }
 }

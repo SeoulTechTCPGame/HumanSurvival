@@ -83,9 +83,10 @@ public class EquipmentManagementSystem
     public void SetNewWeapon(int weaponIndex)
     {
         GameManager.instance.WeaponGetTime[weaponIndex] = GameManager.instance.GameTime;
-        TransWeaponIndex[weaponIndex] = Weapons.Count;
 
         AddNewWeapon(weaponIndex);
+        TransWeaponIndex[weaponIndex] = Weapons.Count - 1;
+
         Weapons.Last().WeaponDefalutSetting(weaponIndex);
         GameManager.instance.WeaponSlot.GetComponent<SlotUI>().AddSlot(weaponIndex, 0);
 
