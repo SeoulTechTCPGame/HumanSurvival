@@ -19,6 +19,10 @@ class PowerUpInfoData
 
 public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
 {
+    public TMP_Text AccessoryCash;
+    public List<Toggle> AccessoryToggle;
+    public int AccessoryMaxLevel;
+
     [SerializeField] int mAccessoryIndex;
     [SerializeField] GameObject mContext;
     [SerializeField] GameObject mExplainBG;
@@ -31,16 +35,13 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     private Button mChargeButton;
     private GameObject mChargeObject;
     private GameObject mActiveObject;
-    public TMP_Text AccessoryCash;
-    public List<Toggle> AccessoryToggle;
-
     private PowerUpInfoData mInfoData;
     private string mExplain;
-    public int AccessoryMaxLevel;
 
-    void Awake() 
+    private void Awake() 
     {
         Transform accessory = mContext.transform.GetChild(mAccessoryIndex - 1);
+
         mThisAccessoryName = accessory.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         mThisAccessoryIamge = accessory.transform.GetChild(1).GetComponent<Image>();
         mAccessoryImage = mExplainBG.transform.Find("AccessoryImage").GetComponent<Image>();
@@ -55,8 +56,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
             AccessoryToggle.Add(accessory.transform.GetChild(i).GetComponent<Toggle>());
         }
     }
-
-    void Start()
+    private void Start() 
     {   
         mInfoData = JsonUtility.FromJson<PowerUpInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
         this.mExplain = mInfoData.PowerUp[mAccessoryIndex-1].Explain;
@@ -67,7 +67,6 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
             AccessoryToggle[i].isOn = true;
         }
     }
-    
     public void OnPointerDown(PointerEventData eventData) 
     {
         mAccessoryName.text = mThisAccessoryName.text;

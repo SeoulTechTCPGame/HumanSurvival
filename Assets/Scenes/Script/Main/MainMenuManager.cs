@@ -4,23 +4,20 @@ using UnityEngine.SceneManagement;
 
 public enum EState { Quit, Option, CharacterSelection, PowerUp, Collection, Achievements };
 
-
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject mUserSelect;
     [SerializeField] GameObject[] mButtons;
-
     [SerializeField] TextMeshProUGUI mMoneyText;
-
     [SerializeField] int mSelectState;
-    void Start()
+
+    private void Start()
     {
         mSelectState = (int)EState.CharacterSelection;
         SetSelect(mButtons[mSelectState]);
         SetMoneyText();
     }
-
-    void Update()
+    private void Update() //TODO: refactoring 예정
     {
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -89,15 +86,12 @@ public class MainMenuManager : MonoBehaviour
 #endif
             }
         }
-
         SetMoneyText();
     }
-
     private void SetMoneyText()
     {
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
-
     private void SetSelect(GameObject nowObject)
     {
         mUserSelect.transform.position = nowObject.transform.position;

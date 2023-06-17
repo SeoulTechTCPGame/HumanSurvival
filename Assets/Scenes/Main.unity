@@ -2240,7 +2240,7 @@ GameObject:
   - component: {fileID: 1737193077}
   - component: {fileID: 1737193076}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2419,7 +2419,7 @@ GameObject:
   - component: {fileID: 1776843592}
   - component: {fileID: 1776843591}
   m_Layer: 0
-  m_Name: User
+  m_Name: MainManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

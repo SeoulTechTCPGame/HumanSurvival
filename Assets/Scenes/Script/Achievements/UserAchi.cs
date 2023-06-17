@@ -4,10 +4,10 @@ using TMPro;
 
 public class UserAchi : MonoBehaviour
 {
-    [SerializeField] TMP_Text mMoneyText;
-    [SerializeField] TMP_Text mAchiText;
-    [SerializeField] Toggle mCompleteHide;
-    [SerializeField] GameObject[] mAchiObject;
+    [SerializeField] TMP_Text       mMoneyText;
+    [SerializeField] TMP_Text       mAchiText;
+    [SerializeField] Toggle         mCompleteHide;
+    [SerializeField] GameObject[]   mAchiObject;
 
     private int mAchiCount = 0;
     private void Start()
@@ -17,7 +17,8 @@ public class UserAchi : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
             GetComponent<SceneMove>().ToBack();
         }
     }
@@ -29,8 +30,10 @@ public class UserAchi : MonoBehaviour
 
     private void SetCollectionText()
     {
-        for(int i = 0; i < Constants.MaxAchievementNumber; i++){
-            if(UserInfo.instance.UserDataSet.Achievements[i]){
+        for(int i = 0; i < Constants.MaxAchievementNumber; i++)
+        {
+            if(UserInfo.instance.UserDataSet.Achievements[i])
+            {
                 mAchiCount++;
             }
         }
