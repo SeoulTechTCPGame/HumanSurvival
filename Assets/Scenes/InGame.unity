@@ -429,15 +429,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9892e5b15f799da4d96702d35ed6cae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 0
-  maxGameTime: 180
-  character: {fileID: 1928233911}
-  level: 0
-  kill: 0
-  exp: 0
-  maxExp: 0
-  coin: 0
-  weaponGetTime:
+  GameTime: 0
+  MaxGameTime: 180
+  Character: {fileID: 1928233911}
+  Level: 0
+  Kill: 0
+  Exp: 0
+  MaxExp: 0
+  Coin: 0
+  WeaponGetTime:
   - 0
   - 0
   - 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  weaponDamage:
+  WeaponDamage:
   - 0
   - 0
   - 0
@@ -465,13 +465,13 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  killCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  KillCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   EvoGralicRestoreCount: 0
-  characterData: {fileID: 0}
+  CharacterData: {fileID: 0}
   CharacterStats: []
-  pool: {fileID: 1068104046}
-  player: {fileID: 1928233908}
-  gameoverPanel: {fileID: 1724402127}
+  Pool: {fileID: 1068104046}
+  Player: {fileID: 1928233908}
+  GameOverPanel: {fileID: 1724402127}
   LevepUpUI: {fileID: 1219748136}
   WeaponSlot: {fileID: 729432934}
   AccessorySlot: {fileID: 729432933}
@@ -905,6 +905,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1928233905}
     - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
+      propertyPath: mPlayer
+      value: 
+      objectReference: {fileID: 1928233905}
+    - target: {fileID: 8749342265967996171, guid: a21d994a29eca49db8f27697a6a6797e, type: 3}
       propertyPath: WeaponImages.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -1305,8 +1309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410a635f82bab8b40a3ffb896eb7b2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageData: {fileID: 11400000, guid: 8aeb71a75f260e449808e508e501b97d, type: 2}
-  enemySpawner: {fileID: 1237692786}
+  mStageData: {fileID: 11400000, guid: 8aeb71a75f260e449808e508e501b97d, type: 2}
+  mEnemySpawner: {fileID: 1237692786}
 --- !u!1 &1068104043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,23 +1355,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751ca0d69d8941e4aa81da1793d1f8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
+  EnemyPrefabs:
   - {fileID: 807355772286374456, guid: 566b3cc4883e73c47b4298b9649219ca, type: 3}
   - {fileID: 9127071239993843719, guid: fca21f12d44d59346abba0164516d799, type: 3}
   - {fileID: 1886036213109440174, guid: c1ccc03b76848804faf85e0437349fc5, type: 3}
   - {fileID: 807355772286374456, guid: 5c68810c317284949b22204c34c26745, type: 3}
   - {fileID: 807355772286374456, guid: f89c0ba8b49e7ee44b73808a373004e1, type: 3}
   - {fileID: 752108596653014988, guid: 69566a8693dc66c49b5d708b690bab17, type: 3}
-  expPrefabs:
+  ExpPrefabs:
   - {fileID: 3915139561794565461, guid: bb17956b9b777e743b643480f8b43503, type: 3}
   - {fileID: 3915139561794565461, guid: c22fbf40d947c8e49b8b055d4fb021aa, type: 3}
   - {fileID: 3915139561794565461, guid: b58de7ec79a79624abb9c69dfb87fe6b, type: 3}
   - {fileID: 3915139561794565461, guid: c4e03ee29601fef4191b6e1a8caa01ec, type: 3}
   - {fileID: 3915139561794565461, guid: 73855f6c12a54da4bba02b90ca8396f2, type: 3}
   - {fileID: 3915139561794565461, guid: 4f96e204292400d4eb5f2d3f77a50310, type: 3}
-  coinPrefabs:
+  CoinPrefabs:
   - {fileID: 5073338675276140225, guid: b77369b8a23a3fb458e4e4ca2504c1f0, type: 3}
-  heartPrefabs:
+  HeartPrefabs:
   - {fileID: 3536152229503077200, guid: bfe51152093a5ef40bf93340dc20ff55, type: 3}
 --- !u!1 &1142057796
 GameObject:
@@ -1643,6 +1647,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: Player
+      value: 
+      objectReference: {fileID: 1928233905}
+    - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: mPlayer
       value: 
       objectReference: {fileID: 1928233905}
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
@@ -2194,9 +2202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a87cfd4fd80714dbc1e5a619a2ac84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {x: 15, y: 12}
-  player: {fileID: 1928233905}
-  spawnData:
+  mSpawnArea: {x: 15, y: 12}
+  mPlayer: {fileID: 1928233905}
+  SpawnData:
   - {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
   - {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
   - {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}

@@ -29,21 +29,21 @@ public class UserAchi : MonoBehaviour
 
     private void SetCollectionText()
     {
-        for(int i = 0; i < Constants.MaxAchievementNumber; i++){
-            if(UserInfo.instance.UserDataSet.Achievements[i]){
+        for(int i = 0; i < Constants.MAX_ACHIEVEMENT_NUMBER; i++){
+            if(UserInfo.instance.UserDataSet.BAchievements[i]){
                 mAchiCount++;
             }
         }
-        mAchiText.text = "잠금 해제됨 : " + mAchiCount.ToString() + " / " + Constants.MaxAchievementNumber;
+        mAchiText.text = "잠금 해제됨 : " + mAchiCount.ToString() + " / " + Constants.MAX_ACHIEVEMENT_NUMBER;
     }
 
     public void CompleteHide()
     {
         if(mCompleteHide.GetComponent<Toggle>().isOn)
         {
-            for(int i = 1; i <= Constants.MaxAchievementNumber; i++)
+            for(int i = 1; i <= Constants.MAX_ACHIEVEMENT_NUMBER; i++)
             {
-                if(UserInfo.instance.UserDataSet.Achievements[i])
+                if(UserInfo.instance.UserDataSet.BAchievements[i])
                 {
                     mAchiObject[i - 1].SetActive(false);
                 }
@@ -51,9 +51,9 @@ public class UserAchi : MonoBehaviour
         }
         else
         {
-            for(int i = 1; i <= Constants.MaxAchievementNumber; i++)
+            for(int i = 1; i <= Constants.MAX_ACHIEVEMENT_NUMBER; i++)
             {
-                if(UserInfo.instance.UserDataSet.Achievements[i])
+                if(UserInfo.instance.UserDataSet.BAchievements[i])
                 {
                     mAchiObject[i - 1].SetActive(true);
                 }

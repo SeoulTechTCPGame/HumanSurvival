@@ -2,39 +2,38 @@ using UnityEngine;
 
 public class Gralic : Weapon
 {
-    bool isExist = false;
-    GameObject newobj;
-    float timer = 0;
+    private bool mbExist = false;
+    private GameObject mNewobj;
+    private float mTimer = 0;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.position = GameManager.instance.player.transform.position + new Vector3(0, 0.5f, 0);
+        transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
     }
 
     public override void Attack()
     {
         GameObject objPre;
-        if (isEvoluction())
+        if (IsEvoluction())
             objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
         else
             objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
-        timer += Time.deltaTime;
-        if (timer > WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
-            if(!isExist)
+            if(!mbExist)
             {
-                newobj = Instantiate(objPre);
-                newobj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
-                newobj.transform.position = GameManager.instance.player.transform.position + new Vector3(0, 0.5f, 0);
-                isExist = true;
+                mNewobj = Instantiate(objPre);
+                mNewobj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+                mNewobj.transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
+                mbExist = true;
             }
             else
             {
-                Destroy(newobj);
-                isExist = false;
+                Destroy(mNewobj);
+                mbExist = false;
             }
-            timer = 0;
+            mTimer = 0;
         }
     }
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨

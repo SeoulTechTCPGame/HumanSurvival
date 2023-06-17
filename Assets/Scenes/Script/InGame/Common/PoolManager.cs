@@ -3,58 +3,60 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs; // 프리펩들을 보관할 변수.
-    List<GameObject>[] enemyPools; // 풀 담당을 하는 리스트들
+    public GameObject[] EnemyPrefabs; // 프리펩들을 보관할 변수.
+    private List<GameObject>[] mEnemyPools; // 풀 담당을 하는 리스트들
 
-    GameObject[] targetPrefab;
-    List<GameObject>[] targetPool;
+    private GameObject[] mTargetPrefab;
+    private List<GameObject>[] mTargetPool;
 
-    public GameObject[] expPrefabs;
-    List<GameObject>[] expPools;
-    public GameObject[] coinPrefabs;
-    List<GameObject>[] coinPools;
-    public GameObject[] heartPrefabs;
-    List<GameObject>[] heartPools;
+    public GameObject[] ExpPrefabs;
+    private List<GameObject>[] mExpPools;
 
-    void Awake()
+    public GameObject[] CoinPrefabs;
+    private List<GameObject>[] mCoinPools;
+
+    public GameObject[] HeartPrefabs;
+    private List<GameObject>[] mHeartPools;
+
+    private void Awake()
     {
-        enemyPools = new List<GameObject>[enemyPrefabs.Length];
-        expPools = new List<GameObject>[expPrefabs.Length];
-        coinPools = new List<GameObject>[coinPrefabs.Length];
-        heartPools = new List<GameObject>[heartPrefabs.Length];
+        mEnemyPools = new List<GameObject>[EnemyPrefabs.Length];
+        mExpPools = new List<GameObject>[ExpPrefabs.Length];
+        mCoinPools = new List<GameObject>[CoinPrefabs.Length];
+        mHeartPools = new List<GameObject>[HeartPrefabs.Length];
 
         // 인스펙터에서 초기화
-        for (int index = 0; index < enemyPools.Length; index++)
-            enemyPools[index] = new List<GameObject>();
-        for (int index = 0; index < expPools.Length; index++)
-            expPools[index] = new List<GameObject>();
-        for (int index = 0; index < coinPools.Length; index++)
-            coinPools[index] = new List<GameObject>();
-        for (int index = 0; index < heartPools.Length; index++)
-            heartPools[index] = new List<GameObject>();
+        for (int index = 0; index < mEnemyPools.Length; index++)
+            mEnemyPools[index] = new List<GameObject>();
+        for (int index = 0; index < mExpPools.Length; index++)
+            mExpPools[index] = new List<GameObject>();
+        for (int index = 0; index < mCoinPools.Length; index++)
+            mCoinPools[index] = new List<GameObject>();
+        for (int index = 0; index < mHeartPools.Length; index++)
+            mHeartPools[index] = new List<GameObject>();
     }
     public GameObject Get(string type,int index) //게임 오브젝트 반환 함수
     {
         switch (type)
         {
             case "enemy":
-                targetPool = enemyPools;
-                targetPrefab = enemyPrefabs;
+                mTargetPool = mEnemyPools;
+                mTargetPrefab = EnemyPrefabs;
                 break;
             case "exp":
-                targetPool = expPools;
-                targetPrefab = expPrefabs;
+                mTargetPool = mExpPools;
+                mTargetPrefab = ExpPrefabs;
                 break;
 
             case "heart":
-                targetPool = heartPools;
-                targetPrefab = heartPrefabs;
+                mTargetPool = mHeartPools;
+                mTargetPrefab = HeartPrefabs;
                 Debug.Log("heart pooling");
                 break;
 
             case "coin":
-                targetPool = coinPools;
-                targetPrefab = coinPrefabs;
+                mTargetPool = mCoinPools;
+                mTargetPrefab = CoinPrefabs;
                 Debug.Log("coin pooling");
                 break;
         }
@@ -62,7 +64,7 @@ public class PoolManager : MonoBehaviour
         //선택한 풀의 비활성화 된 게임 오브젝트 접근.
         // 발견하면 select 변수에 할당// 생성된 적이 죽을경우 
         
-        foreach (GameObject item in targetPool[index])
+        foreach (GameObject item in mTargetPool[index])
         {
             if (!item.activeSelf)
             {
@@ -74,21 +76,21 @@ public class PoolManager : MonoBehaviour
         // 못찾으면 새롭게 생성후 할당// 모든 적이 죽지 않고 살아있음
         if (!select)
         {
-            select = Instantiate(targetPrefab[index], transform);
-            targetPool[index].Add(select);
+            select = Instantiate(mTargetPrefab[index], transform);
+            mTargetPool[index].Add(select);
         }
         return select;
     }
     public void Clear(int index)
     {
-        foreach (GameObject item in enemyPools[index])
+        foreach (GameObject item in mEnemyPools[index])
             item.SetActive(false);
     }
 
     public void ClearAll()
     {
-        for (int index = 0; index < enemyPools.Length; index++)
-            foreach (GameObject item in enemyPools[index])
+        for (int index = 0; index < mEnemyPools.Length; index++)
+            foreach (GameObject item in mEnemyPools[index])
                 item.SetActive(false);
     }
 }

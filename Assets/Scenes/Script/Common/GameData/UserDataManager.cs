@@ -6,18 +6,18 @@ using UnityEngine;
 public class UserData
 {
     public int Gold = 0;
-    public int consumedGold = 0;
-    public float accumulatedTime = 0;
-    public int accumulatedKill = 0;
+    public int ConsumedGold = 0;
+    public float AccumulatedTime = 0;
+    public int AccumulatedKill = 0;
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    public int[] powerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
-    public int[] nowPowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
-    public bool[] Achievements;
-    public bool[] Collection;
-    public bool[] UnlockStages;
-    public bool[] UnlockCharacters;
+    public int[] PowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
+    public int[] NowPowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
+    public bool[] BAchievements;
+    public bool[] BCollection;
+    public bool[] BUnlockStages;
+    public bool[] BUnlockCharacters;
 }
 public class UserDataManager : MonoBehaviour
 {
@@ -36,7 +36,7 @@ public class UserDataManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         SavePath = Application.persistentDataPath + "/";
     }
-    void Start()
+    private void Start()
     {
         if (File.Exists(UserDataManager.instance.SavePath + "UserSaveData.json"))
         {

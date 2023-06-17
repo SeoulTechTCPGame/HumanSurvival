@@ -1512,14 +1512,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f1e1aee496f1441b7bd5b28c6fa6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: {fileID: 0}
-  coin: {fileID: 0}
-  level: {fileID: 0}
-  kill: {fileID: 0}
-  character: {fileID: 0}
-  characterImage: {fileID: 0}
   Weaponlist: {fileID: 0}
   Accessorylist: {fileID: 0}
+  mTime: {fileID: 0}
+  mCoin: {fileID: 0}
+  mLevel: {fileID: 0}
+  mKill: {fileID: 0}
+  mCharacter: {fileID: 0}
+  mCharacterImage: {fileID: 0}
 --- !u!114 &217063121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3576,14 +3576,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f1e1aee496f1441b7bd5b28c6fa6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: {fileID: 332447303}
-  coin: {fileID: 996144308}
-  level: {fileID: 790988494}
-  kill: {fileID: 1529260784}
-  character: {fileID: 1772883602}
-  characterImage: {fileID: 1537518679}
   Weaponlist: {fileID: 942213286}
   Accessorylist: {fileID: 0}
+  mTime: {fileID: 332447303}
+  mCoin: {fileID: 996144308}
+  mLevel: {fileID: 790988494}
+  mKill: {fileID: 1529260784}
+  mCharacter: {fileID: 1772883602}
+  mCharacterImage: {fileID: 1537518679}
 --- !u!1 &1141330672
 GameObject:
   m_ObjectHideFlags: 0

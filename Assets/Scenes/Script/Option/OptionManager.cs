@@ -36,11 +36,11 @@ public class OptionManager : MonoBehaviour
             switch (slider.name)
             {
                 case "BgmSlider":
-                    slider.value = soundManager.bgmVolume;
+                    slider.value = soundManager.BgmVolume;
                     slider.onValueChanged.AddListener(OnBgmVolumeChanged);
                     break;
                 case "SoundEffectSlider":
-                    slider.value = soundManager.soundEffectVolume;
+                    slider.value = soundManager.SoundEffectVolume;
                     slider.onValueChanged.AddListener(OnSoundEffectVolumeChanged);
                     break;
             }
@@ -70,15 +70,15 @@ public class OptionManager : MonoBehaviour
     {
         // BGM 볼륨 값을 변경
         SoundManager soundManager = SoundManager.instance;
-        soundManager.bgmVolume = value;
-        Debug.Log(soundManager.bgmVolume);
+        soundManager.BgmVolume = value;
+        Debug.Log(soundManager.BgmVolume);
     }
     private void OnSoundEffectVolumeChanged(float value)
     {
         // 사운드 이펙트 볼륨 값을 변경
         SoundManager soundManager = SoundManager.instance;
-        soundManager.soundEffectVolume = value;
-        Debug.Log(soundManager.soundEffectVolume);
+        soundManager.SoundEffectVolume = value;
+        Debug.Log(soundManager.SoundEffectVolume);
     }
     private void SetMoneyText()
     {

@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1575af2165c04644887e15d2d007331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
-  target: {fileID: 0}
+  EnemyData: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
+  Target: {fileID: 0}
 --- !u!114 &1731731893226487328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,10 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drops:
-  - name: exp
-    prefabsIndex: 2
-    dropRate: 100
+  DropList:
+  - Name: exp
+    PrefabsIndex: 2
+    DropRate: 100
 --- !u!61 &7844572615257622043
 BoxCollider2D:
   m_ObjectHideFlags: 0

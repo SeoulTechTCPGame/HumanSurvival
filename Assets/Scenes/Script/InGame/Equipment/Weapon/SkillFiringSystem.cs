@@ -16,7 +16,7 @@ public class SkillFiringSystem : MonoBehaviour
     }
     void Update()
     {
-        foreach (var weapon in GameManager.instance.equipManageSys.Weapons)
+        foreach (var weapon in GameManager.instance.EquipManageSys.Weapons)
         {
             weapon.Attack();
         }

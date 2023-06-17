@@ -1,17 +1,14 @@
 using System;
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class UserInfo : MonoBehaviour
 {
     public static UserInfo instance;
     public UserData UserDataSet;
-    public const int jumpAccessory = 58;
-    public const int jumpStage = 0;
-    // 
+    private const int JUMP_ACCESSORY = 58;
+    private const int JUMP_STAGE = 0;
+    
     private void Awake()
     {
         if (instance == null)
@@ -26,12 +23,12 @@ public class UserInfo : MonoBehaviour
     }
     public void UpdateAccumulatedTime(float time)
     {
-        UserDataSet.accumulatedTime += time;
+        UserDataSet.AccumulatedTime += time;
         UserDataManager.instance.SaveData();
     }
     public void UpdateAccumulatedKill(int kill)
     {
-        UserDataSet.accumulatedKill += kill;
+        UserDataSet.AccumulatedKill += kill;
         UserDataManager.instance.SaveData();
     }   
     public void UpdateGold(int gold)
@@ -42,22 +39,22 @@ public class UserInfo : MonoBehaviour
     public void ConsumeGold(int gold)
     {
         UserDataSet.Gold += gold;
-        UserDataSet.consumedGold -= gold;
+        UserDataSet.ConsumedGold -= gold;
         UserDataManager.instance.SaveData();
     }
     public void RefundGold()
     {
-        UserDataSet.consumedGold = 0;
+        UserDataSet.ConsumedGold = 0;
         UserDataManager.instance.SaveData();
     }
     public void UpdateColldection(int collectionIndex)
     {
-        UserDataSet.Collection[collectionIndex] = true;
+        UserDataSet.BCollection[collectionIndex] = true;
         UserDataManager.instance.SaveData();
     }
     public void UpdateAchievement(int achievementIndexes)
     {
-        UserDataSet.Achievements[achievementIndexes] = true;
+        UserDataSet.BAchievements[achievementIndexes] = true;
         UserDataManager.instance.SaveData();
     }
     public void UpdatePowerUpLevel(int powerUpIndex)
@@ -82,12 +79,12 @@ public class UserInfo : MonoBehaviour
     }
     public void UpdatePowerUpCash(int powerUpIndex)
     {
-        UserDataSet.nowPowerUpCash[powerUpIndex] = (int)(UserDataSet.powerUpCash[powerUpIndex] * (1 + UserDataSet.PowerUpLevel[powerUpIndex]) + 20 * Math.Pow(1.1, UserDataSet.PowerUpLevel.Sum() - 1));
+        UserDataSet.NowPowerUpCash[powerUpIndex] = (int)(UserDataSet.PowerUpCash[powerUpIndex] * (1 + UserDataSet.PowerUpLevel[powerUpIndex]) + 20 * Math.Pow(1.1, UserDataSet.PowerUpLevel.Sum() - 1));
         UserDataManager.instance.SaveData();
     }
     public void RefundPowerUpCash(int powerUpIndex)
     {
-        UserDataSet.nowPowerUpCash[powerUpIndex] = UserDataSet.powerUpCash[powerUpIndex];
+        UserDataSet.NowPowerUpCash[powerUpIndex] = UserDataSet.PowerUpCash[powerUpIndex];
         UserDataManager.instance.SaveData();
     }
     void UpdateOption()
@@ -97,25 +94,25 @@ public class UserInfo : MonoBehaviour
     }
     void UnlockCharacter(int characterIndex)
     {
-        UserDataSet.UnlockCharacters[characterIndex] = true;
+        UserDataSet.BUnlockCharacters[characterIndex] = true;
         UserDataManager.instance.SaveData();
     }
     void UnlockWeapon(int weaponIndex)
     {
-        UserDataSet.Collection[(weaponIndex << 1) | 1] = true;
+        UserDataSet.BCollection[(weaponIndex << 1) | 1] = true;
         UserDataManager.instance.SaveData();
     }
     void UnlockAccessory(int accessoryIndex)
     {
-        UserDataSet.Collection[accessoryIndex + jumpAccessory] = true;
+        UserDataSet.BCollection[accessoryIndex + JUMP_ACCESSORY] = true;
         UserDataManager.instance.SaveData();
     }
     bool IsWeaponUnlock(int weaponIndex)
     {
-        return UserDataSet.Collection[(weaponIndex << 1) | 1];
+        return UserDataSet.BCollection[(weaponIndex << 1) | 1];
     }
     bool IsAccessoryUnlock(int accessoryIndex)
     {
-        return UserDataSet.Collection[accessoryIndex + jumpAccessory];
+        return UserDataSet.BCollection[accessoryIndex + JUMP_ACCESSORY];
     }
 }

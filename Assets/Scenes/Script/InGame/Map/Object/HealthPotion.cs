@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPotion : MonoBehaviour,ICollectible
 {
-    public int healthToRestore;
+    public int HealthToRestore;
     public void Collect()
     {
-        Character character = GameManager.instance.character;
-        character.RestoreHealth(healthToRestore);
+        Character character = GameManager.instance.Character;
+        character.RestoreHealth(HealthToRestore);
         gameObject.SetActive(false);
     }
 }

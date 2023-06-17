@@ -27,11 +27,11 @@ public class UserCollection : MonoBehaviour
     }
 
     private void SetCollectionText(){
-        for(int i = 0; i < Constants.MaxCollectionNumber; i++){
-            if(UserInfo.instance.UserDataSet.Collection[i]){
+        for(int i = 0; i < Constants.MAX_COLLECTION_NUMBER; i++){
+            if(UserInfo.instance.UserDataSet.BCollection[i]){
                 mCollectionCount++;
             }
         }
-        mCollectText.text = "Collection : " + mCollectionCount.ToString() + " / " + Constants.MaxCollectionNumber;
+        mCollectText.text = "Collection : " + mCollectionCount.ToString() + " / " + Constants.MAX_COLLECTION_NUMBER;
     }
 }
