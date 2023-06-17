@@ -15,7 +15,6 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
     private GameObject mExplainImage;
     private GameObject mExplainWeapon;
     private GameObject mExplainText;
-
     private CharacterScriptableObject mCharacterData;
    
     private void Start()

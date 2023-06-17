@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
 using System;
@@ -18,6 +17,7 @@ public class OptionManager : MonoBehaviour
     private void Awake()
     {
         SetMoneyText();
+
         mBGPanel.SetActive(true);
         mDefaultPanel.SetActive(true);
         mDataPanel.SetActive(false);
@@ -46,13 +46,13 @@ public class OptionManager : MonoBehaviour
             }
         }
     }
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             GetComponent<SceneMove>().ToBack();
         }
     }
-    //뒤로가기 버튼
     public void ClickBackButton()
     {
         if (mDefaultPanel.activeSelf == true)

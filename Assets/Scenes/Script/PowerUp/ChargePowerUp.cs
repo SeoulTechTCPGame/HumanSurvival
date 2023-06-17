@@ -3,11 +3,13 @@ using UnityEngine.UI;
 
 public class ChargePowerUp : MonoBehaviour
 {
+    public int NowAccessoryIndex;
+
     [SerializeField] GameObject[] mAccessory;
     [SerializeField] GameObject mChargeObject;
     [SerializeField] GameObject mActiveObject;
     [SerializeField] Toggle mActiveToggle;
-    public int NowAccessoryIndex;
+    
     private float[] mUpgradeStat = new float[16] { 0.05f, 1, 0.1f, 0.1f, -0.025f, 0.05f, 0.1f, 0.15f, 1, 0.05f, 0.25f, 0.1f, 0.03f, 0.1f, 0.1f, 1 };
     private float[] mTempSaveStat = new float[16];
 
@@ -39,7 +41,6 @@ public class ChargePowerUp : MonoBehaviour
             mActiveObject.SetActive(true);
         }
     }
-
     public void Refund()
     {
         for (int i = 0; i < 16; i++)
@@ -58,7 +59,6 @@ public class ChargePowerUp : MonoBehaviour
         mChargeObject.SetActive(true);
         mActiveObject.SetActive(false);
     }
-
     public void StatActive()
     {
         if(mActiveToggle.isOn)

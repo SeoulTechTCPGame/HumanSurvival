@@ -3,9 +3,10 @@ using TMPro;
 
 public class CharacterInfoOfSelectionScene : MonoBehaviour
 {
+    [SerializeField] TMP_Text mMoneyText;
+
     //Name, MaxStamina, Recovery, Defense, Speed, Damage, ProjectileSpeed, Durationn, AttackRange, Cooldown, NumberOfProjectiles, Magnet, Luck, Growth
     private TextMeshProUGUI[] mTextMeshes;
-    [SerializeField] TMP_Text mMoneyText;
 
     private void Start()
     {
@@ -29,7 +30,6 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
         mTextMeshes[12].SetText("행운: " + characterData.Luck);
         mTextMeshes[13].SetText("성장: " + characterData.Growth);
     }
-
     private void SetMoneyText()
     {
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
