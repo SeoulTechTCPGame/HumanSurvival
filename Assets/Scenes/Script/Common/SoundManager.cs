@@ -45,4 +45,37 @@ public class SoundManager : MonoBehaviour
     {
         mAudioSource.PlayOneShot(ButtonSoundClip);
     }
+    public void EnableVFX(bool value)
+    {
+        if (value)
+        {
+            // Enable VFX
+        }
+        else
+        {
+            // Disable VFX
+        }
+    }
+    public void EnableDamageDisplay(bool value)
+    {
+        if (value)
+        {
+            // Enable showing damage
+        }
+        else
+        {
+            // Disable showing damage
+        }
+    }
+    public void HideStage(bool value)
+    {
+        if (value)
+        {
+            // Hide the stage
+        }
+        else
+        {
+            // Show the stage
+        }
+    }
 }
