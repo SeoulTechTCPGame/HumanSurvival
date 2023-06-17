@@ -4,6 +4,7 @@ using TMPro;
 public class UserPowerUp : MonoBehaviour
 {
     [SerializeField] TMP_Text mMoneyText;
+
     private void Start()
     {
         SetMoneyText();
@@ -11,13 +12,15 @@ public class UserPowerUp : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
             GetComponent<SceneMove>().ToBack();
         }
         SetMoneyText();
     }
 
-    private void SetMoneyText(){
+    private void SetMoneyText()
+    {
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }

@@ -3,9 +3,10 @@ using TMPro;
 
 public class StageOfSelectionScene : MonoBehaviour
 {
+    [SerializeField] TMP_Text mMoneyText;
+
     //StageName, Time, DoubleSpeed, GoldCoinBonus, LuckBonus, ExperienceBonus
     private TextMeshProUGUI[] mTextMeshes;
-    [SerializeField] TMP_Text mMoneyText;
 
     private void Start()
     {
@@ -21,8 +22,8 @@ public class StageOfSelectionScene : MonoBehaviour
         mTextMeshes[4].SetText("행운 보너스: " + mapData.LuckBonus);
         mTextMeshes[5].SetText("경험치 보너스: " + mapData.ExperienceBonus);
     }
-
-    private void SetMoneyText(){
+    private void SetMoneyText()
+    {
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }

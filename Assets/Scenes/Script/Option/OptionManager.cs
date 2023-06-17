@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
 using System;
@@ -18,6 +17,7 @@ public class OptionManager : MonoBehaviour
     private void Awake()
     {
         SetMoneyText();
+
         mBGPanel.SetActive(true);
         mDefaultPanel.SetActive(true);
         mDataPanel.SetActive(false);
@@ -46,13 +46,13 @@ public class OptionManager : MonoBehaviour
             }
         }
     }
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
             GetComponent<SceneMove>().ToBack();
         }
     }
-    //뒤로가기 버튼
     public void ClickBackButton()
     {
         if (mDefaultPanel.activeSelf == true)
@@ -65,24 +65,6 @@ public class OptionManager : MonoBehaviour
             mDataPanel.SetActive(false);
             mDefaultPanel.SetActive(true);
         }
-    }
-    private void OnBgmVolumeChanged(float value)
-    {
-        // BGM 볼륨 값을 변경
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.bgmVolume = value;
-        Debug.Log(soundManager.bgmVolume);
-    }
-    private void OnSoundEffectVolumeChanged(float value)
-    {
-        // 사운드 이펙트 볼륨 값을 변경
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.soundEffectVolume = value;
-        Debug.Log(soundManager.soundEffectVolume);
-    }
-    private void SetMoneyText()
-    {
-        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
     public void LoadSystemData()
     {
@@ -122,5 +104,23 @@ public class OptionManager : MonoBehaviour
     public void YesOnParsingError()
     {
         mParsingErrorPanel.SetActive(false);
+    }
+    private void OnBgmVolumeChanged(float value)
+    {
+        // BGM 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.bgmVolume = value;
+        Debug.Log(soundManager.bgmVolume);
+    }
+    private void OnSoundEffectVolumeChanged(float value)
+    {
+        // 사운드 이펙트 볼륨 값을 변경
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.soundEffectVolume = value;
+        Debug.Log(soundManager.soundEffectVolume);
+    }
+    private void SetMoneyText()
+    {
+        mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
 }

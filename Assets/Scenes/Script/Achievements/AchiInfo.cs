@@ -30,7 +30,6 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
     private TMP_Text mAchiName;
     private TMP_Text mAchiExplain;
     private TMP_Text mAchiObtain;
-
     private AchiInfoData mInfoData;
     private string mExplain;
     private string mObtain;
@@ -38,6 +37,7 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
     private void Awake() 
     {
         Transform achi = mContext.transform.GetChild(mAchi - 1);
+
         mThisAchiToggle = achi.GetComponent<Toggle>();
         mThisAchiName = achi.transform.Find("ObtainExplain").GetComponent<TextMeshProUGUI>();
         mThisAchiIamge = achi.transform.Find("AchiImage").GetComponent<Image>();
@@ -46,25 +46,28 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
         mAchiName = mExplainBG.transform.Find("AchiName").GetComponent<TextMeshProUGUI>();
         mAchiExplain = mExplainBG.transform.Find("AchiExplain").GetComponent<TextMeshProUGUI>();
         mAchiObtain = mExplainBG.transform.Find("AchiObtain").GetComponent<TextMeshProUGUI>();
-}
-
-    // Start is called before the first frame update
-    private void Start(){
+    }
+    private void Start()
+    {
         mInfoData = JsonUtility.FromJson<AchiInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
         this.mExplain = mInfoData.Achievement[mAchi-1].Explain;
         this.mObtain = mInfoData.Achievement[mAchi-1].Obtain;
 
-        if (UserInfo.instance.UserDataSet.Achievements[mAchi]) {
+        if (UserInfo.instance.UserDataSet.Achievements[mAchi]) 
+        {
             mThisAchiToggle.GetComponent<Toggle>().isOn = true;
         }
         mThisAchiName.text = this.mExplain;
     }
-    public void OnPointerEnter(PointerEventData eventData) {
-        if (UserInfo.instance.UserDataSet.Achievements[mAchi]) {
+    public void OnPointerEnter(PointerEventData eventData) 
+    {
+        if (UserInfo.instance.UserDataSet.Achievements[mAchi]) 
+        {
             mAchiName.text = "획득";
             mAchiImageBG.color = new Color(0f, 1f, 1f, 1f);
         }
-        else{
+        else
+        {
             mAchiName.text = "";
             mAchiImageBG.color = new Color(0.5f, 0.5f, 0.5f, 1f);
         }
@@ -73,5 +76,4 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
         mAchiObtain.text = this.mObtain;
         mAchiImage.GetComponent<Image>().sprite = mThisAchiIamge.GetComponent<Image>().sprite;
     }
-
 }
