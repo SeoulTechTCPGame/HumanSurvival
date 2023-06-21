@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class DropSystem : MonoBehaviour
 {
-    private GameObject mDropsObj;
     [System.Serializable]
     public class Drops
     {
@@ -11,8 +10,9 @@ public class DropSystem : MonoBehaviour
         public int PrefabsIndex;
         public float DropRate;
     }
-    
     public List<Drops> DropList;
+    private GameObject mDropsObj;
+    
      public void OnDrop(Vector2 pos)
     {
         //로직 1. 적이 죽으면 랜덤 넘버 생성(아이템 확률)

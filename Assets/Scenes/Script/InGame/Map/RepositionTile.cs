@@ -7,6 +7,7 @@ public class RepositionTile : MonoBehaviour
     public int Probability;
     public GameObject Prefab;   //불러올 프리팹
     public GameObject Respawn;   //현재 프리팹
+
     // 태크 Area에서 충돌나서 벗어났을 때만 불러오는 함수
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -42,7 +43,8 @@ public class RepositionTile : MonoBehaviour
                 break;
         }
     }
-    private void ObjectRespown(Vector3 myPos) {  //프리팹 생성
+    private void ObjectRespown(Vector3 myPos) 
+    {  //프리팹 생성
         if (Respawn == null & (Random.Range(0,101) <= Probability))   //probability 확률로 생성
         {
             float randomX = Random.Range(-X/2f, X/2f); //랜덤 X좌표
@@ -51,7 +53,8 @@ public class RepositionTile : MonoBehaviour
             Respawn = Instantiate(Prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
         }
     }
-    private void RemoveObject(Collider2D collision) {   //프리팹 삭제
+    private void RemoveObject(Collider2D collision) 
+    {   //프리팹 삭제
         //if (collision.gameObject.tag == "Object")
         Destroy(Respawn);
     }

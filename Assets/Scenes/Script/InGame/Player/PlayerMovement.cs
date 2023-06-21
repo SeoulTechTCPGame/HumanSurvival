@@ -1,16 +1,17 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class PlayerMovement : MonoBehaviour
 {
-    private Vector2 mMovement;    //입력값
-    private float mMoveSpeed = 8f;   //속도
-
-    private Vector2 mPreMovement; //이전 이동 방향 벡터 가져오기
-
     [SerializeField] Rigidbody2D mRb;    //리디지바디
     [SerializeField] SpriteRenderer mSpriter;    //스프라이트
     [SerializeField] Animator mAnimator;  //애니메이션
+
+    private Vector2 mMovement;    //입력값
+    private Vector2 mPreMovement; //이전 이동 방향 벡터 가져오기
+    private float mMoveSpeed = 8f;   //속도
+
     private void Awake()
     {
         mRb = GetComponent<Rigidbody2D>();
@@ -41,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         //movement 조정
         mRb.MovePosition(mRb.position + mMovement * mMoveSpeed * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
     }
-
     private void LateUpdate()   //모든 Update 함수가 호출된 후, 마지막으로 호출되는 함수
     {
         //키보드로 움직임 확인
@@ -60,10 +60,6 @@ public class PlayerMovement : MonoBehaviour
             mSpriter.flipX = mMovement.x < 0; //방향 뒤집기
         }
     }
-    private void OnMove(InputValue value)   //InputSystem으로 키입력을 받는 함수
-    {
-        mMovement = value.Get<Vector2>();
-    }
     public Vector2 Movement
     {
         get { return mMovement; }
@@ -71,5 +67,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 PreMovement
     {
         get { return mPreMovement; }
+    }
+    private void OnMove(InputValue value)   //InputSystem으로 키입력을 받는 함수
+    {
+        mMovement = value.Get<Vector2>();
     }
 }

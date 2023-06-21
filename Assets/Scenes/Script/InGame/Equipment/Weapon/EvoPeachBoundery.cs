@@ -36,12 +36,11 @@ public class EvoPeachBoundery : MonoBehaviour
             mAccCooldown += mCooldown;
         }
     }
-
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW, Weapon peachone, Transform birdTransform)
     {
-        GameObject newobs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
-        newobs.transform.position = GetStartPosition(GameManager.instance.Player.transform.position);
-        var newPeachoneBoundery = newobs.GetComponent<EvoPeachBoundery>();
+        GameObject newObs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
+        newObs.transform.position = GetStartPosition(GameManager.instance.Player.transform.position);
+        var newPeachoneBoundery = newObs.GetComponent<EvoPeachBoundery>();
         newPeachoneBoundery.mBirdTransform = birdTransform;
         newPeachoneBoundery.mDuration = peachone.WeaponTotalStats[((int)Enums.EWeaponStat.Duration)] * 2.5f;
         newPeachoneBoundery.mRealDuration = newPeachoneBoundery.mDuration + 1.5f;
@@ -52,7 +51,6 @@ public class EvoPeachBoundery : MonoBehaviour
         if (!isCW)
             newPeachoneBoundery.mbClockwise = false;
     }
-
     private Vector3 GetStartPosition(Vector3 pos)
     {
         return pos + Vector3.left * mDistance;

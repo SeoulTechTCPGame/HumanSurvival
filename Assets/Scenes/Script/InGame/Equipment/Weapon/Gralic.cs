@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Gralic : Weapon
 {
-    private bool mbExist = false;
-    private GameObject mNewobj;
+    private GameObject mNewObj;
     private float mTimer = 0;
+    private bool mbExist = false;
 
     private void Update()
     {
         transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
     }
-
     public override void Attack()
     {
         GameObject objPre;
@@ -23,14 +22,14 @@ public class Gralic : Weapon
         {
             if(!mbExist)
             {
-                mNewobj = Instantiate(objPre);
-                mNewobj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
-                mNewobj.transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
+                mNewObj = Instantiate(objPre);
+                mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+                mNewObj.transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
                 mbExist = true;
             }
             else
             {
-                Destroy(mNewobj);
+                Destroy(mNewObj);
                 mbExist = false;
             }
             mTimer = 0;

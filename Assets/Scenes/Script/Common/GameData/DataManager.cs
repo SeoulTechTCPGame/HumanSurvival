@@ -5,9 +5,9 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     public ECharacterType CurrentCharcter;
+
     private void Awake()
     {
-        // Scene에 이미 인스턴스가 존재 하는지 확인 후 처리
         if (instance == null)
         {
             instance = this;

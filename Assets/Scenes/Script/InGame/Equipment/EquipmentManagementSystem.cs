@@ -23,7 +23,6 @@ public class EquipmentManagementSystem
 
         SetNewWeapon(startingWeapon);
     }
-
     public void ApplyItem(Tuple<int, int, int> pickUp)
     {
         switch ((Enums.EPickUpType)pickUp.Item1)
@@ -39,34 +38,6 @@ public class EquipmentManagementSystem
                 break;
         }
     }
-    private void ApplyWeapon(int weaponIndex, int hasWeapon)
-    {
-        if (hasWeapon == 0)
-            SetNewWeapon(weaponIndex);
-        else
-            UpgradeWeapon(weaponIndex);
-    }
-    private void ApplyAccessory(int accessoryIndex, int hasAccessory)
-    {
-        if (hasAccessory == 0)
-            GetAccessory(accessoryIndex);
-        else
-            UpgradeAccessory(accessoryIndex);
-    }
-    private void ApplyEtc(int etcIndex)
-    {
-        switch ((Enums.EEtc)etcIndex)
-        {
-            case Enums.EEtc.Food:
-                // TODO: 체력 회복 함수와 연결
-                break;
-            case Enums.EEtc.Money:
-                // TODO: 재화 획득 함수와 연결
-                break;
-            default:
-                break;
-        }
-    }
     public bool HasWeapon(int weaponIndex)
     {
         if (weaponIndex < 0 || weaponIndex >= Constants.MAX_WEAPON_NUMBER)
@@ -79,7 +50,6 @@ public class EquipmentManagementSystem
             return false;
         return TransAccessoryIndex[accIndex] >= 0;
     }
-    //ToDo: SkillFiringSystem이랑 연계 할 함수
     public void SetNewWeapon(int weaponIndex)
     {
         GameManager.instance.WeaponGetTime[weaponIndex] = GameManager.instance.GameTime;
@@ -169,6 +139,34 @@ public class EquipmentManagementSystem
                 break;
             case 9: // LightningRing
                 //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<LightningRing>());
+                break;
+        }
+    }
+    private void ApplyWeapon(int weaponIndex, int hasWeapon)
+    {
+        if (hasWeapon == 0)
+            SetNewWeapon(weaponIndex);
+        else
+            UpgradeWeapon(weaponIndex);
+    }
+    private void ApplyAccessory(int accessoryIndex, int hasAccessory)
+    {
+        if (hasAccessory == 0)
+            GetAccessory(accessoryIndex);
+        else
+            UpgradeAccessory(accessoryIndex);
+    }
+    private void ApplyEtc(int etcIndex)
+    {
+        switch ((Enums.EEtc)etcIndex)
+        {
+            case Enums.EEtc.Food:
+                // TODO: 체력 회복 함수와 연결
+                break;
+            case Enums.EEtc.Money:
+                // TODO: 재화 획득 함수와 연결
+                break;
+            default:
                 break;
         }
     }

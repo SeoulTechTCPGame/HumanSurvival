@@ -1573,6 +1573,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4164668107213152384, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: Index
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4164668107260647533, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1655,6 +1659,10 @@ PrefabInstance:
       objectReference: {fileID: 1928233905}
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: WeaponImages.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: mWeaponImages.Array.size
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4164668107605387565, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
@@ -1821,6 +1829,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4164668107921368798, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: Index
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4164668108129045608, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1868,6 +1880,10 @@ PrefabInstance:
     - target: {fileID: 4164668108313841298, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164668108490274142, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
+      propertyPath: Index
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4164668108616407858, guid: 0ffdb5ce92ac37646b1a4904688ca061, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2206,8 +2222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a87cfd4fd80714dbc1e5a619a2ac84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSpawnArea: {x: 15, y: 12}
-  mPlayer: {fileID: 1928233905}
   SpawnData:
   - {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
   - {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
@@ -2215,6 +2229,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
   - {fileID: 11400000, guid: f68536f96474ca1458be3a23ce57ea2f, type: 2}
   - {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
+  mSpawnArea: {x: 15, y: 12}
+  mPlayer: {fileID: 1928233905}
 --- !u!1 &1310574634
 GameObject:
   m_ObjectHideFlags: 0

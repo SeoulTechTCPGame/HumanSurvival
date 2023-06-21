@@ -14,6 +14,7 @@ public class RandomPickUpSystem
         mWeaponRarity = new int[10] { 100, 100, 100, 80, 80, 80, 70, 50, 50, 80 };
         mAccessoryRarity = new int[15] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 50 }; // 임시
     }
+
     public void UpdateWeaponPickUpList()
     {
         var luck = GameManager.instance.CharacterStats[(int)Enums.EStat.Luck];
@@ -114,7 +115,6 @@ public class RandomPickUpSystem
             possibleAccessoryChoice = Constants.MAX_ACCESSORY_COUNT - equipManageSys.MasteredAccessories.Count;
         }
     }
-
     private Tuple<int, int, int> GetOnePickUp(int possibleWeaponNum, int possibleAccessoryNum, List<int> pickedWeaponList, List<int> pickedAccessoryList, EquipmentManagementSystem equipManagerSys)
     {   // < 0: weapon / 1: accessory, index , 0: new / 1: old >
         int pickType = GetPickType(possibleWeaponNum, possibleAccessoryNum);

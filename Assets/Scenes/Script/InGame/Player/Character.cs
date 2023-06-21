@@ -60,12 +60,10 @@ public class Character : MonoBehaviour, IDamageable
         }
         mHpBar.SetState(mCurrentHp, mMaxHp);
     }
-
     public void TempLoad()
     {
         GameManager.instance.LevelUp();
     }
-
     public void GetExp(float exp)
     {
         // TODO: stat의 growth 적용하여 경험치 획득
