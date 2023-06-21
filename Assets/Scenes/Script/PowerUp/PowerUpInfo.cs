@@ -55,6 +55,18 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
         {
             AccessoryToggle.Add(accessory.transform.GetChild(i).GetComponent<Toggle>());
         }
+        if (UserInfo.instance.UserDataSet.PowerUpLevel[0] == 5)
+        {
+            mActiveObject.transform.Find("InGameActiveToggle").GetComponent<Toggle>().isOn = UserInfo.instance.UserDataSet.BPowerUpActive[0];
+            mChargeObject.SetActive(false);
+            mActiveObject.SetActive(true);
+        }
+        else
+        {
+            mChargeObject.SetActive(true);
+            mActiveObject.SetActive(false);
+            AccessoryCash.text = UserInfo.instance.UserDataSet.NowPowerUpCash[0].ToString();
+        }
     }
     private void Start() 
     {   
@@ -69,6 +81,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData) 
     {
+        Debug.Log(UserInfo.instance.UserDataSet.BPowerUpActive[mAccessoryIndex - 1]);
         mAccessoryName.text = mThisAccessoryName.text;
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;
@@ -76,6 +89,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
         AccessoryCash.text = UserInfo.instance.UserDataSet.NowPowerUpCash[mAccessoryIndex - 1].ToString();
         if(UserInfo.instance.UserDataSet.PowerUpLevel[mAccessoryIndex - 1] == AccessoryMaxLevel)
         {
+            mActiveObject.transform.Find("InGameActiveToggle").GetComponent<Toggle>().isOn = UserInfo.instance.UserDataSet.BPowerUpActive[mAccessoryIndex - 1];
             mChargeObject.SetActive(false);
             mActiveObject.SetActive(true);
         }
