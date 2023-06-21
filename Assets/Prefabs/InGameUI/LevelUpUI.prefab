@@ -4388,7 +4388,7 @@ GameObject:
   - component: {fileID: 4164668107794885259}
   - component: {fileID: 4164668107794885258}
   m_Layer: 5
-  m_Name: tempLevelUp
+  m_Name: TempLevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
