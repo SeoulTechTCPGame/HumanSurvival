@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public float MaxExp;
     public int Coin;
     public float[] WeaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
-    public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip, MagicWand, Knife, Axe, Cross, KingBible, FireWand, Garlic, SantaWater, Peachone, EbonyWings, Runetracer, LightningRing
+    public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
+    public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
     public int EvoGralicRestoreCount = 0;
     public EquipmentManagementSystem EquipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
@@ -36,9 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Scene에 이미 인스턴스가 존재 하는지 확인 후 처리
         instance = this;
-        // Scene 이동 시 삭제 되지 않도록 처리
         DontDestroyOnLoad(this.gameObject);
         Level = 1;
         Exp = 0;
@@ -47,12 +45,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {    
-        //ToDo: 임시 초기화
         CharacterStats = new float[21] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         Level = 1;
         RandomPickUpSystem = new RandomPickUpSystem();
         EquipManageSys = new EquipmentManagementSystem();
-        // TODO: user가 메인 화면에서 강화해놓은 스탯들을 기본값으로 받아오기
         string resourceName = "CharacterData/";
         try
         {
@@ -96,7 +92,6 @@ public class GameManager : MonoBehaviour
             GameTime = MaxGameTime;
         }
     }
-
     public void PauseGame()
     {
         Time.timeScale = 0;
@@ -105,7 +100,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");

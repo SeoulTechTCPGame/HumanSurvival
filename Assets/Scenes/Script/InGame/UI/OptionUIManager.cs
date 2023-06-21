@@ -108,20 +108,6 @@ public class OptionUIManager : MonoBehaviour
             mPlayer.GetComponent<PlayerMovement>().enabled = true;
         }
     }
-    private void OnBgmVolumeChanged(float value)
-    {
-        // BGM 볼륨 값을 변경
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.BgmVolume = value;
-        Debug.Log(soundManager.BgmVolume);
-    }
-    private void OnSoundEffectVolumeChanged(float value)
-    {
-        // 사운드 이펙트 볼륨 값을 변경
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.SoundEffectVolume = value;
-        Debug.Log(soundManager.SoundEffectVolume);
-    }
     public void UnSetItemUI()
     {
         foreach (var image in mOwnWeaponImages)
@@ -170,13 +156,23 @@ public class OptionUIManager : MonoBehaviour
             ((int)(characterStats[(int)Enums.EStat.Skip]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Skip])).ToString()) + "\n" +
             ((int)(characterStats[(int)Enums.EStat.Banish]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Banish])).ToString());
     }
-
     public void SetItemUI(List<Weapon> weapons, List<Accessory> accessories)
     {
         SetWeaponUI(weapons);
         SetAccessoryUI(accessories);
     }
-
+    private void OnBgmVolumeChanged(float value)
+    {
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.BgmVolume = value;
+        Debug.Log(soundManager.BgmVolume);
+    }
+    private void OnSoundEffectVolumeChanged(float value)
+    {
+        SoundManager soundManager = SoundManager.instance;
+        soundManager.SoundEffectVolume = value;
+        Debug.Log(soundManager.SoundEffectVolume);
+    }
     private void SetWeaponUI(List<Weapon> weapons)
     {
         for (int i = 0; i < weapons.Count; i++)
@@ -197,7 +193,6 @@ public class OptionUIManager : MonoBehaviour
             }
         }
     }
-
     private void SetAccessoryUI(List<Accessory> accessories)
     {
         for (int i = 0; i < accessories.Count; i++)

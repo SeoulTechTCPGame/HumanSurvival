@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PeachBoundery : MonoBehaviour
@@ -14,7 +10,7 @@ public class PeachBoundery : MonoBehaviour
     private float mCooldown = 2f;
     private float mAccCooldown = 0;
     private bool isClockwise = true;
-    bool mProjectileDirUp = true; // 위 아래 번갈아가며
+    private bool mProjectileDirUp = true; // 위 아래 번갈아가며
     private GameObject mPeachObj;
     private Transform mBirdTransform;
 
@@ -50,7 +46,6 @@ public class PeachBoundery : MonoBehaviour
             mAccCooldown += mCooldown;
         }
     }
-
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW, Weapon peachone, Transform birdTransform)
     {
         GameObject newobs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
@@ -65,7 +60,6 @@ public class PeachBoundery : MonoBehaviour
         if (!isCW)
             newPeachoneBoundery.isClockwise = false;
     }
-
     private Vector3 getStartPosition(Vector3 pos)
     {
         return pos + Vector3.up * mDistance;

@@ -10,10 +10,8 @@ public class Enemy : MonoBehaviour,IDamageable
     private bool mbLive;
     private int mLevel;
     private int mKnockbackpower = 0;
-
     private Character mTargetCharacter;
     private GameObject mTargetGameObject;
-
     private Vector2 mFixedTargetDirection;
     private Vector2 mDirection;
     private Rigidbody2D mRb;
@@ -21,6 +19,7 @@ public class Enemy : MonoBehaviour,IDamageable
     private SpriteRenderer mSpriter;
     private Animator mAnim;
     private WaitForFixedUpdate mWait;
+
     private void Awake()
     {
         mRb = GetComponent<Rigidbody2D>();
@@ -73,11 +72,6 @@ public class Enemy : MonoBehaviour,IDamageable
         mSpriter.sortingOrder = 2;
         mAnim.SetBool("Dead", false);  //TODO: Fix code location
     }
-
-    public void InitEnemy(EnemyScriptableObject data)  //각각의 몬스터 데이터 설정 함수
-    {
-        EnemyData = data;
-    }
     private void OnCollisionStay2D(Collision2D col)
     {
      
@@ -85,21 +79,10 @@ public class Enemy : MonoBehaviour,IDamageable
             Attack();
         }
     }
-    void Attack() {
-        if (mTargetCharacter == null)
-        {
-            mTargetCharacter = Target.GetComponent<Character>();
-        }
-        mTargetCharacter.TakeDamage(EnemyData.power, 0);
-    }  
-    void Dead()
+    public void InitEnemy(EnemyScriptableObject data)  //각각의 몬스터 데이터 설정 함수
     {
-        //경험치 drop
-        gameObject.GetComponent<DropSystem>().OnDrop(mRb.transform.position);
-        gameObject.SetActive(false);
-
+        EnemyData = data;
     }
-  
     public void TakeDamage(float damage, int weaponIndex)
     {
         mHealth -= damage;
@@ -130,12 +113,26 @@ public class Enemy : MonoBehaviour,IDamageable
             GameManager.instance.KillCount[weaponIndex]++;
         }
     }
-
     private IEnumerator KnockBack()
     {
         yield return mWait;
         Vector3 playerPos = GameManager.instance.Player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
         mRb.AddForce(dirVec.normalized * (3 + mKnockbackpower), ForceMode2D.Impulse);
+    }
+    private void Attack()
+    {
+        if (mTargetCharacter == null)
+        {
+            mTargetCharacter = Target.GetComponent<Character>();
+        }
+        mTargetCharacter.TakeDamage(EnemyData.Power, 0);
+    }  
+    private void Dead()
+    {
+        //경험치 drop
+        gameObject.GetComponent<DropSystem>().OnDrop(mRb.transform.position);
+        gameObject.SetActive(false);
+
     }
 }

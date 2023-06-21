@@ -7,9 +7,10 @@ public class EquipmentData
     public static float[,] DefaultWeaponStats;
     public static List<List<Tuple<int, float>>>[] AccessoryUpgrade;
     public static int[] AccessoriesMaxLevel;
-    public static int[] EvoWeaponNeedAccIndex;   //Whip,MagicWand,Knife,Axe,Cross,KingBible,FireWand,Garlic,SantaWater,Peachone,EbonyWings,Runetracer,LightningRing
-    public static int[] EvoWeaponNeedWeaponIndex;   //Whip,MagicWand,Knife,Axe,Cross,KingBible,FireWand,Garlic,SantaWater,Peachone,EbonyWings,Runetracer,LightningRing
-    public static int[] EvoAccNeedWeaponIndex;   //Spinach,Armor,HollowHeart,Pummarola,EmptyTome,Candelabrador,Bracer,Spellbinder,Duplicator,Wings,Attractorb,Clover,Crown,StoneMask,Tiragisu,Skull,SilverRing,GoldRing,MetaglioLeft,MetaglioRight,TorronaBox
+    public static int[] EvoWeaponNeedAccIndex;   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
+    public static int[] EvoWeaponNeedWeaponIndex;   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
+    public static int[] EvoAccNeedWeaponIndex;   // Spinach,Armor,HollowHeart,Pummarola,EmptyTome,Candelabrador,Bracer,Spellbinder,Duplicator,Wings,Attractorb,Clover,Crown,StoneMask,Skull
+    
     static EquipmentData()
     {
         LevelOneWeaponPreprocessing();
@@ -17,6 +18,7 @@ public class EquipmentData
         AccessoryUpgradePreprocessing();
         EvolutionPairData();
     }
+
     public static void EvolutionPairData()
     {
         // 짝이 없는 무기, 악세서리의 경우는 -1로 초기화
@@ -24,7 +26,6 @@ public class EquipmentData
         EvoWeaponNeedWeaponIndex    = new int[Constants.MAX_WEAPON_NUMBER] { -1, -1, -1, -1, -1, -1, -1, 10, 9, -1 };
         EvoAccNeedWeaponIndex       = new int[Constants.MAX_ACCESSORY_NUMBER] { 5, -1, 0, 6, 1, -1, 2, 4, 9, -1, -1, 3, -1, -1, -1 };
     }
-
     public static void LevelOneWeaponPreprocessing()
     {
         DefaultWeaponStats = new float[Constants.MAX_WEAPON_NUMBER, 9]
@@ -42,7 +43,6 @@ public class EquipmentData
             { 15,   4.50f,      Constants.X,    Constants.X,    2,              50,             Constants.INF,  1,      8   }   // LightningRing
         };
     }
-
     public static void WeaponUpgradePreprocessing()
     {
         WeaponUpgrade = new List<List<Tuple<int, float>>>[Constants.MAX_WEAPON_NUMBER];

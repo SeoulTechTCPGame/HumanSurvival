@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 216235525}
   - component: {fileID: 216235528}
   m_Layer: 5
-  m_Name: collection
+  m_Name: Collection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 616518148}
   - component: {fileID: 616518151}
   m_Layer: 5
-  m_Name: achievements
+  m_Name: Achievements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 630745054}
   - component: {fileID: 630745057}
   m_Layer: 5
-  m_Name: option
+  m_Name: Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 1109698224}
   - component: {fileID: 1109698227}
   m_Layer: 5
-  m_Name: quit
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2094,7 +2094,7 @@ GameObject:
   - component: {fileID: 1695671600}
   - component: {fileID: 1695671603}
   m_Layer: 5
-  m_Name: start
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2476,7 +2476,7 @@ GameObject:
   - component: {fileID: 1877918068}
   - component: {fileID: 1877918071}
   m_Layer: 5
-  m_Name: powerUp
+  m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

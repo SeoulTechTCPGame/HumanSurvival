@@ -5,6 +5,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] StageData mStageData;
     [SerializeField] EnemySpawner mEnemySpawner;
     private int mEventIndexer;
+
     private void Start()
     {
         mEnemySpawner = FindObjectOfType<EnemySpawner>();

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+
 public class WeaponListUI : MonoBehaviour
 {
     [SerializeField] Image mWeaponImage = null;
@@ -11,6 +12,7 @@ public class WeaponListUI : MonoBehaviour
     [SerializeField] TMP_Text mWeaponTime = null;
     [SerializeField] TMP_Text mWeaponDamagePerSec = null;
     private GameObject mWeaponInfo;
+
     public void SetWeaponResultData(int orderIndex,int weaponIndex)
     {
         float gameTime = GameManager.instance.GameTime;

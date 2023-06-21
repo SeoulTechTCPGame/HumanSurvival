@@ -24,7 +24,6 @@ namespace Enums
         Ommi,
         Reflection,
     }
-
     public enum EWeaponStat
     {
         Might,
@@ -37,7 +36,6 @@ namespace Enums
         Area,
         MaxLevel
     }
-
     public enum EAccessoryStat
     {
         MightPer,
@@ -62,7 +60,6 @@ namespace Enums
         Ommi,
         ReflectionPer,
     }
-
     public enum EWeapon // 10개
     {
         Whip,
@@ -76,7 +73,6 @@ namespace Enums
         EbonyWings,
         LightningRing
     }
-
     public enum EAccessory // 15개
     {
         Spinach,

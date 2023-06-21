@@ -10,7 +10,6 @@ public class ButtonScript : MonoBehaviour
         mButton = GetComponent<Button>();
         mButton.onClick.AddListener(PlayButtonSound);
     }
-
     private void PlayButtonSound()
     {
         SoundManager.instance.PlayButtonSound();

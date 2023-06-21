@@ -9,6 +9,7 @@ public enum EStageEventType
     SpawnObjcet,
     WinStage
 }
+
 [Serializable]
 public class StageEvent
 {
@@ -22,6 +23,7 @@ public class StageEvent
     public float RepeatEverySeconds;
     public int RepeatCount;
 }
+
 [CreateAssetMenu]
 public class StageData : ScriptableObject
 {

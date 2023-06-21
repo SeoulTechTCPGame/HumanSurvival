@@ -10,6 +10,7 @@ public class MiniLevels
 {
     public Image[] MiniLevel;
 }
+
 public class LevelUpUIManager : MonoBehaviour
 {
     [SerializeField] MiniLevels[] mWeaponLevelsUI;
@@ -39,7 +40,7 @@ public class LevelUpUIManager : MonoBehaviour
     private bool mbOnLevelUp;
     private int mRotSpeed = 60;
     private float mTime = 0;
-    // Start is called before the first frame update
+
     private void Start()
     {
         mbOnLevelUp = false;
@@ -68,48 +69,6 @@ public class LevelUpUIManager : MonoBehaviour
                 mPickUpUI.transform.rotation = Quaternion.identity;
         }
     }
-
-    private static void ItemScriptProcessing()
-    {
-        mTypeScripts = new List<string[]>();
-        mTypeScripts.Add(new string[Constants.MAX_WEAPON_NUMBER]
-            {
-                "Whip 설명",
-                "MagicWand 설명",
-                "Knife 설명",
-                "Cross 설명",
-                "KingBible 설명",
-                "FireWand 설명",
-                "Garlic 설명",
-                "Peachone 설명",
-                "EbonyWings 설명",
-                "LightningRing 설명"
-            });
-        mTypeScripts.Add(new string[Constants.MAX_ACCESSORY_NUMBER]
-        {
-            "Spinach 설명",
-            "Armor 설명",
-            "HollowHeart 설명",
-            "Pummarola 설명",
-            "EmptyTome 설명",
-            "Candelabrador 설명",
-            "Bracer 설명",
-            "Spellbinder 설명",
-            "Duplicator 설명",
-            "Wings 설명",
-            "Attractorb 설명",
-            "Clover 설명",
-            "Crown 설명",
-            "StoneMask 설명",
-            "Skull 설명",
-        });
-        mTypeScripts.Add(new string[Constants.MAX_ETC_NUMBER]
-            {
-                "25골드를 추가합니다.",
-                "체력을 30 회복합니다."
-            });
-    }
-
     public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Accessory> accessories)
     {
         mTime = 0;
@@ -150,30 +109,6 @@ public class LevelUpUIManager : MonoBehaviour
             mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Property].text = pickUps[i].Item3 == 0 ? "New" : "";
         }
     }
-    private Sprite[] getSprites(int type)
-    {
-        switch (type)
-        {
-            case 0:
-                return mWeaponImages;
-            case 1:
-                return mAccessoryImages;
-            default:
-                return mEtcImages;
-        }
-    }
-    private string transPickIndexToEnumString(int type, int index)
-    {
-        switch (type)
-        {
-            case 0:
-                return ((Enums.EWeapon)index).ToString();
-            case 1:
-                return ((Enums.EAccessory)index).ToString();
-            default:
-                return ((Enums.EEtc)index).ToString();
-        }
-    }
     public void UnSetPickUpUI()
     {
         foreach (var pickUpButton in mPickUpButtons)
@@ -208,6 +143,103 @@ public class LevelUpUIManager : MonoBehaviour
     {
         SetWeaponUI(weapons);
         SetAccessoryUI(accessories);
+    }
+    public void UnSetItemUI()
+    {
+        foreach (var image in mOwnWeaponImages)
+        {
+            image.enabled = false;
+        }
+        foreach (var weaponslevel in mWeaponLevelsUI)
+        {
+            foreach (var weaponMiniLevel in weaponslevel.MiniLevel)
+            {
+                weaponMiniLevel.enabled = false;
+            }
+        }
+        foreach (var image in mOwnAccessoryImages)
+        {
+            image.enabled = false;
+        }
+        foreach (var accessorieslevel in mAccessoryLevelsUI)
+        {
+            foreach (var accessoryMiniLevel in accessorieslevel.MiniLevel)
+            {
+                accessoryMiniLevel.enabled = false;
+            }
+        }
+    }
+    public void ClickPickButton()
+    {
+        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
+        int selectedIndex = clickedButton.GetComponent<PickButton>().Index;
+        GameManager.instance.EquipManageSys.ApplyItem(mPickUps[selectedIndex]);
+        UnloadLevelUpUI();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ResumeGame();
+    }
+    private static void ItemScriptProcessing()
+    {
+        mTypeScripts = new List<string[]>();
+        mTypeScripts.Add(new string[Constants.MAX_WEAPON_NUMBER]
+        {
+            "Whip 설명",
+            "MagicWand 설명",
+            "Knife 설명",
+            "Cross 설명",
+            "KingBible 설명",
+            "FireWand 설명",
+            "Garlic 설명",
+            "Peachone 설명",
+            "EbonyWings 설명",
+            "LightningRing 설명"
+        });
+        mTypeScripts.Add(new string[Constants.MAX_ACCESSORY_NUMBER]
+        {
+            "Spinach 설명",
+            "Armor 설명",
+            "HollowHeart 설명",
+            "Pummarola 설명",
+            "EmptyTome 설명",
+            "Candelabrador 설명",
+            "Bracer 설명",
+            "Spellbinder 설명",
+            "Duplicator 설명",
+            "Wings 설명",
+            "Attractorb 설명",
+            "Clover 설명",
+            "Crown 설명",
+            "StoneMask 설명",
+            "Skull 설명",
+        });
+        mTypeScripts.Add(new string[Constants.MAX_ETC_NUMBER]
+        {
+            "25골드를 추가합니다.",
+            "체력을 30 회복합니다."
+        });
+    }
+    private Sprite[] getSprites(int type)
+    {
+        switch (type)
+        {
+            case 0:
+                return mWeaponImages;
+            case 1:
+                return mAccessoryImages;
+            default:
+                return mEtcImages;
+        }
+    }
+    private string transPickIndexToEnumString(int type, int index)
+    {
+        switch (type)
+        {
+            case 0:
+                return ((Enums.EWeapon)index).ToString();
+            case 1:
+                return ((Enums.EAccessory)index).ToString();
+            default:
+                return ((Enums.EEtc)index).ToString();
+        }
     }
     private void SetWeaponUI(List<Weapon> weapons)
     {
@@ -248,38 +280,5 @@ public class LevelUpUIManager : MonoBehaviour
                 mAccessoryLevelsUI[i].MiniLevel[j].enabled = true;
             }
         }
-    }
-    public void UnSetItemUI()
-    {
-        foreach (var image in mOwnWeaponImages)
-        {
-            image.enabled = false;
-        }
-        foreach (var weaponslevel in mWeaponLevelsUI)
-        {
-            foreach (var weaponMiniLevel in weaponslevel.MiniLevel)
-            {
-                weaponMiniLevel.enabled = false;
-            }
-        }
-        foreach (var image in mOwnAccessoryImages)
-        {
-            image.enabled = false;
-        }
-        foreach (var accessorieslevel in mAccessoryLevelsUI)
-        {
-            foreach (var accessoryMiniLevel in accessorieslevel.MiniLevel)
-            {
-                accessoryMiniLevel.enabled = false;
-            }
-        }
-    }
-    public void ClickPickButton()
-    {
-        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
-        int selectedIndex = clickedButton.GetComponent<PickButton>().Index;
-        GameManager.instance.EquipManageSys.ApplyItem(mPickUps[selectedIndex]);
-        UnloadLevelUpUI();
-        GameObject.Find("GameManager").GetComponent<GameManager>().ResumeGame();
     }
 }

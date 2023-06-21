@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
   m_Name: Ghoul
   m_EditorClassIdentifier: 
-  enemyName: Ghoul
-  spriteType: 2
-  speed: 100
-  power: 10
-  knockback: 0.8
-  maxKnockback: 3
-  deathKB: 4
-  xp: 1
-  end: 20
-  level: 1
-  maxHP: 1
+  mEnemyName: Ghoul
+  mSpriteType: 2
+  mSpeed: 100
+  mPower: 10
+  mKnockback: 0.8
+  mMaxKnockback: 3
+  mDeathKB: 4
+  mXp: 1
+  mEnd: 20
+  mLevel: 1
+  mMaxHP: 1

@@ -6,6 +6,7 @@ public class UserInfo : MonoBehaviour
 {
     public static UserInfo instance;
     public UserData UserDataSet;
+
     private const int JUMP_ACCESSORY = 58;
     private const int JUMP_STAGE = 0;
     
@@ -87,31 +88,31 @@ public class UserInfo : MonoBehaviour
         UserDataSet.NowPowerUpCash[powerUpIndex] = UserDataSet.PowerUpCash[powerUpIndex];
         UserDataManager.instance.SaveData();
     }
-    void UpdateOption()
+    private void UpdateOption()
     {
         // TODO: Option기능 완성되면 추가
         UserDataManager.instance.SaveData();
     }
-    void UnlockCharacter(int characterIndex)
+    private void UnlockCharacter(int characterIndex)
     {
         UserDataSet.BUnlockCharacters[characterIndex] = true;
         UserDataManager.instance.SaveData();
     }
-    void UnlockWeapon(int weaponIndex)
+    private void UnlockWeapon(int weaponIndex)
     {
         UserDataSet.BCollection[(weaponIndex << 1) | 1] = true;
         UserDataManager.instance.SaveData();
     }
-    void UnlockAccessory(int accessoryIndex)
+    private void UnlockAccessory(int accessoryIndex)
     {
         UserDataSet.BCollection[accessoryIndex + JUMP_ACCESSORY] = true;
         UserDataManager.instance.SaveData();
     }
-    bool IsWeaponUnlock(int weaponIndex)
+    private bool IsWeaponUnlock(int weaponIndex)
     {
         return UserDataSet.BCollection[(weaponIndex << 1) | 1];
     }
-    bool IsAccessoryUnlock(int accessoryIndex)
+    private bool IsAccessoryUnlock(int accessoryIndex)
     {
         return UserDataSet.BCollection[accessoryIndex + JUMP_ACCESSORY];
     }

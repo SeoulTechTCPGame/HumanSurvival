@@ -1,10 +1,9 @@
 using UnityEngine;
 
-
 public class Bird : MonoBehaviour
 {
-    [SerializeField] Animator BirdAni;
     public Transform PlayerTransform;
+    [SerializeField] Animator BirdAni;
     private float mMaxDist;
     private float mSpeed;
 
@@ -18,7 +17,6 @@ public class Bird : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, PlayerTransform.position, mSpeed);
         }
     }
-
     private void FixedUpdate()
     {
         if(IsOutOfRange())
@@ -27,7 +25,6 @@ public class Bird : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, PlayerTransform.position, mSpeed);
         }
     }
-
     private bool IsOutOfRange()
     {
         var distSq = Mathf.Pow(transform.position.x - PlayerTransform.position.x, 2) + Mathf.Pow(transform.position.y - PlayerTransform.position.y, 2);
@@ -35,7 +32,6 @@ public class Bird : MonoBehaviour
             return true;
         return false;
     }
-
     private void ChangeHeadDir()
     {
         var dX = PlayerTransform.position.x - transform.position.x;

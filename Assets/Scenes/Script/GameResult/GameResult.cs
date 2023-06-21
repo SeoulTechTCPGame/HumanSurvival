@@ -18,7 +18,7 @@ public class GameResult : MonoBehaviour
     private float mGameTime;
     private GameObject mWeaponInfo;
 
-    void Start()
+    private void Start()
     {
         mLevel.text = string.Format("{0}", GameManager.instance.Level);
         mKill.text = string.Format("{0}", GameManager.instance.Kill);
@@ -43,7 +43,6 @@ public class GameResult : MonoBehaviour
             //밑에 숫자가 뭘까..
         }
     }
-
     public void ClickCompleteBtn()
     {
         UserInfo.instance.UpdateAccumulatedTime(GameManager.instance.GameTime);

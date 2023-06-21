@@ -7,6 +7,7 @@ public class HUD: MonoBehaviour
     public EInfoType Type;
     private Text mMyText;
     private Slider mMySlider;
+
     private void Awake()
     {
         mMySlider = GetComponent<Slider>();
