@@ -6,6 +6,7 @@ public class Knife : Weapon
     private bool mbUseKnife = false;
     private int mTouch = 0;
     private int mTouchLimit;
+
     private void Update()
     {
         if (!mbUseKnife) return;  //knife 사용 안할 때 Update를 안 함
@@ -26,21 +27,25 @@ public class Knife : Weapon
         {
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
-                GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+                GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
                 Vector3 spawnPosition = GameManager.instance.Player.transform.position;
                 if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
                 {
                     spawnPosition.y -= ((int)WeaponTotalStats[((int)Enums.EWeaponStat.Area)] * (i-1)) / 2;
                     spawnPosition.y += i * (int)WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
                 }
-                newobs.transform.position = spawnPosition; //시작 위치
-                newobs.GetComponent<Knife>().mbUseKnife = true;
-                newobs.GetComponent<Knife>().mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
-                Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
-                rb.velocity = setDirection(newobs) * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
+                newObs.transform.position = spawnPosition; //시작 위치
+                newObs.GetComponent<Knife>().mbUseKnife = true;
+                newObs.GetComponent<Knife>().mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
+                Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
+                rb.velocity = setDirection(newObs) * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
             }
             mTimer = 0;
         }
+    }
+    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
+    {
+
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -96,9 +101,5 @@ public class Knife : Weapon
         if (GameManager.instance.Player.PreMovement == Vector2.zero){ obj.GetComponent<SpriteRenderer>().flipY = true; return Vector3.right;}
         else if (GameManager.instance.Player.Movement == Vector2.zero & GameManager.instance.Player.PreMovement != Vector2.zero) { return GameManager.instance.Player.PreMovement;}
         else { return GameManager.instance.Player.Movement; }
-    }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
     }
 }

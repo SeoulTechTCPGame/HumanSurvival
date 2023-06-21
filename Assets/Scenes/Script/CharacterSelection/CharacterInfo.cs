@@ -20,10 +20,10 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
     private void Start()
     {
         mCharacterName = mCharacterButton.transform.Find("Name").gameObject;
-        mExplainName = mExplain.transform.Find("CharaName").gameObject;
-        mExplainImage = mExplain.transform.Find("CharaImage").gameObject;
-        mExplainText = mExplain.transform.Find("CharaExplain").gameObject;
-        mExplainWeapon = mExplain.transform.Find("CharaWeapon").gameObject;
+        mExplainName = mExplain.transform.Find("CharacterName").gameObject;
+        mExplainImage = mExplain.transform.Find("CharacterImage").gameObject;
+        mExplainText = mExplain.transform.Find("CharacterExplain").gameObject;
+        mExplainWeapon = mExplain.transform.Find("CharacterWeapon").gameObject;
 
         string resourceName = "CharacterData/";
         try

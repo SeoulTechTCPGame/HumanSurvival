@@ -8,10 +8,40 @@ public class Weapon : MonoBehaviour
     public int WeaponLevel = 1;
     public int WeaponMaxLevel;
     public bool BEvolution = false;
-    public float[] WeaponTotalStatList;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
-
+    public float[] WeaponTotalStatList; // Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
     private float[] mWeaponStats;
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("DestructibleObj"))
+        {
+            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
+            {
+                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            }
+        }
+        if (col.gameObject.tag == "Monster")
+        {
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            if (WeaponIndex == 6 && BEvolution)
+            {
+                GameManager.instance.Character.RestoreHealth(1);
+                GameManager.instance.EvoGralicRestoreCount++;
+                if (GameManager.instance.EvoGralicRestoreCount == 60)
+                {
+                    GameManager.instance.EvoGralicRestoreCount = 0;
+                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
+                }
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Boundary")
+        {
+            Destroy(this.gameObject);
+        }
+    }
     public void WeaponDefalutSetting(int weaponIndex=0)
     {
         this.WeaponIndex = weaponIndex;
@@ -38,6 +68,9 @@ public class Weapon : MonoBehaviour
     {
         return BEvolution;
     }
+    public float[] WeaponTotalStats { get { return WeaponTotalStatList; } }
+    public virtual void Attack() { }
+    public virtual void EvolutionProcess() { }
     private void Evolution()
     {
         if (!IsMaster())
@@ -58,38 +91,6 @@ public class Weapon : MonoBehaviour
         if (equipManageSys.HasWeapon(evoPairWeaponIndex) && equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].IsMaster())
             BEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].BEvolution = true;
     }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if(WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if(GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
-        }
-    }
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Boundary")
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     //아래 계산을 한번에 하기
     //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     private void AttackCalculation()
@@ -125,7 +126,4 @@ public class Weapon : MonoBehaviour
     {
         WeaponTotalStatList[((int)Enums.EWeaponStat.Amount)] = ((int)mWeaponStats[((int)Enums.EWeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.EStat.Amount];
     }
-    public float[] WeaponTotalStats { get { return WeaponTotalStatList; } }
-    public virtual void EvolutionProcess() { }
-    public virtual void Attack() { }
 }

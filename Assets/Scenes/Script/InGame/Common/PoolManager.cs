@@ -3,18 +3,23 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+    [Header("EnemyPool")]
     public GameObject[] EnemyPrefabs; // 프리펩들을 보관할 변수.
     private List<GameObject>[] mEnemyPools; // 풀 담당을 하는 리스트들
 
+    [Header("TargetPool")]
     private GameObject[] mTargetPrefab;
     private List<GameObject>[] mTargetPool;
 
+    [Header("ExpPool")]
     public GameObject[] ExpPrefabs;
     private List<GameObject>[] mExpPools;
 
+    [Header("CoinPool")]
     public GameObject[] CoinPrefabs;
     private List<GameObject>[] mCoinPools;
 
+    [Header("HeartPool")]
     public GameObject[] HeartPrefabs;
     private List<GameObject>[] mHeartPools;
 
@@ -61,8 +66,9 @@ public class PoolManager : MonoBehaviour
                 break;
         }
         GameObject select = null;
-        //선택한 풀의 비활성화 된 게임 오브젝트 접근.
-        // 발견하면 select 변수에 할당// 생성된 적이 죽을경우 
+        // 선택한 풀의 비활성화 된 게임 오브젝트 접근.
+        // 발견하면 select 변수에 할당
+        // 생성된 적이 죽을경우
         
         foreach (GameObject item in mTargetPool[index])
         {
@@ -86,7 +92,6 @@ public class PoolManager : MonoBehaviour
         foreach (GameObject item in mEnemyPools[index])
             item.SetActive(false);
     }
-
     public void ClearAll()
     {
         for (int index = 0; index < mEnemyPools.Length; index++)

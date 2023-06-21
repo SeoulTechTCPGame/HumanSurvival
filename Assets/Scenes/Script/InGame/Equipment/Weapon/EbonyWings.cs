@@ -7,14 +7,16 @@ public class EbonyWings : Weapon
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
     public Vector3 ProjectileScale;
+
     [SerializeField] Animator mAnimator;
+
     private bool mbHolding = false;
     private static Color[] mColors = { new Color(0.85f, 0.13f, 0.19f, 1), new Color(1, 0.46f, 0, 1), new Color(0.89f, 0.87f, 0.88f, 1)
             , new Color(0.51f, 0.93f, 0.17f, 1), new Color(0.13f, 0.89f, 0.51f, 1), new Color(0.13f, 0.75f, 1, 1), new Color(0.17f, 0.14f, 0.91f, 1), new Color(0.84f, 0.27f, 0.86f, 1) };
     private int mColorCnt = 0;
-
     private float mTimer = 100;
     private bool mbUseEbony = false;
+
     private void FixedUpdate()
     {
         if (!mbUseEbony || mbHolding)
@@ -34,38 +36,31 @@ public class EbonyWings : Weapon
     }
     public void Fire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
-        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-        var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
+        GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjEbonyWings = newObs.GetComponent<EbonyWings>();
         newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = secondPoint;
         newObjEbonyWings.EndPoint = dstTransform;
         newObjEbonyWings.mbUseEbony = true;
         newObjEbonyWings.mTimer = 0;
         newObjEbonyWings.transform.localScale = ProjectileScale;
-        newobs.transform.position = sourceP.position; //시작 위치
+        newObs.transform.position = sourceP.position; //시작 위치
     }
     public void EvoFire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
-        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-        var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
+        GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjEbonyWings = newObs.GetComponent<EbonyWings>();
         newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = secondPoint;
         newObjEbonyWings.EndPoint = dstTransform;
         newObjEbonyWings.mbUseEbony = true;
         newObjEbonyWings.mTimer = 0;
         newObjEbonyWings.transform.localScale = ProjectileScale;
-        newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
+        newObs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
         mColorCnt++;
-        newobs.transform.position = sourceP.position; //시작 위치
+        newObs.transform.position = sourceP.position; //시작 위치
     }
-    public override void Attack() 
-    {
-        if (IsEvoluction())
-            EvoAttack(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
-        else
-            Attack(SkillFiringSystem.instance.weaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[0]);
-    }
-    public void Attack(GameObject peachPre, GameObject bounderyPre)
+    public void SpawnCircle(GameObject peachPre, GameObject bounderyPre)
     {
         mTimer += Time.deltaTime;
         if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
@@ -76,7 +71,7 @@ public class EbonyWings : Weapon
             mColorCnt = 0;
         }
     }
-    public void EvoAttack(GameObject peachPre, GameObject bounderyPre)
+    public void EvoSpawnCircle(GameObject peachPre, GameObject bounderyPre)
     {
         mTimer += Time.deltaTime;
         if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
@@ -86,6 +81,26 @@ public class EbonyWings : Weapon
             ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
             mColorCnt = 0;
         }
+    }
+    public void SpawnBlackBird(GameObject bird)
+    {
+        Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
+        var newObjBird = Bird.GetComponent<Bird>();
+        newObjBird.PlayerTransform = GameManager.instance.Player.transform;
+        StartPoint = newObjBird.transform;
+    }
+    public override void Attack() 
+    {
+        if (IsEvoluction())
+            EvoSpawnCircle(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
+        else
+            SpawnCircle(SkillFiringSystem.instance.weaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[0]);
+    }
+    public override void EvolutionProcess()
+    {
+        var equipManageSys = GameManager.instance.EquipManageSys;
+        var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+        pairWeapon.EvolutionProcess();
     }
     private Vector3 CalculateBezierPoint()
     {
@@ -97,18 +112,5 @@ public class EbonyWings : Weapon
         nowPos += tt * EndPoint.position;
 
         return nowPos;
-    }
-    public void SpawnBlackBird(GameObject bird)
-    {
-        Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
-        var newObjBird = Bird.GetComponent<Bird>();
-        newObjBird.PlayerTransform = GameManager.instance.Player.transform;
-        StartPoint = newObjBird.transform;
-    }
-    public override void EvolutionProcess()
-    {
-        var equipManageSys = GameManager.instance.EquipManageSys;
-        var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
-        pairWeapon.EvolutionProcess();
     }
 }

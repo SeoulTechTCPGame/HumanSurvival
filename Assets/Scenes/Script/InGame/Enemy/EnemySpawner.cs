@@ -6,7 +6,6 @@ public class EnemiesSpawnGroup
     public EnemyScriptableObject EnemyData;
     public int Count;
     public bool BBoss;
-
     public float RepeatTimer;
     public float TimeBetweenSpawn;
     public int RepeatCount;
@@ -17,19 +16,19 @@ public class EnemiesSpawnGroup
         this.Count = count;
         this.BBoss = isBoss;
     }
-public void SetRepeatSpawn(float timeBetweenSpawns,int repeatCount)
+    public void SetRepeatSpawn(float timeBetweenSpawns,int repeatCount)
     {
         this.TimeBetweenSpawn = timeBetweenSpawns;
         this.RepeatCount = repeatCount;
         RepeatTimer = TimeBetweenSpawn;
     }
 }
+
 public class EnemySpawner : MonoBehaviour
 {
+    public EnemyScriptableObject[] SpawnData;
     [SerializeField] Vector2 mSpawnArea;
     [SerializeField] GameObject mPlayer;
-    public EnemyScriptableObject[] SpawnData;
-
     private List<EnemiesSpawnGroup> mEnemiesSpawnGroupList;
     private List<EnemiesSpawnGroup> mRepeatedSpawnGroupList;
 
@@ -38,40 +37,6 @@ public class EnemySpawner : MonoBehaviour
         EnemyWaveSpawn();
         EnemyWaveRepeatedSpawnGroups();
     }
-
-    private void EnemyWaveRepeatedSpawnGroups()
-    {
-        if (mRepeatedSpawnGroupList == null) return;
-        for (int i = mRepeatedSpawnGroupList.Count-1;i>=0; i--)
-        {
-            mRepeatedSpawnGroupList[i].RepeatTimer -= Time.deltaTime;
-            if (mRepeatedSpawnGroupList[i].RepeatTimer < 0)
-            {
-                mRepeatedSpawnGroupList[i].RepeatTimer = mRepeatedSpawnGroupList[i].TimeBetweenSpawn;
-                AddGroupToSpawn(mRepeatedSpawnGroupList[i].EnemyData, mRepeatedSpawnGroupList[i].Count, mRepeatedSpawnGroupList[i].BBoss);
-                mRepeatedSpawnGroupList[i].RepeatCount -= 1;
-                if (mRepeatedSpawnGroupList[i].RepeatCount <= 0)
-                {
-                    mRepeatedSpawnGroupList.RemoveAt(i);
-                }
-            }
-        }
-    }
-
-    private void EnemyWaveSpawn()
-    {
-        if (mEnemiesSpawnGroupList == null) return;
-        if (mEnemiesSpawnGroupList.Count > 0)
-        {
-            SpawnEnemy(mEnemiesSpawnGroupList[0].EnemyData);
-            mEnemiesSpawnGroupList[0].Count -= 1;
-            if (mEnemiesSpawnGroupList[0].Count <= 0)
-            {
-                mEnemiesSpawnGroupList.RemoveAt(0);
-            }
-        }
-    }
-
     public void AddGroupToSpawn(EnemyScriptableObject enemyToSpawn, int count, bool isBoss)
     {
         EnemiesSpawnGroup newGroupToSpawn = new EnemiesSpawnGroup(enemyToSpawn, count, isBoss);
@@ -81,7 +46,6 @@ public class EnemySpawner : MonoBehaviour
         }
         mEnemiesSpawnGroupList.Add(newGroupToSpawn);
     }
-
     public void AddReapeatedSpawn(StageEvent stageEvent, bool bBoss)
     {
         EnemiesSpawnGroup repeatSpawnGroup = new EnemiesSpawnGroup(stageEvent.EnemyToSpawn, stageEvent.EnemyCount, bBoss);
@@ -92,7 +56,6 @@ public class EnemySpawner : MonoBehaviour
         }
         mRepeatedSpawnGroupList.Add(repeatSpawnGroup);
     }
-
     public void SpawnEnemy(EnemyScriptableObject enemyToSpawn)
     {
         Vector3 position;
@@ -121,7 +84,37 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
     }
-
+    private void EnemyWaveRepeatedSpawnGroups()
+    {
+        if (mRepeatedSpawnGroupList == null) return;
+        for (int i = mRepeatedSpawnGroupList.Count-1;i>=0; i--)
+        {
+            mRepeatedSpawnGroupList[i].RepeatTimer -= Time.deltaTime;
+            if (mRepeatedSpawnGroupList[i].RepeatTimer < 0)
+            {
+                mRepeatedSpawnGroupList[i].RepeatTimer = mRepeatedSpawnGroupList[i].TimeBetweenSpawn;
+                AddGroupToSpawn(mRepeatedSpawnGroupList[i].EnemyData, mRepeatedSpawnGroupList[i].Count, mRepeatedSpawnGroupList[i].BBoss);
+                mRepeatedSpawnGroupList[i].RepeatCount -= 1;
+                if (mRepeatedSpawnGroupList[i].RepeatCount <= 0)
+                {
+                    mRepeatedSpawnGroupList.RemoveAt(i);
+                }
+            }
+        }
+    }
+    private void EnemyWaveSpawn()
+    {
+        if (mEnemiesSpawnGroupList == null) return;
+        if (mEnemiesSpawnGroupList.Count > 0)
+        {
+            SpawnEnemy(mEnemiesSpawnGroupList[0].EnemyData);
+            mEnemiesSpawnGroupList[0].Count -= 1;
+            if (mEnemiesSpawnGroupList[0].Count <= 0)
+            {
+                mEnemiesSpawnGroupList.RemoveAt(0);
+            }
+        }
+    }
     private Vector3 GenerateRandomPos()
     {
         Vector3 position = new Vector3();

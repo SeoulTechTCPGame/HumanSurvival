@@ -7,37 +7,30 @@ public class SceneMove : MonoBehaviour
     {
         SceneManager.LoadScene("Achievements");
     }
-
     public void ToBack()
     {
         SceneManager.LoadScene("Main");
     }
-
     public void ToCharacterSelection()
     {
         SceneManager.LoadScene("CharacterSelection");
     }
-
     public void ToCollection()
     {
         SceneManager.LoadScene("Collection");
     }
-
     public void ToOption()
     {
         SceneManager.LoadScene("Option");
     }
-
     public void ToPowerUp()
     {
         SceneManager.LoadScene("PowerUp");
     }
-
     public void ToStage()
     {
         SceneManager.LoadScene("StageSelection");
     }
-
     public void ToStart()
     {
         SceneManager.LoadScene("InGame");

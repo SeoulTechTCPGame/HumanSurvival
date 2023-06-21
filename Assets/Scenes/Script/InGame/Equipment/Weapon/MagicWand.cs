@@ -1,12 +1,13 @@
 using UnityEngine;
+
 public class MagicWand : Weapon
 {
     [SerializeField] Animator mAnimator;
-
     private float mTimer = 0;
     private bool mbUseWand = false;
     private int mTouch = 0;
     private int mTouchLimit;
+
     private void Start()
     {
         mAnimator = GetComponent<Animator>();
@@ -18,6 +19,20 @@ public class MagicWand : Weapon
         {
             mAnimator.SetBool("Hit", true);
             Destroy(this.gameObject);
+        }
+    }
+    public Vector3 FindClosestEnemyDirection()
+    {
+        GameObject closestEnemy = FindClosestEnemy();
+        Debug.Log(closestEnemy);
+        if (closestEnemy != null)
+        {
+            Vector3 direction = closestEnemy.transform.position - transform.position;
+            return direction.normalized;
+        }
+        else
+        {
+            return Vector3.right;
         }
     }
     public override void Attack()
@@ -33,21 +48,25 @@ public class MagicWand : Weapon
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 //무기 세팅
-                GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
-                newobs.transform.position = GameManager.instance.Player.transform.position;
-                MagicWand newWand = newobs.GetComponent<MagicWand>();
+                GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
+                newObs.transform.position = GameManager.instance.Player.transform.position;
+                MagicWand newWand = newObs.GetComponent<MagicWand>();
                 newWand.mbUseWand = true;
                 newWand.mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
                 Vector3 direction = FindClosestEnemyDirection();
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 //무기가 바라보는 방향 조절
-                newobs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
+                newObs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
                 //무기 발사
-                Rigidbody2D rb = newobs.GetComponent<Rigidbody2D>();
+                Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
                 rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
             }
             mTimer = 0;
         }
+    }
+    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
+    {
+
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -95,23 +114,5 @@ public class MagicWand : Weapon
             }
         }
         return closestEnemy;
-    }
-    public Vector3 FindClosestEnemyDirection()
-    {
-        GameObject closestEnemy = FindClosestEnemy();
-        Debug.Log(closestEnemy);
-        if (closestEnemy != null)
-        {
-            Vector3 direction = closestEnemy.transform.position - transform.position;
-            return direction.normalized;
-        }
-        else
-        {
-            return Vector3.right;
-        }
-    }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
     }
 }

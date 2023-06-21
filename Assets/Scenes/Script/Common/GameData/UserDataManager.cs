@@ -19,10 +19,12 @@ public class UserData
     public bool[] BUnlockStages;
     public bool[] BUnlockCharacters;
 }
+
 public class UserDataManager : MonoBehaviour
 {
     public static UserDataManager instance;
     public string SavePath;
+
     private void Awake()
     {
         if (instance == null)

@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 95562947}
   - component: {fileID: 95562946}
   m_Layer: 5
-  m_Name: CharaExplain
+  m_Name: CharacterExplain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1416,7 +1416,7 @@ GameObject:
   - component: {fileID: 152407672}
   - component: {fileID: 152407671}
   m_Layer: 5
-  m_Name: CharaName
+  m_Name: CharacterName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5860,7 +5860,7 @@ GameObject:
   - component: {fileID: 1377910600}
   - component: {fileID: 1377910599}
   m_Layer: 5
-  m_Name: CharaWeapon
+  m_Name: CharacterWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6166,7 +6166,7 @@ GameObject:
   - component: {fileID: 1506559502}
   - component: {fileID: 1506559501}
   m_Layer: 5
-  m_Name: CharaObtain
+  m_Name: CharacterObtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7244,7 +7244,7 @@ GameObject:
   - component: {fileID: 2017955207}
   - component: {fileID: 2017955206}
   m_Layer: 5
-  m_Name: CharaImage
+  m_Name: CharacterImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
