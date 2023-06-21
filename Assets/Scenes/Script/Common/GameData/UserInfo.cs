@@ -88,6 +88,16 @@ public class UserInfo : MonoBehaviour
         UserDataSet.NowPowerUpCash[powerUpIndex] = UserDataSet.PowerUpCash[powerUpIndex];
         UserDataManager.instance.SaveData();
     }
+    public void UpdatePowerUpActive(int powerUpIndex, bool btemp)
+    {
+        UserDataSet.BPowerUpActive[powerUpIndex] = btemp;
+        UserDataManager.instance.SaveData();
+    }
+    public void RefundPowerUpActive(int powerUpIndex)
+    {
+        UserDataSet.BPowerUpActive[powerUpIndex] = true;
+        UserDataManager.instance.SaveData();
+    }
     private void UpdateOption()
     {
         // TODO: Option기능 완성되면 추가
