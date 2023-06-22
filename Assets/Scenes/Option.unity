@@ -2396,7 +2396,6 @@ GameObject:
   m_Component:
   - component: {fileID: 633873515}
   - component: {fileID: 633873516}
-  - component: {fileID: 633873517}
   m_Layer: 5
   m_Name: Fullscreen
   m_TagString: Untagged
@@ -2473,32 +2472,8 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 633873517}
-        m_TargetAssemblyTypeName: ScreenRatio, Assembly-CSharp
-        m_MethodName: ToggleFullScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
---- !u!114 &633873517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633873514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a279e6241e35a489269c12f7a8e00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &657652059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2486,7 @@ GameObject:
   - component: {fileID: 657652062}
   - component: {fileID: 657652061}
   - component: {fileID: 657652060}
+  - component: {fileID: 657652064}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2605,6 +2581,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &657652064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657652059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d517e502ee4749b704e710ff3c5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mBgmSlider: {fileID: 1970258073}
+  mSoundEffectSlider: {fileID: 364097447}
+  mVFXToggle: {fileID: 571938291}
+  mFullScreenToggle: {fileID: 633873516}
+  mShowDamageToggle: {fileID: 1396158751}
+  mHideStageToggle: {fileID: 985086136}
 --- !u!1 &690046290
 GameObject:
   m_ObjectHideFlags: 0

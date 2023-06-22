@@ -25,14 +25,54 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayBGM(AudioClip bgmClip)
     {
-        float volume = BgmVolume;
+        mAudioSource.clip = bgmClip;
+        mAudioSource.volume = BgmVolume;
+        mAudioSource.loop = true;
+        mAudioSource.Play();
+    }
+    public void StopBGM()
+    {
+        mAudioSource.Stop();
     }
     public void PlaySoundEffect(AudioClip soundEffectClip)
     {
-        float volume = SoundEffectVolume;
+        mAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
     public void PlayButtonSound()
     {
         mAudioSource.PlayOneShot(ButtonSoundClip);
+    }
+    public void EnableVFX(bool value)
+    {
+        if (value)
+        {
+            // Enable VFX
+        }
+        else
+        {
+            // Disable VFX
+        }
+    }
+    public void EnableDamageDisplay(bool value)
+    {
+        if (value)
+        {
+            // Enable showing damage
+        }
+        else
+        {
+            // Disable showing damage
+        }
+    }
+    public void HideStage(bool value)
+    {
+        if (value)
+        {
+            // Hide the stage
+        }
+        else
+        {
+            // Show the stage
+        }
     }
 }
