@@ -12,8 +12,10 @@ public class UserData
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public float[] PowerUpMaxstat = new float[16] { 0.25f, 3, 0.3f, 0.5f, -0.05f, 0.1f, 0.2f, 0.3f, 1, 0.1f, 0.5f, 0.3f, 0.15f, 0.5f, 0.5f, 1 };
     public int[] PowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
     public int[] NowPowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
+    public bool[] BPowerUpActive = new bool[16] { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true };
     public bool[] BAchievements;
     public bool[] BCollection;
     public bool[] BUnlockStages;

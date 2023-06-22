@@ -9,9 +9,8 @@ public class ChargePowerUp : MonoBehaviour
     [SerializeField] GameObject mChargeObject;
     [SerializeField] GameObject mActiveObject;
     [SerializeField] Toggle mActiveToggle;
-    
+
     private float[] mUpgradeStat = new float[16] { 0.05f, 1, 0.1f, 0.1f, -0.025f, 0.05f, 0.1f, 0.15f, 1, 0.05f, 0.25f, 0.1f, 0.03f, 0.1f, 0.1f, 1 };
-    private float[] mTempSaveStat = new float[16];
 
     public void Charge()
     {
@@ -36,7 +35,7 @@ public class ChargePowerUp : MonoBehaviour
         }
         if(UserInfo.instance.UserDataSet.PowerUpLevel[NowAccessoryIndex] == mAccessory[NowAccessoryIndex].GetComponent<PowerUpInfo>().AccessoryMaxLevel)
         {
-            mTempSaveStat[NowAccessoryIndex] = UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex];
+            mActiveToggle.GetComponent<Toggle>().isOn = UserInfo.instance.UserDataSet.BPowerUpActive[NowAccessoryIndex];
             mChargeObject.SetActive(false);
             mActiveObject.SetActive(true);
         }
@@ -52,6 +51,7 @@ public class ChargePowerUp : MonoBehaviour
             UserInfo.instance.RefundPowerUpLevel(i);
             UserInfo.instance.RefundPowerUpStat(i);
             UserInfo.instance.RefundPowerUpCash(i);
+            UserInfo.instance.RefundPowerUpActive(i);
         }
         UserInfo.instance.ConsumeGold(UserInfo.instance.UserDataSet.ConsumedGold);
         UserInfo.instance.RefundGold();
@@ -63,10 +63,12 @@ public class ChargePowerUp : MonoBehaviour
     {
         if(mActiveToggle.isOn)
         {
-            UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex] = mTempSaveStat[NowAccessoryIndex];
+            UserInfo.instance.UpdatePowerUpActive(NowAccessoryIndex, true);
+            UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex] = UserInfo.instance.UserDataSet.PowerUpMaxstat[NowAccessoryIndex];
         }
         else
         {
+            UserInfo.instance.UpdatePowerUpActive(NowAccessoryIndex, false);
             UserInfo.instance.UserDataSet.PowerUpStat[NowAccessoryIndex] = 0;
         }
     }
