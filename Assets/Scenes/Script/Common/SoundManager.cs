@@ -25,11 +25,18 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayBGM(AudioClip bgmClip)
     {
-        float volume = BgmVolume;
+        mAudioSource.clip = bgmClip;
+        mAudioSource.volume = BgmVolume;
+        mAudioSource.loop = true;
+        mAudioSource.Play();
+    }
+    public void StopBGM()
+    {
+        mAudioSource.Stop();
     }
     public void PlaySoundEffect(AudioClip soundEffectClip)
     {
-        float volume = SoundEffectVolume;
+        mAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
     public void PlayButtonSound()
     {
