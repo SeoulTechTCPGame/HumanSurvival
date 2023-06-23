@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 1726393253873246425}
   - component: {fileID: 1726393253873246424}
   - component: {fileID: 1726393253873246431}
-  - component: {fileID: 1726393253873246428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chest
   m_TagString: DestructibleObj
   m_Icon: {fileID: 0}
@@ -29,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1726393253873246427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.923932, y: 1.9266, z: 0}
-  m_LocalScale: {x: 3.1318521, y: 2.9226563, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.0501113, y: 4.7127833, z: 1.6125}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254b38679dedfb74e888449eeb3e4160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  Type: 0
 --- !u!61 &1726393253873246431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,19 +125,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.14}
   m_EdgeRadius: 0
---- !u!114 &1726393253873246428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726393253873246427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3664864c62f5d8459c7299c9b2e77e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drops:
-  - name: coin
-    itemPrefabs: {fileID: 5073338675276140225, guid: b77369b8a23a3fb458e4e4ca2504c1f0, type: 3}
-    dropRate: 99

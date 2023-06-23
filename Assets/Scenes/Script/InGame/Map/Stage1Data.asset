@@ -41,7 +41,23 @@ MonoBehaviour:
     Time: 20
     Message: wave2
     EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-    EnemyCount: 0
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 0
+    Time: 110
+    Message: wave2
+    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 0
+    Time: 110
+    Message: wave2
+    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    EnemyCount: 10
     BRepeatedEvent: 1
     RepeatEverySeconds: 2
     RepeatCount: 5

@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 4449110471775201088}
   - component: {fileID: 8243985577113675298}
   - component: {fileID: 9182372584630285373}
-  - component: {fileID: 1178558719764044854}
   - component: {fileID: 104540765411620990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HeartRed
   m_TagString: HealObj
   m_Icon: {fileID: 0}
@@ -103,18 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.044999998}
   serializedVersion: 2
   m_Radius: 0.054999996
---- !u!114 &1178558719764044854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3536152229503077200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7387fe41a6ddb45a132a740cbac95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &104540765411620990
 MonoBehaviour:
   m_ObjectHideFlags: 0

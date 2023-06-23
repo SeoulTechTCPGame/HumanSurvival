@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 82051248063997602}
   - component: {fileID: 8793001246780762947}
   - component: {fileID: 8239614189969837036}
-  - component: {fileID: 940963522532966023}
   - component: {fileID: 5740431746495080213}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: expBlue3
   m_TagString: ExpObj
   m_Icon: {fileID: 0}
@@ -103,18 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.044999998}
   serializedVersion: 2
   m_Radius: 0.044999998
---- !u!114 &940963522532966023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915139561794565461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7387fe41a6ddb45a132a740cbac95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5740431746495080213
 MonoBehaviour:
   m_ObjectHideFlags: 0
