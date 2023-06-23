@@ -8,7 +8,7 @@ public class RandomPickUpSystem
     private static int[] mAccessoryRarity;
     private WeightedRandomPicker<int> mWeaponPicker;
     private WeightedRandomPicker<int> mAccessoryPicker;
-    
+
     static RandomPickUpSystem()
     {
         mWeaponRarity = new int[10] { 100, 100, 100, 80, 80, 80, 70, 50, 50, 80 };
@@ -30,7 +30,7 @@ public class RandomPickUpSystem
         }
         else
         {
-                for (int i = 0; i < GameManager.instance.EquipManageSys.Weapons.Count; i++)
+            for (int i = 0; i < GameManager.instance.EquipManageSys.Weapons.Count; i++)
             {
                 if (GameManager.instance.EquipManageSys.Weapons[i].IsMaster())
                     continue;
@@ -65,13 +65,13 @@ public class RandomPickUpSystem
     }
     public List<Tuple<int, int, int>> RandomPickUp(int n)
     {
-        var equipManageSys = GameManager.instance.equipManageSys;
+        var equipManageSys = GameManager.instance.EquipManageSys;
         UpdateAccessoryPickUpList();
         UpdateWeaponPickUpList();
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
-        getPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
+        GetPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
 
-        int maxChoice = System.Math.Min(getChoice(), possibleWeaponChoice + possibleAccessoryChoice);
+        int maxChoice = System.Math.Min(GetChoice(), possibleWeaponChoice + possibleAccessoryChoice);
 
         List<Tuple<int, int, int>> pickUps = new List<Tuple<int, int, int>>();
         if (maxChoice == 0)
@@ -86,7 +86,7 @@ public class RandomPickUpSystem
             List<int> pickedAccessoryList = new List<int>();
             for (int i = 0; i < maxChoice; i++)
             {
-                var pick = getOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
+                var pick = GetOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
                 pickUps.Add(pick);
                 if (pick.Item1 == 0)
                     possibleWeaponChoice--;
@@ -97,9 +97,9 @@ public class RandomPickUpSystem
 
         return pickUps;
     }
-        public List<Tuple<int, int, int>> RandomPickUp()
+    public List<Tuple<int, int, int>> RandomPickUp()
     {
-        var equipManageSys = GameManager.instance.equipManageSys;
+        var equipManageSys = GameManager.instance.EquipManageSys;
         UpdateAccessoryPickUpList();
         UpdateWeaponPickUpList();
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;

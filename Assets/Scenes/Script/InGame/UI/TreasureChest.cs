@@ -48,12 +48,12 @@ public class TreasureChest : MonoBehaviour
         mTime = 0;
         mbIsOn = true;
         GetComponent<GameObject>().SetActive(true);
-        GameManager.instance.player.enabled = false;
+        GameManager.instance.Player.enabled = false;
     }
     public void UnloadChestUI()
     {
         mbIsOn = false;
         GetComponent<GameObject>().SetActive(false);
-        GameManager.instance.player.enabled = true;
+        GameManager.instance.Player.enabled = true;
     }
 }
