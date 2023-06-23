@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Enums;
 
@@ -7,7 +5,7 @@ using Enums;
 public class CharacterScriptableObject : ScriptableObject
 {
     [Header("#Main Info")]
-    public CharacterType characterType;
+    public ECharacterType CharacterType;
     
     public int MaxHealth;//100hp
     public float Recovery;//0 HP/s

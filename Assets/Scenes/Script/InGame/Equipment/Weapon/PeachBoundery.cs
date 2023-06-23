@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PeachBoundery : MonoBehaviour
@@ -14,7 +10,7 @@ public class PeachBoundery : MonoBehaviour
     private float mCooldown = 2f;
     private float mAccCooldown = 0;
     private bool isClockwise = true;
-    bool mProjectileDirUp = true; // 위 아래 번갈아가며
+    private bool mProjectileDirUp = true; // 위 아래 번갈아가며
     private GameObject mPeachObj;
     private Transform mBirdTransform;
 
@@ -26,11 +22,11 @@ public class PeachBoundery : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.position = getStartPosition(GameManager.instance.player.transform.position);
+        transform.position = getStartPosition(GameManager.instance.Player.transform.position);
         if(isClockwise)
-            transform.RotateAround(GameManager.instance.player.transform.position, Vector3.back, mSpeed * mTimer);
+            transform.RotateAround(GameManager.instance.Player.transform.position, Vector3.back, mSpeed * mTimer);
         else
-            transform.RotateAround(GameManager.instance.player.transform.position, -Vector3.back, mSpeed * mTimer);
+            transform.RotateAround(GameManager.instance.Player.transform.position, -Vector3.back, mSpeed * mTimer);
         if(mTimer <= mDuration && mTimer >= mAccCooldown)
         {
             // peachone 소환
@@ -50,22 +46,20 @@ public class PeachBoundery : MonoBehaviour
             mAccCooldown += mCooldown;
         }
     }
-
     public void CreateCircle(GameObject peachPre, GameObject bounderyPre, bool isCW, Weapon peachone, Transform birdTransform)
     {
         GameObject newobs = Instantiate(bounderyPre, GameObject.Find("SkillFiringSystem").transform);
-        newobs.transform.position = getStartPosition(GameManager.instance.player.transform.position);
+        newobs.transform.position = getStartPosition(GameManager.instance.Player.transform.position);
         var newPeachoneBoundery = newobs.GetComponent<PeachBoundery>();
         newPeachoneBoundery.mBirdTransform = birdTransform;
-        newPeachoneBoundery.mDuration = peachone.WeaponTotalStats[((int)Enums.WeaponStat.Duration)] * 2.5f;
+        newPeachoneBoundery.mDuration = peachone.WeaponTotalStats[((int)Enums.EWeaponStat.Duration)] * 2.5f;
         newPeachoneBoundery.mRealDuration = newPeachoneBoundery.mDuration + 1.5f;
-        newPeachoneBoundery.mSpeed = mSpeed * peachone.WeaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)];
-        newPeachoneBoundery.mCooldown = mCooldown / peachone.WeaponTotalStats[((int)Enums.WeaponStat.Amount)];
+        newPeachoneBoundery.mSpeed = mSpeed * peachone.WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+        newPeachoneBoundery.mCooldown = mCooldown / peachone.WeaponTotalStats[((int)Enums.EWeaponStat.Amount)];
         newPeachoneBoundery.mPeachObj = peachPre;
         if (!isCW)
             newPeachoneBoundery.isClockwise = false;
     }
-
     private Vector3 getStartPosition(Vector3 pos)
     {
         return pos + Vector3.up * mDistance;

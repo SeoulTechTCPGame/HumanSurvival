@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public class Accessory
 {
@@ -25,21 +24,21 @@ public class Accessory
         {
             GameManager.instance.CharacterStats[statIndex] += data;
         }
-        evolution();
+        Evolution();
     }
-    private void evolution()
+    private void Evolution()
     {
         if (AccessoryLevel != 1) // 해당 악세서리를 처음 획득했을 때만 진입
             return;
 
-        var equipManageSys = GameManager.instance.equipManageSys;
+        var equipManageSys = GameManager.instance.EquipManageSys;
         int evoPairWeaponIndex = EquipmentData.EvoAccNeedWeaponIndex[AccessoryIndex];
         if (equipManageSys.HasWeapon(evoPairWeaponIndex))
         {
             var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]];
             if(pairWeapon.IsMaster())
             {
-                pairWeapon.bEvolution = true;
+                pairWeapon.BEvolution = true;
                 pairWeapon.EvolutionProcess();
             }
         }

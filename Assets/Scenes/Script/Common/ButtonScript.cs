@@ -3,14 +3,13 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
-    private Button button;
+    private Button mButton;
 
     private void Start()
     {
-        button = GetComponent<Button>();
-        button.onClick.AddListener(PlayButtonSound);
+        mButton = GetComponent<Button>();
+        mButton.onClick.AddListener(PlayButtonSound);
     }
-
     private void PlayButtonSound()
     {
         SoundManager.instance.PlayButtonSound();

@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinPickup : MonoBehaviour, ICollectible
 {
-    public int amount;
+    public int Amount;
+
     public void Collect()
     {
-        GameManager.instance.GetCoin(amount);
+        GameManager.instance.GetCoin(Amount);
         gameObject.SetActive(false);
     }
 }

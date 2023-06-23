@@ -1,110 +1,116 @@
-using Enums;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 
-public class EbonyWings : MonoBehaviour
+public class EbonyWings : Weapon
 {
-    [SerializeField] Animator animator;
     public GameObject Bird = null;
     public Transform StartPoint = null;
     public Transform EndPoint = null;
     public Vector3 ControlPoint;
     public Vector3 ProjectileScale;
+
+    [SerializeField] Animator mAnimator;
+
     private bool mbHolding = false;
     private static Color[] mColors = { new Color(0.85f, 0.13f, 0.19f, 1), new Color(1, 0.46f, 0, 1), new Color(0.89f, 0.87f, 0.88f, 1)
             , new Color(0.51f, 0.93f, 0.17f, 1), new Color(0.13f, 0.89f, 0.51f, 1), new Color(0.13f, 0.75f, 1, 1), new Color(0.17f, 0.14f, 0.91f, 1), new Color(0.84f, 0.27f, 0.86f, 1) };
     private int mColorCnt = 0;
+    private float mTimer = 100;
+    private bool mbUseEbony = false;
 
-    float Timer = 100;
-    bool UseEbony = false;
     private void FixedUpdate()
     {
-        if (!UseEbony || mbHolding)
+        if (!mbUseEbony || mbHolding)
         {
             return;
         }
-        Timer += Time.deltaTime;
+        mTimer += Time.deltaTime;
 
-        transform.position = calculateBezierPoint();
-        if (Timer > 1.0f)
+        transform.position = CalculateBezierPoint();
+        if (mTimer > 1.0f)
         {
             mbHolding = true;
             Destroy(gameObject, 1f);
-            animator.SetTrigger("Hold");
+            mAnimator.SetTrigger("Hold");
             GetComponent<CircleCollider2D>().enabled = true;
         }
     }
     public void Fire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
-        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-        var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
+        GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjEbonyWings = newObs.GetComponent<EbonyWings>();
         newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = secondPoint;
         newObjEbonyWings.EndPoint = dstTransform;
-        newObjEbonyWings.UseEbony = true;
-        newObjEbonyWings.Timer = 0;
+        newObjEbonyWings.mbUseEbony = true;
+        newObjEbonyWings.mTimer = 0;
         newObjEbonyWings.transform.localScale = ProjectileScale;
-        newobs.transform.position = sourceP.position; //시작 위치
+        newObs.transform.position = sourceP.position; //시작 위치
     }
     public void EvoFire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
-        GameObject newobs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-        var newObjEbonyWings = newobs.GetComponent<EbonyWings>();
+        GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        var newObjEbonyWings = newObs.GetComponent<EbonyWings>();
         newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = secondPoint;
         newObjEbonyWings.EndPoint = dstTransform;
-        newObjEbonyWings.UseEbony = true;
-        newObjEbonyWings.Timer = 0;
+        newObjEbonyWings.mbUseEbony = true;
+        newObjEbonyWings.mTimer = 0;
         newObjEbonyWings.transform.localScale = ProjectileScale;
-        newobs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
+        newObs.GetComponent<TrailRenderer>().material.color = mColors[mColorCnt & 7];
         mColorCnt++;
-        newobs.transform.position = sourceP.position; //시작 위치
+        newObs.transform.position = sourceP.position; //시작 위치
     }
-    public void CreateCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
+    public void SpawnCircle(GameObject peachPre, GameObject bounderyPre)
     {
-        Timer += Time.deltaTime;
-        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
-            Timer = 0;
-            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            bounderyPre.GetComponent<PeachBoundery>().CreateCircle(peachPre, bounderyPre, false, this, StartPoint);
+            mTimer = 0;
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
             mColorCnt = 0;
         }
     }
-    public void CreateEvoCircle(GameObject peachPre, GameObject bounderyPre, Weapon ebonyWings)
+    public void EvoSpawnCircle(GameObject peachPre, GameObject bounderyPre)
     {
-        Timer += Time.deltaTime;
-        if (Timer > ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Cooldown)])
+        mTimer += Time.deltaTime;
+        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
-            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, ebonyWings, StartPoint);
-            Timer = 0;
-            ProjectileScale = transform.localScale * ebonyWings.WeaponTotalStats[((int)Enums.WeaponStat.Area)];
+            bounderyPre.GetComponent<EvoPeachBoundery>().CreateCircle(peachPre, bounderyPre, false, this, StartPoint);
+            mTimer = 0;
+            ProjectileScale = transform.localScale * WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
             mColorCnt = 0;
         }
-    }
-    private Vector3 calculateBezierPoint()
-    {
-        float u = 1f - Timer;
-        float tt = Timer * Timer;
-        float uu = u * u;
-        Vector3 nowPos = uu * StartPoint.position;
-        nowPos += 2f * u * Timer * ControlPoint;
-        nowPos += tt * EndPoint.position;
-
-        return nowPos;
     }
     public void SpawnBlackBird(GameObject bird)
     {
         Bird = Instantiate(bird, GameObject.Find("SkillFiringSystem").transform);
         var newObjBird = Bird.GetComponent<Bird>();
-        newObjBird.PlayerTransform = GameManager.instance.player.transform;
+        newObjBird.PlayerTransform = GameManager.instance.Player.transform;
         StartPoint = newObjBird.transform;
     }
-    public void EvolutionProcess()
+    public override void Attack() 
     {
-        StartPoint = Bird.GetComponent<Bird>().transform;
+        if (IsEvoluction())
+            EvoSpawnCircle(SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[1]);
+        else
+            SpawnCircle(SkillFiringSystem.instance.weaponPrefabs[WeaponIndex], SkillFiringSystem.instance.Circles[0]);
+    }
+    public override void EvolutionProcess()
+    {
+        var equipManageSys = GameManager.instance.EquipManageSys;
+        var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+        pairWeapon.EvolutionProcess();
+    }
+    private Vector3 CalculateBezierPoint()
+    {
+        float u = 1f - mTimer;
+        float tt = mTimer * mTimer;
+        float uu = u * u;
+        Vector3 nowPos = uu * StartPoint.position;
+        nowPos += 2f * u * mTimer * ControlPoint;
+        nowPos += tt * EndPoint.position;
+
+        return nowPos;
     }
 }

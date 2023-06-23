@@ -5,22 +5,28 @@ using UnityEngine;
 [Serializable]
 public class UserData
 {
-    public int Gold;
-    public int consumeGold = 0;
+    public int Gold = 0;
+    public int ConsumedGold = 0;
+    public float AccumulatedTime = 0;
+    public int AccumulatedKill = 0;
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    public int[] powerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
-    public int[] nowPowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
-    public bool[] Achievements;
-    public bool[] Collection;
-    public bool[] UnlockStages;
-    public bool[] UnlockCharacters;
+    public float[] PowerUpMaxstat = new float[16] { 0.25f, 3, 0.3f, 0.5f, -0.05f, 0.1f, 0.2f, 0.3f, 1, 0.1f, 0.5f, 0.3f, 0.15f, 0.5f, 0.5f, 1 };
+    public int[] PowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
+    public int[] NowPowerUpCash = new int[16] { 200, 600, 200, 200, 900, 300, 300, 300, 5000, 300, 300, 600, 900, 200, 1666, 10000 };
+    public bool[] BPowerUpActive = new bool[16] { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true };
+    public bool[] BAchievements;
+    public bool[] BCollection;
+    public bool[] BUnlockStages;
+    public bool[] BUnlockCharacters;
 }
+
 public class UserDataManager : MonoBehaviour
 {
     public static UserDataManager instance;
     public string SavePath;
+
     private void Awake()
     {
         if (instance == null)
@@ -34,7 +40,7 @@ public class UserDataManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         SavePath = Application.persistentDataPath + "/";
     }
-    void Start()
+    private void Start()
     {
         if (File.Exists(UserDataManager.instance.SavePath + "UserSaveData.json"))
         {

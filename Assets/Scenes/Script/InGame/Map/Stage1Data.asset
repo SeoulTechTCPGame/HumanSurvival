@@ -12,49 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2fd965e5999b24a9843d767cd810de, type: 3}
   m_Name: Stage1Data
   m_EditorClassIdentifier: 
-  stageEvents:
-  - eventType: 0
-    time: 0
-    message: wave 1
-    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-    count: 10
-  - eventType: 0
-    time: 1
-    message: Bat Bevy
-    enemyToSpawn: {fileID: 11400000, guid: f68536f96474ca1458be3a23ce57ea2f, type: 2}
-    count: 1
-  - eventType: 0
-    time: 5
-    message: flower wall
-    enemyToSpawn: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
-    count: 1
-  - eventType: 0
-    time: 10
-    message: wave 2
-    enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
-    count: 10
-  - eventType: 0
-    time: 11
-    message: wave 2
-    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-    count: 10
-  - eventType: 0
-    time: 15
-    message: wave 2 elite bat
-    enemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
-    count: 1
-  - eventType: 0
-    time: 20
-    message: wave 3
-    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-    count: 20
-  - eventType: 0
-    time: 25
-    message: wave 3 bat bevy
-    enemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-    count: 1
-  - eventType: 0
-    time: 30
-    message: wave 4
-    enemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
-    count: 20
+  StageEvents:
+  - EventType: 0
+    Time: 0
+    Message: wave1
+    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 0
+    Time: 10
+    Message: wave2
+    EnemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 0
+    Time: 12
+    Message: wave2 elite bat
+    EnemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 20
+    Message: wave2
+    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    EnemyCount: 0
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5

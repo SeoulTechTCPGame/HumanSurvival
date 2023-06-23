@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f37dd5a24d2e45408a660c00a988dec, type: 3}
   m_Name: FireMage
   m_EditorClassIdentifier: 
-  characterType: 3
+  CharacterType: 3
   MaxHealth: 100
   Recovery: 0
   Armor: 0

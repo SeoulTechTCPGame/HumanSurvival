@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  Ename: Skeleton
-  spriteType: 1
-  spawnTime: 0.5
-  speed: 100
-  power: 10
-  knockback: 1
-  maxKnockback: 3
-  deathKB: 5
-  xp: 2
-  end: 18
-  level: 1
-  maxHP: 1.5
+  mEnemyName: Skeleton
+  mSpriteType: 1
+  mSpeed: 100
+  mPower: 10
+  mKnockback: 1
+  mMaxKnockback: 3
+  mDeathKB: 5
+  mXp: 2
+  mEnd: 18
+  mLevel: 1
+  mMaxHP: 1.5

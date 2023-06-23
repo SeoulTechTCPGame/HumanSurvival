@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1839533986392577792}
   - component: {fileID: 2373616094117961881}
   - component: {fileID: 6348401555296848256}
-  - component: {fileID: 7885131650579194281}
   - component: {fileID: 8613333772210962326}
   m_Layer: 8
   m_Name: KnifeEvolution
@@ -125,23 +124,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.21, y: 0.76}
   m_Direction: 0
---- !u!114 &7885131650579194281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425092567256848293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponIndex: 2
-  WeaponLevel: 1
-  WeaponMaxLevel: 1
-  Mastered: 1
-  weaponTotalStats: []
 --- !u!114 &8613333772210962326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc11038147a6a14eab71147c441d83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponIndex: 0
+  WeaponLevel: 1
+  WeaponMaxLevel: 0
+  bEvolution: 0
+  weaponTotalStats: []

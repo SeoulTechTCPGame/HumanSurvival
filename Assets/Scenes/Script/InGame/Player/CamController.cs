@@ -4,11 +4,12 @@ public class CamController : MonoBehaviour
 {
     public GameObject Player;
     private Vector3 mOffset;
-    void Start()
+
+    private void Start()
     {
         mOffset = transform.position - Player.transform.position;
     }
-    void LateUpdate()
+    private void LateUpdate()
     {
         transform.position = Player.transform.position + mOffset;
     }

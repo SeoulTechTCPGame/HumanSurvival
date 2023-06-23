@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
   m_Name: BevyBat
   m_EditorClassIdentifier: 
-  Ename: Bat
-  spriteType: 4
-  speed: 200
-  power: 6
-  knockback: 1
-  maxKnockback: 3
-  deathKB: 2
-  xp: 1
-  end: 29
-  level: 1
-  maxHP: 0.5
+  mEnemyName: Bat
+  mSpriteType: 4
+  mSpeed: 200
+  mPower: 6
+  mKnockback: 1
+  mMaxKnockback: 3
+  mDeathKB: 2
+  mXp: 1
+  mEnd: 29
+  mLevel: 1
+  mMaxHP: 0.5

@@ -1,51 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
-
 
 public class Bird : MonoBehaviour
 {
-    [SerializeField] Animator BirdAni;
     public Transform PlayerTransform;
+    [SerializeField] Animator BirdAni;
     private float mMaxDist;
     private float mSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         mSpeed = Random.Range(0.14f, 0.18f);
         mMaxDist = Random.Range(7f, 15f);
-        if (isOutOfRange())
+        if (IsOutOfRange())
         {
-            changeHeadDir();
+            ChangeHeadDir();
             transform.position = Vector3.MoveTowards(transform.position, PlayerTransform.position, mSpeed);
         }
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if(isOutOfRange())
+        if(IsOutOfRange())
         {
-            changeHeadDir();
+            ChangeHeadDir();
             transform.position = Vector3.MoveTowards(transform.position, PlayerTransform.position, mSpeed);
         }
     }
-
-    bool isOutOfRange()
+    private bool IsOutOfRange()
     {
         var distSq = Mathf.Pow(transform.position.x - PlayerTransform.position.x, 2) + Mathf.Pow(transform.position.y - PlayerTransform.position.y, 2);
         if (distSq > mMaxDist)
             return true;
         return false;
     }
-
-    void changeHeadDir()
+    private void ChangeHeadDir()
     {
         var dX = PlayerTransform.position.x - transform.position.x;
         var dY = PlayerTransform.position.y - transform.position.y;
-        allResetTrigger();
+        AllResetTrigger();
         if(Mathf.Abs(dX) > Mathf.Abs(dY))
         {
             if(dX > 0)
@@ -61,7 +52,7 @@ public class Bird : MonoBehaviour
                 BirdAni.SetTrigger("Down");
         }
     }
-    void allResetTrigger()
+    private void AllResetTrigger()
     {
         foreach(var param in BirdAni.parameters)
         {

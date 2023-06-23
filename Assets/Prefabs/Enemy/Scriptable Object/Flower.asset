@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
   m_Name: Flower
   m_EditorClassIdentifier: 
-  Ename: Flower
-  spriteType: 5
-  speed: 20
-  power: 1
-  knockback: 1
-  maxKnockback: 3
-  deathKB: 2
-  xp: 2
-  end: 29
-  level: 1
-  maxHP: 3
+  mEnemyName: Flower
+  mSpriteType: 5
+  mSpeed: 20
+  mPower: 1
+  mKnockback: 1
+  mMaxKnockback: 3
+  mDeathKB: 2
+  mXp: 2
+  mEnd: 29
+  mLevel: 1
+  mMaxHP: 3

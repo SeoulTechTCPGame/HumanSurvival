@@ -7,127 +7,33 @@ public class Weapon : MonoBehaviour
     public int WeaponIndex;
     public int WeaponLevel = 1;
     public int WeaponMaxLevel;
-    public bool bEvolution = false;
-    public float[] weaponTotalStats;//Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    public bool BEvolution = false;
+    public float[] WeaponTotalStatList; // Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    private float[] mWeaponStats;
 
-    private float[] WeaponStats;
-
-    public void WeaponDefalutSetting(int weaponIndex=0)
-    {
-        this.WeaponIndex = weaponIndex;
-        this.WeaponStats = Enumerable.Range(0, EquipmentData.defaultWeaponStats.GetLength(1)).Select(x => EquipmentData.defaultWeaponStats[weaponIndex, x]).ToArray();
-        WeaponLevel = 1;
-        WeaponMaxLevel = (int)WeaponStats[(int)Enums.WeaponStat.MaxLevel];
-        weaponTotalStats = WeaponStats;
-        AttackCalculation();
-    }
-    public void Upgrade()
-    {
-        WeaponLevel++;
-        foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[WeaponIndex][WeaponLevel])
-        {
-            WeaponStats[statIndex] += data;
-        }
-        evolution();
-    }
-    public bool IsMaster()
-    {
-        return WeaponLevel == WeaponMaxLevel;
-    }
-    public bool isEvoluction()
-    {
-        return bEvolution;
-    }
-    private void evolution()
-    {
-        if (!IsMaster())
-            return;
-        var equipManageSys = GameManager.instance.equipManageSys;
-        int evoPairAccIndex = EquipmentData.EvoWeaponNeedAccIndex[WeaponIndex];
-        if (evoPairAccIndex < 0)    // 짝이 되는 악세서리의 index = -1 -> 짝이 무기인 경우
-            evolutionException(equipManageSys);
-        else if (equipManageSys.HasAcc(evoPairAccIndex))
-            bEvolution = true;
-
-        if (bEvolution)
-            EvolutionProcess();
-    }
-    private void evolutionException(EquipmentManagementSystem equipManageSys)     // 진화에 필요한 짝이 악세서리가 아닌 무기인 경우(예시 - 비둘기, 흑비둘기)
-    {
-        var evoPairWeaponIndex = EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex];
-        if (equipManageSys.HasWeapon(evoPairWeaponIndex) && equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].IsMaster())
-            bEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].bEvolution = true;
-    }
-    public void EvolutionProcess()
-    {
-        switch (WeaponIndex)
-        {
-            case 0:     // Whip
-                break;
-            case 1:     // MagicWand
-                break;
-            case 2:     // Knife
-                break;
-            case 3:     // Cross
-                break;
-            case 4:     //KingBible
-                break;
-            case 5:     // FireWand
-                break;
-            case 6:     // Garlic
-                break;
-            case 7:     // Peachone
-            {
-                var equipManageSys = GameManager.instance.equipManageSys;
-                var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
-                GetComponent<Peachone>().EvolutionProcess(equipManageSys.skillFiringSystem.Birds[2], pairWeapon);
-                pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
-                break;
-            }
-            case 8:    // EbonyWings
-            {
-                var equipManageSys = GameManager.instance.equipManageSys;
-                var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
-                pairWeapon.GetComponent<Peachone>().EvolutionProcess(equipManageSys.skillFiringSystem.Birds[2], this);
-                GetComponent<EbonyWings>().EvolutionProcess();
-                break;
-            }
-            case 9:   // LightningRing
-                break;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("DestructibleObj"))
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                destructible.TakeDamage(weaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
-
+                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[((int)Enums.WeaponStat.Might)], WeaponIndex);
-            if(WeaponIndex == 6 && bEvolution)
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            if (WeaponIndex == 6 && BEvolution)
             {
-                GameManager.instance.character.RestoreHealth(1);
+                GameManager.instance.Character.RestoreHealth(1);
                 GameManager.instance.EvoGralicRestoreCount++;
-                if(GameManager.instance.EvoGralicRestoreCount == 60)
+                if (GameManager.instance.EvoGralicRestoreCount == 60)
                 {
                     GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStats[((int)Enums.WeaponStat.Might)] += 1;
+                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
                 }
             }
         }
-        // for(int i = 0; i < col.Length; i++)
-        // {
-        //     IDamageable e = col[i].GetComponent<IDamageable>();
-        //     if(e != null)
-        //     {
-        //         e.TakeDamage(GameManager.instance.player.GetComponent<Character>().Weapons[GameManager.instance.player.GetComponent<Character>().TransWeaponIndex[WeaponIndex]].GetComponent<Weapon>().WeaponTotalStats[((int)Enums.WeaponStat.Might)]);
-        //     }
-        // }
     }
     private void OnTriggerExit2D(Collider2D col)
     {
@@ -136,7 +42,55 @@ public class Weapon : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    public void WeaponDefalutSetting(int weaponIndex=0)
+    {
+        this.WeaponIndex = weaponIndex;
+        this.mWeaponStats = Enumerable.Range(0, EquipmentData.DefaultWeaponStats.GetLength(1)).Select(x => EquipmentData.DefaultWeaponStats[weaponIndex, x]).ToArray();
+        WeaponLevel = 1;
+        WeaponMaxLevel = (int)mWeaponStats[(int)Enums.EWeaponStat.MaxLevel];
+        WeaponTotalStatList = mWeaponStats;
+        AttackCalculation();
+    }
+    public void Upgrade()
+    {
+        WeaponLevel++;
+        foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[WeaponIndex][WeaponLevel])
+        {
+            mWeaponStats[statIndex] += data;
+        }
+        Evolution();
+    }
+    public bool IsMaster()
+    {
+        return WeaponLevel == WeaponMaxLevel;
+    }
+    public bool IsEvoluction()
+    {
+        return BEvolution;
+    }
+    public float[] WeaponTotalStats { get { return WeaponTotalStatList; } }
+    public virtual void Attack() { }
+    public virtual void EvolutionProcess() { }
+    private void Evolution()
+    {
+        if (!IsMaster())
+            return;
+        var equipManageSys = GameManager.instance.EquipManageSys;
+        int evoPairAccIndex = EquipmentData.EvoWeaponNeedAccIndex[WeaponIndex];
+        if (evoPairAccIndex < 0)    // 짝이 되는 악세서리의 index = -1 -> 짝이 무기인 경우
+            EvolutionException(equipManageSys);
+        else if (equipManageSys.HasAcc(evoPairAccIndex))
+            BEvolution = true;
 
+        if (BEvolution)
+            EvolutionProcess();
+    }
+    private void EvolutionException(EquipmentManagementSystem equipManageSys)     // 진화에 필요한 짝이 악세서리가 아닌 무기인 경우(예시 - 비둘기, 흑비둘기)
+    {
+        var evoPairWeaponIndex = EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex];
+        if (equipManageSys.HasWeapon(evoPairWeaponIndex) && equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].IsMaster())
+            BEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].BEvolution = true;
+    }
     //아래 계산을 한번에 하기
     //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     private void AttackCalculation()
@@ -150,27 +104,26 @@ public class Weapon : MonoBehaviour
     }
     private void DamageCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Might)] = WeaponStats[((int)Enums.WeaponStat.Might)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Might];
+        WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] = mWeaponStats[((int)Enums.EWeaponStat.Might)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Might];
     }
     private void ProjectileSpeedCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.ProjectileSpeed)] = WeaponStats[((int)Enums.WeaponStat.ProjectileSpeed)] * GameManager.instance.CharacterStats[(int)Enums.Stat.ProjectileSpeed];
+        WeaponTotalStatList[((int)Enums.EWeaponStat.ProjectileSpeed)] = mWeaponStats[((int)Enums.EWeaponStat.ProjectileSpeed)] * GameManager.instance.CharacterStats[(int)Enums.EStat.ProjectileSpeed];
     }
     private void DurationCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Duration)] = WeaponStats[((int)Enums.WeaponStat.Duration)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Duration];
+        WeaponTotalStatList[((int)Enums.EWeaponStat.Duration)] = mWeaponStats[((int)Enums.EWeaponStat.Duration)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Duration];
     }
     private void AttackRangeCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Area)] = WeaponStats[((int)Enums.WeaponStat.Area)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Area];
+        WeaponTotalStatList[((int)Enums.EWeaponStat.Area)] = mWeaponStats[((int)Enums.EWeaponStat.Area)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Area];
     }
     private void CooldownCalculation()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Cooldown)] = WeaponStats[((int)Enums.WeaponStat.Cooldown)] * GameManager.instance.CharacterStats[(int)Enums.Stat.Cooldown];
+        WeaponTotalStatList[((int)Enums.EWeaponStat.Cooldown)] = mWeaponStats[((int)Enums.EWeaponStat.Cooldown)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Cooldown];
     }
     private void CalculateNumberOfProjectiles()
     {
-        weaponTotalStats[((int)Enums.WeaponStat.Amount)] = ((int)WeaponStats[((int)Enums.WeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.Stat.Amount];
+        WeaponTotalStatList[((int)Enums.EWeaponStat.Amount)] = ((int)mWeaponStats[((int)Enums.EWeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.EStat.Amount];
     }
-    public float[] WeaponTotalStats { get { return weaponTotalStats; } }
 }

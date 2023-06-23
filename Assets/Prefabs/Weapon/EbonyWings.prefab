@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 745888990948752621}
   - component: {fileID: 6392157819826877399}
   - component: {fileID: 7596873339338999605}
-  - component: {fileID: 4026118149073244066}
   - component: {fileID: -8477946551036674951}
   m_Layer: 8
   m_Name: EbonyWings
@@ -246,32 +245,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &4026118149073244066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943404134078784437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385127f1a7edf6d4ab2944b63591b097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponIndex: 8
-  WeaponLevel: 1
-  WeaponMaxLevel: 8
-  bEvolution: 0
-  weaponTotalStats:
-  - 10
-  - 12
-  - 0.8
-  - 4
-  - 4
-  - 60
-  - 1e+10
-  - 4
-  - 8
 --- !u!114 &-8477946551036674951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,9 +257,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c109a5f94a0a1394ca19a21bcc585bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 4988606761751433582}
+  WeaponIndex: 0
+  WeaponLevel: 1
+  WeaponMaxLevel: 0
+  BEvolution: 0
+  WeaponTotalStatList: []
   Bird: {fileID: 0}
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0, y: 0, z: 0}
   ProjectileScale: {x: 13.2, y: 13.2, z: 0}
+  mAnimator: {fileID: 4988606761751433582}

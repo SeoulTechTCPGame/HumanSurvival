@@ -1,19 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExperiencePickUp : MonoBehaviour,ICollectible
 {
-    public float expGranted;
+    public float ExpGranted;
 
     public void Collect()
     {
         //스크립트 명으로 오브젝트 찾기
-        Character character = GameManager.instance.character;
+        Character character = GameManager.instance.Character;
         //Todo : character grouth stat 
-        character.GetExp(expGranted);
+        character.GetExp(ExpGranted);
         gameObject.SetActive(false);
-
-        ;
     }
 }

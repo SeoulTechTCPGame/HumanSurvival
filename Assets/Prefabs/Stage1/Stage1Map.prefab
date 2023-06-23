@@ -251,6 +251,22 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[4].Array.data[3].Y
       value: -200000000
       objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: X
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Probability
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8098727525420182060, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -316,6 +332,22 @@ PrefabInstance:
     - target: {fileID: 5292997542048136437, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: X
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Probability
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 8098727525420182060, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
       propertyPath: m_RootOrder
@@ -383,6 +415,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: X
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Probability
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8098727525420182060, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -448,6 +496,22 @@ PrefabInstance:
     - target: {fileID: 5292997542048136437, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: X
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 5038864057873729496, guid: 6008162ef128fc340b2a135432f439d0, type: 3}
+    - target: {fileID: 5641179024954384504, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
+      propertyPath: Probability
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 8098727525420182060, guid: 66ca973b751afde4da83a8310b17da55, type: 3}
       propertyPath: m_RootOrder
