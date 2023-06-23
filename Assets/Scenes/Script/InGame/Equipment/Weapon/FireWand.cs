@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireWand : Weapon
@@ -34,11 +32,13 @@ public class FireWand : Weapon
             int numProjectiles = ((int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount]);
             Vector3 initialDirection = new Vector3(0f, 1f, 0f);
 
+            float angleStep = 360f / (numProjectiles * 10);
+            float startAngle = Random.Range(0f, 360f);
             for (int i = 0; i < numProjectiles; i++)
             {
                 //방향 계산
-                float randomAngle = Random.Range(0f, 360f);
-                Quaternion rotation = Quaternion.Euler(0f, 0f, randomAngle);
+                float angle = startAngle + i * angleStep;
+                Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
                 Vector3 direction = rotation * initialDirection;
                 direction.Normalize();
 
@@ -52,6 +52,9 @@ public class FireWand : Weapon
                 //무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
                 rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+
+                float angleInDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                newObs.transform.rotation = Quaternion.Euler(0f, 0f, angleInDegrees);
             }
             mTimer = 0;
         }
