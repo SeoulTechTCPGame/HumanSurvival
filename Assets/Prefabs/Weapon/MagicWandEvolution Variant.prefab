@@ -87,12 +87,15 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 6984803217021171391}
+    - target: {fileID: 4905319741149529243, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
+      propertyPath: mAnimator
+      value: 
+      objectReference: {fileID: 6984803217021171391}
     - target: {fileID: 4988606761751433582, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 085297e635d6a47419101d5070c58728, type: 2}
-    m_RemovedComponents:
-    - {fileID: 4905319741149529243, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
 --- !u!95 &6984803217021171391 stripped
 Animator:

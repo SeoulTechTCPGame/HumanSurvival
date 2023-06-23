@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1d851a15ab24324bc1677b72b642c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponIndex: 0
+  WeaponIndex: 6
   WeaponLevel: 1
-  WeaponMaxLevel: 0
-  bEvolution: 0
-  weaponTotalStats: []
+  WeaponMaxLevel: 8
+  BEvolution: 0
+  WeaponTotalStatList: []

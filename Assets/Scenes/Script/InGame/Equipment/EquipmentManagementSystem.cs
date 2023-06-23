@@ -126,7 +126,7 @@ public class EquipmentManagementSystem
                 //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<KingBible>());
                 break;
             case 5: // FireWand
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<FireWand>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<FireWand>());
                 break;
             case 6: // Garlic
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Gralic>());
