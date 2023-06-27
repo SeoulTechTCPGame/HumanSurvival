@@ -82,7 +82,6 @@ public class MagicWand : Weapon
     private Vector3 FindClosestEnemyDirection()
     {
         GameObject closestEnemy = FindClosestEnemy();
-        Debug.Log(closestEnemy);
         if (closestEnemy != null)
         {
             Vector3 direction = closestEnemy.transform.position - transform.position;
