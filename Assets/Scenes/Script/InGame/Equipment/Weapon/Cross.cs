@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class MagicWand : Weapon
+public class Cross : Weapon
 {
     [SerializeField] Animator mAnimator;
     private float mTimer = 0;
     private bool mbUseWand = false;
-    private int mTouch = 0;
-    private int mTouchLimit;
 
     private void Start()
     {
@@ -14,35 +12,37 @@ public class MagicWand : Weapon
     }
     private void FixedUpdate()
     {
-        if (!mbUseWand) return;  //MagicWand 사용 안할 때 Update를 안 함
-        if (mTouchLimit <= mTouch)
-        {
-            mAnimator.SetBool("Hit", true);
-            Destroy(this.gameObject);
-        }
+        if (!mbUseWand) return;
     }
     public override void Attack()
     {
         GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
 
+        float initialSpeed = WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+        float acceleration = (1 + WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)]/100);
+
         mTimer += Time.deltaTime;
-        if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
+        float cooldown = WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown];
+        if (mTimer > cooldown)
         {
-            for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
+            int numProjectiles = ((int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount]);
+            Vector3 initialDirection = FindClosestEnemyDirection();
+
+            for (int i = 0; i < numProjectiles; i++)
             {
                 //무기 세팅
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
                 newObs.transform.position = GameManager.instance.Player.transform.position;
-                MagicWand newWand = newObs.GetComponent<MagicWand>();
+                Cross newWand = newObs.GetComponent<Cross>();
                 newWand.mbUseWand = true;
-                newWand.mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
-                Vector3 direction = FindClosestEnemyDirection();
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                //무기가 바라보는 방향 조절
-                newObs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
+
                 //무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+                rb.velocity = initialDirection * (initialSpeed - mTimer * acceleration); ;
+
+                //float angleInDegrees = Mathf.Atan2(initialDirection.y, initialDirection.x) * Mathf.Rad2Deg;
+                //newObs.transform.rotation = Quaternion.Euler(0f, 0f, angleInDegrees);
+
             }
             mTimer = 0;
         }
@@ -74,10 +74,6 @@ public class MagicWand : Weapon
                 }
             }
         }
-        if (col.gameObject.tag == "Monster")
-        {
-            mTouch++;
-        }
     }
     private Vector3 FindClosestEnemyDirection()
     {
@@ -93,7 +89,7 @@ public class MagicWand : Weapon
             return Vector3.right;
         }
     }
-    private GameObject FindClosestEnemy() 
+    private GameObject FindClosestEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
         GameObject closestEnemy = null;
