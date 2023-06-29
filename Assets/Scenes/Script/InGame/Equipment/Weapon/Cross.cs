@@ -3,8 +3,9 @@ using UnityEngine;
 public class Cross : Weapon
 {
     [SerializeField] Animator mAnimator;
-    private float mTimer = 0;
-    private bool mbUseWand = false;
+    [SerializeField] float mAcceleration = 2f;
+    private float mCoolTimer = 0;
+    private bool mbUsed = false;
 
     private void Start()
     {
@@ -12,39 +13,42 @@ public class Cross : Weapon
     }
     private void FixedUpdate()
     {
-        if (!mbUseWand) return;
+        if (!mbUsed) return;
     }
     public override void Attack()
     {
         GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
 
-        float initialSpeed = WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
-        float acceleration = (1 + WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)]/100);
-
-        mTimer += Time.deltaTime;
         float cooldown = WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown];
-        if (mTimer > cooldown)
-        {
-            int numProjectiles = ((int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount]);
-            Vector3 initialDirection = FindClosestEnemyDirection();
+        float speed = WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
+        float acceleration = mAcceleration * (1 + speed / 100);
 
+        mCoolTimer += Time.deltaTime;
+        if (mCoolTimer >= cooldown)
+        {
+            int numProjectiles = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount];
             for (int i = 0; i < numProjectiles; i++)
             {
-                //무기 세팅
+                // 무기 생성
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
                 newObs.transform.position = GameManager.instance.Player.transform.position;
-                Cross newWand = newObs.GetComponent<Cross>();
-                newWand.mbUseWand = true;
-
-                //무기 발사
+                Cross newCross = newObs.GetComponent<Cross>();
+                newCross.mbUsed = true;
+                // 방향 조절
+                Vector3 direction = FindClosestEnemyDirection();
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                newObs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                // 무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = initialDirection * (initialSpeed - mTimer * acceleration); ;
-
-                //float angleInDegrees = Mathf.Atan2(initialDirection.y, initialDirection.x) * Mathf.Rad2Deg;
-                //newObs.transform.rotation = Quaternion.Euler(0f, 0f, angleInDegrees);
-
+                rb.velocity = direction * (speed - acceleration * Time.deltaTime);
+                Debug.Log("forward");
+                if (rb.velocity.magnitude <= 0)
+                {
+                    rb.velocity = -direction * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
+                    Debug.Log("reverse");
+                }
             }
-            mTimer = 0;
+            mCoolTimer = 0;
         }
     }
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨

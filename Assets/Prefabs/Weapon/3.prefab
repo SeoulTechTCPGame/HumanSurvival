@@ -162,8 +162,18 @@ MonoBehaviour:
   WeaponLevel: 1
   WeaponMaxLevel: 8
   BEvolution: 0
-  WeaponTotalStatList: []
+  WeaponTotalStatList:
+  - 5
+  - 2
+  - 1
+  - -1
+  - 1
+  - 30
+  - 1e+10
+  - 1
+  - 8
   mAnimator: {fileID: -8700681718345149569}
+  mAcceleration: 1
 --- !u!82 &-638684999703132560
 AudioSource:
   m_ObjectHideFlags: 0
