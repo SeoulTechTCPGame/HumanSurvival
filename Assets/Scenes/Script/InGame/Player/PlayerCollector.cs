@@ -9,6 +9,5 @@ public class PlayerCollector : MonoBehaviour
             Debug.Log("부딪힘");
             collectible.Collect();
         }
-            
     }
 }
