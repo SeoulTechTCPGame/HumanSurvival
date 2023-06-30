@@ -37,11 +37,8 @@ public class MagicWand : Weapon
     }
     public override void Attack()
     {
-        GameObject objPre;
-        if (IsEvoluction()) 
-            objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
-        else
-            objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
+        GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
+
         mTimer += Time.deltaTime;
         if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
