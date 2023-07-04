@@ -3,9 +3,9 @@ using UnityEngine;
 public class Cross : Weapon
 {
     [SerializeField] Animator mAnimator;
-    [SerializeField] float mAcceleration = 2f;
     private float mCoolTimer = 0;
     private bool mbUsed = false;
+    private Vector3 mDirection;
 
     private void Start()
     {
@@ -14,6 +14,14 @@ public class Cross : Weapon
     private void FixedUpdate()
     {
         if (!mbUsed) return;
+
+        Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
+        rb.AddForce(-mDirection, ForceMode2D.Force);
+
+        if (rb.velocity.magnitude <= 0 && Vector3.Dot(rb.velocity.normalized, transform.right) < 0)
+        {
+            transform.rotation = Quaternion.AngleAxis(180f, Vector3.forward);
+        }
     }
     public override void Attack()
     {
@@ -21,7 +29,6 @@ public class Cross : Weapon
 
         float cooldown = WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown];
         float speed = WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
-        float acceleration = mAcceleration * (1 + speed / 100);
 
         mCoolTimer += Time.deltaTime;
         if (mCoolTimer >= cooldown)
@@ -34,49 +41,16 @@ public class Cross : Weapon
                 newObs.transform.position = GameManager.instance.Player.transform.position;
                 Cross newCross = newObs.GetComponent<Cross>();
                 newCross.mbUsed = true;
-                // 방향 조절
+                // 무기 방향
                 Vector3 direction = FindClosestEnemyDirection();
+                newCross.mDirection = direction;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 newObs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 // 무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * (speed - acceleration * Time.deltaTime);
-                Debug.Log("forward");
-                if (rb.velocity.magnitude <= 0)
-                {
-                    rb.velocity = -direction * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
-                    Debug.Log("reverse");
-                }
+                rb.velocity = direction * speed;
             }
             mCoolTimer = 0;
-        }
-    }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if (GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
         }
     }
     private Vector3 FindClosestEnemyDirection()
@@ -98,12 +72,11 @@ public class Cross : Weapon
         GameObject closestEnemy = null;
         float closestDistance = Mathf.Infinity;
 
-        //적 탐색
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-            if (distance < closestDistance) //소환된 무기와 몬스터 가장 짧은 거리 업데이트
+            if (distance < closestDistance)
             {
                 closestEnemy = enemy;
                 closestDistance = distance;
