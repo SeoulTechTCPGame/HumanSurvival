@@ -18,9 +18,9 @@ public class Cross : Weapon
         Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
         rb.AddForce(-mDirection, ForceMode2D.Force);
 
-        if (rb.velocity.magnitude <= 0 && Vector3.Dot(rb.velocity.normalized, transform.right) < 0)
+        if (rb.velocity.magnitude <= 0.001)
         {
-            transform.rotation = Quaternion.AngleAxis(180f, Vector3.forward);
+            transform.Rotate(0f, 0f, 180f);
         }
     }
     public override void Attack()
@@ -48,7 +48,7 @@ public class Cross : Weapon
                 newObs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 // 무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * speed;
+                rb.velocity = direction * speed * 3;
             }
             mCoolTimer = 0;
         }
