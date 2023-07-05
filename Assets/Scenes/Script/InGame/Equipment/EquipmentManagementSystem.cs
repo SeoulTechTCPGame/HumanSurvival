@@ -138,7 +138,7 @@ public class EquipmentManagementSystem
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<EbonyWings>());
                 break;
             case 9: // LightningRing
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<LightningRing>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<LightningRing>());
                 break;
         }
     }

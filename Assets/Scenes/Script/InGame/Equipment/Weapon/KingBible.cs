@@ -42,14 +42,11 @@ public class KingBible : Weapon
             mbExist = true;
             mTimer = 0;
         }
-        else
+        else if (mbExist && mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Duration)])
         {
-            if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Duration)])
-            {
-                Destroy(mNewObj);
-                mbExist = false;
-                mTimer = 0;
-            }
+            Destroy(mNewObj);
+            mbExist = false;
+            mTimer = 0;
         }
         mTimer += Time.deltaTime;
         
