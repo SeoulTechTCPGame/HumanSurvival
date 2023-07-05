@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -702228833269533865}
   - component: {fileID: -638684999703132560}
   m_Layer: 8
-  m_Name: 3
+  m_Name: Cross
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
