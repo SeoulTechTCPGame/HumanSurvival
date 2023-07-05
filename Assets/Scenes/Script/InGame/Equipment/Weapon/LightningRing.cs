@@ -31,7 +31,7 @@ public class LightningRing : Weapon
             mbExist = true;
             mTimer = 0;
         }
-        else if (mbExist && mTimer > 0.5f)
+        else if (mbExist && mTimer > 0.3f)
         {
             Destroy(mNewObj);
             mbExist = false;
@@ -44,14 +44,13 @@ public class LightningRing : Weapon
     }
     private Vector3[] FindDenseClusterEnemy(int Amount)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
+        Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 10 + Vector3.up * 5, GameManager.instance.Player.transform.position + Vector3.right * 10 + Vector3.down * 5, LayerMask.GetMask("Monster"));
         Vector3[] results = new Vector3[Amount];
         int[] enemiesNumber = new int[enemies.Length];
         int count = 0;
-        foreach (GameObject enemy in enemies)
+        foreach (Collider2D enemy in enemies)
         {
-            enemiesNumber[count++] = Physics2D.OverlapCircleAll(transform.position, 1.5f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)])).Length;
-            //Debug.Log(Physics2D.OverlapCircleAll(transform.position, 1.5f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)])).Length);
+            enemiesNumber[count++] = Physics2D.OverlapCircleAll(enemy.transform.position, 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)])).Length;
         }
         for(int i = 0; i < Amount; i++)
         {
