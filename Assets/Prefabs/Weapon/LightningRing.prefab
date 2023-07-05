@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 891077723031153292}
   - component: {fileID: 891077723031153295}
   - component: {fileID: 891077723031153294}
-  - component: {fileID: -5040496783501987502}
-  - component: {fileID: 1685175210895915641}
+  - component: {fileID: 891077723031153329}
+  - component: {fileID: -1998648689697729531}
   m_Layer: 8
-  m_Name: EvoKingBible
+  m_Name: LightningRing
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891077723031153331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.04, y: 0, z: 0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 46bb9bf98d7228d4eb10d698fc010248, type: 2}
-  m_Color: {r: 1, g: 0.45869797, b: 0.12549019, a: 0.77254903}
+  m_Sprite: {fileID: 21300000, guid: 4cbd8b3b7b7ef654da7d5b0ad3d58ed4, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,8 +108,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-5040496783501987502
-BoxCollider2D:
+--- !u!58 &891077723031153329
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,20 +121,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.03471167, y: -0.821512}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1685175210895915641
+  m_Radius: 0.32065704
+--- !u!114 &-1998648689697729531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 891077723031153331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f88dba5f1d046b3b9e1dd399ce4791, type: 3}
+  m_Script: {fileID: 11500000, guid: 45dbed65cc36a6344bc02252d069c463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 0
