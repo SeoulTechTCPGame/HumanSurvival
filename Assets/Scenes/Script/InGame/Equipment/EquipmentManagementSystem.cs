@@ -123,7 +123,7 @@ public class EquipmentManagementSystem
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Cross>());
                 break;
             case 4: // KingBible
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<KingBible>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<KingBible>());
                 break;
             case 5: // FireWand
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<FireWand>());

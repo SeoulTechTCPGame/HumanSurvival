@@ -49,27 +49,6 @@ public class Knife : Weapon
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if (GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
-        }
         if (col.gameObject.tag == "Monster")
         {
             mTouch++;
