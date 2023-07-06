@@ -48,7 +48,7 @@ public class Cross : Weapon
                 newObs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 // 무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * speed * 3;
+                rb.velocity = direction * speed * 3;    //ToDo: 보정값
             }
             mCoolTimer = 0;
         }

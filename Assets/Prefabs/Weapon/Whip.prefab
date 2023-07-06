@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4617056312458630460}
   - component: {fileID: -1729232167545631710}
   - component: {fileID: 5221139851829647238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Whip
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 34fec4d8f29ce3446a4cbdeca4f66d69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -140,7 +140,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -162,7 +162,17 @@ MonoBehaviour:
   WeaponLevel: 1
   WeaponMaxLevel: 8
   BEvolution: 0
-  WeaponTotalStatList: []
+  WeaponTotalStatList:
+  - 10
+  - 1.35
+  - -1
+  - -1
+  - 1
+  - 30
+  - 1e+10
+  - 1
+  - 8
+  CriticalRate: 10
 --- !u!82 &5221139851829647238
 AudioSource:
   m_ObjectHideFlags: 0

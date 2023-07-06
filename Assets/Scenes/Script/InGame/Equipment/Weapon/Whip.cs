@@ -5,7 +5,6 @@ public class Whip : Weapon
     public float CriticalRate = 10;
     private float mTimer = 0;
     private bool mbUse = false;
-    private Vector3 _interval = new Vector3(5f, 0f, 0f);
 
     private void Update()
     {
@@ -14,9 +13,8 @@ public class Whip : Weapon
     public override void Attack()
     {
         GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
-
         mTimer += Time.deltaTime;
-        if (mTimer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
+        if (mTimer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])   //ToDo: 보정값
         {
             for (int i = 0; i < objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
@@ -28,14 +26,23 @@ public class Whip : Weapon
                 newWhip.mbUse = true;
                 if (CheckPosition(i, GameManager.instance.Player.PreMovement))
                 {
-                    newObs.transform.position = GameManager.instance.Player.transform.position + _interval + new Vector3(0f, 2f * i, 0f);
+                    newObs.transform.position = GameManager.instance.Player.transform.position + new Vector3(2f, i + 0.5f, 0f);   //우측
                 }
                 else
                 {
-                    newObs.transform.position = GameManager.instance.Player.transform.position - _interval + new Vector3(0f, 2f * i, 0f);
+                    newObs.transform.position = GameManager.instance.Player.transform.position + new Vector3(-2f, i + 0.5f, 0f);  //좌측
                 }
-                Destroy(newObs);
+                if (newObs.transform.position.x < GameManager.instance.Player.transform.position.x)
+                {
+                    newObs.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else 
+                {
+                    newObs.GetComponent<SpriteRenderer>().flipX = false;
+                }
+                Destroy(newObs, 0.5f);
             }
+            mTimer = 0;
         }
     }
     #region
