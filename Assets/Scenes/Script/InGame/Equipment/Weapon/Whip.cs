@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Whip : Weapon
 {
+    private GameObject mNewObj;
     public float CriticalRate = 10;
     private float mTimer = 0;
     private bool mbUse = false;
@@ -9,6 +10,7 @@ public class Whip : Weapon
     private void Update()
     {
         if (!mbUse) return;
+        transform.parent.transform.position = GameManager.instance.Player.transform.position;
     }
     public override void Attack()
     {
@@ -16,31 +18,29 @@ public class Whip : Weapon
         mTimer += Time.deltaTime;
         if (mTimer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])   //ToDo: 보정값
         {
+            mNewObj = new GameObject("Whips");
+            mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
             for (int i = 0; i < objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
-                GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
+                // 무기 생성
+                GameObject newObs = Instantiate(objPre, GameObject.Find("Whips").transform);
                 newObs.transform.localScale *= objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
                 float power = newObs.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Might)];
                 power = Random.Range(0, 100) < CriticalRate ? power : power * 2;
                 Whip newWhip = newObs.GetComponent<Whip>();
                 newWhip.mbUse = true;
-                if (CheckPosition(i, GameManager.instance.Player.PreMovement))
+                // 위치 조정, 뒤집기
+                if ((GameManager.instance.Player.PreMovement.x >= 0 && i % 2 == 0) || (GameManager.instance.Player.PreMovement.x < 0 && i % 2 != 0))
                 {
-                    newObs.transform.position = GameManager.instance.Player.transform.position + new Vector3(2f, i + 0.5f, 0f);   //우측
+                    newObs.transform.Translate(new Vector3(2f, i + 0.5f, 0), Space.World);  //우측
+                    newObs.GetComponent<SpriteRenderer>().flipX = false;
                 }
                 else
                 {
-                    newObs.transform.position = GameManager.instance.Player.transform.position + new Vector3(-2f, i + 0.5f, 0f);  //좌측
-                }
-                if (newObs.transform.position.x < GameManager.instance.Player.transform.position.x)
-                {
+                    newObs.transform.Translate(new Vector3(-2f, i + 0.5f, 0), Space.World);  //좌측
                     newObs.GetComponent<SpriteRenderer>().flipX = true;
                 }
-                else 
-                {
-                    newObs.GetComponent<SpriteRenderer>().flipX = false;
-                }
-                Destroy(newObs, 0.5f);
+                Destroy(mNewObj, 0.5f);
             }
             mTimer = 0;
         }
