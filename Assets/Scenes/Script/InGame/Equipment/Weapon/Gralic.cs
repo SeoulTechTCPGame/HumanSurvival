@@ -22,9 +22,9 @@ public class Gralic : Weapon
         {
             if(!mbExist)
             {
-                mNewObj = Instantiate(objPre);
-                mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+                mNewObj = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
                 mNewObj.transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
+                mNewObj.transform.localScale = new Vector3(3.5f * WeaponTotalStats[((int)Enums.EWeaponStat.Area)], 3.5f * WeaponTotalStats[((int)Enums.EWeaponStat.Area)], 0);
                 mbExist = true;
             }
             else
