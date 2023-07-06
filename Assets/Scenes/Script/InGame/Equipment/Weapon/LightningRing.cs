@@ -37,6 +37,29 @@ public class LightningRing : Weapon
             mbExist = false;
             mTimer = 0;
         }
+        if (IsEvoluction())
+        {
+            if (!mbExist && mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)] / 2)
+            {
+                mNewObj = new GameObject("Lightnings");
+                mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+
+                for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
+                {
+                    GameObject lightning = Instantiate(objPre, GameObject.Find("Lightnings").transform);
+                    lightning.GetComponent<CircleCollider2D>().radius = 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)]);
+                    lightning.transform.position = lightningPosition[i] + Vector3.up * 10;
+                }
+                mbExist = true;
+                mTimer = 0;
+            }
+            else if (mbExist && mTimer > 0.3f)
+            {
+                Destroy(mNewObj);
+                mbExist = false;
+                mTimer = 0;
+            }
+        }
     }
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {
@@ -52,10 +75,22 @@ public class LightningRing : Weapon
         {
             enemiesNumber[count++] = Physics2D.OverlapCircleAll(enemy.transform.position, 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)])).Length;
         }
-        for(int i = 0; i < Amount; i++)
+        count = 0;
+        results[count++] = enemies[Array.IndexOf(enemiesNumber, enemiesNumber.Max())].transform.position;
+        enemiesNumber[Array.IndexOf(enemiesNumber, enemiesNumber.Max())] = 0;
+        for(int i = 0; i < enemies.Length; i++)
         {
-            results[i] = enemies[Array.IndexOf(enemiesNumber, enemiesNumber.Max())].transform.position;
-            enemiesNumber[Array.IndexOf(enemiesNumber, enemiesNumber.Max())] = 0;
+            if (count == Amount) break;
+            float distance = Vector3.Distance(results[count - 1], enemies[Array.IndexOf(enemiesNumber, enemiesNumber.Max())].transform.position);
+            if (distance > 5f)
+            {
+                results[count++] = enemies[Array.IndexOf(enemiesNumber, enemiesNumber.Max())].transform.position;
+                enemiesNumber[Array.IndexOf(enemiesNumber, enemiesNumber.Max())] = 0;
+            }
+            else
+            {
+                enemiesNumber[Array.IndexOf(enemiesNumber, enemiesNumber.Max())] = 0;
+            }
         }
         
         return results;
