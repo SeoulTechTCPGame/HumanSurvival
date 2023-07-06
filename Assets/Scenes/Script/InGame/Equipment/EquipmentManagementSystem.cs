@@ -111,7 +111,7 @@ public class EquipmentManagementSystem
         switch (weaponIndex)
         {
             case 0: // Whip
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Whip>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Whip>());
                 break;
             case 1: // MagicWand
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<MagicWand>());
