@@ -19,7 +19,10 @@ public class KingBible : Weapon
     {
         GameObject objPre;
         if (IsEvoluction())
+        {
             objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
+            mbExist = false;
+        }
         else
             objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
 
@@ -37,25 +40,22 @@ public class KingBible : Weapon
                 Vector3 rotVec = Vector3.forward * 360 * i / WeaponTotalStats[((int)Enums.EWeaponStat.Amount)];
                 //여러 개 동시 발사 시 시작 위치를 다르게 설정
                 kingBible.transform.Rotate(rotVec);
-                kingBible.transform.Translate(kingBible.transform.up * mDistance, Space.World);
+                kingBible.transform.Translate(kingBible.transform.up * mDistance * WeaponTotalStats[((int)Enums.EWeaponStat.Area)], Space.World);
             }
             mbExist = true;
             mTimer = 0;
         }
-        else
+        else if (mbExist && mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Duration)])
         {
-            if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Duration)])
-            {
-                Destroy(mNewObj);
-                mbExist = false;
-                mTimer = 0;
-            }
+            Destroy(mNewObj);
+            mbExist = false;
+            mTimer = 0;
         }
         mTimer += Time.deltaTime;
         
     }
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {
-
+        
     }
 }

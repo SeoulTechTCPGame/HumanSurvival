@@ -1423,7 +1423,7 @@ MonoBehaviour:
   - {fileID: 891077723031153331, guid: b55225a7fcb1344f49de46c6a15bca2d, type: 3}
   - {fileID: 943404134078784437, guid: bcb40c9ce7e3764408c1eeb8b961c753, type: 3}
   - {fileID: 943404134078784437, guid: a76fa4dffe69bc14a8d60e03231a8063, type: 3}
-  - {fileID: 8370051675277498723, guid: ca34bca703d0b2c47841cf243cdecf28, type: 3}
+  - {fileID: 891077723031153331, guid: b5ed166c2ed17134a906a0402b26a2ed, type: 3}
   evolutionWeaponPrefabs:
   - {fileID: 8370051675277498723, guid: f7fedc6d7e9bd8c4181ac1f557425504, type: 3}
   - {fileID: 2937389158066652260, guid: 8a9866a6dadb7d44183bbbeba7f125d2, type: 3}
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   - {fileID: 891077723031153331, guid: 783aacd6565d4c4419f8a60a1655f4fd, type: 3}
   - {fileID: 943404134078784437, guid: d127358dfc53fce46a853df2b53ea01a, type: 3}
   - {fileID: 943404134078784437, guid: d127358dfc53fce46a853df2b53ea01a, type: 3}
-  - {fileID: 8370051675277498723, guid: ca34bca703d0b2c47841cf243cdecf28, type: 3}
+  - {fileID: 891077723031153331, guid: 87f9d1ee12817cc48be6b8bf238a5f5e, type: 3}
   Birds:
   - {fileID: 4663107328518171263, guid: b1678cb622f462f4f9b95e519ce2ccf1, type: 3}
   - {fileID: 4663107328518171263, guid: 13c8de833e99a314d972b76adc0b9d1d, type: 3}
