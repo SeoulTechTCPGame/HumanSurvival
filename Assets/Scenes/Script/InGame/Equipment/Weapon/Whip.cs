@@ -69,15 +69,4 @@ public class Whip : Weapon
         }
     }
     #endregion
-    private bool CheckPosition(int index, Vector2 preMovement)
-    {
-        if ((preMovement.x > 0 && index % 2 == 0) || (preMovement.x < 0 && index % 2 != 0))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }
