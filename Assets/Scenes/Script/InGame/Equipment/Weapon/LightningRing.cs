@@ -7,6 +7,7 @@ public class LightningRing : Weapon
     private GameObject mNewObj;
     private float mTimer = 0;
     private bool mbExist = false;
+    private Vector3[] lightningPosition;
 
     public override void Attack()
     {
@@ -21,7 +22,7 @@ public class LightningRing : Weapon
             mNewObj = new GameObject("Lightnings");
             mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
 
-            Vector3[] lightningPosition = FindDenseClusterEnemy((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
+            lightningPosition = FindDenseClusterEnemy((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 GameObject lightning = Instantiate(objPre, GameObject.Find("Lightnings").transform);
