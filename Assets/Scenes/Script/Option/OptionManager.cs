@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
+using System.IO;
 using TMPro;
-using UnityEditor;
 using System;
 
 public class OptionManager : MonoBehaviour
@@ -48,7 +49,7 @@ public class OptionManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
         {
             GetComponent<SceneMove>().ToBack();
         }
@@ -68,26 +69,26 @@ public class OptionManager : MonoBehaviour
     }
     public void LoadSystemData()
     {
-        string filePath = EditorUtility.OpenFilePanel("Json Explorer", "", "json");
-        bool bErrorFile;
-        try
-        {
-            bErrorFile = !UserDataManager.instance.LoadData(filePath);
-        }
-        catch (ArgumentException)
-        {
-            return;
-        }
+        //string filePath = System.IO.File.Open("Select a File", "", "json", true);
+        //bool bErrorFile;
+        //try
+        //{
+        //    bErrorFile = !UserDataManager.instance.LoadData(filePath);
+        //}
+        //catch (ArgumentException)
+        //{
+        //    return;
+        //}
 
-        mWarningPanel.SetActive(false);
-        if (bErrorFile)
-        {
-            LoadParsingError();
-        }
-        else
-        {
-            GetComponent<SceneMove>().ToBack();
-        }
+        //mWarningPanel.SetActive(false);
+        //if (bErrorFile)
+        //{
+        //    LoadParsingError();
+        //}
+        //else
+        //{
+        //    GetComponent<SceneMove>().ToBack();
+        //}
     }
     public void LoadWarning()
     {
