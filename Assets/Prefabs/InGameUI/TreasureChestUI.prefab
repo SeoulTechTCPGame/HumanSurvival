@@ -2697,7 +2697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.1551, y: 7.1429}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 846.2071, y: 992.2099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4776699145629718416
@@ -2775,6 +2775,7 @@ MonoBehaviour:
   mTreasureText: {fileID: 4776699145459690842}
   mButtonOpen: {fileID: 4776699145634586019}
   mButtonClose: {fileID: 4776699145617991448}
+  mFlyCoin: {fileID: 7443958766728562852, guid: 8ef2704e83dad594fb225ef29ff5983b, type: 3}
 --- !u!114 &4776699145629718422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,7 +3416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00001335144, y: -192.00003}
+  m_AnchoredPosition: {x: 0, y: -192.00003}
   m_SizeDelta: {x: 349.0001, y: 203.6981}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4776699146631618003

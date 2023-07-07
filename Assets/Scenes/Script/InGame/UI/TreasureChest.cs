@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rito;
-using static UnityEditor.Progress;
-using static UnityEngine.TouchScreenKeyboard;
 using UnityEngine.UI;
 
 public class TreasureChest : MonoBehaviour
@@ -23,16 +20,17 @@ public class TreasureChest : MonoBehaviour
     [SerializeField] GameObject mTreasureText;
     [SerializeField] GameObject mButtonOpen;
     [SerializeField] GameObject mButtonClose;
+    [SerializeField] GameObject mFlyCoin;
 
     private bool mbIsOn;
     private bool mbIsOnUiEffect;
     private bool mbIsOnPickUpEffect;
     private int mRotSpeed;
     private int mPickedIndex;
+    private int mGold;
+    private int mCnt = 0;
     private float mUiEffectTime;
     private float mPickUpEffectTime;
-    private float mLaunchForce = 5f;    // 동전이 솟구칠 힘
-    private float mSpinForce = 10f;     // 동전의 회전력
     private static int[] mChestRarity;
     private List<Tuple<int, int, int>> mPickUps;
     private static Color[][] mLightColors = { new Color[]{ new Color(0.12f, 0.1f, 1f, 0.56f) },
@@ -75,6 +73,7 @@ public class TreasureChest : MonoBehaviour
         mbIsOn = true;
         mbIsOnUiEffect = true;
         mPickUps = GameManager.instance.RandomPickUpSystem.RandomPickUp(GetChoice());
+        SetGold();
         ChestOpenUI();
         GameManager.instance.Player.enabled = false;
     }
@@ -147,9 +146,14 @@ public class TreasureChest : MonoBehaviour
     }
     private void PickUpEffect()
     {
-        SpawnCoin();
+        mCnt++;
+        if (mCnt > 4)
+        {
+            mCnt = 0;
+            SpawnCoin();
+        }
         mPickUpEffectTime += Time.fixedDeltaTime;
-        if (mPickUpEffectTime >= 40.0f)
+        if (mPickUpEffectTime >= 30.0f)
         {
             ChestCloseUI();
             mbIsOnPickUpEffect = false;
@@ -158,20 +162,14 @@ public class TreasureChest : MonoBehaviour
     private void SetLightColor()
     {
 
-        for(int i = 0; i < mPickUps.Count; i++) 
+        for (int i = 0; i < mPickUps.Count; i++)
         {
             mPickLights[i].GetComponent<Image>().color = mLightColors[mPickedIndex][i];
         }
     }
     private void SpawnCoin()
     {
-        GameObject newCoin = Instantiate(mCoin, mChest.transform.position, Quaternion.identity);
-        Rigidbody2D rb = newCoin.AddComponent<Rigidbody2D>();
-        float randomXForce = UnityEngine.Random.Range(-1f, 1f);
-
-        rb.AddForce(new Vector2(0, mLaunchForce), ForceMode2D.Impulse);
-        rb.AddTorque(mSpinForce, ForceMode2D.Impulse);
-        rb.AddForce(new Vector2(randomXForce, 0), ForceMode2D.Impulse);
+        GameObject newCoin = Instantiate(mFlyCoin, mChest.transform.position, Quaternion.identity, transform);
     }
     private void ShowItems()
     {
@@ -209,6 +207,11 @@ public class TreasureChest : MonoBehaviour
 
         mPickedIndex = chestPicker.GetRandomPick();  // 0 ~ 2 반환
         return (mPickedIndex << 1) | 1;           // 1, 3, 5로 변환
+    }
+    private void SetGold()
+    {
+        mGold = mPickedIndex * 30 + UnityEngine.Random.Range(0, 50);
+        
     }
     private Sprite[] GetSprites(int type)
     {
