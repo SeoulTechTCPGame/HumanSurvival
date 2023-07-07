@@ -28,12 +28,16 @@ public class TreasureChest : MonoBehaviour
     private bool mbIsOnUiEffect;
     private bool mbIsOnPickUpEffect;
     private int mRotSpeed;
+    private int mPickedIndex;
     private float mUiEffectTime;
     private float mPickUpEffectTime;
     private float mLaunchForce = 5f;    // 동전이 솟구칠 힘
     private float mSpinForce = 10f;     // 동전의 회전력
     private static int[] mChestRarity;
     private List<Tuple<int, int, int>> mPickUps;
+    private static Color[][] mLightColors = { new Color[]{ new Color(0.12f, 0.1f, 1f, 0.56f) },
+        new Color[]{ new Color(0.5f, 0, 0.9f, 0.56f), new Color(1, 0, 0.86f, 0.56f), new Color(1, 0, 0.86f, 0.56f) },
+        new Color[]{ new Color(1f, 0.2f, 0.2f, 0.56f), new Color(1f, 0.48f, 0, 0.56f), new Color(1f, 0.48f, 0, 0.56f), new Color(0.94f, 1f, 0.2f, 0.56f), new Color(0.94f, 1f, 0.2f, 0.56f) } };
 
     static TreasureChest()
     {
@@ -96,7 +100,7 @@ public class TreasureChest : MonoBehaviour
         mCoin.SetActive(true);
         mCoinText.SetActive(true);
         PickEffect();
-        
+
         // 픽업 이펙트 진행
 
         ShowItems();
@@ -134,6 +138,7 @@ public class TreasureChest : MonoBehaviour
     }
     private void PickEffect()
     {
+        SetLightColor();
         for (int i = 0; i < mPickUps.Count; i++)
         {
             mPickLights[i].SetActive(true);
@@ -148,6 +153,14 @@ public class TreasureChest : MonoBehaviour
         {
             ChestCloseUI();
             mbIsOnPickUpEffect = false;
+        }
+    }
+    private void SetLightColor()
+    {
+
+        for(int i = 0; i < mPickUps.Count; i++) 
+        {
+            mPickLights[i].GetComponent<Image>().color = mLightColors[mPickedIndex][i];
         }
     }
     private void SpawnCoin()
@@ -194,9 +207,8 @@ public class TreasureChest : MonoBehaviour
             chestPicker.Add(i, (mChestRarity[i] + greed) / (double)mChestRarity[i]);
         }
 
-        int pickedIndex = chestPicker.GetRandomPick();  // 0 ~ 2 반환
-        pickedIndex = (pickedIndex << 1) | 1;           // 1, 3, 5로 변환
-        return pickedIndex;
+        mPickedIndex = chestPicker.GetRandomPick();  // 0 ~ 2 반환
+        return (mPickedIndex << 1) | 1;           // 1, 3, 5로 변환
     }
     private Sprite[] GetSprites(int type)
     {

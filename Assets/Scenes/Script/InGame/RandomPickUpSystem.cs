@@ -71,28 +71,23 @@ public class RandomPickUpSystem
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
         GetPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
 
-        int maxChoice = System.Math.Min(GetChoice(), possibleWeaponChoice + possibleAccessoryChoice);
+        int maxChoice = System.Math.Min(n, possibleWeaponChoice + possibleAccessoryChoice);
 
         List<Tuple<int, int, int>> pickUps = new List<Tuple<int, int, int>>();
-        if (maxChoice == 0)
+        List<int> pickedWeaponList = new List<int>();
+        List<int> pickedAccessoryList = new List<int>();
+        for (int i = 0; i < maxChoice; i++)
         {
-            // TODO: 25골드 or hp 30 회복 선택지
-            pickUps.Add(new Tuple<int, int, int>(2, 0, 1));
-            pickUps.Add(new Tuple<int, int, int>(2, 1, 1));
+            var pick = GetOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
+            pickUps.Add(pick);
+            if (pick.Item1 == 0)
+                possibleWeaponChoice--;
+            else
+                possibleAccessoryChoice--;
         }
-        else
+        for (int i = maxChoice; i < n; i++)
         {
-            List<int> pickedWeaponList = new List<int>();
-            List<int> pickedAccessoryList = new List<int>();
-            for (int i = 0; i < maxChoice; i++)
-            {
-                var pick = GetOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
-                pickUps.Add(pick);
-                if (pick.Item1 == 0)
-                    possibleWeaponChoice--;
-                else
-                    possibleAccessoryChoice--;
-            }
+            pickUps.Add(new Tuple<int, int, int>(2, 0, 1)); // 나머지는 돈만 넣어주기
         }
 
         return pickUps;
