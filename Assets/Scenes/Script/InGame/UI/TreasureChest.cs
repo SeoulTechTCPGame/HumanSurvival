@@ -21,7 +21,9 @@ public class TreasureChest : MonoBehaviour
     [SerializeField] GameObject mTreasureText;
     [SerializeField] GameObject mButtonOpen;
     [SerializeField] GameObject mButtonClose;
+    [SerializeField] GameObject mPickLightMask;
     [SerializeField] GameObject mFlyCoin;
+    [SerializeField] GameObject mFlyItem;
 
     private bool mbIsOn;
     private bool mbIsOnUiEffect;
@@ -35,13 +37,15 @@ public class TreasureChest : MonoBehaviour
     private float mPickUpEffectTime;
     private static int[] mChestRarity;
     private List<Tuple<int, int, int>> mPickUps;
+    private List<Vector2> mEndPoints;
     private static Color[][] mLightColors = { new Color[]{ new Color(0.12f, 0.1f, 1f, 0.56f) },
         new Color[]{ new Color(0.5f, 0, 0.9f, 0.56f), new Color(1, 0, 0.86f, 0.56f), new Color(1, 0, 0.86f, 0.56f) },
         new Color[]{ new Color(1f, 0.2f, 0.2f, 0.56f), new Color(1f, 0.48f, 0, 0.56f), new Color(1f, 0.48f, 0, 0.56f), new Color(0.94f, 1f, 0.2f, 0.56f), new Color(0.94f, 1f, 0.2f, 0.56f) } };
 
     static TreasureChest()
     {
-        mChestRarity = new int[3] { 100, 10, 3 }; // 동, 은, 금 상자들의 드랍 확률
+        //mChestRarity = new int[3] { 100, 10, 3 }; // 동, 은, 금 상자들의 드랍 확률
+        mChestRarity = new int[3] { 3, 10, 100 }; // 동, 은, 금 상자들의 드랍 확률
     }
     private void Start()
     {
@@ -76,6 +80,7 @@ public class TreasureChest : MonoBehaviour
         mbIsOnUiEffect = true;
         mPickUps = GameManager.instance.RandomPickUpSystem.RandomPickUp(GetChoice());
         SetGold();
+        SetEndPoints();
         ChestOpenUI();
         GameManager.instance.Player.enabled = false;
     }
@@ -145,9 +150,12 @@ public class TreasureChest : MonoBehaviour
     private void PickUpEffect()
     {
         mCnt++;
-        if (mCnt > 8)
+        if (mCnt > 32)
         {
             mCnt = 0;
+            SpawnCoin();
+            SpawnCoin();
+            SpawnCoin();
             SpawnCoin();
             SpawnCoin();
             SpawnItem();
@@ -176,17 +184,30 @@ public class TreasureChest : MonoBehaviour
     }
     private void SpawnItem()
     {
-        //for(int i = 0; i < mPickUps.Count; i++)
-        //{
-        //    GameObject newItem = Instantiate(mFlyItem, mChest.transform.position, Quaternion.identity, transform);
-        //    newItem.getComponent<FlyItem>().EndPoint = GetEndPoint(i);
-        //}
+        for (int i = 0; i < mPickUps.Count; i++)
+        {
+            GameObject newItem = Instantiate(mFlyItem, mChest.transform.position, Quaternion.identity, mPickLightMask.transform);
+            newItem.GetComponent<FlyItem>().EndPoint = mEndPoints[i];
+            newItem.GetComponent<FlyItem>().StartPoint = mChest.GetComponent<RectTransform>().anchoredPosition + new Vector2(0, - 200);
+            newItem.GetComponent<FlyItem>().SetImage(GetRandomItemImg());
+        }
     }
-    private Vector3 GetEndPoint(int index)
+    private void SetEndPoints()
     {
-
-
-        return new Vector3();
+        mEndPoints = new List<Vector2>();
+        mEndPoints.Add(mPickLights[0].GetComponent<RectTransform>().anchoredPosition - new Vector2(0, -mPickLights[0].GetComponent<RectTransform>().sizeDelta.y / 2));
+        for (int i = 1; i < mPickUps.Count; i++)
+        {
+            RectTransform targetRectTransform = mPickLights[i].GetComponent<RectTransform>();
+            if ((i & 1) == 0) // 좌측 상단 방향의 light effect인 경우
+            {
+                mEndPoints.Add(targetRectTransform.anchoredPosition + new Vector2(targetRectTransform.sizeDelta.x / 2, targetRectTransform.sizeDelta.y / 2));
+            }
+            else              // 우측 상단 방향
+            {
+                mEndPoints.Add(targetRectTransform.anchoredPosition + new Vector2(-targetRectTransform.sizeDelta.x / 2, targetRectTransform.sizeDelta.y / 2));
+            }
+        }
     }
     private void ShowItems()
     {
@@ -196,6 +217,12 @@ public class TreasureChest : MonoBehaviour
             mPickedItems[i].SetActive(true);
             mItemEffects[i].SetActive(true);
         }
+    }
+    private Sprite GetRandomItemImg()
+    {
+        int ItemType = UnityEngine.Random.Range(0, 2); // 0: Weapon, 1: Accessory
+        int ItemIndex = UnityEngine.Random.Range(0, GetSprites(ItemType).Length);
+        return GetSprites(ItemType)[ItemIndex];
     }
     private void DisableAllObject()
     {
@@ -227,7 +254,7 @@ public class TreasureChest : MonoBehaviour
     }
     private void SetGold()
     {
-        mGold = mPickedIndex * 30 + UnityEngine.Random.Range(0, 50);
+        mGold = mPickedIndex * 40 + UnityEngine.Random.Range(20 * mPickedIndex, 50 * mPickedIndex);
         GameManager.instance.GetCoin(mGold);
     }
     private Sprite[] GetSprites(int type)
