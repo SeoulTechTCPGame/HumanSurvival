@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rito;
 using UnityEngine.UI;
+using TMPro;
 
 public class TreasureChest : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class TreasureChest : MonoBehaviour
     private int mPickedIndex;
     private int mGold;
     private int mCnt = 0;
+    private float mEffectEndTime = 30f;
     private float mUiEffectTime;
     private float mPickUpEffectTime;
     private static int[] mChestRarity;
@@ -99,10 +101,6 @@ public class TreasureChest : MonoBehaviour
         mCoin.SetActive(true);
         mCoinText.SetActive(true);
         PickEffect();
-
-        // 픽업 이펙트 진행
-
-        ShowItems();
     }
     public void ChestCloseUI()
     {
@@ -147,16 +145,21 @@ public class TreasureChest : MonoBehaviour
     private void PickUpEffect()
     {
         mCnt++;
-        if (mCnt > 4)
+        if (mCnt > 8)
         {
             mCnt = 0;
             SpawnCoin();
+            SpawnCoin();
+            SpawnItem();
         }
         mPickUpEffectTime += Time.fixedDeltaTime;
-        if (mPickUpEffectTime >= 30.0f)
+        mCoinText.GetComponent<TextMeshProUGUI>().text = ((int)(mPickUpEffectTime * mGold / mEffectEndTime)).ToString();
+        if (mPickUpEffectTime >= mEffectEndTime)
         {
             ChestCloseUI();
             mbIsOnPickUpEffect = false;
+            mCoinText.GetComponent<TextMeshProUGUI>().text = mGold.ToString();
+            ShowItems();
         }
     }
     private void SetLightColor()
@@ -170,6 +173,20 @@ public class TreasureChest : MonoBehaviour
     private void SpawnCoin()
     {
         GameObject newCoin = Instantiate(mFlyCoin, mChest.transform.position, Quaternion.identity, transform);
+    }
+    private void SpawnItem()
+    {
+        //for(int i = 0; i < mPickUps.Count; i++)
+        //{
+        //    GameObject newItem = Instantiate(mFlyItem, mChest.transform.position, Quaternion.identity, transform);
+        //    newItem.getComponent<FlyItem>().EndPoint = GetEndPoint(i);
+        //}
+    }
+    private Vector3 GetEndPoint(int index)
+    {
+
+
+        return new Vector3();
     }
     private void ShowItems()
     {
@@ -211,7 +228,7 @@ public class TreasureChest : MonoBehaviour
     private void SetGold()
     {
         mGold = mPickedIndex * 30 + UnityEngine.Random.Range(0, 50);
-        
+        GameManager.instance.GetCoin(mGold);
     }
     private Sprite[] GetSprites(int type)
     {

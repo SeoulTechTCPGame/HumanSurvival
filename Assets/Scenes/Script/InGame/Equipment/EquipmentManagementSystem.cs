@@ -164,7 +164,7 @@ public class EquipmentManagementSystem
                 // TODO: 체력 회복 함수와 연결
                 break;
             case Enums.EEtc.Money:
-                // TODO: 재화 획득 함수와 연결
+                GameManager.instance.GetCoin(25);
                 break;
             default:
                 break;
