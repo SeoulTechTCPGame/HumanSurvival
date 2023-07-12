@@ -616,8 +616,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1267347125}
   - component: {fileID: 1267347124}
+  - component: {fileID: 1267347126}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: Singletone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,6 +654,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1267347126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267347123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4fad3fc5b8bbe4898f3fc58039e93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curLangIndex: 1
+  Langs:
+  - lang: English
+    langLocalize: English
+    value:
+    - Exit
+    - Option
+    - Sound Effect
+    - BGM
+    - Full Screen
+    - VFX
+    - Show Damage
+    - Hide Stage Progress
+    - Data recovery
+  - lang: "Korean\r"
+    langLocalize: "\uD55C\uAD6D\uC778\r"
+    value:
+    - "\uB098\uAC00\uAE30\r"
+    - "\uC635\uC158\r"
+    - "\uC74C\uD5A5 \uD6A8\uACFC\r"
+    - "BGM\r"
+    - "\uC804\uCCB4 \uD654\uBA74\r"
+    - "VFX\r"
+    - "\uC190\uC0C1\uC744 \uB098\uD0C0\uB0C5\uB2C8\uB2E4\r"
+    - "\uBB34\uB300 \uC9C4\uD589\uC744 \uC228 \uAE41\uB2C8\uB2E4\r"
+    - "\uB370\uC774\uD130 \uBCF5\uAD6C"
 --- !u!1 &1500893181
 GameObject:
   m_ObjectHideFlags: 0
