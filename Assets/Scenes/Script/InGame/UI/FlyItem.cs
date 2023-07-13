@@ -3,27 +3,17 @@ using UnityEngine.UI;
 
 public class FlyItem : MonoBehaviour
 {
-    public Vector2 EndPoint;
-    public Vector2 StartPoint;
-    private RectTransform mRectTransform;
-    private float mSpeed = 1500f;
-    private float mStartTime;
+    public Vector3 EndPoint;
+    private float mSpeed = 1000f;
 
-    void Start()
+    private void Update()
     {
-        mRectTransform = GetComponent<RectTransform>();
-        mStartTime = Time.realtimeSinceStartup;
-    }
+        float step = mSpeed * Time.unscaledDeltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, EndPoint, step);
 
-    void Update()
-    {
-        float distCovered = (Time.realtimeSinceStartup - mStartTime) * mSpeed;
-        float fractionOfJourney = distCovered / Vector2.Distance(StartPoint, EndPoint);
-        mRectTransform.anchoredPosition = Vector2.Lerp(StartPoint, EndPoint, fractionOfJourney);
-
-        if (mRectTransform.anchoredPosition == EndPoint)
+        if (transform.position == EndPoint)
         {
-            Destroy(mRectTransform.gameObject);
+            Destroy(gameObject);
         }
     }
     public void SetImage(Sprite img)

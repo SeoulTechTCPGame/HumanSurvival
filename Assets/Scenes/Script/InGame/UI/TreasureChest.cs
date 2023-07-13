@@ -37,15 +37,14 @@ public class TreasureChest : MonoBehaviour
     private float mPickUpEffectTime;
     private static int[] mChestRarity;
     private List<Tuple<int, int, int>> mPickUps;
-    private List<Vector2> mEndPoints;
+    private List<Vector3> mEndPoints;
     private static Color[][] mLightColors = { new Color[]{ new Color(0.12f, 0.1f, 1f, 0.56f) },
         new Color[]{ new Color(0.5f, 0, 0.9f, 0.56f), new Color(1, 0, 0.86f, 0.56f), new Color(1, 0, 0.86f, 0.56f) },
         new Color[]{ new Color(1f, 0.2f, 0.2f, 0.56f), new Color(1f, 0.48f, 0, 0.56f), new Color(1f, 0.48f, 0, 0.56f), new Color(0.94f, 1f, 0.2f, 0.56f), new Color(0.94f, 1f, 0.2f, 0.56f) } };
 
     static TreasureChest()
     {
-        //mChestRarity = new int[3] { 100, 10, 3 }; // 동, 은, 금 상자들의 드랍 확률
-        mChestRarity = new int[3] { 3, 10, 100 }; // 동, 은, 금 상자들의 드랍 확률
+        mChestRarity = new int[3] { 100, 10, 3 }; // 동, 은, 금 상자들의 드랍 확률
     }
     private void Start()
     {
@@ -188,26 +187,18 @@ public class TreasureChest : MonoBehaviour
         {
             GameObject newItem = Instantiate(mFlyItem, mChest.transform.position, Quaternion.identity, mPickLightMask.transform);
             newItem.GetComponent<FlyItem>().EndPoint = mEndPoints[i];
-            newItem.GetComponent<FlyItem>().StartPoint = mChest.GetComponent<RectTransform>().anchoredPosition + new Vector2(0, - 200);
             newItem.GetComponent<FlyItem>().SetImage(GetRandomItemImg());
         }
     }
     private void SetEndPoints()
     {
-        mEndPoints = new List<Vector2>();
-        mEndPoints.Add(mPickLights[0].GetComponent<RectTransform>().anchoredPosition - new Vector2(0, -mPickLights[0].GetComponent<RectTransform>().sizeDelta.y / 2));
-        for (int i = 1; i < mPickUps.Count; i++)
-        {
-            RectTransform targetRectTransform = mPickLights[i].GetComponent<RectTransform>();
-            if ((i & 1) == 0) // 좌측 상단 방향의 light effect인 경우
-            {
-                mEndPoints.Add(targetRectTransform.anchoredPosition + new Vector2(targetRectTransform.sizeDelta.x / 2, targetRectTransform.sizeDelta.y / 2));
-            }
-            else              // 우측 상단 방향
-            {
-                mEndPoints.Add(targetRectTransform.anchoredPosition + new Vector2(-targetRectTransform.sizeDelta.x / 2, targetRectTransform.sizeDelta.y / 2));
-            }
-        }
+        mEndPoints = new List<Vector3>();
+        RectTransform rt = mPickLightMask.GetComponent<RectTransform>();
+        mEndPoints.Add(mChest.GetComponent<Transform>().position + new Vector3(0, rt.rect.height, 0));                           // 중앙 상단
+        mEndPoints.Add(mChest.GetComponent<Transform>().position + new Vector3(-rt.rect.width / 2f, rt.rect.height + 150, 0));   // 좌측 상단1
+        mEndPoints.Add(mChest.GetComponent<Transform>().position + new Vector3(rt.rect.width / 2f, rt.rect.height + 150, 0));    // 우측 상단1
+        mEndPoints.Add(mChest.GetComponent<Transform>().position + new Vector3(-rt.rect.width / 2f, rt.rect.height / 2f, 0));    // 좌측 상단2
+        mEndPoints.Add(mChest.GetComponent<Transform>().position + new Vector3(rt.rect.width / 2f, rt.rect.height / 2f, 0));     // 우측 상단2
     }
     private void ShowItems()
     {
@@ -254,7 +245,7 @@ public class TreasureChest : MonoBehaviour
     }
     private void SetGold()
     {
-        mGold = mPickedIndex * 40 + UnityEngine.Random.Range(20 * mPickedIndex, 50 * mPickedIndex);
+        mGold = (mPickedIndex + 1) * 40 + UnityEngine.Random.Range(20 * mPickedIndex, 50 * mPickedIndex);
         GameManager.instance.GetCoin(mGold);
     }
     private Sprite[] GetSprites(int type)
