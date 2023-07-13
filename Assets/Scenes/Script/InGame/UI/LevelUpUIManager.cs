@@ -64,7 +64,7 @@ public class LevelUpUIManager : MonoBehaviour
             mStatUI.transform.localScale = Vector3.one * (mTime);
             mItemUI.transform.localScale = Vector3.one * (mTime);
 
-            mTime += 0.02f;
+            mTime += Time.fixedDeltaTime;
             if(mTime >= 0.99f)
                 mPickUpUI.transform.rotation = Quaternion.identity;
         }
@@ -101,9 +101,9 @@ public class LevelUpUIManager : MonoBehaviour
         {
             mPickUpButtons[i].SetActive(true);
 
-            mPickUpButtons[i].GetComponent<PickButton>().Image.sprite = getSprites(pickUps[i].Item1)[pickUps[i].Item2];
+            mPickUpButtons[i].GetComponent<PickButton>().Image.sprite = GetSprites(pickUps[i].Item1)[pickUps[i].Item2];
 
-            mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Name].text = transPickIndexToEnumString(pickUps[i].Item1, pickUps[i].Item2);
+            mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Name].text = TransPickIndexToEnumString(pickUps[i].Item1, pickUps[i].Item2);
 
             mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Script].text = mTypeScripts[pickUps[i].Item1][pickUps[i].Item2];
             mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Property].text = pickUps[i].Item3 == 0 ? "New" : "";
@@ -217,7 +217,7 @@ public class LevelUpUIManager : MonoBehaviour
             "체력을 30 회복합니다."
         });
     }
-    private Sprite[] getSprites(int type)
+    private Sprite[] GetSprites(int type)
     {
         switch (type)
         {
@@ -229,7 +229,7 @@ public class LevelUpUIManager : MonoBehaviour
                 return mEtcImages;
         }
     }
-    private string transPickIndexToEnumString(int type, int index)
+    private string TransPickIndexToEnumString(int type, int index)
     {
         switch (type)
         {

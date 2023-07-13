@@ -8,7 +8,7 @@ public class RandomPickUpSystem
     private static int[] mAccessoryRarity;
     private WeightedRandomPicker<int> mWeaponPicker;
     private WeightedRandomPicker<int> mAccessoryPicker;
-    
+
     static RandomPickUpSystem()
     {
         mWeaponRarity = new int[10] { 100, 100, 100, 80, 80, 80, 70, 50, 50, 80 };
@@ -30,7 +30,7 @@ public class RandomPickUpSystem
         }
         else
         {
-                for (int i = 0; i < GameManager.instance.EquipManageSys.Weapons.Count; i++)
+            for (int i = 0; i < GameManager.instance.EquipManageSys.Weapons.Count; i++)
             {
                 if (GameManager.instance.EquipManageSys.Weapons[i].IsMaster())
                     continue;
@@ -63,8 +63,38 @@ public class RandomPickUpSystem
             }
         }
     }
-    public List<Tuple<int, int, int>> RandomPickUp(EquipmentManagementSystem equipManageSys)
+    public List<Tuple<int, int, int>> RandomPickUp(int n)
     {
+        var equipManageSys = GameManager.instance.EquipManageSys;
+        UpdateAccessoryPickUpList();
+        UpdateWeaponPickUpList();
+        int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
+        GetPossibleChoice(ref possibleWeaponChoice, ref possibleAccessoryChoice, equipManageSys);
+
+        int maxChoice = System.Math.Min(n, possibleWeaponChoice + possibleAccessoryChoice);
+
+        List<Tuple<int, int, int>> pickUps = new List<Tuple<int, int, int>>();
+        List<int> pickedWeaponList = new List<int>();
+        List<int> pickedAccessoryList = new List<int>();
+        for (int i = 0; i < maxChoice; i++)
+        {
+            var pick = GetOnePickUp(possibleWeaponChoice, possibleAccessoryChoice, pickedWeaponList, pickedAccessoryList, equipManageSys);
+            pickUps.Add(pick);
+            if (pick.Item1 == 0)
+                possibleWeaponChoice--;
+            else
+                possibleAccessoryChoice--;
+        }
+        for (int i = maxChoice; i < n; i++)
+        {
+            pickUps.Add(new Tuple<int, int, int>(2, 0, 1)); // 나머지는 돈만 넣어주기
+        }
+
+        return pickUps;
+    }
+    public List<Tuple<int, int, int>> RandomPickUp()
+    {
+        var equipManageSys = GameManager.instance.EquipManageSys;
         UpdateAccessoryPickUpList();
         UpdateWeaponPickUpList();
         int possibleWeaponChoice = 0, possibleAccessoryChoice = 0;
