@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class ExperiencePickUp : MonoBehaviour,ICollectible
+public class ExperiencePickUp : MonoBehaviour, ICollectible
 {
     public float ExpGranted;
-
     public void Collect()
     {
         //스크립트 명으로 오브젝트 찾기

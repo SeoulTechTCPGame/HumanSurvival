@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 896621226140263116}
   - component: {fileID: -5793097457873377131}
   - component: {fileID: -6609521633568185040}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Frostbite
   m_TagString: DestructibleObj
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.004093051, y: 0.109571345}
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254b38679dedfb74e888449eeb3e4160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: 1
 --- !u!114 &-6609521633568185040
 MonoBehaviour:
   m_ObjectHideFlags: 0
