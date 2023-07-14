@@ -59,8 +59,9 @@ public class Enemy : MonoBehaviour,IDamageable
     private void OnEnable()
     {
         //prefeb은 scene의 object에 접근할 수 없다=> 생성될 때마다 변수를 초기화하기
-        Target = GameManager.instance.Player.GetComponent<Rigidbody2D>();
         mTargetGameObject = GameManager.instance.Player.gameObject;
+        Target = mTargetGameObject.transform.GetComponent<Rigidbody2D>();
+
         //bat bevy target direction
         mFixedTargetDirection = Target.position;
         //활성화 될때 변수 초기화

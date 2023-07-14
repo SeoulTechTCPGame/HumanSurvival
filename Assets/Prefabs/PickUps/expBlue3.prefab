@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8793001246780762947}
   - component: {fileID: 8239614189969837036}
   - component: {fileID: 5740431746495080213}
+  - component: {fileID: -471805945612834276}
   m_Layer: 9
   m_Name: expBlue3
   m_TagString: ExpObj
@@ -96,7 +97,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.044999998}
@@ -115,3 +116,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExpGranted: 3
+  Target: {fileID: 0}
+--- !u!50 &-471805945612834276
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915139561794565461}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

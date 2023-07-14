@@ -1,11 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ExperiencePickUp : MonoBehaviour, ICollectible
+public class GoToPlayer : MonoBehaviour
 {
-    public float ExpGranted;
     private Transform mPlayer;
-    private const float mCollectDistacne= 0.3f;
-    private const float mSpeed= 7f;
+    private const float mCollectDistacne = 0.3f;
+    private const float mSpeed = 7f;
     private float pickupDistance = 2.5f;
     private void Awake()
     {
@@ -23,14 +24,10 @@ public class ExperiencePickUp : MonoBehaviour, ICollectible
         float distance = Vector3.Distance(transform.position, mPlayer.position);
         if (distance > pickupDistance) return;
         transform.position = Vector3.MoveTowards(transform.position, mPlayer.position, mSpeed * Time.deltaTime);
-        if (distance < mCollectDistacne) Collect();
-    }
-    public void Collect()
-    {
-        //스크립트 명으로 오브젝트 찾기
-        Character character = GameManager.instance.Character;
-        //Todo : character grouth stat 
-        character.GetExp(ExpGranted);
-        gameObject.SetActive(false);
+        if (distance < mCollectDistacne) {
+            if(gameObject.TryGetComponent(out ICollectible collectible))
+                collectible.Collect();
+        }
     }
 }
+
