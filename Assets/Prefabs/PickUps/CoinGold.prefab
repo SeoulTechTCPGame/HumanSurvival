@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5122991004446523449}
-  - component: {fileID: -6273231805518358256}
   - component: {fileID: -7010751416872746673}
   - component: {fileID: 3879749150180654155}
   - component: {fileID: 8697653237094923535}
   - component: {fileID: 7599212537378301986}
+  - component: {fileID: 6419301227433685237}
   m_Layer: 9
   m_Name: CoinGold
   m_TagString: CoinsObj
@@ -36,18 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6273231805518358256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5073338675276140225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7387fe41a6ddb45a132a740cbac95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &-7010751416872746673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -151,3 +139,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6419301227433685237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073338675276140225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d994e91f3517684aaffa2b66585ed22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

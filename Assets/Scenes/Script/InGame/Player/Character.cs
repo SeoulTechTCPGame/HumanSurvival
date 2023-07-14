@@ -37,6 +37,7 @@ public class Character : MonoBehaviour, IDamageable
     {
         if (mCurrentHp < mMaxHp)
         {
+            amount = amount * (1 + GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery]);
             mCurrentHp += amount;
             if (mCurrentHp > mMaxHp) mCurrentHp = mMaxHp;
             mHpBar.SetState(mCurrentHp, mMaxHp);
@@ -66,7 +67,7 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void GetExp(float exp)
     {
-        // TODO: stat의 growth 적용하여 경험치 획득
+        exp=exp*(1+GameManager.instance.CharacterStats[(int)Enums.EStat.Growth] /100);
         mExp += exp;
         GameManager.instance.Exp = mExp;
         while (mExp >= mMaxExp)

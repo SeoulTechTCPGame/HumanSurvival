@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1726393253873246425}
   - component: {fileID: 1726393253873246424}
   - component: {fileID: 1726393253873246431}
+  - component: {fileID: 2910225967773303962}
+  - component: {fileID: 4654406363102842792}
   m_Layer: 9
   m_Name: chest
   m_TagString: DestructibleObj
@@ -125,3 +127,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.14}
   m_EdgeRadius: 0
+--- !u!114 &2910225967773303962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726393253873246427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d994e91f3517684aaffa2b66585ed22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4654406363102842792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726393253873246427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edf73c3a90aa0c4b9a7ecb0a08a4c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTresureChestUI: {fileID: 4776699145629718429, guid: 9df577b3fdc5c08489173138d969f39d, type: 3}

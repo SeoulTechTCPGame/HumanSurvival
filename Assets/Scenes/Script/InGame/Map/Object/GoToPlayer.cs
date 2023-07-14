@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoToPlayer : MonoBehaviour
 {
     private Transform mPlayer;
-    private const float mCollectDistacne = 0.3f;
+    private const float mCollectDistacne = 0.5f;
     private const float mSpeed = 7f;
     private float pickupDistance = 2.5f;
     private void Awake()

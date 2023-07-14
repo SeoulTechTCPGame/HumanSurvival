@@ -122,6 +122,7 @@ public class GameManager : MonoBehaviour
     }
     public void GetCoin(int amount)
     {
+        amount =(int)Math.Ceiling(amount * (1 + CharacterStats[(int)Enums.EStat.Greed]));
         Coin += amount;
         Debug.Log("coin: " + Coin);
     }

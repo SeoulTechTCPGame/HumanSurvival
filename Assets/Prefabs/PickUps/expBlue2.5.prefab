@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8239614189969837036}
   - component: {fileID: 5740431746495080213}
   - component: {fileID: 2750299254529946761}
+  - component: {fileID: 2791657514948660193}
   m_Layer: 9
   m_Name: expBlue2.5
   m_TagString: ExpObj
@@ -116,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExpGranted: 2.5
-  Target: {fileID: 0}
 --- !u!50 &2750299254529946761
 Rigidbody2D:
   serializedVersion: 4
@@ -138,3 +138,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2791657514948660193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915139561794565461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d994e91f3517684aaffa2b66585ed22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
