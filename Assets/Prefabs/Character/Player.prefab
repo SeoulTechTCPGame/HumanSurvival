@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56d3363983cce14bad14e3057490446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRb: {fileID: 0}
-  mSpriter: {fileID: 0}
-  mAnimator: {fileID: 0}
+  mRb: {fileID: 1928233908}
+  mSpriter: {fileID: 1928233914}
+  mAnimator: {fileID: 1928233913}
 --- !u!70 &1266990277576361455
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ Animator:
   m_GameObject: {fileID: 2861891060427429947}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1e848102ae992c4f9d3e39c675d4074, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
