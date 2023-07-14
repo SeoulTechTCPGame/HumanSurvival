@@ -27,10 +27,12 @@ public class Weapon : MonoBehaviour
             {
                 GameManager.instance.Character.RestoreHealth(1);
                 GameManager.instance.EvoGralicRestoreCount++;
-                if (GameManager.instance.EvoGralicRestoreCount == 60)
+                if (GameManager.instance.EvoGralicRestoreCount <= 3600 && GameManager.instance.EvoGralicRestoreCount > 0)
                 {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
+                    if (GameManager.instance.EvoGralicRestoreCount % 60 == 0)
+                    {
+                        WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
+                    }
                 }
             }
         }

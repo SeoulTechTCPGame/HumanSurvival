@@ -111,7 +111,7 @@ public class EquipmentManagementSystem
         switch (weaponIndex)
         {
             case 0: // Whip
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Whip>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Whip>());
                 break;
             case 1: // MagicWand
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<MagicWand>());
@@ -120,10 +120,10 @@ public class EquipmentManagementSystem
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Knife>());
                 break;
             case 3: // Cross
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Cross>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<Cross>());
                 break;
             case 4: // KingBible
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<KingBible>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<KingBible>());
                 break;
             case 5: // FireWand
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<FireWand>());
@@ -138,7 +138,7 @@ public class EquipmentManagementSystem
                 Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<EbonyWings>());
                 break;
             case 9: // LightningRing
-                //Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<LightningRing>());
+                Weapons.Add((SkillFiringSystem.instance.weaponPrefabs[weaponIndex]).GetComponent<LightningRing>());
                 break;
         }
     }
@@ -164,7 +164,7 @@ public class EquipmentManagementSystem
                 // TODO: 체력 회복 함수와 연결
                 break;
             case Enums.EEtc.Money:
-                // TODO: 재화 획득 함수와 연결
+                GameManager.instance.GetCoin(25);
                 break;
             default:
                 break;

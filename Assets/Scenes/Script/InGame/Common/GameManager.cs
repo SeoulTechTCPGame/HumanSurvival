@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
     private void Start()
-    {    
+    {
         CharacterStats = new float[21] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         Level = 1;
         RandomPickUpSystem = new RandomPickUpSystem();
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         GameTime += Time.deltaTime;
-        if (GameTime >MaxGameTime)
+        if (GameTime > MaxGameTime)
         {
             GameTime = MaxGameTime;
         }
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         Level++;
         PauseGame();
-        var pickUps = RandomPickUpSystem.RandomPickUp(EquipManageSys);
+        var pickUps = RandomPickUpSystem.RandomPickUp();
         LevepUpUI.GetComponent<LevelUpUIManager>().LoadLevelUpUI(CharacterStats, pickUps, EquipManageSys.Weapons, EquipManageSys.Accessories);
     }
     public void UpdateLuck(float luck)
@@ -123,6 +123,6 @@ public class GameManager : MonoBehaviour
     public void GetCoin(int amount)
     {
         Coin += amount;
-        Debug.Log("coin: "+Coin);
+        Debug.Log("coin: " + Coin);
     }
 }

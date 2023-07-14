@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f37dd5a24d2e45408a660c00a988dec, type: 3}
   m_Name: Rogue
   m_EditorClassIdentifier: 
-  characterType: 0
+  CharacterType: 0
   MaxHealth: 120
   Recovery: 0
   Armor: 1
@@ -34,4 +34,5 @@ MonoBehaviour:
   Banish: 0
   Ommi: 0
   Reflection: 0
-  startingWeapon: {fileID: 0}
+  startingWeapon: 0
+  explain: 

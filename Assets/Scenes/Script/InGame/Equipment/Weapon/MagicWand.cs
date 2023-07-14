@@ -21,19 +21,6 @@ public class MagicWand : Weapon
             Destroy(this.gameObject);
         }
     }
-    public Vector3 FindClosestEnemyDirection()
-    {
-        GameObject closestEnemy = FindClosestEnemy();
-        if (closestEnemy != null)
-        {
-            Vector3 direction = closestEnemy.transform.position - transform.position;
-            return direction.normalized;
-        }
-        else
-        {
-            return Vector3.right;
-        }
-    }
     public override void Attack()
     {
         GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
@@ -90,6 +77,19 @@ public class MagicWand : Weapon
         if (col.gameObject.tag == "Monster")
         {
             mTouch++;
+        }
+    }
+    private Vector3 FindClosestEnemyDirection()
+    {
+        GameObject closestEnemy = FindClosestEnemy();
+        if (closestEnemy != null)
+        {
+            Vector3 direction = closestEnemy.transform.position - transform.position;
+            return direction.normalized;
+        }
+        else
+        {
+            return Vector3.right;
         }
     }
     private GameObject FindClosestEnemy() 
