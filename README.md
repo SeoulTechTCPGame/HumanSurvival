@@ -2,7 +2,7 @@
 (게임 아이콘)
 
 Human Suvivors(가칭)은 대학교 학생들이 모여 2022년 겨울방학과 2023년 1학기 동안 제작한 인디 로그라이트 게임ㅡVampire Survivors의 클론 게임입니다.  
-[다운로드 링크](https://drive.google.com/file/d/1U86ikKqH7ZcsW8AoFSC8NdIwq3aH_Yxn/view?usp=sharing)  
+[다운로드 링크](https://drive.google.com/file/d/1MhamxWwnb9-SZu0DX9h-jzHbknoZOIoq/view?usp=sharing)  
 
 # 설명
 > 다양한 캐릭터와 무기로 몰아치는 적들을 휩쓸어보세요!
