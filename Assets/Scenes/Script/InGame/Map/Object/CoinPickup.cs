@@ -9,6 +9,6 @@ public class CoinPickup : MonoBehaviour, ICollectible
     {
         GameManager.instance.GetCoin(Amount);
         gameObject.SetActive(false);
-        SoundManager.instance.PlaySoundTheOther(mClip);
+        SoundManager.instance.PlaySoundEffect(mClip);
     }
 }

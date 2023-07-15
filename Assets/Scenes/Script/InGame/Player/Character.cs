@@ -48,19 +48,19 @@ public class Character : MonoBehaviour, IDamageable
         if (mbDead == true) return;
         if (damage - mArmor <= 0)
         {
-            mCurrentHp -= Time.deltaTime * 0 * 2;   //ToDo: yhj
-            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.Attack)]);
+            mCurrentHp -= Time.deltaTime * 0 * 2;   //ToDo: 무슨 의미가 있는 코드?
+            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         else
         {
             mCurrentHp -= Time.deltaTime * (damage - mArmor) * 2;
-            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.Attack)]);
+            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         if (mCurrentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
             mbDead = true;
-            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.Die)]);
+            SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.Die)]);
         }
         mHpBar.SetState(mCurrentHp, mMaxHp);
     }
@@ -79,7 +79,7 @@ public class Character : MonoBehaviour, IDamageable
             mMaxExp += Constants.DELTA_EXP;
             GameManager.instance.MaxExp = mMaxExp;
             GameManager.instance.LevelUp();
-            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.LevelUp)]);
+            SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.LevelUp)]);
         }
     }
 }

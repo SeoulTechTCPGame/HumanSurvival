@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class SoundManager : MonoBehaviour
     public float SoundEffectVolume = 1.0f; // 사운드 이펙트 볼륨
     public AudioClip ButtonSoundClip; // 버튼 소리 파일
     public AudioClip[] Bgm;
-
     public AudioSource AudioSource; // 소리를 재생할 오디오 소스
+
     private string mCurrentScene; // 현재 씬의 이름을 저장할 변수
+    private AudioClip currentSoundEffect;
 
     private void Awake()
     {
@@ -84,21 +86,34 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource.Stop();
     }
-    public void PlaySoundEffect(AudioClip soundEffectClip)
-    {
-        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
-    }
     public void PlayButtonSound()
     {
         AudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
     }
-    public void PlaySoundTheOther(AudioClip soundEffectClip)
+    public void PlaySoundEffect(AudioClip soundEffectClip)
     {
         AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
     public void PlayRateSound(AudioClip soundEffectClip)
     {
         AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
+    }
+    public void PlayOverlapSound(AudioClip soundEffectClip)
+    {
+        if (currentSoundEffect != null && currentSoundEffect == soundEffectClip)
+        {
+            // 현재 사운드 이펙트가 이미 재생 중인 경우, 중첩 재생을 피하기 위해 종료합니다.
+            return;
+        }
+        currentSoundEffect = soundEffectClip;
+        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+
+        StartCoroutine(ResetCurrentSoundEffect(soundEffectClip.length));
+    }
+    private IEnumerator ResetCurrentSoundEffect(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        currentSoundEffect = null;
     }
     #endregion
     public void EnableVFX(bool value)

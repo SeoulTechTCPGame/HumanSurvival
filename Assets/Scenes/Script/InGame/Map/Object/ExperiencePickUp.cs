@@ -12,6 +12,6 @@ public class ExperiencePickUp : MonoBehaviour, ICollectible
         //Todo : character grouth stat 
         character.GetExp(ExpGranted);
         gameObject.SetActive(false);
-        SoundManager.instance.PlaySoundTheOther(mClip);
+        SoundManager.instance.PlaySoundEffect(mClip);
     }
 }

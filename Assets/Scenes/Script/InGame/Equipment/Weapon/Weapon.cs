@@ -19,13 +19,13 @@ public class Weapon : MonoBehaviour
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
                 destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-                SoundManager.instance.PlayRateSound(mClip);
+                SoundManager.instance.PlayOverlapSound(mClip);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            SoundManager.instance.PlayRateSound(mClip);
+            SoundManager.instance.PlayOverlapSound(mClip);
             if (WeaponIndex == 6 && BEvolution)
             {
                 GameManager.instance.Character.RestoreHealth(1);
