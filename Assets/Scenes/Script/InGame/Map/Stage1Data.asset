@@ -20,7 +20,7 @@ MonoBehaviour:
     EnemyCount: 10
     BRepeatedEvent: 1
     RepeatEverySeconds: 2
-    RepeatCount: 5
+    RepeatCount: 15
   - EventType: 0
     Time: 10
     Message: wave2
@@ -30,7 +30,7 @@ MonoBehaviour:
     RepeatEverySeconds: 2
     RepeatCount: 5
   - EventType: 0
-    Time: 12
+    Time: 11
     Message: wave2 elite bat
     EnemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
     EnemyCount: 1
@@ -39,25 +39,41 @@ MonoBehaviour:
     RepeatCount: 0
   - EventType: 0
     Time: 20
-    Message: wave2
+    Message: wave3
     EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    EnemyCount: 20
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 3
+    RepeatCount: 2
+  - EventType: 0
+    Time: 30
+    Message: wave4
+    EnemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 10
+  - EventType: 0
+    Time: 40
+    Message: wave5
+    EnemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
     EnemyCount: 10
     BRepeatedEvent: 1
     RepeatEverySeconds: 2
     RepeatCount: 5
   - EventType: 0
-    Time: 110
-    Message: wave2
-    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
-    EnemyCount: 10
-    BRepeatedEvent: 1
-    RepeatEverySeconds: 2
-    RepeatCount: 5
+    Time: 40
+    Message: wave6 flowerwall
+    EnemyToSpawn: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
   - EventType: 0
-    Time: 110
-    Message: wave2
-    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    Time: 40
+    Message: wave6 ~
+    EnemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
     EnemyCount: 10
     BRepeatedEvent: 1
-    RepeatEverySeconds: 2
-    RepeatCount: 5
+    RepeatEverySeconds: 3
+    RepeatCount: 30
