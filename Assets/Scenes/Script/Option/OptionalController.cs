@@ -39,13 +39,12 @@ public class OptionalController : MonoBehaviour
     {
         // BGM 볼륨 값을 변경
         mSoundManager.BgmVolume = value;
-        Debug.Log("BGM Volume: " + value);
+        SoundManager.instance.AudioSource.volume = value;
     }
     public void OnSoundEffectVolumeChanged(float value)
     {
         // 사운드 이펙트 볼륨 값을 변경
         mSoundManager.SoundEffectVolume = value;
-        Debug.Log("Sound Effect Volume: " + value);
     }
     public void OnVFXToggleChanged(bool value)
     {

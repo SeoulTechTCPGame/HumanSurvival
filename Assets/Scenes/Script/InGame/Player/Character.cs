@@ -5,6 +5,7 @@ public class Character : MonoBehaviour, IDamageable
     public float HpRegenerationTimer;
     [SerializeField] HealthBar mHpBar;
     [SerializeField] float mCurrentHp;
+    [SerializeField] AudioClip[] Clips;
     private bool mbDead;
     private float mMaxHp;
     private float mArmor;
@@ -30,7 +31,6 @@ public class Character : MonoBehaviour, IDamageable
         {
             RestoreHealth(1);
             HpRegenerationTimer -= 1f;
-
         }
     }
     public void RestoreHealth(float amount)
@@ -48,16 +48,19 @@ public class Character : MonoBehaviour, IDamageable
         if (mbDead == true) return;
         if (damage - mArmor <= 0)
         {
-            mCurrentHp -= Time.deltaTime * 0 * 2;
+            mCurrentHp -= Time.deltaTime * 0 * 2;   //ToDo: 무슨 의미가 있는 코드?
+            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         else
         {
             mCurrentHp -= Time.deltaTime * (damage - mArmor) * 2;
+            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         if (mCurrentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
             mbDead = true;
+            SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.Die)]);
         }
         mHpBar.SetState(mCurrentHp, mMaxHp);
     }
@@ -76,6 +79,7 @@ public class Character : MonoBehaviour, IDamageable
             mMaxExp += Constants.DELTA_EXP;
             GameManager.instance.MaxExp = mMaxExp;
             GameManager.instance.LevelUp();
+            SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.LevelUp)]);
         }
     }
 }

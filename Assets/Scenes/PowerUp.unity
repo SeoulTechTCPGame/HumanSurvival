@@ -4505,6 +4505,7 @@ GameObject:
   - component: {fileID: 433556713}
   - component: {fileID: 433556712}
   - component: {fileID: 433556715}
+  - component: {fileID: 433556716}
   m_Layer: 5
   m_Name: ChargeButton
   m_TagString: Untagged
@@ -4660,6 +4661,19 @@ MonoBehaviour:
   mChargeObject: {fileID: 1055911648}
   mActiveObject: {fileID: 46229260}
   mActiveToggle: {fileID: 794157976}
+--- !u!114 &433556716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433556710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
 --- !u!1 &433790885
 GameObject:
   m_ObjectHideFlags: 0
@@ -10242,6 +10256,7 @@ GameObject:
   - component: {fileID: 1152096763}
   - component: {fileID: 1152096762}
   - component: {fileID: 1152096761}
+  - component: {fileID: 1152096766}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -10428,6 +10443,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152096759}
   m_CullTransparentMesh: 1
+--- !u!114 &1152096766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152096759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}
 --- !u!1 &1158114868
 GameObject:
   m_ObjectHideFlags: 0

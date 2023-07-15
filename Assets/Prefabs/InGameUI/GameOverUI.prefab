@@ -373,7 +373,7 @@ RectTransform:
   m_GameObject: {fileID: 9212516675124947932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9212516674802753768}
@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 9212516675887861198}
   - component: {fileID: 9212516675887861199}
   - component: {fileID: 9212516675887861195}
+  - component: {fileID: 3883853383989559001}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -532,3 +533,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3883853383989559001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9212516675887861202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}

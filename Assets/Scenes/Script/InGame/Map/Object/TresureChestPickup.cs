@@ -3,6 +3,7 @@ using UnityEngine;
 public class TresureChestPickup : MonoBehaviour, ICollectible
 {
     private GameObject mTresureChestUI;
+    [SerializeField] AudioClip mClip;
 
     private void Start()
     {
@@ -12,5 +13,6 @@ public class TresureChestPickup : MonoBehaviour, ICollectible
     {
         mTresureChestUI.GetComponent<TreasureChest>().LoadChestUI();
         Destroy(gameObject);
+        SoundManager.instance.PlaySoundEffect(mClip);
     }
 }

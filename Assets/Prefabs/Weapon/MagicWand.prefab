@@ -163,6 +163,7 @@ MonoBehaviour:
   WeaponMaxLevel: 8
   BEvolution: 0
   WeaponTotalStatList: []
+  mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
   mAnimator: {fileID: 4988606761751433582}
 --- !u!82 &-9078140245934937812
 AudioSource:
@@ -174,7 +175,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4d93fec20cb46d642b2f1bf87c9dc455, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

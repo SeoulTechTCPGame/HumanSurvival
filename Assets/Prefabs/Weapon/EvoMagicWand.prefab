@@ -7,13 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9078140245934937812, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d93fec20cb46d642b2f1bf87c9dc455, type: 3}
     - target: {fileID: 340334438811729015, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7add2dcecf419f847927fa807a994e75, type: 3}
     - target: {fileID: 943404134078784437, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
       propertyPath: m_Name
-      value: MagicWandEvolution Variant
+      value: EvoMagicWand
       objectReference: {fileID: 0}
     - target: {fileID: 1194832170019387402, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
       propertyPath: m_RootOrder
@@ -83,6 +87,10 @@ PrefabInstance:
       propertyPath: WeaponMaxLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4905319741149529243, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
+      propertyPath: mClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
     - target: {fileID: 4905319741149529243, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
       propertyPath: animator
       value: 

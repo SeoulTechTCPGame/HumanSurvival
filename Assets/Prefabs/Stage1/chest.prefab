@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edf73c3a90aa0c4b9a7ecb0a08a4c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTresureChestUI: {fileID: 4776699145629718429, guid: 9df577b3fdc5c08489173138d969f39d, type: 3}
+  mClip: {fileID: 8300000, guid: 5559fdd4c76c7104792d371fbcec1312, type: 3}

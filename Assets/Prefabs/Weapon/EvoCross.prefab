@@ -172,6 +172,7 @@ MonoBehaviour:
   - 1e+10
   - 1
   - 8
+  mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
   mAnimator: {fileID: -8700681718345149569}
 --- !u!82 &-638684999703132560
 AudioSource:
@@ -183,7 +184,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 641b4b24c1fe4984cba7385b7a4b13a6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

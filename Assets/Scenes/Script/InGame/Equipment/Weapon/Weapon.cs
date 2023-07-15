@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool BEvolution = false;
     public float[] WeaponTotalStatList; // Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    [SerializeField] AudioClip mClip;
     private float[] mWeaponStats;
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -18,11 +19,13 @@ public class Weapon : MonoBehaviour
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
                 destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+                SoundManager.instance.PlayOverlapSound(mClip);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
             col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            SoundManager.instance.PlayOverlapSound(mClip);
             if (WeaponIndex == 6 && BEvolution)
             {
                 GameManager.instance.Character.RestoreHealth(1);

@@ -27,6 +27,7 @@ public class OptionUIManager : MonoBehaviour
     [SerializeField] Sprite[] mMiniLevelImages;
 
     private bool mbPauseGame = false;
+    private SoundManager mSoundManager;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class OptionUIManager : MonoBehaviour
     private void Start()
     {
         // 저장된 볼륨 값 로드
-        SoundManager soundManager = SoundManager.instance;
+        mSoundManager = SoundManager.instance;
 
         // defaultPanel의 자식 요소들을 가져와서 슬라이더를 초기화
         Slider[] sliders = mOptionPageUI.GetComponentsInChildren<Slider>();
@@ -49,12 +50,12 @@ public class OptionUIManager : MonoBehaviour
         {
             switch (slider.name)
             {
-                case "BgmSlider":
-                    slider.value = soundManager.BgmVolume;
+                case "MusicControlBar":
+                    slider.value = mSoundManager.BgmVolume;
                     slider.onValueChanged.AddListener(OnBgmVolumeChanged);
                     break;
-                case "SoundEffectSlider":
-                    slider.value = soundManager.SoundEffectVolume;
+                case "SoundControlBar":
+                    slider.value = mSoundManager.SoundEffectVolume;
                     slider.onValueChanged.AddListener(OnSoundEffectVolumeChanged);
                     break;
             }
@@ -163,15 +164,12 @@ public class OptionUIManager : MonoBehaviour
     }
     private void OnBgmVolumeChanged(float value)
     {
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.BgmVolume = value;
-        Debug.Log(soundManager.BgmVolume);
+        mSoundManager.BgmVolume = value;
+        SoundManager.instance.AudioSource.volume = value;
     }
     private void OnSoundEffectVolumeChanged(float value)
     {
-        SoundManager soundManager = SoundManager.instance;
-        soundManager.SoundEffectVolume = value;
-        Debug.Log(soundManager.SoundEffectVolume);
+        mSoundManager.SoundEffectVolume = value;
     }
     private void SetWeaponUI(List<Weapon> weapons)
     {

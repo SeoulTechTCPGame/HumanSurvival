@@ -15,4 +15,5 @@ static class Constants
     public const int MAX_STAGE_NUMBER = 2;
     public const int MAX_CHARACTER_NUMBER = 7;
     public const int WEAPON_STAT_NUMBER = 9;
+    public const float SOUND_EFFECT_RATE = 0.5f;
 }

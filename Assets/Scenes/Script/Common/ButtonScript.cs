@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
+    [SerializeField] AudioClip mClip;
     private Button mButton;
 
     private void Start()
@@ -12,6 +13,13 @@ public class ButtonScript : MonoBehaviour
     }
     private void PlayButtonSound()
     {
-        SoundManager.instance.PlayButtonSound();
+        if (mClip == null)
+        {
+            SoundManager.instance.PlayButtonSound();
+        }
+        else
+        {
+            SoundManager.instance.PlaySoundEffect(mClip);
+        }
     }
 }

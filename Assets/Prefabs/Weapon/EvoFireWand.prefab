@@ -67,17 +67,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2942566924543881142, guid: d3400586dcbccbb46a9b2ea8dc6b33e5, type: 3}
-      propertyPath: BEvolution
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942566924543881142, guid: d3400586dcbccbb46a9b2ea8dc6b33e5, type: 3}
-      propertyPath: WeaponMaxLevel
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8370051675277498723, guid: d3400586dcbccbb46a9b2ea8dc6b33e5, type: 3}
       propertyPath: m_Name
-      value: FireWandEvolution
+      value: EvoFireWand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3400586dcbccbb46a9b2ea8dc6b33e5, type: 3}
