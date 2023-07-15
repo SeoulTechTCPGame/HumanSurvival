@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 4164668107213152390}
   - component: {fileID: 4164668107213152389}
   - component: {fileID: 4164668107213152384}
+  - component: {fileID: 8595632730329324658}
   m_Layer: 5
   m_Name: PickButton4
   m_TagString: Untagged
@@ -309,6 +310,19 @@ MonoBehaviour:
   - {fileID: 4164668107839667045}
   - {fileID: 4164668107937352221}
   Index: 3
+--- !u!114 &8595632730329324658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164668107213152507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
 --- !u!1 &4164668107214050197
 GameObject:
   m_ObjectHideFlags: 0
@@ -4672,6 +4686,7 @@ GameObject:
   - component: {fileID: 4164668107854400664}
   - component: {fileID: 4164668107854400671}
   - component: {fileID: 4164668107854400666}
+  - component: {fileID: 4651710730671604966}
   m_Layer: 5
   m_Name: PickButton1
   m_TagString: Untagged
@@ -4816,6 +4831,19 @@ MonoBehaviour:
   - {fileID: 4164668107261417773}
   - {fileID: 4164668109223667704}
   Index: 0
+--- !u!114 &4651710730671604966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164668107854400669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
 --- !u!1 &4164668107871782579
 GameObject:
   m_ObjectHideFlags: 0
@@ -5102,6 +5130,7 @@ GameObject:
   - component: {fileID: 4164668107921368796}
   - component: {fileID: 4164668107921368787}
   - component: {fileID: 4164668107921368798}
+  - component: {fileID: 9039541828457607487}
   m_Layer: 5
   m_Name: PickButton2
   m_TagString: Untagged
@@ -5246,6 +5275,19 @@ MonoBehaviour:
   - {fileID: 4164668107683601734}
   - {fileID: 4164668109075323563}
   Index: 1
+--- !u!114 &9039541828457607487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164668107921368785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
 --- !u!1 &4164668107937352211
 GameObject:
   m_ObjectHideFlags: 0
@@ -8550,6 +8592,7 @@ GameObject:
   - component: {fileID: 4164668108490274140}
   - component: {fileID: 4164668108490274131}
   - component: {fileID: 4164668108490274142}
+  - component: {fileID: 8083133837454495601}
   m_Layer: 5
   m_Name: PickButton3
   m_TagString: Untagged
@@ -8694,6 +8737,19 @@ MonoBehaviour:
   - {fileID: 4164668107463633074}
   - {fileID: 4164668107658648757}
   Index: 2
+--- !u!114 &8083133837454495601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164668108490274129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
 --- !u!1 &4164668108495399679
 GameObject:
   m_ObjectHideFlags: 0
