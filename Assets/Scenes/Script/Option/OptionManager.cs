@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Windows;
-using System.IO;
 using TMPro;
-using System;
 
 public class OptionManager : MonoBehaviour
 {
