@@ -1342,6 +1342,7 @@ GameObject:
   - component: {fileID: 217063119}
   - component: {fileID: 217063120}
   - component: {fileID: 217063121}
+  - component: {fileID: 217063122}
   m_Layer: 5
   m_Name: CompleteButton
   m_TagString: Untagged
@@ -1532,6 +1533,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34baa016b44e44c8fa361da05f7b40f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &217063122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217063114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
 --- !u!1 &278227005
 GameObject:
   m_ObjectHideFlags: 0

@@ -18344,6 +18344,7 @@ GameObject:
   - component: {fileID: 1844337279}
   - component: {fileID: 1844337282}
   - component: {fileID: 1844337284}
+  - component: {fileID: 1844337285}
   m_Layer: 5
   m_Name: ButtonBack
   m_TagString: Untagged
@@ -18530,6 +18531,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c28cfeb6f6452cb0db25d828db604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1844337285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844337277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}
 --- !u!1 &1850875736
 GameObject:
   m_ObjectHideFlags: 0

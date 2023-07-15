@@ -12,8 +12,6 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource mAudioSource; // 소리를 재생할 오디오 소스
     private string mCurrentScene; // 현재 씬의 이름을 저장할 변수
-    private float mPreviousBgmTime; // 이전 BGM의 재생 시간을 저장할 변수
-    private AudioClip mPreviousBgm; // 이전 BGM을 저장할 변수
 
     private void Awake()
     {
@@ -30,14 +28,13 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         mAudioSource = GetComponent<AudioSource>();
     }
-
     private void Start()
     {
         mCurrentScene = SceneManager.GetActiveScene().name;
         SceneManager.sceneLoaded += OnSceneLoaded;
         PlayBgm(mCurrentScene);
     }
-
+    #region
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name != mCurrentScene)
@@ -48,12 +45,12 @@ public class SoundManager : MonoBehaviour
                 StopBgm();
                 PlayBgm(scene.name);
             }
-            else if (scene.name == "Main")
+            else if (scene.name == "GameResult")
             {
                 StopBgm();
                 PlayBgm(scene.name);
             }
-            else  //(mPreviousBgm != null && mPreviousBgm == mAudioSource.clip)
+            else
             {
                 // 이전 씬과 동일한 BGM인 경우 이어서 재생
             }
@@ -80,8 +77,8 @@ public class SoundManager : MonoBehaviour
         }
 
         mAudioSource.clip = bgmClip;
+        mAudioSource.volume = BgmVolume;
         mAudioSource.Play();
-        mPreviousBgm = bgmClip;
     }
     private void StopBgm()
     {
@@ -93,8 +90,13 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayButtonSound()
     {
-        mAudioSource.PlayOneShot(ButtonSoundClip);
+        mAudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
     }
+    public void PlayBuutonSoundTheOther(AudioClip soundEffectClip)
+    {
+        mAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+    }
+    #endregion
     public void EnableVFX(bool value)
     {
         // VFX 활성화 또는 비활성화 처리
