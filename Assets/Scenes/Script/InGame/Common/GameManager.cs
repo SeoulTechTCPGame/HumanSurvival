@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     //  Singleton Instance 선언
     public static GameManager instance = null;
 
+
     private void Awake()
     {
         instance = this;
