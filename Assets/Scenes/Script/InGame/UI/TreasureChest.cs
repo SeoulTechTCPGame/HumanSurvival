@@ -140,6 +140,7 @@ public class TreasureChest : MonoBehaviour
     private void PickEffect()
     {
         SetLightColor();
+        mPickLightMask.SetActive(true);
         for (int i = 0; i < mPickUps.Count; i++)
         {
             mPickLights[i].SetActive(true);
@@ -219,6 +220,7 @@ public class TreasureChest : MonoBehaviour
     {
         mBG.SetActive(false);
         mChest.SetActive(false);
+        mPickLightMask.SetActive(false);
         foreach (var light in mPickLights)
             light.SetActive(false);
         foreach (var item in mPickedItems)
