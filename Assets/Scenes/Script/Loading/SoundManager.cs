@@ -96,6 +96,10 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
+    public void PlayRateSound(AudioClip soundEffectClip)
+    {
+        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
+    }
     #endregion
     public void EnableVFX(bool value)
     {

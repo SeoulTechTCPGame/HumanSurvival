@@ -88,6 +88,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4905319741149529243, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
+      propertyPath: mClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
+    - target: {fileID: 4905319741149529243, guid: 48a0ba67d7736414b9483d411cadcb7e, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 6984803217021171391}

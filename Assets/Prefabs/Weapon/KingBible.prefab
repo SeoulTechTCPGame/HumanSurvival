@@ -182,6 +182,7 @@ MonoBehaviour:
   - 1e+10
   - 1
   - 8
+  mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
 --- !u!82 &-2436036182681418861
 AudioSource:
   m_ObjectHideFlags: 0

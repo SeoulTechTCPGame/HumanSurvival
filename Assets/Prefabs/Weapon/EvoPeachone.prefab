@@ -263,6 +263,7 @@ MonoBehaviour:
   WeaponMaxLevel: 0
   BEvolution: 0
   WeaponTotalStatList: []
+  mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
   Bird: {fileID: 0}
   StartPoint: {fileID: 0}
   EndPoint: {fileID: 0}

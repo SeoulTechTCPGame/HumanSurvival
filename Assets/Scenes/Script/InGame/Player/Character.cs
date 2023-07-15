@@ -31,7 +31,6 @@ public class Character : MonoBehaviour, IDamageable
         {
             RestoreHealth(1);
             HpRegenerationTimer -= 1f;
-
         }
     }
     public void RestoreHealth(float amount)

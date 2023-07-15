@@ -142,6 +142,7 @@ MonoBehaviour:
   WeaponMaxLevel: 0
   BEvolution: 0
   WeaponTotalStatList: []
+  mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
 --- !u!82 &5054258348478475417
 AudioSource:
   m_ObjectHideFlags: 0
