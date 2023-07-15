@@ -6,8 +6,8 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RunEnemy 0
-  serializedVersion: 7
+  m_Name: RunEnemy_0
+  serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -18,8 +18,7 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - serializedVersion: 2
-    curve:
+  - curve:
     - time: 0
       value: {fileID: 613658156, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
     - time: 0.083333336
@@ -32,7 +31,6 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
-    flags: 0
   m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
@@ -47,8 +45,6 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 613658156, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
     - {fileID: -140220566, guid: 1bc6097228993f045852159e71f81d5b, type: 3}

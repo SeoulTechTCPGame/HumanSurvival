@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         Player.enabled = false; // Character object 비활성화
         Pool.enabled = false;
         Time.timeScale = 0;
+        if()
         GameOverPanel.SetActive(true); // 판넬 활성화
     }
     public void LevelUp()

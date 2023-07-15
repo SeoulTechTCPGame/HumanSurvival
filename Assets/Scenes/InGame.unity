@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameTime: 0
-  MaxGameTime: 180
+  MaxGameTime: 300
   Character: {fileID: 1366757111}
   Level: 0
   Kill: 0
