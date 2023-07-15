@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GoToPlayer : MonoBehaviour
@@ -30,4 +28,3 @@ public class GoToPlayer : MonoBehaviour
         }
     }
 }
-
