@@ -118,4 +118,9 @@ namespace Enums
         Warlock,//Poe,
         Alchemist,//Clerici
     }
+    public enum EBgm
+    {
+        BGM,
+        Stage1
+    }
 }

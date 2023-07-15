@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -7,7 +8,12 @@ public class SoundManager : MonoBehaviour
     public float BgmVolume = 1.0f; // BGM 볼륨
     public float SoundEffectVolume = 1.0f; // 사운드 이펙트 볼륨
     public AudioClip ButtonSoundClip; // 버튼 소리 파일
+    public AudioClip[] Bgm;
+
     private AudioSource mAudioSource; // 소리를 재생할 오디오 소스
+    private string mCurrentScene; // 현재 씬의 이름을 저장할 변수
+    private float mPreviousBgmTime; // 이전 BGM의 재생 시간을 저장할 변수
+    private AudioClip mPreviousBgm; // 이전 BGM을 저장할 변수
 
     private void Awake()
     {
@@ -20,17 +26,64 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         DontDestroyOnLoad(gameObject);
         mAudioSource = GetComponent<AudioSource>();
     }
-    public void PlayBGM(AudioClip bgmClip)
+
+    private void Start()
     {
-        mAudioSource.clip = bgmClip;
-        mAudioSource.volume = BgmVolume;
-        mAudioSource.loop = true;
-        mAudioSource.Play();
+        mCurrentScene = SceneManager.GetActiveScene().name;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        PlayBgm(mCurrentScene);
     }
-    public void StopBGM()
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != mCurrentScene)
+        {
+            if (scene.name == "InGame")
+            {
+                // 이전 씬과 다른 BGM인 경우 새로운 BGM 재생
+                StopBgm();
+                PlayBgm(scene.name);
+            }
+            else if (scene.name == "Main")
+            {
+                StopBgm();
+                PlayBgm(scene.name);
+            }
+            else  //(mPreviousBgm != null && mPreviousBgm == mAudioSource.clip)
+            {
+                // 이전 씬과 동일한 BGM인 경우 이어서 재생
+            }
+        }
+    }
+    private void PlayBgm(string sceneName)
+    {
+        if (mAudioSource == null)
+        {
+            Debug.LogError("AudioSource 컴포넌트가 없습니다!");
+            return;
+        }
+
+        AudioClip bgmClip;
+        if (sceneName == "InGame")
+        {
+            // InGame 씬에 진입한 경우
+            bgmClip = Bgm[(int)Enums.EBgm.Stage1]; // InGame 씬에 해당하는 BGM
+        }
+        else
+        {
+            // 나머지 씬에 진입한 경우
+            bgmClip = Bgm[(int)Enums.EBgm.BGM]; // 나머지 씬에 해당하는 BGM
+        }
+
+        mAudioSource.clip = bgmClip;
+        mAudioSource.Play();
+        mPreviousBgm = bgmClip;
+    }
+    private void StopBgm()
     {
         mAudioSource.Stop();
     }
@@ -44,35 +97,14 @@ public class SoundManager : MonoBehaviour
     }
     public void EnableVFX(bool value)
     {
-        if (value)
-        {
-            // Enable VFX
-        }
-        else
-        {
-            // Disable VFX
-        }
+        // VFX 활성화 또는 비활성화 처리
     }
     public void EnableDamageDisplay(bool value)
     {
-        if (value)
-        {
-            // Enable showing damage
-        }
-        else
-        {
-            // Disable showing damage
-        }
+        // 데미지 표시 활성화 또는 비활성화 처리
     }
     public void HideStage(bool value)
     {
-        if (value)
-        {
-            // Hide the stage
-        }
-        else
-        {
-            // Show the stage
-        }
+        // 스테이지 숨기기 또는 표시 처리
     }
 }
