@@ -71,9 +71,9 @@ public class MainMenuManager : MonoBehaviour
                 SetSelect(mButtons[mSelectState]);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (mSelectState != (int)EState.Quit)
+            if ((EState)mSelectState != EState.Quit)
             {
                 SceneManager.LoadScene(((EState)mSelectState).ToString());
             }
