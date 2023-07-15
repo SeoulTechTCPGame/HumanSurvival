@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip ButtonSoundClip; // 버튼 소리 파일
     public AudioClip[] Bgm;
 
-    private AudioSource mAudioSource; // 소리를 재생할 오디오 소스
+    public AudioSource AudioSource; // 소리를 재생할 오디오 소스
     private string mCurrentScene; // 현재 씬의 이름을 저장할 변수
 
     private void Awake()
@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        mAudioSource = GetComponent<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -58,7 +58,7 @@ public class SoundManager : MonoBehaviour
     }
     private void PlayBgm(string sceneName)
     {
-        if (mAudioSource == null)
+        if (AudioSource == null)
         {
             Debug.LogError("AudioSource 컴포넌트가 없습니다!");
             return;
@@ -76,25 +76,25 @@ public class SoundManager : MonoBehaviour
             bgmClip = Bgm[(int)Enums.EBgm.BGM]; // 나머지 씬에 해당하는 BGM
         }
 
-        mAudioSource.clip = bgmClip;
-        mAudioSource.volume = BgmVolume;
-        mAudioSource.Play();
+        AudioSource.clip = bgmClip;
+        AudioSource.volume = BgmVolume;
+        AudioSource.Play();
     }
     private void StopBgm()
     {
-        mAudioSource.Stop();
+        AudioSource.Stop();
     }
     public void PlaySoundEffect(AudioClip soundEffectClip)
     {
-        mAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
     public void PlayButtonSound()
     {
-        mAudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
+        AudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
     }
     public void PlayBuutonSoundTheOther(AudioClip soundEffectClip)
     {
-        mAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
     #endregion
     public void EnableVFX(bool value)
