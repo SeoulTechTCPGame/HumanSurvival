@@ -5,6 +5,7 @@ public class Character : MonoBehaviour, IDamageable
     public float HpRegenerationTimer;
     [SerializeField] HealthBar mHpBar;
     [SerializeField] float mCurrentHp;
+    [SerializeField] AudioClip[] Clips;
     private bool mbDead;
     private float mMaxHp;
     private float mArmor;
@@ -48,16 +49,19 @@ public class Character : MonoBehaviour, IDamageable
         if (mbDead == true) return;
         if (damage - mArmor <= 0)
         {
-            mCurrentHp -= Time.deltaTime * 0 * 2;
+            mCurrentHp -= Time.deltaTime * 0 * 2;   //ToDo: yhj
+            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         else
         {
             mCurrentHp -= Time.deltaTime * (damage - mArmor) * 2;
+            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         if (mCurrentHp <= 0)
         {
             GameManager.instance.GameOverPanelUp();
             mbDead = true;
+            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.Die)]);
         }
         mHpBar.SetState(mCurrentHp, mMaxHp);
     }
@@ -76,6 +80,7 @@ public class Character : MonoBehaviour, IDamageable
             mMaxExp += Constants.DELTA_EXP;
             GameManager.instance.MaxExp = mMaxExp;
             GameManager.instance.LevelUp();
+            SoundManager.instance.PlaySoundTheOther(Clips[((int)Enums.ECharacterEffect.LevelUp)]);
         }
     }
 }

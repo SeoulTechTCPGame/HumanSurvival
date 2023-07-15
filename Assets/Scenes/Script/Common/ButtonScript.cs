@@ -19,7 +19,7 @@ public class ButtonScript : MonoBehaviour
         }
         else
         {
-            SoundManager.instance.PlayBuutonSoundTheOther(mClip);
+            SoundManager.instance.PlaySoundTheOther(mClip);
         }
     }
 }

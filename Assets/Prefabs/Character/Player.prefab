@@ -56,6 +56,10 @@ MonoBehaviour:
   HpRegenerationTimer: 0
   mHpBar: {fileID: 3255748680254241543}
   mCurrentHp: 0
+  Clips:
+  - {fileID: 8300000, guid: 82e2e70a4e9fd104490ca748e6f739b6, type: 3}
+  - {fileID: 8300000, guid: 58e32a031f6ecf44992df1b653cf1dff, type: 3}
+  - {fileID: 8300000, guid: 26a36d0e001db6d4f9c675fdceac6e7b, type: 3}
 --- !u!114 &6093243872016518919
 MonoBehaviour:
   m_ObjectHideFlags: 0

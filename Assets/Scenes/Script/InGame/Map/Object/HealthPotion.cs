@@ -10,6 +10,6 @@ public class HealthPotion : MonoBehaviour,ICollectible
         Character character = GameManager.instance.Character;
         character.RestoreHealth(HealthToRestore);
         gameObject.SetActive(false);
-        SoundManager.instance.PlayBuutonSoundTheOther(mClip);
+        SoundManager.instance.PlaySoundTheOther(mClip);
     }
 }

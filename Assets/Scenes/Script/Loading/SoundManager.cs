@@ -92,7 +92,7 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
     }
-    public void PlayBuutonSoundTheOther(AudioClip soundEffectClip)
+    public void PlaySoundTheOther(AudioClip soundEffectClip)
     {
         AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }

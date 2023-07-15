@@ -13,6 +13,6 @@ public class TresureChestPickup : MonoBehaviour, ICollectible
     {
         mTresureChestUI.GetComponent<TreasureChest>().LoadChestUI();
         Destroy(gameObject);
-        SoundManager.instance.PlayBuutonSoundTheOther(mClip);
+        SoundManager.instance.PlaySoundTheOther(mClip);
     }
 }

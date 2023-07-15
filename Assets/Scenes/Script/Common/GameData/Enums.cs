@@ -123,4 +123,10 @@ namespace Enums
         BGM,
         Stage1
     }
+    public enum ECharacterEffect
+    {
+        Attack,
+        Die,
+        LevelUp
+    }
 }
