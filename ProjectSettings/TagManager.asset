@@ -5,15 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
-  - ExpObj
-  - HealObj
   - Weapon
   - Ground
   - DestructibleObj
   - Area
-  - CoinsObj
   - Boundary
   - WeaponSub
+  - CollectibleObj
   layers:
   - Default
   - TransparentFX
