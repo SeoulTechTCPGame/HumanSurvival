@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthToRestore: 30
+  mClip: {fileID: 8300000, guid: 5559fdd4c76c7104792d371fbcec1312, type: 3}
 --- !u!50 &1265360367847125351
 Rigidbody2D:
   serializedVersion: 4

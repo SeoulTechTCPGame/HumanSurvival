@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Amount: 10
+  mClip: {fileID: 8300000, guid: 5559fdd4c76c7104792d371fbcec1312, type: 3}
 --- !u!50 &7599212537378301986
 Rigidbody2D:
   serializedVersion: 4
