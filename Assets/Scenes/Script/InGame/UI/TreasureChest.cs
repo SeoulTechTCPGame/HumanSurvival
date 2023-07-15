@@ -8,9 +8,6 @@ using TMPro;
 public class TreasureChest : MonoBehaviour
 {
     // 임시, 다른 곳에서 가져올 예정
-    [SerializeField] Sprite[] mWeaponImages;
-    [SerializeField] Sprite[] mAccessoryImages;
-    [SerializeField] Sprite[] mEtcImages;
     [SerializeField] GameObject mBG;
     [SerializeField] GameObject mChest;
     [SerializeField] GameObject[] mPickLights;
@@ -205,7 +202,7 @@ public class TreasureChest : MonoBehaviour
     {
         for (int i = 0; i < mPickUps.Count; i++)
         {
-            mPickedItems[i].GetComponent<Image>().sprite = GetSprites(mPickUps[i].Item1)[mPickUps[i].Item2];
+            mPickedItems[i].GetComponent<Image>().sprite = GetSprite(mPickUps[i].Item1, mPickUps[i].Item2);
             mPickedItems[i].SetActive(true);
             mItemEffects[i].SetActive(true);
         }
@@ -213,8 +210,9 @@ public class TreasureChest : MonoBehaviour
     private Sprite GetRandomItemImg()
     {
         int ItemType = UnityEngine.Random.Range(0, 2); // 0: Weapon, 1: Accessory
-        int ItemIndex = UnityEngine.Random.Range(0, GetSprites(ItemType).Length);
-        return GetSprites(ItemType)[ItemIndex];
+        int[] index = { Constants.MAX_WEAPON_NUMBER, Constants.MAX_ACCESSORY_NUMBER, 2 };
+        int ItemIndex = UnityEngine.Random.Range(0, index[ItemType]);
+        return GetSprite(ItemType, ItemIndex);
     }
     private void DisableAllObject()
     {
@@ -250,16 +248,34 @@ public class TreasureChest : MonoBehaviour
         mGold = (mPickedIndex + 1) * 40 + UnityEngine.Random.Range(20 * mPickedIndex, 50 * mPickedIndex);
         GameManager.instance.GetCoin(mGold);
     }
-    private Sprite[] GetSprites(int type)
+    private Sprite GetSprite(int itemType, int index)
     {
-        switch (type)
+        string resourceName;
+        switch (itemType)
         {
             case 0:
-                return mWeaponImages;
+                Enums.EWeapon[] enumValuesWeapon = (Enums.EWeapon[])System.Enum.GetValues(typeof(Enums.EWeapon));
+                Enums.EWeapon weapon = enumValuesWeapon[index];
+                resourceName = "Weapons/" + weapon.ToString();
+                return Resources.Load<Sprite>(resourceName);
             case 1:
-                return mAccessoryImages;
-            default:
-                return mEtcImages;
+                Enums.EAccessory[] enumValuesAccessory = (Enums.EAccessory[])System.Enum.GetValues(typeof(Enums.EAccessory));
+                Enums.EAccessory accessory = enumValuesAccessory[index];
+                resourceName = "Accessory/" + accessory.ToString();
+                return Resources.Load<Sprite>(resourceName);
+            case 2:
+                switch (index)
+                {
+                    case 0:
+                        resourceName = "Item/Coin";
+                        return Resources.Load<Sprite>(resourceName);
+                    case 1:
+                        resourceName = "Item/Recovery";
+                        return Resources.Load<Sprite>(resourceName);
+                }
+                break;
         }
+
+        return null;
     }
 }
