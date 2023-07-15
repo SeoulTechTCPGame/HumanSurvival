@@ -27,9 +27,6 @@ public class LevelUpUIManager : MonoBehaviour
 
     [SerializeField] GameObject[] mPickUpButtons;
 
-    [SerializeField] Sprite[] mWeaponImages;
-    [SerializeField] Sprite[] mAccessoryImages;
-    [SerializeField] Sprite[] mEtcImages;
     [SerializeField] Sprite[] mMiniLevelImages;
 
     [SerializeField] GameObject mFilter;
@@ -101,7 +98,7 @@ public class LevelUpUIManager : MonoBehaviour
         {
             mPickUpButtons[i].SetActive(true);
 
-            mPickUpButtons[i].GetComponent<PickButton>().Image.sprite = GetSprites(pickUps[i].Item1)[pickUps[i].Item2];
+            mPickUpButtons[i].GetComponent<PickButton>().Image.sprite = GetSprite(pickUps[i].Item1, pickUps[i].Item2);
 
             mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Name].text = TransPickIndexToEnumString(pickUps[i].Item1, pickUps[i].Item2);
 
@@ -217,18 +214,6 @@ public class LevelUpUIManager : MonoBehaviour
             "체력을 30 회복합니다."
         });
     }
-    private Sprite[] GetSprites(int type)
-    {
-        switch (type)
-        {
-            case 0:
-                return mWeaponImages;
-            case 1:
-                return mAccessoryImages;
-            default:
-                return mEtcImages;
-        }
-    }
     private string TransPickIndexToEnumString(int type, int index)
     {
         switch (type)
@@ -245,7 +230,7 @@ public class LevelUpUIManager : MonoBehaviour
     {
         for (int i = 0; i < weapons.Count; i++)
         {
-            mOwnWeaponImages[i].sprite = mWeaponImages[weapons[i].WeaponIndex];
+            mOwnWeaponImages[i].sprite = GetSprite(0, weapons[i].WeaponIndex);
             mOwnWeaponImages[i].enabled = true;
 
             int j = 0;
@@ -261,11 +246,41 @@ public class LevelUpUIManager : MonoBehaviour
             }
         }
     }
+    private Sprite GetSprite(int itemType, int index)
+    {
+        string resourceName;
+        switch (itemType)
+        {
+            case 0:
+                Enums.EWeapon[] enumValuesWeapon = (Enums.EWeapon[])System.Enum.GetValues(typeof(Enums.EWeapon));
+                Enums.EWeapon weapon = enumValuesWeapon[index];
+                resourceName = "Weapons/" + weapon.ToString();
+                return Resources.Load<Sprite>(resourceName);
+            case 1:
+                Enums.EAccessory[] enumValuesAccessory = (Enums.EAccessory[])System.Enum.GetValues(typeof(Enums.EAccessory));
+                Enums.EAccessory accessory = enumValuesAccessory[index];
+                resourceName = "Accessory/" + accessory.ToString();
+                return Resources.Load<Sprite>(resourceName);
+            case 2:
+                switch(index)
+                {
+                    case 0:
+                        resourceName = "Item/Coin";
+                        return Resources.Load<Sprite>(resourceName);
+                    case 1:
+                        resourceName = "Item/Recovery";
+                        return Resources.Load<Sprite>(resourceName);
+                }
+                break;
+        }
+
+        return null;
+    }
     private void SetAccessoryUI(List<Accessory> accessories)
     {
         for (int i = 0; i < accessories.Count; i++)
         {
-            mOwnAccessoryImages[i].sprite = mAccessoryImages[accessories[i].AccessoryIndex];
+            mOwnAccessoryImages[i].sprite = GetSprite(1, accessories[i].AccessoryIndex);
             mOwnAccessoryImages[i].enabled = true;
 
             int j = 0;
