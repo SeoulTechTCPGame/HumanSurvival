@@ -247,6 +247,7 @@ public class TreasureChest : MonoBehaviour
     {
         mGold = (mPickedIndex + 1) * 40 + UnityEngine.Random.Range(20 * mPickedIndex, 50 * mPickedIndex);
         GameManager.instance.GetCoin(mGold);
+        mGold = (int)Math.Ceiling(mGold * (1 + GameManager.instance.CharacterStats[(int)Enums.EStat.Greed]));
     }
     private Sprite GetSprite(int itemType, int index)
     {
