@@ -22,4 +22,4 @@ MonoBehaviour:
   mXp: 1
   mEnd: 20
   mLevel: 1
-  mMaxHP: 1
+  mMaxHP: 10
