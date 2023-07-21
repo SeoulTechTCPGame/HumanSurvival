@@ -29,7 +29,7 @@ public class TreasureChest : MonoBehaviour
     private int mPickedIndex;
     private int mGold;
     private int mCnt = 0;
-    private float mEffectEndTime = 30f;
+    private float mEffectEndTime = 10f;
     private float mUiEffectTime;
     private float mPickUpEffectTime;
     private static int[] mChestRarity;
@@ -48,7 +48,7 @@ public class TreasureChest : MonoBehaviour
         mbIsOn = false;
         mbIsOnPickUpEffect = false;
         mbIsOnUiEffect = false;
-        mRotSpeed = 180;
+        mRotSpeed = 720;
         mUiEffectTime = 0;
         mPickUpEffectTime = 0;
         DisableAllObject();
@@ -147,7 +147,7 @@ public class TreasureChest : MonoBehaviour
     private void PickUpEffect()
     {
         mCnt++;
-        if (mCnt > 32)
+        if (mCnt > 4)
         {
             mCnt = 0;
             SpawnCoin();
@@ -247,6 +247,7 @@ public class TreasureChest : MonoBehaviour
     {
         mGold = (mPickedIndex + 1) * 40 + UnityEngine.Random.Range(20 * mPickedIndex, 50 * mPickedIndex);
         GameManager.instance.GetCoin(mGold);
+        mGold = (int)Math.Ceiling(mGold * (1 + GameManager.instance.CharacterStats[(int)Enums.EStat.Greed]));
     }
     private Sprite GetSprite(int itemType, int index)
     {
