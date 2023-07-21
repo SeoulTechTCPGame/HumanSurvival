@@ -27,13 +27,13 @@ public class RepositionTile : MonoBehaviour
             case "Ground":
                 if (diffX > diffY)  //x축으로 많이 이동시
                 {
-                    RemoveObject(collision);
+                    RemoveObject();
                     transform.Translate(Vector3.right * dirX * X * 2); //주인공 이동 방향 앞에 tilemap을 놓기 위해 x*2 만큼 이동
                     ObjectRespown(transform.position);
                 }
                 else if (diffX < diffY) //y축으로 많이 이동시
                 {
-                    RemoveObject(collision);
+                    RemoveObject();
                     transform.Translate(Vector3.up * dirY * Y * 2); //주인공 이동 방향 앞에 tilemap을 놓기 위해 y*2 만큼 이동
                     ObjectRespown(transform.position);
                 }
@@ -45,17 +45,15 @@ public class RepositionTile : MonoBehaviour
     }
     private void ObjectRespown(Vector3 myPos) 
     {  //프리팹 생성
-        if (Respawn == null & (Random.Range(0,101) <= Probability))   //probability 확률로 생성
+        if (Respawn == null & (Random.Range(0,101) <= Probability * GameManager.instance.CharacterStats[((int)Enums.EStat.Luck)]))   //probability 확률로 생성
         {
             float randomX = Random.Range(-X/2f, X/2f); //랜덤 X좌표
             float randomY = Random.Range(-Y/2f, Y/2f); //랜덤 Y좌표
-            //instantiate함수 (오브젝트 이름, 오브젝트 위치, 오브젝트 회전 값)
             Respawn = Instantiate(Prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
         }
     }
-    private void RemoveObject(Collider2D collision) 
-    {   //프리팹 삭제
-        //if (collision.gameObject.tag == "Object")
+    private void RemoveObject() 
+    {
         Destroy(Respawn);
     }
 }

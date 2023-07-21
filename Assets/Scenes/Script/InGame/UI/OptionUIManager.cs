@@ -165,11 +165,16 @@ public class OptionUIManager : MonoBehaviour
     private void OnBgmVolumeChanged(float value)
     {
         mSoundManager.BgmVolume = value;
-        SoundManager.instance.AudioSource.volume = value;
+        mSoundManager.BgmAudioSource.volume = value;
+
+        mSoundManager.SaveSettings();
     }
     private void OnSoundEffectVolumeChanged(float value)
     {
         mSoundManager.SoundEffectVolume = value;
+        mSoundManager.SoundEffectAudioSource.volume = value;
+
+        mSoundManager.SaveSettings();
     }
     private void SetWeaponUI(List<Weapon> weapons)
     {
