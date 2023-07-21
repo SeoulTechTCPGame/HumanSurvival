@@ -6,11 +6,14 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
-    public float BgmVolume = 1.0f; // BGM 볼륨
-    public float SoundEffectVolume = 1.0f; // 사운드 이펙트 볼륨
+    public float BgmVolume { get; set; } = 1.0f; // BGM 볼륨
+    public float SoundEffectVolume { get; set; } = 1.0f; // 사운드 이펙트 볼륨
+    public bool IsFullScreen { get; set; } = true; // 전체 화면 토글 상태
+
     public AudioClip ButtonSoundClip; // 버튼 소리 파일
     public AudioClip[] Bgm;
-    public AudioSource AudioSource; // 소리를 재생할 오디오 소스
+    public AudioSource BgmAudioSource; // BGM을 재생할 오디오 소스
+    public AudioSource SoundEffectAudioSource; // 사운드 이펙트를 재생할 오디오 소스
 
     private string mCurrentScene; // 현재 씬의 이름을 저장할 변수
     private AudioClip currentSoundEffect;
@@ -20,23 +23,51 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+            BgmAudioSource = gameObject.AddComponent<AudioSource>();
+            SoundEffectAudioSource = gameObject.AddComponent<AudioSource>();
         }
         else if (instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
-        DontDestroyOnLoad(gameObject);
-        AudioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
         mCurrentScene = SceneManager.GetActiveScene().name;
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        LoadSettings();
+
         PlayBgm(mCurrentScene);
     }
-    #region
+    private void LoadSettings()
+    {
+        // BGM 볼륨 로드
+        BgmVolume = PlayerPrefs.GetFloat("SoundManager_BgmVolume", 1.0f);
+
+        // 사운드 이펙트 볼륨 로드
+        SoundEffectVolume = PlayerPrefs.GetFloat("SoundManager_SoundEffectVolume", 1.0f);
+
+        // 전체 화면 토글 로드
+        IsFullScreen = PlayerPrefs.GetInt("SoundManager_IsFullScreen", 0) == 1;
+    }
+    public void SaveSettings()
+    {
+        // BGM 볼륨 저장
+        PlayerPrefs.SetFloat("SoundManager_BgmVolume", BgmVolume);
+
+        // 사운드 이펙트 볼륨 저장
+        PlayerPrefs.SetFloat("SoundManager_SoundEffectVolume", SoundEffectVolume);
+
+        // 전체 화면 토글 저장
+        PlayerPrefs.SetInt("SoundManager_IsFullScreen", IsFullScreen ? 1 : 0);
+
+        // PlayerPrefs 데이터를 디스크에 저장
+        PlayerPrefs.Save();
+    }
+    #region 사운드 재생
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name != mCurrentScene)
@@ -60,7 +91,7 @@ public class SoundManager : MonoBehaviour
     }
     private void PlayBgm(string sceneName)
     {
-        if (AudioSource == null)
+        if (BgmAudioSource == null)
         {
             Debug.LogError("AudioSource 컴포넌트가 없습니다!");
             return;
@@ -78,25 +109,25 @@ public class SoundManager : MonoBehaviour
             bgmClip = Bgm[(int)Enums.EBgm.BGM]; // 나머지 씬에 해당하는 BGM
         }
 
-        AudioSource.clip = bgmClip;
-        AudioSource.volume = BgmVolume;
-        AudioSource.Play();
+        BgmAudioSource.clip = bgmClip;
+        BgmAudioSource.volume = BgmVolume;
+        BgmAudioSource.Play();
     }
     private void StopBgm()
     {
-        AudioSource.Stop();
+        BgmAudioSource.Stop();
     }
     public void PlayButtonSound()
     {
-        AudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
+        SoundEffectAudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
     }
     public void PlaySoundEffect(AudioClip soundEffectClip)
     {
-        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
     public void PlayRateSound(AudioClip soundEffectClip)
     {
-        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
+        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
     }
     public void PlayOverlapSound(AudioClip soundEffectClip)
     {
@@ -106,7 +137,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
         currentSoundEffect = soundEffectClip;
-        AudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
 
         StartCoroutine(ResetCurrentSoundEffect(soundEffectClip.length));
     }
@@ -116,16 +147,4 @@ public class SoundManager : MonoBehaviour
         currentSoundEffect = null;
     }
     #endregion
-    public void EnableVFX(bool value)
-    {
-        // VFX 활성화 또는 비활성화 처리
-    }
-    public void EnableDamageDisplay(bool value)
-    {
-        // 데미지 표시 활성화 또는 비활성화 처리
-    }
-    public void HideStage(bool value)
-    {
-        // 스테이지 숨기기 또는 표시 처리
-    }
 }
