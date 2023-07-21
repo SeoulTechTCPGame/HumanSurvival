@@ -27,7 +27,7 @@ public class CharacterScriptableObject : ScriptableObject
     public float Growth;//1
     public float Greed;//1
     public float Curse;//1
-    public float MagnetBonus;//1 //Magnet = 30 * character bonus * PowerUp multiplier
+    public float MagnetBonus;//1 
     public int Revival;//0
     public int Reroll;//0
     public int Skip;//0

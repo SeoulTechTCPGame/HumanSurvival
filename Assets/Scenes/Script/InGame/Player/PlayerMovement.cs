@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()//물리 계산 할 때 사용
     {
         //movement 조정
-        mRb.MovePosition(mRb.position + mMovement * mMOVE_SPEED * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
+        mRb.MovePosition(mRb.position + mMovement * (mMOVE_SPEED*GameManager.instance.CharacterStats[(int)Enums.EStat.MoveSpeed]) * Time.fixedDeltaTime);  //이전 한 프레임 수행 시간
     }
     private void LateUpdate()   //모든 Update 함수가 호출된 후, 마지막으로 호출되는 함수
     {
