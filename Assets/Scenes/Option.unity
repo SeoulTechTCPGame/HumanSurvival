@@ -1088,6 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
+  mToggle: {fileID: 0}
 --- !u!1 &299307215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,11 +1255,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633873515}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 10}
+  m_AnchoredPosition: {x: -19, y: 10}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.0000007376075, y: 1}
 --- !u!114 &326693388
@@ -1553,7 +1554,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -300, y: 0}
-  m_SizeDelta: {x: 70, y: 25}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395333530
 MonoBehaviour:
@@ -1982,6 +1983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633873515}
   - component: {fileID: 633873516}
+  - component: {fileID: 633873517}
   m_Layer: 5
   m_Name: Fullscreen
   m_TagString: Untagged
@@ -2001,17 +2003,17 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 326693387}
   - {fileID: 1268370270}
   - {fileID: 1653404351}
-  - {fileID: 326693387}
   m_Father: {fileID: 1090297367}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: -20}
+  m_AnchoredPosition: {x: 150, y: 40}
   m_SizeDelta: {x: 30, y: 30}
-  m_Pivot: {x: -0.000000029802322, y: 1}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &633873516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,6 +2062,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &633873517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633873514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClip: {fileID: 0}
+  mToggle: {fileID: 633873516}
 --- !u!1 &657652059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2384,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -300, y: 0}
-  m_SizeDelta: {x: 70, y: 25}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725903964
 MonoBehaviour:
@@ -2919,6 +2935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
+  mToggle: {fileID: 0}
 --- !u!1 &894347456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,6 +3992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
+  mToggle: {fileID: 0}
 --- !u!1 &1109164178
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,6 +4346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}
+  mToggle: {fileID: 0}
 --- !u!1 &1219648102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,11 +4415,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633873515}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -15}
+  m_AnchoredPosition: {x: 6, y: -15}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268370271
@@ -4788,6 +4807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
+  mToggle: {fileID: 0}
 --- !u!1 &1432309775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,12 +5077,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 633873515}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 0}
-  m_SizeDelta: {x: 110, y: 25}
+  m_AnchoredPosition: {x: -314.3, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1653404352
 MonoBehaviour:
@@ -5386,6 +5406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
+  mToggle: {fileID: 0}
 --- !u!1 &1866514999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6436,6 +6457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}
+  mToggle: {fileID: 0}
 --- !u!1 &2126394750
 GameObject:
   m_ObjectHideFlags: 0
