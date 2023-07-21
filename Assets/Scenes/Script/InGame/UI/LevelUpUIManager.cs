@@ -35,7 +35,7 @@ public class LevelUpUIManager : MonoBehaviour
 
     private List<Tuple<int, int, int>> mPickUps;
     private bool mbOnLevelUp;
-    private int mRotSpeed = 60;
+    private int mRotSpeed = 720;
     private float mTime = 0;
 
     private void Start()
