@@ -9,6 +9,7 @@ public class UserData
     public int ConsumedGold = 0;
     public float AccumulatedTime = 0;
     public int AccumulatedKill = 0;
+    public int AccRecovery = 0;
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -18,8 +19,10 @@ public class UserData
     public bool[] BPowerUpActive = new bool[16] { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true };
     public bool[] BAchievements;
     public bool[] BCollection;
-    public bool[] BUnlockStages;
-    public bool[] BUnlockCharacters;
+    public bool[] BUnlockStages = new bool[Constants.MAX_STAGE_NUMBER];
+    public bool[] BUnlockCharacters = new bool[Constants.MAX_CHARACTER_NUMBER];
+    public bool[] BUnlockWeapons = new bool[Constants.MAX_WEAPON_NUMBER];
+    public bool[] BUnlockAccessories = new bool[Constants.MAX_ACCESSORY_NUMBER];
 }
 
 public class UserDataManager : MonoBehaviour

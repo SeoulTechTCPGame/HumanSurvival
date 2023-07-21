@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("# Game Control")]
+    public int GameStage;
     public float GameTime;
     public float MaxGameTime = 180 * 10f;
 
