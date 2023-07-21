@@ -42,6 +42,7 @@ public class SoundManager : MonoBehaviour
 
         PlayBgm(mCurrentScene);
     }
+    #region 저장
     private void LoadSettings()
     {
         // BGM 볼륨 로드
@@ -67,7 +68,43 @@ public class SoundManager : MonoBehaviour
         // PlayerPrefs 데이터를 디스크에 저장
         PlayerPrefs.Save();
     }
+    #endregion
     #region 사운드 재생
+    public void ChangeBGM(AudioClip clip)
+    {
+        BgmAudioSource.clip = clip;
+        BgmAudioSource.volume = BgmVolume;
+        BgmAudioSource.Play();
+    }
+    public void PlayButtonSound()
+    {
+        SoundEffectAudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
+    }
+    public void PlaySoundEffect(AudioClip soundEffectClip)
+    {
+        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+    }
+    public void PlayRateSound(AudioClip soundEffectClip)
+    {
+        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
+    }
+    public void PlayOverlapSound(AudioClip soundEffectClip)
+    {
+        if (currentSoundEffect != null && currentSoundEffect == soundEffectClip)
+        {
+            // 현재 사운드 이펙트가 이미 재생 중인 경우, 중첩 재생을 피하기 위해 종료합니다.
+            return;
+        }
+        currentSoundEffect = soundEffectClip;
+        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
+
+        StartCoroutine(ResetCurrentSoundEffect(soundEffectClip.length));
+    }
+    private IEnumerator ResetCurrentSoundEffect(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        currentSoundEffect = null;
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name != mCurrentScene)
@@ -116,35 +153,6 @@ public class SoundManager : MonoBehaviour
     private void StopBgm()
     {
         BgmAudioSource.Stop();
-    }
-    public void PlayButtonSound()
-    {
-        SoundEffectAudioSource.PlayOneShot(ButtonSoundClip, SoundEffectVolume);
-    }
-    public void PlaySoundEffect(AudioClip soundEffectClip)
-    {
-        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
-    }
-    public void PlayRateSound(AudioClip soundEffectClip)
-    {
-        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
-    }
-    public void PlayOverlapSound(AudioClip soundEffectClip)
-    {
-        if (currentSoundEffect != null && currentSoundEffect == soundEffectClip)
-        {
-            // 현재 사운드 이펙트가 이미 재생 중인 경우, 중첩 재생을 피하기 위해 종료합니다.
-            return;
-        }
-        currentSoundEffect = soundEffectClip;
-        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
-
-        StartCoroutine(ResetCurrentSoundEffect(soundEffectClip.length));
-    }
-    private IEnumerator ResetCurrentSoundEffect(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        currentSoundEffect = null;
     }
     #endregion
 }
