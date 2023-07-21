@@ -1790,6 +1790,7 @@ GameObject:
   - component: {fileID: 4776699145182774796}
   - component: {fileID: 4776699145182774786}
   - component: {fileID: 4776699145182774797}
+  - component: {fileID: 2013921898}
   m_Layer: 5
   m_Name: OpenText
   m_TagString: Untagged
@@ -1914,6 +1915,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2013921898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776699145182774799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Open
 --- !u!1 &4776699145265339889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,6 +2208,7 @@ GameObject:
   - component: {fileID: 4776699145459690843}
   - component: {fileID: 4776699145459690841}
   - component: {fileID: 4776699145459690840}
+  - component: {fileID: 2013921897}
   m_Layer: 5
   m_Name: TreasureText
   m_TagString: Untagged
@@ -2318,6 +2333,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2013921897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776699145459690842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Treasure found!
 --- !u!1 &4776699145497857493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,36 +2776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677e8ea0313fd3944a3d864cf4869e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWeaponImages:
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
-  - {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
-  - {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
-  - {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
-  - {fileID: 21300000, guid: d322c27f4eca7e94085977802c4f6fec, type: 3}
-  mAccessoryImages:
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: c9d840cb955e09140b7813ba5300829e, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  - {fileID: 21300000, guid: 66805e37b0f04ce40a0163dc27b0cde1, type: 3}
-  mEtcImages:
-  - {fileID: 21300000, guid: b7169c21225b1f04ab520fd934e0cd2c, type: 3}
-  - {fileID: 21300000, guid: 5f7701eda8a8ba345b9a990bb7feee5d, type: 3}
+  mbIsOn: 0
   mBG: {fileID: 3589572312545961400}
   mChest: {fileID: 4776699146631618012}
   mPickLights:
@@ -3054,6 +3053,7 @@ GameObject:
   - component: {fileID: 4776699145760049592}
   - component: {fileID: 4776699145760049598}
   - component: {fileID: 4776699145760049593}
+  - component: {fileID: 2013921896}
   m_Layer: 5
   m_Name: CloseText
   m_TagString: Untagged
@@ -3178,6 +3178,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2013921896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776699145760049595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Complete
 --- !u!1 &4776699146019134824
 GameObject:
   m_ObjectHideFlags: 0
