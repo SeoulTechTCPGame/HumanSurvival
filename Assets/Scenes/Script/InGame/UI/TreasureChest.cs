@@ -7,6 +7,7 @@ using TMPro;
 
 public class TreasureChest : MonoBehaviour
 {
+    public bool mbIsOn;
     // 임시, 다른 곳에서 가져올 예정
     [SerializeField] GameObject mBG;
     [SerializeField] GameObject mChest;
@@ -22,7 +23,6 @@ public class TreasureChest : MonoBehaviour
     [SerializeField] GameObject mFlyCoin;
     [SerializeField] GameObject mFlyItem;
 
-    private bool mbIsOn;
     private bool mbIsOnUiEffect;
     private bool mbIsOnPickUpEffect;
     private int mRotSpeed;

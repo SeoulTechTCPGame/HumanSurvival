@@ -61,7 +61,7 @@ public class OptionalController : MonoBehaviour
         }
         else
         {
-            Screen.SetResolution(800, 600, false);
+            Screen.SetResolution(1920, 1080, false);
         }
 
         mSoundManager.SaveSettings();

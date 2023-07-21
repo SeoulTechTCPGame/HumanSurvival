@@ -5,7 +5,7 @@ public class GoToPlayer : MonoBehaviour
     private Transform mPlayer;
     private const float mCollectDistacne = 0.5f;
     private const float mSpeed = 7f;
-    private float pickupDistance = 2.5f;
+    private const float mPickupDistance = 2.5f;
     private void Awake()
     {
         mPlayer = GameManager.instance.Player.transform;
@@ -20,7 +20,7 @@ public class GoToPlayer : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, mPlayer.position);
-        if (distance > pickupDistance) return;
+        if (distance > mPickupDistance) return;
         transform.position = Vector3.MoveTowards(transform.position, mPlayer.position, mSpeed * Time.deltaTime);
         if (distance < mCollectDistacne) {
             if(gameObject.TryGetComponent(out ICollectible collectible))
