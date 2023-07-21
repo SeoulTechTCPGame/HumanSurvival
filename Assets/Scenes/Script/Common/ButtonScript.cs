@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField] AudioClip mClip;
-    [SerializeField] Toggle mToggle;
     private Button mButton;
 
     private void Start()
@@ -15,9 +14,6 @@ public class ButtonScript : MonoBehaviour
     private void PlayButtonSound()
     {
         if (mClip == null)
-        {
-            SoundManager.instance.PlayButtonSound();
-        } else if (mToggle != null)
         {
             SoundManager.instance.PlayButtonSound();
         }

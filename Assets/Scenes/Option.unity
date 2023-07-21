@@ -1088,7 +1088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
-  mToggle: {fileID: 0}
 --- !u!1 &299307215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +1982,6 @@ GameObject:
   m_Component:
   - component: {fileID: 633873515}
   - component: {fileID: 633873516}
-  - component: {fileID: 633873517}
   m_Layer: 5
   m_Name: Fullscreen
   m_TagString: Untagged
@@ -2062,20 +2060,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!114 &633873517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633873514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4812b242330ca6f4a917d9613ed3e059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mClip: {fileID: 0}
-  mToggle: {fileID: 633873516}
 --- !u!1 &657652059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +2919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
-  mToggle: {fileID: 0}
 --- !u!1 &894347456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,7 +3975,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
-  mToggle: {fileID: 0}
 --- !u!1 &1109164178
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,7 +4328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}
-  mToggle: {fileID: 0}
 --- !u!1 &1219648102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,7 +4788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
-  mToggle: {fileID: 0}
 --- !u!1 &1432309775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5406,7 +5386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 0}
-  mToggle: {fileID: 0}
 --- !u!1 &1866514999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6457,7 +6436,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mClip: {fileID: 8300000, guid: 9a568c8e63ec02b4b914aca96ce30148, type: 3}
-  mToggle: {fileID: 0}
 --- !u!1 &2126394750
 GameObject:
   m_ObjectHideFlags: 0
