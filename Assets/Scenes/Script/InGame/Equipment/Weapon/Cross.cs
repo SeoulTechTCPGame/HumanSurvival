@@ -6,7 +6,8 @@ public class Cross : Weapon
     private float mCoolTimer = 0;
     private bool mbUsed = false;
     private Vector3 mDirection;
-
+    private int mSpeedPower = 7;
+    
     private void Start()
     {
         mAnimator = GetComponent<Animator>();
@@ -16,7 +17,7 @@ public class Cross : Weapon
         if (!mbUsed) return;
 
         Rigidbody2D rb = transform.GetComponent<Rigidbody2D>();
-        rb.AddForce(-mDirection, ForceMode2D.Force);
+        rb.AddForce(-mDirection * mSpeedPower, ForceMode2D.Force);
 
         if (rb.velocity.magnitude <= 0.001)
         {
@@ -48,7 +49,7 @@ public class Cross : Weapon
                 newObs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 // 무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * speed * 3;    //ToDo: 보정값
+                rb.velocity = direction * speed * mSpeedPower;    //ToDo: 보정값
             }
             mCoolTimer = 0;
         }

@@ -1110,6 +1110,7 @@ GameObject:
   - component: {fileID: 667174468}
   - component: {fileID: 667174470}
   - component: {fileID: 667174469}
+  - component: {fileID: 667174471}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1234,6 +1235,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667174467}
   m_CullTransparentMesh: 1
+--- !u!114 &667174471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667174467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Exit
 --- !u!1 &699364664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1259,7 @@ GameObject:
   - component: {fileID: 699364665}
   - component: {fileID: 699364667}
   - component: {fileID: 699364666}
+  - component: {fileID: 699364668}
   m_Layer: 5
   m_Name: StageSelection
   m_TagString: Untagged
@@ -1369,6 +1384,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699364664}
   m_CullTransparentMesh: 1
+--- !u!114 &699364668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699364664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Stage
 --- !u!1 &946848269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,6 +4039,7 @@ GameObject:
   - component: {fileID: 2126464609}
   - component: {fileID: 2126464611}
   - component: {fileID: 2126464610}
+  - component: {fileID: 2126464612}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4135,3 +4164,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126464608}
   m_CullTransparentMesh: 1
+--- !u!114 &2126464612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126464608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Start
