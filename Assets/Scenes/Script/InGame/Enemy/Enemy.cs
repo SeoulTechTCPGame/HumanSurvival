@@ -49,7 +49,11 @@ public class Enemy : MonoBehaviour,IDamageable
         }
         //물리 속도가 이동에 영향을 주지 않도록 속도 제거
         mRb.velocity = Vector2.zero;
-        
+        //플레이어와 일정 거리 이상 떨어지면 다시 리스폰하기
+        if (Vector3.Distance(Target.position, mRb.position) > 30)
+        {
+            mRb.position = Target.position + mDirection * 20;
+        }
     }
     private void LateUpdate()
     {
