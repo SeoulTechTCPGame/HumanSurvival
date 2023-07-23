@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3787810}
   - component: {fileID: 3787812}
   - component: {fileID: 3787811}
+  - component: {fileID: 3787813}
   m_Layer: 5
   m_Name: TextTime
   m_TagString: Untagged
@@ -258,6 +259,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3787809}
   m_CullTransparentMesh: 1
+--- !u!114 &3787813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: 'Survival time:'
 --- !u!1001 &5119970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,6 +1571,7 @@ GameObject:
   - component: {fileID: 278227006}
   - component: {fileID: 278227008}
   - component: {fileID: 278227007}
+  - component: {fileID: 278227009}
   m_Layer: 5
   m_Name: WeaponDamageperSec
   m_TagString: Untagged
@@ -1681,6 +1696,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278227005}
   m_CullTransparentMesh: 1
+--- !u!114 &278227009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278227005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Damage per second
 --- !u!1 &281037175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1720,7 @@ GameObject:
   - component: {fileID: 281037176}
   - component: {fileID: 281037178}
   - component: {fileID: 281037177}
+  - component: {fileID: 281037179}
   m_Layer: 5
   m_Name: TextGold
   m_TagString: Untagged
@@ -1816,6 +1845,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281037175}
   m_CullTransparentMesh: 1
+--- !u!114 &281037179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281037175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: 'Gold earned:'
 --- !u!1 &287555549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1869,7 @@ GameObject:
   - component: {fileID: 287555550}
   - component: {fileID: 287555552}
   - component: {fileID: 287555551}
+  - component: {fileID: 287555553}
   m_Layer: 5
   m_Name: WeaponTime
   m_TagString: Untagged
@@ -1951,6 +1994,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287555549}
   m_CullTransparentMesh: 1
+--- !u!114 &287555553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287555549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Time
 --- !u!1 &296005092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,6 +2018,7 @@ GameObject:
   - component: {fileID: 296005093}
   - component: {fileID: 296005095}
   - component: {fileID: 296005094}
+  - component: {fileID: 296005096}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2086,6 +2143,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296005092}
   m_CullTransparentMesh: 1
+--- !u!114 &296005096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296005092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Complete
 --- !u!1 &300897893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2167,7 @@ GameObject:
   - component: {fileID: 300897894}
   - component: {fileID: 300897896}
   - component: {fileID: 300897895}
+  - component: {fileID: 300897897}
   m_Layer: 5
   m_Name: WeapoDamage
   m_TagString: Untagged
@@ -2221,6 +2292,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300897893}
   m_CullTransparentMesh: 1
+--- !u!114 &300897897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300897893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Damage
 --- !u!1 &332447301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4409,7 @@ GameObject:
   - component: {fileID: 1453207799}
   - component: {fileID: 1453207801}
   - component: {fileID: 1453207800}
+  - component: {fileID: 1453207802}
   m_Layer: 5
   m_Name: ResultTitle
   m_TagString: Untagged
@@ -4449,6 +4534,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453207798}
   m_CullTransparentMesh: 1
+--- !u!114 &1453207802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453207798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Result
 --- !u!1 &1529260782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,6 +5012,7 @@ GameObject:
   - component: {fileID: 1599058369}
   - component: {fileID: 1599058368}
   - component: {fileID: 1599058367}
+  - component: {fileID: 1599058370}
   m_Layer: 5
   m_Name: WeaponName
   m_TagString: Untagged
@@ -5050,6 +5149,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599058365}
   m_CullTransparentMesh: 1
+--- !u!114 &1599058370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599058365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Weapon
 --- !u!1001 &1602411594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5379,6 +5491,7 @@ GameObject:
   - component: {fileID: 1655581333}
   - component: {fileID: 1655581335}
   - component: {fileID: 1655581334}
+  - component: {fileID: 1655581336}
   m_Layer: 5
   m_Name: TextLevel
   m_TagString: Untagged
@@ -5503,6 +5616,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655581332}
   m_CullTransparentMesh: 1
+--- !u!114 &1655581336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655581332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: 'Level reached:'
 --- !u!1 &1679497181
 GameObject:
   m_ObjectHideFlags: 0
@@ -5649,6 +5775,7 @@ GameObject:
   - component: {fileID: 1679878533}
   - component: {fileID: 1679878535}
   - component: {fileID: 1679878534}
+  - component: {fileID: 1679878536}
   m_Layer: 5
   m_Name: WeaponLevel
   m_TagString: Untagged
@@ -5773,6 +5900,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679878532}
   m_CullTransparentMesh: 1
+--- !u!114 &1679878536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679878532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: Level
 --- !u!1 &1696378191
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,7 +6494,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -6521,6 +6661,7 @@ GameObject:
   - component: {fileID: 2034645615}
   - component: {fileID: 2034645617}
   - component: {fileID: 2034645616}
+  - component: {fileID: 2034645618}
   m_Layer: 5
   m_Name: TextKill
   m_TagString: Untagged
@@ -6645,6 +6786,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034645614}
   m_CullTransparentMesh: 1
+--- !u!114 &2034645618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034645614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextKey: 'Enemies Killed:'
 --- !u!1001 &2064947031
 PrefabInstance:
   m_ObjectHideFlags: 0

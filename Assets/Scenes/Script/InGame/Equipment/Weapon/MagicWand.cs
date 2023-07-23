@@ -5,8 +5,8 @@ public class MagicWand : Weapon
     [SerializeField] Animator mAnimator;
     private float mTimer = 0;
     private bool mbUseWand = false;
-    private int mTouch = 0;
     private int mTouchLimit;
+    private int mSpeedPower = 10;
 
     private void Start()
     {
@@ -42,7 +42,7 @@ public class MagicWand : Weapon
                 newObs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
                 //무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)] * mSpeedPower;
             }
             mTimer = 0;
         }
@@ -50,34 +50,6 @@ public class MagicWand : Weapon
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {
 
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if (GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            mTouch++;
-        }
     }
     private Vector3 FindClosestEnemyDirection()
     {

@@ -13,6 +13,8 @@ public class MiniLevels
 
 public class LevelUpUIManager : MonoBehaviour
 {
+    public bool mbOnLevelUp;
+
     [SerializeField] MiniLevels[] mWeaponLevelsUI;
     [SerializeField] Image[] mOwnWeaponImages;
     [SerializeField] MiniLevels[] mAccessoryLevelsUI;
@@ -34,8 +36,7 @@ public class LevelUpUIManager : MonoBehaviour
     [SerializeField] static List<string[]> mTypeScripts;
 
     private List<Tuple<int, int, int>> mPickUps;
-    private bool mbOnLevelUp;
-    private int mRotSpeed = 60;
+    private int mRotSpeed = 720;
     private float mTime = 0;
 
     private void Start()
@@ -63,7 +64,12 @@ public class LevelUpUIManager : MonoBehaviour
 
             mTime += Time.fixedDeltaTime;
             if(mTime >= 0.99f)
+            {
                 mPickUpUI.transform.rotation = Quaternion.identity;
+                mPickUpUI.transform.localScale = Vector3.one;
+                mStatUI.transform.localScale = Vector3.one;
+                mItemUI.transform.localScale = Vector3.one;
+            }
         }
     }
     public void LoadLevelUpUI(float[] characterStats, List<Tuple<int, int, int>> pickUps, List<Weapon> weapons, List<Accessory> accessories)

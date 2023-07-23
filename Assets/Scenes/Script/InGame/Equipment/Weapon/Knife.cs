@@ -4,8 +4,8 @@ public class Knife : Weapon
 {
     private float mTimer = 0;
     private bool mbUseKnife = false;
-    private int mTouch = 0;
     private int mTouchLimit;
+    private int mSpeedPower = 10;
 
     private void Update()
     {
@@ -38,7 +38,7 @@ public class Knife : Weapon
                 newObs.GetComponent<Knife>().mbUseKnife = true;
                 newObs.GetComponent<Knife>().mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = setDirection(newObs) * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed];
+                rb.velocity = setDirection(newObs) * WeaponTotalStats[(int)Enums.EWeaponStat.ProjectileSpeed] * mSpeedPower;
             }
             mTimer = 0;
         }
@@ -46,13 +46,6 @@ public class Knife : Weapon
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {
 
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Monster")
-        {
-            mTouch++;
-        }
     }
     private Vector3 setDirection(GameObject obj) {
         //칼날 방향
