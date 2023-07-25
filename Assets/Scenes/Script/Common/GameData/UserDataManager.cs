@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using Enums;
 
 [Serializable]
 public class UserData
@@ -8,7 +9,7 @@ public class UserData
     public int Gold = 0;
     public int ConsumedGold = 0;
     public float AccumulatedTime = 0;
-    public int AccumulatedKill = 0;
+    public int AccKill = 0;
     public int AccRecovery = 0;
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

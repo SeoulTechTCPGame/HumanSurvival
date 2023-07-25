@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using UnityEngine;
+using Enums;
 
 public class EquipmentManagementSystem 
 {
@@ -44,6 +45,10 @@ public class EquipmentManagementSystem
             return false;
         return TransWeaponIndex[weaponIndex] >= 0;
     }
+    public bool HasWeapon(EWeapon weapon)
+    {
+        return TransWeaponIndex[(int)weapon] >= 0;
+    }
     public bool HasAcc(int accIndex)
     {
         if (accIndex < 0 || accIndex >= Constants.MAX_ACCESSORY_NUMBER)
@@ -67,9 +72,14 @@ public class EquipmentManagementSystem
         if (TransWeaponIndex[weaponIndex] < 0)
             Debug.Log("없는 무기 호출");
         // TODO: 없는 무기 호출시 에러! 제대로 작성
-        Debug.Log(TransWeaponIndex[weaponIndex]);
-        Debug.Log(Weapons[TransWeaponIndex[weaponIndex]]);
         return Weapons[TransWeaponIndex[weaponIndex]];
+    }
+    public Weapon GetWeapon(EWeapon weapon)
+    {
+        if (TransWeaponIndex[(int)weapon] < 0)
+            Debug.Log("없는 무기 호출");
+        // TODO: 없는 무기 호출시 에러! 제대로 작성
+        return Weapons[TransWeaponIndex[(int)weapon]];
     }
     public void UpgradeWeapon(int weaponIndex)
     {

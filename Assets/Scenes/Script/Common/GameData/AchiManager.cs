@@ -279,7 +279,7 @@ public class AchiManager : MonoBehaviour
     }
     private void Achieve028(int killCount)
     {
-        if (UserInfo.instance.UserDataSet.AccumulatedKill >= 5000)
+        if (UserInfo.instance.UserDataSet.AccKill >= 5000)
         {
             // 번개 반지
         }

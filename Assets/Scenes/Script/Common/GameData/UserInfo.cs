@@ -1,3 +1,4 @@
+using Enums;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class UserInfo : MonoBehaviour
 
     private const int JUMP_ACCESSORY = 58;
     private const int JUMP_STAGE = 0;
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -22,15 +23,21 @@ public class UserInfo : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    public void UpdateAccumulatedTime(float time)
+    public void SetDefaultUnlockSettings()
+    {
+        SetDefaultStageSetting();
+        SetDefaultCharacterSetting();
+        SetDefaultWeaponSetting();
+        SetDefaultAccessorySetting();
+    }
+        public void UpdateAccumulatedTime(float time)
     {
         UserDataSet.AccumulatedTime += time;
         UserDataManager.instance.SaveData();
     }
     public void UpdateAccumulatedKill(int kill)
     {
-        UserDataSet.AccumulatedKill += kill;
-        UserDataManager.instance.SaveData();
+        UserDataSet.AccKill += kill;
     }   
     public void UpdateGold(int gold)
     {
@@ -48,7 +55,7 @@ public class UserInfo : MonoBehaviour
         UserDataSet.ConsumedGold = 0;
         UserDataManager.instance.SaveData();
     }
-    public void UpdateColldection(int collectionIndex)
+    public void UpdateCollection(int collectionIndex)
     {
         UserDataSet.BCollection[collectionIndex] = true;
         UserDataManager.instance.SaveData();
@@ -98,32 +105,87 @@ public class UserInfo : MonoBehaviour
         UserDataSet.BPowerUpActive[powerUpIndex] = true;
         UserDataManager.instance.SaveData();
     }
-    private void UpdateOption()
+    public void UnlockStage(EStage stage)
+    {
+        UserDataSet.BUnlockStages[(int)stage] = true;
+    }
+    public void UnlockCharacter(ECharacterType characterType)
+    {
+        UserDataSet.BUnlockCharacters[(int)characterType] = true;
+    }
+    public void UnlockWeapon(EWeapon weapon)
+    {
+        UserDataSet.BUnlockWeapons[(int)weapon] = true;
+    }
+    public void UnlockAccessory(EAccessory accessory)
+    {
+        UserDataSet.BUnlockAccessories[(int)accessory] = true;
+    }
+    public bool IsStageUnlocked(EStage stage) 
+    {
+        return UserDataSet.BUnlockStages[(int)stage];
+    }
+    public bool IsCharacterUnlocked(ECharacterType characterType) 
+    {
+        return UserDataSet.BUnlockCharacters[(int)characterType];
+    }
+    public bool IsWeaponUnlocked(EWeapon weapon)
+    {
+        return UserDataSet.BUnlockWeapons[(int)weapon];
+    }
+    public bool IsAccessoryUnlocked(EAccessory accessory)
+    {
+        return UserDataSet.BUnlockAccessories[(int)accessory];
+    }
+    public void UpdateOption()
     {
         // TODO: Option기능 완성되면 추가
         UserDataManager.instance.SaveData();
     }
-    private void UnlockCharacter(int characterIndex)
+    private void SetDefaultStageSetting()
     {
-        UserDataSet.BUnlockCharacters[characterIndex] = true;
-        UserDataManager.instance.SaveData();
+        UserDataSet.BUnlockStages[(int)EStage.MadForest] = true;
+        UserDataSet.BUnlockStages[(int)EStage.InlaidLibrary] = false;
     }
-    private void UnlockWeapon(int weaponIndex)
+    private void SetDefaultCharacterSetting()
     {
-        UserDataSet.BCollection[(weaponIndex << 1) | 1] = true;
-        UserDataManager.instance.SaveData();
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.Rogue] = true;
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.StormMage] = true;
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.Barbarian] = true;
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.FireMage] = false;
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.Necromancer] = false;
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.Warlock] = false;
+        UserDataSet.BUnlockCharacters[(int)ECharacterType.Alchemist] = false;
     }
-    private void UnlockAccessory(int accessoryIndex)
+    private void SetDefaultWeaponSetting()
     {
-        UserDataSet.BCollection[accessoryIndex + JUMP_ACCESSORY] = true;
-        UserDataManager.instance.SaveData();
+        UserDataSet.BUnlockWeapons[(int)EWeapon.Whip] = true;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.MagicWand] = false;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.Knife] = true;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.Cross] = true;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.KingBible] = true;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.FireWand] = false;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.Garlic] = false;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.Peachone] = false;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.EbonyWings] = false;
+        UserDataSet.BUnlockWeapons[(int)EWeapon.LightningRing] = false;
     }
-    private bool IsWeaponUnlock(int weaponIndex)
+    private void SetDefaultAccessorySetting()
     {
-        return UserDataSet.BCollection[(weaponIndex << 1) | 1];
-    }
-    private bool IsAccessoryUnlock(int accessoryIndex)
-    {
-        return UserDataSet.BCollection[accessoryIndex + JUMP_ACCESSORY];
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Spinach] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Armor] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.HollowHeart] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Pummarola] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.EmptyTome] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Candelabrador] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Bracer] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Spellbinder] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Duplicator] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Wings] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Attractorb] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Clover] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Crown] = false;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.Skull] = true;
+        UserDataSet.BUnlockAccessories[(int)EAccessory.StoneMask] = true;
     }
 }
