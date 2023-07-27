@@ -6,8 +6,7 @@ using static Singleton;
 public class StageInfo : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] GameObject mStageButton;
-    [SerializeField] MapScriptableObject mStageDataEN;
-    [SerializeField] MapScriptableObject mStageDataKR;
+    [SerializeField] MapScriptableObject mStageData;
     [SerializeField] StageOfSelectionScene mSelectedStage;
 
     private GameObject mMapName;
@@ -20,10 +19,10 @@ public class StageInfo : MonoBehaviour, IPointerEnterHandler
         switch (S.curLangIndex)
         {
             case (int)Enums.ELangauge.EN:
-                mMapName.GetComponent<TextMeshProUGUI>().text = mStageDataEN.StageName.ToString();
+                mMapName.GetComponent<TextMeshProUGUI>().text = mStageData.StageNameEN.ToString();
                 break;
             case (int)Enums.ELangauge.KR:
-                mMapName.GetComponent<TextMeshProUGUI>().text = mStageDataEN.StageName.ToString();
+                mMapName.GetComponent<TextMeshProUGUI>().text = mStageData.StageNameKR.ToString();
                 break;
             default:
                 break;
@@ -31,14 +30,14 @@ public class StageInfo : MonoBehaviour, IPointerEnterHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        mSelectedStage.LoadMapData(mStageDataEN);
+        mSelectedStage.LoadMapData(mStageData);
         switch (S.curLangIndex)
         {
             case (int)Enums.ELangauge.EN:
-                mExplainText.GetComponent<TextMeshProUGUI>().text = mStageDataEN.StageName.ToString();
+                mExplainText.GetComponent<TextMeshProUGUI>().text = mStageData.StageNameEN.ToString();
                 break;
             case (int)Enums.ELangauge.KR:
-                mExplainText.GetComponent<TextMeshProUGUI>().text = mStageDataEN.StageName.ToString();
+                mExplainText.GetComponent<TextMeshProUGUI>().text = mStageData.StageNameKR.ToString();
                 break;
             default:
                 break;
