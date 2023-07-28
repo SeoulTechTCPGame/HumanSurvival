@@ -160,9 +160,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponIndex: 5
   WeaponLevel: 1
-  WeaponMaxLevel: 1
-  BEvolution: 1
-  WeaponTotalStatList: []
+  WeaponMaxLevel: 8
+  BEvolution: 0
+  WeaponTotalStatList:
+  - 22
+  - 3
+  - 1
+  - -1
+  - 3
+  - 30
+  - 1
+  - 1
+  - 8
   mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
   mAnimator: {fileID: 6497094398134010874}
 --- !u!82 &-4074673066797663038

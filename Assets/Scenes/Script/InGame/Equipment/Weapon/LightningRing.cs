@@ -68,7 +68,7 @@ public class LightningRing : Weapon
     }
     private Vector3[] FindDenseClusterEnemy(int Amount)
     {
-        Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 10 + Vector3.up * 5, GameManager.instance.Player.transform.position + Vector3.right * 10 + Vector3.down * 5, LayerMask.GetMask("Monster"));
+        Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 15 + Vector3.up * 8, GameManager.instance.Player.transform.position + Vector3.right * 15 + Vector3.down * 8, LayerMask.GetMask("Monster"));
         Vector3[] results = new Vector3[Amount];
         int[] enemiesNumber = new int[enemies.Length];
         int count = 0;
@@ -77,6 +77,10 @@ public class LightningRing : Weapon
             enemiesNumber[count++] = Physics2D.OverlapCircleAll(enemy.transform.position, 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)])).Length;
         }
         count = 0;
+        if (enemiesNumber.Length == 0)
+        {
+            return results;
+        }
         results[count++] = enemies[Array.IndexOf(enemiesNumber, enemiesNumber.Max())].transform.position;
         enemiesNumber[Array.IndexOf(enemiesNumber, enemiesNumber.Max())] = 0;
         for(int i = 0; i < enemies.Length; i++)
