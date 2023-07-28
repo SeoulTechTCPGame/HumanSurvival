@@ -4,31 +4,41 @@ using TMPro;
 public class CharacterInfoOfSelectionScene : MonoBehaviour
 {
     [SerializeField] TMP_Text mMoneyText;
-
-    //Name, MaxStamina, Recovery, Defense, Speed, Damage, ProjectileSpeed, Durationn, AttackRange, Cooldown, NumberOfProjectiles, Magnet, Luck, Growth
-    private TextMeshProUGUI[] mTextMeshes;
+    [SerializeField] TMP_Text mName;
+    [SerializeField] TMP_Text mMaxStamina;
+    [SerializeField] TMP_Text mRecovery;
+    [SerializeField] TMP_Text mDefense;
+    [SerializeField] TMP_Text mSpeed;
+    [SerializeField] TMP_Text mDamage;
+    [SerializeField] TMP_Text mProjectileSpeed;
+    [SerializeField] TMP_Text mDurationn;
+    [SerializeField] TMP_Text mAttackRange;
+    [SerializeField] TMP_Text mCooldown;
+    [SerializeField] TMP_Text mNumberOfProjectiles;
+    [SerializeField] TMP_Text mMagnet;
+    [SerializeField] TMP_Text mLuck;
+    [SerializeField] TMP_Text mGrowth;
 
     private void Start()
     {
         SetMoneyText();
-        mTextMeshes = GetComponentsInChildren<TextMeshProUGUI>();
     }
     public void LoadCharacterData(CharacterScriptableObject characterData)
     {
-        mTextMeshes[0].SetText(characterData.CharacterType.ToString());
-        mTextMeshes[1].SetText("체력: " + characterData.MaxHealth);
-        mTextMeshes[2].SetText("회복량: " + characterData.Recovery);
-        mTextMeshes[3].SetText("방어력: " + characterData.Armor);
-        mTextMeshes[4].SetText("이동속도: " + characterData.MoveSpeed);
-        mTextMeshes[5].SetText("공격력: " + characterData.Might);
-        mTextMeshes[6].SetText("투사체 속도: " + characterData.ProjectileSpeed);
-        mTextMeshes[7].SetText("지속시간: " + characterData.Duration);
-        mTextMeshes[8].SetText("공격 범위: " + characterData.Area);
-        mTextMeshes[9].SetText("쿨타임: " + characterData.Cooldown);
-        mTextMeshes[10].SetText("투사체 수: " + characterData.Amount);
-        mTextMeshes[11].SetText("자석: " + characterData.MagnetBonus);
-        mTextMeshes[12].SetText("행운: " + characterData.Luck);
-        mTextMeshes[13].SetText("성장: " + characterData.Growth);
+        mName.SetText(characterData.CharacterType.ToString());
+        mMaxStamina.SetText(characterData.MaxHealth.ToString());
+        mRecovery.SetText(characterData.Recovery.ToString());
+        mDefense.SetText(characterData.Armor.ToString());
+        mSpeed.SetText(characterData.MoveSpeed.ToString());
+        mDamage.SetText(characterData.Might.ToString());
+        mProjectileSpeed.SetText(characterData.ProjectileSpeed.ToString());
+        mDurationn.SetText(characterData.Duration.ToString());
+        mAttackRange.SetText(characterData.Area.ToString());
+        mCooldown.SetText(characterData.Cooldown.ToString());
+        mNumberOfProjectiles.SetText(characterData.Amount.ToString());
+        mMagnet.SetText(characterData.MagnetBonus.ToString());
+        mLuck.SetText(characterData.Luck.ToString());
+        mGrowth.SetText(characterData.Growth.ToString());
     }
     private void SetMoneyText()
     {

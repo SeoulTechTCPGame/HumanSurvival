@@ -129,4 +129,9 @@ namespace Enums
         Die,
         LevelUp
     }
+    public enum ELangauge
+    {
+        EN,
+        KR
+    }
 }
