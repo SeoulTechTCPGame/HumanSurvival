@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6580529883595445492}
   - component: {fileID: 2108380391298545987}
   m_Layer: 8
-  m_Name: EvoMagicWand 1
+  m_Name: EvoMagicWand
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
