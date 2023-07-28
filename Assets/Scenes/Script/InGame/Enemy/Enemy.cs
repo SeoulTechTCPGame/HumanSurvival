@@ -36,13 +36,13 @@ public class Enemy : MonoBehaviour,IDamageable
         if (EnemyData.SpriteType == 4)
         {
             mDirection = (mFixedTargetDirection - mRb.position).normalized;
-            Vector2 nextVec = 0.01f * EnemyData.Speed * Time.fixedDeltaTime * mDirection;
+            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection;
             mRb.position += nextVec;
         }
         else
         {
             mDirection = (Target.position - mRb.position).normalized;
-            Vector2 nextVec = 0.01f * EnemyData.Speed * Time.fixedDeltaTime * mDirection;
+            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection;
 
             //플레이어의 키입력 값을 더한 이동=몬스터의 방향 값을 더한 이동
             mRb.MovePosition(mRb.position + nextVec);
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour,IDamageable
         //활성화 될때 변수 초기화
         mbLive = true;
         mLevel = EnemyData.Level;
-        mHealth = EnemyData.MaxHP*mLevel;
+        mHealth = EnemyData.MaxHP*mLevel* GameManager.instance.CharacterStats[(int)Enums.EStat.Curse];
         mColl.enabled=true;
         mRb.simulated = true;
         mSpriter.sortingOrder = 2;
