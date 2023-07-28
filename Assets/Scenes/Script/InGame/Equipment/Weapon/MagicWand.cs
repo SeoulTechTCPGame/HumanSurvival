@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;      // array의 IndexOf 함수
+using System.Linq; // array의 Max, Min 함수 
 
 public class MagicWand : Weapon
 {
@@ -53,34 +55,21 @@ public class MagicWand : Weapon
     }
     private Vector3 FindClosestEnemyDirection()
     {
-        GameObject closestEnemy = FindClosestEnemy();
-        if (closestEnemy != null)
+        Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 15 + Vector3.up * 8, GameManager.instance.Player.transform.position + Vector3.right * 15 + Vector3.down * 8, LayerMask.GetMask("Monster"));
+        float[] distance = new float[enemies.Length];
+
+        for(int i = 0; i < enemies.Length; i++)
         {
-            Vector3 direction = closestEnemy.transform.position - transform.position;
-            return direction.normalized;
+            distance[i] = Vector3.Distance(GameManager.instance.Player.transform.position, enemies[i].transform.position);
         }
-        else
+        
+        if (enemies.Length == 0)
         {
+            Debug.Log("error");
             return Vector3.right;
         }
-    }
-    private GameObject FindClosestEnemy() 
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
-        GameObject closestEnemy = null;
-        float closestDistance = Mathf.Infinity;
 
-        //적 탐색
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distance < closestDistance) //소환된 무기와 몬스터 가장 짧은 거리 업데이트
-            {
-                closestEnemy = enemy;
-                closestDistance = distance;
-            }
-        }
-        return closestEnemy;
+        Vector3 direction = enemies[Array.IndexOf(distance, distance.Min())].transform.position - GameManager.instance.Player.transform.position;
+        return direction.normalized;
     }
 }
