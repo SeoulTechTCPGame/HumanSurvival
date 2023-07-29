@@ -29,7 +29,7 @@ public class Knife : Weapon
             {
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
                 Vector3 spawnPosition = GameManager.instance.Player.transform.position;
-                if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
+                if (i > 0) //여러 개 동시 발사 시 시작 위치를 다르게 설정
                 {
                     spawnPosition.y -= ((int)WeaponTotalStats[((int)Enums.EWeaponStat.Area)] * (i-1)) / 2;
                     spawnPosition.y += i * (int)WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
