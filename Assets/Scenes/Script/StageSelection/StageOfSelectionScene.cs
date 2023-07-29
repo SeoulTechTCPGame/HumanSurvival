@@ -21,15 +21,15 @@ public class StageOfSelectionScene : MonoBehaviour
         switch (S.curLangIndex)
         {
             case (int)Enums.ELangauge.EN:
-                mStageName.SetText(mapData.StageExplainEN);
+                mStageName.SetText(mapData.StageNameEN);
                 break;
             case (int)Enums.ELangauge.KR:
-                mStageName.SetText(mapData.StageExplainKR);
+                mStageName.SetText(mapData.StageNameKR);
                 break;
             default:
                 break;
         }
-        mTime.SetText(mapData.PlayTime.ToString());
+        mTime.SetText(mapData.PlayTime.ToString() + ":00");
         mDoubleSpeed.SetText(mapData.DoubleSpeed.ToString());
         mGoldCoinBonus.SetText(mapData.GoldCoinBonus.ToString());
         mLuckBonus.SetText(mapData.LuckBonus.ToString());
