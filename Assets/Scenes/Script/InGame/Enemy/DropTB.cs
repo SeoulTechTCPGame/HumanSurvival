@@ -7,7 +7,10 @@ public class DropTB : MonoBehaviour
     [SerializeField] GameObject mTreasureBox;
     private void OnDisable()
     {
-        Transform t = Instantiate(mTreasureBox).transform;
-        t.position = transform.position;
+        if (GameManager.instance!=null&&GameManager.instance.IsGMAlive)
+        {
+            Transform t = Instantiate(mTreasureBox).transform;
+            t.position = transform.position;
+        }
     }
 }

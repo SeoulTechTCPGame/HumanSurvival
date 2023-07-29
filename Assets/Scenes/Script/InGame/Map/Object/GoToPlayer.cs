@@ -8,21 +8,25 @@ public class GoToPlayer : MonoBehaviour
     private float mPickupDistance = 2.5f;
     private void Awake()
     {
-        mPlayer = GameManager.instance.Player.transform;
+        if(GameManager.instance.Player!=null) mPlayer = GameManager.instance.Player.transform;
     }
     private void OnEnable()
     {
-        mPlayer = GameManager.instance.Player.transform;
+        if (GameManager.instance.Player != null) mPlayer = GameManager.instance.Player.transform;
     }
     private void Update()
     {
-        mPickupDistance *= GameManager.instance.CharacterStats[(int)Enums.EStat.Magnet];
-        float distance = Vector3.Distance(transform.position, mPlayer.position);
-        if (distance > mPickupDistance) return;
-        transform.position = Vector3.MoveTowards(transform.position, mPlayer.position, mSpeed * Time.deltaTime);
-        if (distance < mCollectDistacne) {
-            if(gameObject.TryGetComponent(out ICollectible collectible))
-                collectible.Collect();
+        if (mPlayer != null)
+        {
+            mPickupDistance *= GameManager.instance.CharacterStats[(int)Enums.EStat.Magnet];
+            float distance = Vector3.Distance(transform.position, mPlayer.position);
+            if (distance > mPickupDistance) return;
+            transform.position = Vector3.MoveTowards(transform.position, mPlayer.position, mSpeed * Time.deltaTime);
+            if (distance < mCollectDistacne) {
+                if(gameObject.TryGetComponent(out ICollectible collectible))
+                    collectible.Collect();
+            }
         }
+        
     }
 }
