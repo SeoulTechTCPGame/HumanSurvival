@@ -2649,8 +2649,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Yang @ryubat:\n- \uAC8C\uC784 \uC544\uC774\uCF58 \uC81C\uC791\r\n- \uAC8C\uC784
-    \uD50C\uB808\uC774 \uB3D9\uC601\uC0C1 \uC81C\uC791\r\n- \uBA54\uC778\uD654\uBA74
+  m_text: "Yang SuMin @ryubat:\n- \uAC8C\uC784 \uC544\uC774\uCF58 \uC81C\uC791\r\n-
+    \uAC8C\uC784 \uD50C\uB808\uC774 \uB3D9\uC601\uC0C1 \uC81C\uC791\r\n- \uBA54\uC778\uD654\uBA74
     UI\uD30C\uD2B8 \uD22C\uB450\uB9AC\uC2A4\uD2B8 \uC791\uC131"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
