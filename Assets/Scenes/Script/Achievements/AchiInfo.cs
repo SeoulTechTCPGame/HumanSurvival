@@ -3,19 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-[System.Serializable]
-class AchiData
-{
-    public string Explain;
-    public string Obtain;
-}
-
-[System.Serializable]
-class AchiInfoData
-{
-    public AchiData[] Achievement;
-}
-
 public class AchiInfo : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] int mAchi;
@@ -30,12 +17,13 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
     private TMP_Text mAchiName;
     private TMP_Text mAchiExplain;
     private TMP_Text mAchiObtain;
-    private AchiInfoData mInfoData;
     private string mExplain;
     private string mObtain;
 
     private void Awake() 
     {
+        if (mAchi > UserInfo.instance.AchiManager.Achievements.Count)
+            Destroy(gameObject);
         Transform achi = mContext.transform.GetChild(mAchi - 1);
 
         mThisAchiToggle = achi.GetComponent<Toggle>();
@@ -49,11 +37,10 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
     }
     private void Start()
     {
-        mInfoData = JsonUtility.FromJson<AchiInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
-        this.mExplain = mInfoData.Achievement[mAchi-1].Explain;
-        this.mObtain = mInfoData.Achievement[mAchi-1].Obtain;
+        this.mExplain = UserInfo.instance.AchiManager.Achievements[mAchi - 1].Explain;
+        this.mObtain = UserInfo.instance.AchiManager.Achievements[mAchi - 1].Obtain;
 
-        if (UserInfo.instance.UserDataSet.BAchievements[mAchi]) 
+        if (UserInfo.instance.UserDataSet.BAchievements[mAchi - 1]) 
         {
             mThisAchiToggle.GetComponent<Toggle>().isOn = true;
         }
@@ -61,7 +48,7 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (UserInfo.instance.UserDataSet.BAchievements[mAchi])
+        if (UserInfo.instance.UserDataSet.BAchievements[mAchi - 1])
         {
             mAchiName.text = "획득";
             mAchiImageBG.color = new Color(0f, 1f, 1f, 1f);

@@ -34,7 +34,15 @@ public class Character : MonoBehaviour, IDamageable
         {
             amount = amount * (1 + GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery]);
             mCurrentHp += amount;
-            if (mCurrentHp > mMaxHp) mCurrentHp = mMaxHp;
+            if (mCurrentHp > mMaxHp)
+            {
+                GameManager.instance.RestoreCount += amount - (mCurrentHp - mMaxHp);
+                mCurrentHp = mMaxHp;
+            }
+            else
+            {
+                GameManager.instance.RestoreCount += amount;
+            }
             mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
