@@ -38,7 +38,7 @@ public class EbonyWings : Weapon
     public void Fire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
         GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
-        SoundManager.instance.PlayOverlapSound(mFireClip);
+        SoundManager.instance.PlaySoundEffect(mFireClip);
         var newObjEbonyWings = newObs.GetComponent<EbonyWings>();
         newObjEbonyWings.StartPoint = sourceP;
         newObjEbonyWings.ControlPoint = secondPoint;

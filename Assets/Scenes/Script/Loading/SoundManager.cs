@@ -84,9 +84,20 @@ public class SoundManager : MonoBehaviour
     {
         SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
-    public void PlayRateSound(AudioClip soundEffectClip)
+    public void PlayRepeatedSoundEffect(AudioClip soundEffectClip, float time)
     {
-        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
+        StartCoroutine(PlaySoundEffectRepeatedly(soundEffectClip, time));
+    }
+    private IEnumerator PlaySoundEffectRepeatedly(AudioClip soundEffectClip, float time)
+    {
+        while (true)
+        {
+            // 오디오 클립을 재생합니다.
+            SoundEffectAudioSource.PlayOneShot(soundEffectClip);
+
+            // time초 만큼 대기합니다.
+            yield return new WaitForSeconds(time);
+        }
     }
     public void PlayOverlapSound(AudioClip soundEffectClip)
     {

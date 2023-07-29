@@ -1815,8 +1815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 14.479, y: -5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -30, y: -5}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4776699145182774786
 CanvasRenderer:
@@ -2233,8 +2233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 317, y: -35}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 175, y: -35}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4776699145459690841
 CanvasRenderer:
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2805,6 +2805,8 @@ MonoBehaviour:
   mPickLightMask: {fileID: 4776699146150239651}
   mFlyCoin: {fileID: 7443958766728562852, guid: 8ef2704e83dad594fb225ef29ff5983b, type: 3}
   mFlyItem: {fileID: 5733975983016766498, guid: 191c4c0fc29b2f24e982e11a6b76882a, type: 3}
+  mOpenClip: {fileID: 8300000, guid: 7ad08272346889e4285f2b47b7bca7ce, type: 3}
+  mChestClip: {fileID: 8300000, guid: 6023ef2cb26aca84fb8c7adfc07a0666, type: 3}
 --- !u!114 &4776699145629718422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3078,8 +3080,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 14.479, y: -5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -30, y: -5}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4776699145760049598
 CanvasRenderer:

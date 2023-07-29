@@ -529,8 +529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9892e5b15f799da4d96702d35ed6cae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameStage: 0
   GameTime: 0
   MaxGameTime: 300
+  IsGMAlive: 1
   Character: {fileID: 1366757111}
   Level: 0
   Kill: 0
@@ -566,7 +568,11 @@ MonoBehaviour:
   - 0
   - 0
   KillCount: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  RestoreCount: 0
+  DestroyCount: 0
+  FoundChickenCount: 0
   EvoGralicRestoreCount: 0
+  BGetChest: 0
   CharacterData: {fileID: 0}
   CharacterStats: []
   Pool: {fileID: 1068104046}

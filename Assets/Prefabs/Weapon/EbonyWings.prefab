@@ -277,4 +277,5 @@ MonoBehaviour:
   EndPoint: {fileID: 0}
   ControlPoint: {x: 0, y: 0, z: 0}
   ProjectileScale: {x: 13.2, y: 13.2, z: 0}
+  mFireClip: {fileID: 8300000, guid: 5388bdbe9195bf54e8060a88087ae939, type: 3}
   mAnimator: {fileID: 4988606761751433582}
