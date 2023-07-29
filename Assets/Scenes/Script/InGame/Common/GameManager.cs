@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public PoolManager Pool;
     public PlayerMovement Player;
     public GameObject GameOverPanel;
+    public GameObject RevivalPanel;
     public GameObject LevepUpUI;
     public GameObject WeaponSlot;
     public GameObject AccessorySlot;
@@ -119,6 +120,11 @@ public class GameManager : MonoBehaviour
         Pool.enabled = false;
         Time.timeScale = 0;
         GameOverPanel.SetActive(true); // 판넬 활성화
+    }
+    public void RevivalPanelUp()
+    {
+        Time.timeScale = 0;
+        RevivalPanel.SetActive(true);
     }
     public void ProcessGameOverResults()
     {
