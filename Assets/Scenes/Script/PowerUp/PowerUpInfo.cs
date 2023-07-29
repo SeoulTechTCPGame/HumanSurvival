@@ -81,7 +81,6 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData) 
     {
-        Debug.Log(UserInfo.instance.UserDataSet.BPowerUpActive[mAccessoryIndex - 1]);
         mAccessoryName.text = mThisAccessoryName.text;
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;

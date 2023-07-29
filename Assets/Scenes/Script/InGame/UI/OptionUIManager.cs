@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
 public class OptionUIManager : MonoBehaviour
 {
@@ -138,24 +139,24 @@ public class OptionUIManager : MonoBehaviour
     {
         mStatVarText.text =
             (GameManager.instance.CharacterData.MaxHealth * characterStats[(int)Enums.EStat.MaxHealth]).ToString() + "\n" +
-            ((int)(characterStats[(int)Enums.EStat.Recovery] * 10) == 0 ? "-" : "+" +(characterStats[(int)Enums.EStat.Recovery]).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.EStat.Armor]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Armor])).ToString()) + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.MoveSpeed] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.MoveSpeed] - 1) * 100 )).ToString() + "%") + "\n\n" +
-            ((int)((characterStats[(int)Enums.EStat.Might] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Might] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.ProjectileSpeed] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.ProjectileSpeed] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.Duration] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Duration] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.Area] - 1) * 100 ) == 0 ? "-" : ((int)((characterStats[(int)Enums.EStat.Area] - 1)) == 0 ? "+" + ((int)((characterStats[(int)Enums.EStat.Area] - 1) * 100)).ToString() + "%" : "+" + ((int)(characterStats[(int)Enums.EStat.Area] * 100)).ToString() + "%")) + "\n\n" + // 초기 공격 범위가 1이 아닌 4일 때 즉 400% 일 때 300%로 표기되는 것을 막기 위해서 if문 하나 더 사용
-            ((int)((characterStats[(int)Enums.EStat.Cooldown] - 1) * 100 ) == 0 ? "-" : ((int)((characterStats[(int)Enums.EStat.Cooldown] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)(characterStats[(int)Enums.EStat.Amount]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Amount])).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.EStat.Revival]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Revival])).ToString()) + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.Magnet] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Magnet] - 1) * 100 )).ToString() + "%") + "\n\n" +
-            ((int)((characterStats[(int)Enums.EStat.Luck] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Luck] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.Growth] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Growth] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.Greed] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Greed] - 1) * 100 )).ToString() + "%") + "\n" +
-            ((int)((characterStats[(int)Enums.EStat.Curse] - 1) * 100 ) == 0 ? "-" : "+" + ((int)((characterStats[(int)Enums.EStat.Curse] - 1) * 100 )).ToString() + "%") + "\n\n" +
-            ((int)(characterStats[(int)Enums.EStat.Reroll]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Reroll])).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.EStat.Skip]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Skip])).ToString()) + "\n" +
-            ((int)(characterStats[(int)Enums.EStat.Banish]) == 0 ? "-" : "+" + ((int)(characterStats[(int)Enums.EStat.Banish])).ToString());
+            (characterStats[(int)Enums.EStat.Recovery] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Recovery].ToString()) + "\n" +
+            (characterStats[(int)Enums.EStat.Armor] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Armor].ToString()) + "\n" +
+            (characterStats[(int)Enums.EStat.MoveSpeed] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.MoveSpeed] - 1) * 100)).ToString() + "%") + "\n\n" +
+            (characterStats[(int)Enums.EStat.Might] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Might] - 1) * 100)).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.ProjectileSpeed] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.ProjectileSpeed] - 1) * 100)).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.Duration] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Duration] - 1) * 100)).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.Area] == 1 ? "-" : (characterStats[(int)Enums.EStat.Area] - 1 < 1 ? "+" + MathF.Round(((characterStats[(int)Enums.EStat.Area] - 1) * 100)).ToString() + "%" : "+" + ((characterStats[(int)Enums.EStat.Area] * 100).ToString() + "%"))) + "\n\n" + // 초기 공격 범위가 1이 아닌 4일 때 즉 400% 일 때 300%로 표기되는 것을 막기 위해서 if문 하나 더 사용
+            (characterStats[(int)Enums.EStat.Cooldown] == 1 ? "-" : "-" + (MathF.Round(((1 - characterStats[(int)Enums.EStat.Cooldown]) * 1000)) * 0.1f).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.Amount] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Amount].ToString()) + "\n" +
+            (characterStats[(int)Enums.EStat.Revival] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Revival].ToString()) + "\n" +
+            (characterStats[(int)Enums.EStat.Magnet] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Magnet] - 1) * 100)).ToString() + "%") + "\n\n" +
+            (characterStats[(int)Enums.EStat.Luck] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Luck] - 1) * 100)).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.Growth] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Growth] - 1) * 100)).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.Greed] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Greed] - 1) * 100)).ToString() + "%") + "\n" +
+            (characterStats[(int)Enums.EStat.Curse] == 1 ? "-" : "+" + MathF.Round(((characterStats[(int)Enums.EStat.Curse] - 1) * 100)).ToString() + "%") + "\n\n" +
+            (characterStats[(int)Enums.EStat.Reroll] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Reroll].ToString()) + "\n" +
+            (characterStats[(int)Enums.EStat.Skip] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Skip].ToString()) + "\n" +
+            (characterStats[(int)Enums.EStat.Banish] == 0 ? "-" : "+" + characterStats[(int)Enums.EStat.Banish].ToString());
     }
     public void SetItemUI(List<Weapon> weapons, List<Accessory> accessories)
     {

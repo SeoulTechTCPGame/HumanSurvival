@@ -97,7 +97,6 @@ public class Enemy : MonoBehaviour,IDamageable
         {
             StartCoroutine(KnockBack());
             mAnim.SetTrigger("Hit");
-            Debug.Log("Hit");
             if(weaponIndex == 6)
             {
                 if(mKnockbackpower < 3)
