@@ -84,9 +84,11 @@ public class TreasureChest : MonoBehaviour
     {
         mbIsOn = false;
         DisableAllObject();
-
-        GameManager.instance.ResumeGame();
-        GameManager.instance.Player.enabled = true;
+        if (!GameObject.Find("LevelUpUI").GetComponent<LevelUpUIManager>().mbOnLevelUp)
+        {
+            GameManager.instance.ResumeGame();
+            GameManager.instance.Player.enabled = true;
+        }
     }
     public void ChestOpenUI()
     {

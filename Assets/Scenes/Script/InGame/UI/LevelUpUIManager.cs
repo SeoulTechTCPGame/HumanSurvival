@@ -20,7 +20,6 @@ public class LevelUpUIManager : MonoBehaviour
     [SerializeField] MiniLevels[] mAccessoryLevelsUI;
     [SerializeField] Image[] mOwnAccessoryImages;
 
-    [SerializeField] GameObject mPlayer;
     [SerializeField] GameObject mPickUpUI;
     [SerializeField] GameObject mStatUI;
     [SerializeField] GameObject mItemUI;
@@ -76,7 +75,7 @@ public class LevelUpUIManager : MonoBehaviour
     {
         mTime = 0;
         mbOnLevelUp = true;
-        mPlayer.GetComponent<PlayerMovement>().enabled = false;
+        GameManager.instance.Player.enabled = false;
         mPickUps = pickUps;
 
         mPickUpUI.SetActive(true);
@@ -96,7 +95,7 @@ public class LevelUpUIManager : MonoBehaviour
         UnSetItemUI();
         mItemUI.SetActive(false);
         mFilter.SetActive(false);
-        mPlayer.GetComponent<PlayerMovement>().enabled = true;
+        GameManager.instance.Player.enabled = true;
     }
     public void SetPickUpUI(List<Tuple<int, int, int>> pickUps)
     {
@@ -178,7 +177,7 @@ public class LevelUpUIManager : MonoBehaviour
         int selectedIndex = clickedButton.GetComponent<PickButton>().Index;
         GameManager.instance.EquipManageSys.ApplyItem(mPickUps[selectedIndex]);
         UnloadLevelUpUI();
-        GameObject.Find("GameManager").GetComponent<GameManager>().ResumeGame();
+        GameManager.instance.ResumeGame();
     }
     private static void ItemScriptProcessing()
     {
