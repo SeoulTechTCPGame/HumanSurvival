@@ -45,7 +45,7 @@ public class CollectionManager : MonoBehaviour
     {
         for (int i = 0; i < Collections.Count; i++)
         {
-            if (!UserInfo.instance.UserDataSet.BAchievements[i] && Collections[i].IsComplete())
+            if (!UserInfo.instance.UserDataSet.BCollection[i] && Collections[i].IsComplete())
             {
                 UserInfo.instance.UserDataSet.BCollection[i] = true;
             }
