@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Whip : Weapon
 {
-    private GameObject mNewObj;
     public float CriticalRate = 10;
+    [SerializeField] AudioClip mFireClip;
+    private GameObject mNewObj;
     private float mTimer = 0;
     private bool mbUse = false;
     private bool mCharacterDirectionRight = true;
@@ -26,7 +27,7 @@ public class Whip : Weapon
             mCharacterDirectionRight = false;
         }
         
-        if (mTimer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])   //ToDo: 보정값
+        if (mTimer > objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
             mNewObj = new GameObject("Whips");
             mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
@@ -34,6 +35,7 @@ public class Whip : Weapon
             {
                 // 무기 생성
                 GameObject newObs = Instantiate(objPre, GameObject.Find("Whips").transform);
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 newObs.transform.localScale *= objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
                 float power = newObs.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Might)];
                 power = Random.Range(0, 100) < CriticalRate ? power : power * 2;
@@ -55,28 +57,8 @@ public class Whip : Weapon
             mTimer = 0;
         }
     }
-    #region
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {
 
     }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 0 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(8);
-            }
-        }
-    }
-    #endregion
 }

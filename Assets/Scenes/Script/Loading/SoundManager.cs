@@ -120,6 +120,10 @@ public class SoundManager : MonoBehaviour
                 StopBgm();
                 PlayBgm(scene.name);
             }
+            else if (BgmAudioSource.clip == null)
+            {
+                PlayBgm(scene.name);
+            }
             else
             {
                 // 이전 씬과 동일한 BGM인 경우 이어서 재생
@@ -145,7 +149,6 @@ public class SoundManager : MonoBehaviour
             // 나머지 씬에 진입한 경우
             bgmClip = Bgm[(int)Enums.EBgm.BGM]; // 나머지 씬에 해당하는 BGM
         }
-
         BgmAudioSource.clip = bgmClip;
         BgmAudioSource.volume = BgmVolume;
         BgmAudioSource.Play();

@@ -8,6 +8,7 @@ public class Peachone : Weapon
     public Vector3 ControlPoint;
     public Vector3 ProjectileScale;
     [SerializeField] Animator mAnimator;
+    [SerializeField] AudioClip mFireClip;
     private bool mbHolding = false;
     private static Color[] mColors = { new Color(0.85f, 0.13f, 0.19f, 1), new Color(1, 0.46f, 0, 1), new Color(0.89f, 0.87f, 0.88f, 1)
             , new Color(0.51f, 0.93f, 0.17f, 1), new Color(0.13f, 0.89f, 0.51f, 1), new Color(0.13f, 0.75f, 1, 1), new Color(0.17f, 0.14f, 0.91f, 1), new Color(0.84f, 0.27f, 0.86f, 1) };
@@ -30,37 +31,6 @@ public class Peachone : Weapon
             Destroy(gameObject, 1f);
             mAnimator.SetTrigger("Hold");
             GetComponent<CircleCollider2D>().enabled = true;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if(WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if(GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
-        }
-    }
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Boundary")
-        {
-            Destroy(this.gameObject);
         }
     }
     public override void Attack()
@@ -86,6 +56,7 @@ public class Peachone : Weapon
     public void Fire(GameObject objPre, Transform dstTransform, Vector3 secondPoint, Transform sourceP)
     {
         GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+        SoundManager.instance.PlayOverlapSound(mFireClip);
         var newObjPeachone = newObs.GetComponent<Peachone>();
         newObjPeachone.StartPoint = sourceP;
         newObjPeachone.ControlPoint = secondPoint;

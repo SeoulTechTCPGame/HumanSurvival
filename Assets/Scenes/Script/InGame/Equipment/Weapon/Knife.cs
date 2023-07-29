@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Knife : Weapon
 {
+    [SerializeField] AudioClip mFireClip;
     private float mTimer = 0;
     private bool mbUseKnife = false;
     private int mTouchLimit;
@@ -28,6 +29,7 @@ public class Knife : Weapon
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);   //skillFiringSystem에서 프리팹 가져오기
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 Vector3 spawnPosition = GameManager.instance.Player.transform.position;
                 if (i > 1) //여러 개 동시 발사 시 시작 위치를 다르게 설정
                 {

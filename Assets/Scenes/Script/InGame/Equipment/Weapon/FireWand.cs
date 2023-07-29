@@ -3,6 +3,7 @@ using UnityEngine;
 public class FireWand : Weapon
 {
     [SerializeField] Animator mAnimator;
+    [SerializeField] AudioClip mFireClip;
     private float mTimer = 0;
     private bool mbUseWand = false;
     private int mTouchLimit;
@@ -42,6 +43,7 @@ public class FireWand : Weapon
 
                 //무기 세팅
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 newObs.transform.position = GameManager.instance.Player.transform.position;
                 FireWand newWand = newObs.GetComponent<FireWand>();
                 newWand.mbUseWand = true;
