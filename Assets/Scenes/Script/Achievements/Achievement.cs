@@ -3,9 +3,8 @@ using Enums;
 public class Achievement
 {
     public bool BAchieved;
-
-    private string mExplain;
-    private string mObtain;
+    public string Explain;
+    public string Obtain;
 
     public virtual bool IsComplete()
     {
