@@ -198,10 +198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2322986167906497926, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4464912380168153913, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
       propertyPath: m_Name
       value: Grid
@@ -249,22 +245,6 @@ PrefabInstance:
     - target: {fileID: 4464912380168153915, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7265501195171910487, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
-      propertyPath: probability
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8340649227569999258, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
-      propertyPath: probability
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8340649228538274217, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
-      propertyPath: probability
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8340649228774010548, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}
-      propertyPath: probability
-      value: 99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc7b929fb1dafc4a8e27eb705958b9a, type: 3}

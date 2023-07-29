@@ -27,6 +27,10 @@ public class SceneMove : MonoBehaviour
     {
         SceneManager.LoadScene("PowerUp");
     }
+    public void ToCredit()
+    {
+        SceneManager.LoadScene("Credit");
+    }
     public void ToStage()
     {
         SceneManager.LoadScene("StageSelection");
