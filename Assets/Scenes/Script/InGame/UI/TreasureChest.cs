@@ -235,11 +235,11 @@ public class TreasureChest : MonoBehaviour
     }
     private int GetChoice() // 1, 3, 5 중 하나를 반환
     {
-        var greed = GameManager.instance.CharacterStats[(int)Enums.EStat.Greed];
+        var luck = GameManager.instance.CharacterStats[(int)Enums.EStat.Luck];
         WeightedRandomPicker<int> chestPicker = new WeightedRandomPicker<int>();
         for (int i = 0; i < mChestRarity.Length; i++)
         {
-            chestPicker.Add(i, (mChestRarity[i] + greed) / (double)mChestRarity[i]);
+            chestPicker.Add(i, (mChestRarity[i] + luck) / (double)mChestRarity[i]);
         }
 
         mPickedIndex = chestPicker.GetRandomPick();  // 0 ~ 2 반환
