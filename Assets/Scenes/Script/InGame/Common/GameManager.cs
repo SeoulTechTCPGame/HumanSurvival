@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
+        ProcessGameOverResults();
         IsGMAlive = false;
         GameObject chest;
         chest = GameObject.Find("chest(Clone)");
