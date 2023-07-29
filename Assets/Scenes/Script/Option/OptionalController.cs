@@ -5,10 +5,8 @@ public class OptionalController : MonoBehaviour
 {
     [SerializeField] Slider mBgmSlider;
     [SerializeField] Slider mSoundEffectSlider;
-    [SerializeField] Toggle mVFXToggle;
     [SerializeField] Toggle mFullScreenToggle;
-    [SerializeField] Toggle mShowDamageToggle;
-    [SerializeField] Toggle mHideStageToggle;
+
     private SoundManager mSoundManager;
 
     private void Start()
@@ -20,10 +18,7 @@ public class OptionalController : MonoBehaviour
 
         mBgmSlider.onValueChanged.AddListener(OnBgmVolumeChanged);
         mSoundEffectSlider.onValueChanged.AddListener(OnSoundEffectVolumeChanged);
-        mVFXToggle.onValueChanged.AddListener(OnVFXToggleChanged);
         mFullScreenToggle.onValueChanged.AddListener(OnFullScreenToggleChanged);
-        mShowDamageToggle.onValueChanged.AddListener(OnShowDamageToggleChanged);
-        mHideStageToggle.onValueChanged.AddListener(OnHideStageToggleChanged);
     }
     private void LoadSettings()
     {
@@ -34,24 +29,32 @@ public class OptionalController : MonoBehaviour
         // 사운드 이펙트 볼륨 로드
         float soundEffectVolume = mSoundManager.SoundEffectVolume;
         mSoundEffectSlider.value = soundEffectVolume;
+
+        // 전체 화면 토글 로드
+        bool isFullScreen = mSoundManager.IsFullScreen;
+        mFullScreenToggle.isOn = isFullScreen;
+        OnFullScreenToggleChanged(isFullScreen);
     }
     public void OnBgmVolumeChanged(float value)
     {
         // BGM 볼륨 값을 변경
         mSoundManager.BgmVolume = value;
-        SoundManager.instance.AudioSource.volume = value;
+        mSoundManager.BgmAudioSource.volume = value;
+
+        mSoundManager.SaveSettings();
     }
     public void OnSoundEffectVolumeChanged(float value)
     {
         // 사운드 이펙트 볼륨 값을 변경
         mSoundManager.SoundEffectVolume = value;
-    }
-    public void OnVFXToggleChanged(bool value)
-    {
-        SoundManager.instance.EnableVFX(value);
+        mSoundManager.SoundEffectAudioSource.volume = value;
+
+        mSoundManager.SaveSettings();
     }
     public void OnFullScreenToggleChanged(bool value)
     {
+        mSoundManager.IsFullScreen = value;
+
         if (value)
         {
             Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
@@ -60,13 +63,7 @@ public class OptionalController : MonoBehaviour
         {
             Screen.SetResolution(1920, 1080, false);
         }
-    }
-    public void OnShowDamageToggleChanged(bool value)
-    {
-        SoundManager.instance.EnableDamageDisplay(value);
-    }
-    public void OnHideStageToggleChanged(bool value)
-    {
-        SoundManager.instance.HideStage(value);
+
+        mSoundManager.SaveSettings();
     }
 }

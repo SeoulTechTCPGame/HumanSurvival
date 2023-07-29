@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public int WeaponMaxLevel;
     public bool BEvolution = false;
     public float[] WeaponTotalStatList; // Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    protected int mTouch = 0;
     [SerializeField] AudioClip mClip;
     private float[] mWeaponStats;
 
@@ -38,6 +39,10 @@ public class Weapon : MonoBehaviour
                     }
                 }
             }
+        }
+        if (col.gameObject.tag == "Monster")
+        {
+            mTouch++;
         }
     }
     private void OnTriggerExit2D(Collider2D col)

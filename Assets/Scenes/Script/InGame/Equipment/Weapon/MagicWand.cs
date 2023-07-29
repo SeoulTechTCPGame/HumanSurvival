@@ -1,12 +1,14 @@
 using UnityEngine;
+using System;      // array의 IndexOf 함수
+using System.Linq; // array의 Max, Min 함수 
 
 public class MagicWand : Weapon
 {
     [SerializeField] Animator mAnimator;
     private float mTimer = 0;
     private bool mbUseWand = false;
-    private int mTouch = 0;
     private int mTouchLimit;
+    private int mSpeedPower = 10;
 
     private void Start()
     {
@@ -42,7 +44,7 @@ public class MagicWand : Weapon
                 newObs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
                 //무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)] * mSpeedPower;
             }
             mTimer = 0;
         }
@@ -51,64 +53,23 @@ public class MagicWand : Weapon
     {
 
     }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if (GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            mTouch++;
-        }
-    }
     private Vector3 FindClosestEnemyDirection()
     {
-        GameObject closestEnemy = FindClosestEnemy();
-        if (closestEnemy != null)
+        Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 15 + Vector3.up * 8, GameManager.instance.Player.transform.position + Vector3.right * 15 + Vector3.down * 8, LayerMask.GetMask("Monster"));
+        float[] distance = new float[enemies.Length];
+
+        for(int i = 0; i < enemies.Length; i++)
         {
-            Vector3 direction = closestEnemy.transform.position - transform.position;
-            return direction.normalized;
+            distance[i] = Vector3.Distance(GameManager.instance.Player.transform.position, enemies[i].transform.position);
         }
-        else
+        
+        if (enemies.Length == 0)
         {
+            Debug.Log("error");
             return Vector3.right;
         }
-    }
-    private GameObject FindClosestEnemy() 
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
-        GameObject closestEnemy = null;
-        float closestDistance = Mathf.Infinity;
 
-        //적 탐색
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distance < closestDistance) //소환된 무기와 몬스터 가장 짧은 거리 업데이트
-            {
-                closestEnemy = enemy;
-                closestDistance = distance;
-            }
-        }
-        return closestEnemy;
+        Vector3 direction = enemies[Array.IndexOf(distance, distance.Min())].transform.position - GameManager.instance.Player.transform.position;
+        return direction.normalized;
     }
 }

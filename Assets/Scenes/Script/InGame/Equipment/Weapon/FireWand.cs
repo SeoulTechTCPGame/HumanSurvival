@@ -5,8 +5,8 @@ public class FireWand : Weapon
     [SerializeField] Animator mAnimator;
     private float mTimer = 0;
     private bool mbUseWand = false;
-    private int mTouch = 0;
     private int mTouchLimit;
+    private int mSpeedPower = 10;
 
     private void Start()
     {
@@ -17,7 +17,6 @@ public class FireWand : Weapon
         if (!mbUseWand) return;
         if (mTouchLimit <= mTouch)
         {
-            mAnimator.SetBool("Hit", true);
             Destroy(this.gameObject);
         }
     }
@@ -26,8 +25,7 @@ public class FireWand : Weapon
         GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
 
         mTimer += Time.deltaTime;
-        float cooldown = WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown];
-        if (mTimer > cooldown)
+        if (mTimer > WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown])
         {
             int numProjectiles = ((int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount]);
             Vector3 initialDirection = new Vector3(0f, 1f, 0f);
@@ -51,7 +49,7 @@ public class FireWand : Weapon
                 
                 //무기 발사
                 Rigidbody2D rb = newObs.GetComponent<Rigidbody2D>();
-                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)];
+                rb.velocity = direction * WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)] * mSpeedPower;
 
                 float angleInDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 newObs.transform.rotation = Quaternion.Euler(0f, 0f, angleInDegrees);
@@ -62,33 +60,5 @@ public class FireWand : Weapon
     public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
     {
 
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("DestructibleObj"))
-        {
-            if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
-            {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
-            if (WeaponIndex == 6 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(1);
-                GameManager.instance.EvoGralicRestoreCount++;
-                if (GameManager.instance.EvoGralicRestoreCount == 60)
-                {
-                    GameManager.instance.EvoGralicRestoreCount = 0;
-                    WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
-                }
-            }
-        }
-        if (col.gameObject.tag == "Monster")
-        {
-            mTouch++;
-        }
     }
 }

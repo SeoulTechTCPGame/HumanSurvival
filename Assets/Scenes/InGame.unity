@@ -1474,12 +1474,12 @@ MonoBehaviour:
   - {fileID: 943404134078784437, guid: a76fa4dffe69bc14a8d60e03231a8063, type: 3}
   - {fileID: 891077723031153331, guid: b5ed166c2ed17134a906a0402b26a2ed, type: 3}
   evolutionWeaponPrefabs:
-  - {fileID: 8370051675277498723, guid: f7fedc6d7e9bd8c4181ac1f557425504, type: 3}
-  - {fileID: 2937389158066652260, guid: 8a9866a6dadb7d44183bbbeba7f125d2, type: 3}
+  - {fileID: 8370051675277498723, guid: c3f0a81c98866f04680531149d2b2074, type: 3}
+  - {fileID: 1321290059638895578, guid: 632ee4f9a4098f945984553bf0513384, type: 3}
   - {fileID: 425092567256848293, guid: 93974c65d9e5bc741b0626cfaceffc4c, type: 3}
   - {fileID: 8370051675277498723, guid: 067258298637ccc4a897f9337f39c525, type: 3}
   - {fileID: 891077723031153331, guid: c656a2553bc8e4220b0e437b19daf79f, type: 3}
-  - {fileID: 1104715207525606704, guid: 3622cd3f3946703409470fea0f510c7f, type: 3}
+  - {fileID: 4141315234802192605, guid: 34fa103dcbc1b984895ebc92f1c3cc64, type: 3}
   - {fileID: 891077723031153331, guid: 783aacd6565d4c4419f8a60a1655f4fd, type: 3}
   - {fileID: 943404134078784437, guid: d127358dfc53fce46a853df2b53ea01a, type: 3}
   - {fileID: 943404134078784437, guid: d127358dfc53fce46a853df2b53ea01a, type: 3}
@@ -1513,6 +1513,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 484854659}
     m_Modifications:
+    - target: {fileID: 9212516674715354358, guid: 4179b5a7930eceb4399ed0600b728846, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212516674949500443, guid: 4179b5a7930eceb4399ed0600b728846, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9212516675124947928, guid: 4179b5a7930eceb4399ed0600b728846, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1600,6 +1608,10 @@ PrefabInstance:
     - target: {fileID: 9212516675124947932, guid: 4179b5a7930eceb4399ed0600b728846, type: 3}
       propertyPath: m_Name
       value: GameOverUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212516675124947932, guid: 4179b5a7930eceb4399ed0600b728846, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4179b5a7930eceb4399ed0600b728846, type: 3}

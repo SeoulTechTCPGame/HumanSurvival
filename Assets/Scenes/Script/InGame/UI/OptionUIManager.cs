@@ -21,9 +21,6 @@ public class OptionUIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mStatVarText;
 
-    [SerializeField] Sprite[] mWeaponImages;
-    [SerializeField] Sprite[] mAccessoryImages;
-    [SerializeField] Sprite[] mEtcImages;
     [SerializeField] Sprite[] mMiniLevelImages;
 
     private bool mbPauseGame = false;
@@ -63,7 +60,7 @@ public class OptionUIManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !GameObject.Find("TreasureChestUI").GetComponent<TreasureChest>().mbIsOn)
         {
             if(!mbPauseGame)
             {
@@ -88,9 +85,12 @@ public class OptionUIManager : MonoBehaviour
                 mOptionButtonUI.SetActive(false);
                 mBackButtonUI.SetActive(false);
                 mQuitButtonUI.SetActive(false);
-                Time.timeScale = 1f;
                 mPlayer.GetComponent<PlayerMovement>().enabled = true;
                 mbPauseGame = false;
+                if(!GameObject.Find("LevelUpUI").GetComponent<LevelUpUIManager>().mbOnLevelUp)
+                {
+                    Time.timeScale = 1f;
+                }
             }
             
         }
@@ -165,17 +165,22 @@ public class OptionUIManager : MonoBehaviour
     private void OnBgmVolumeChanged(float value)
     {
         mSoundManager.BgmVolume = value;
-        SoundManager.instance.AudioSource.volume = value;
+        mSoundManager.BgmAudioSource.volume = value;
+
+        mSoundManager.SaveSettings();
     }
     private void OnSoundEffectVolumeChanged(float value)
     {
         mSoundManager.SoundEffectVolume = value;
+        mSoundManager.SoundEffectAudioSource.volume = value;
+
+        mSoundManager.SaveSettings();
     }
     private void SetWeaponUI(List<Weapon> weapons)
     {
         for (int i = 0; i < weapons.Count; i++)
         {
-            mOwnWeaponImages[i].sprite = mWeaponImages[weapons[i].WeaponIndex];
+            mOwnWeaponImages[i].sprite = GetSprite(0, weapons[i].WeaponIndex);
             mOwnWeaponImages[i].enabled = true;
 
             int j = 0;
@@ -191,11 +196,41 @@ public class OptionUIManager : MonoBehaviour
             }
         }
     }
+    private Sprite GetSprite(int itemType, int index)
+    {
+        string resourceName;
+        switch (itemType)
+        {
+            case 0:
+                Enums.EWeapon[] enumValuesWeapon = (Enums.EWeapon[])System.Enum.GetValues(typeof(Enums.EWeapon));
+                Enums.EWeapon weapon = enumValuesWeapon[index];
+                resourceName = "Weapons/" + weapon.ToString();
+                return Resources.Load<Sprite>(resourceName);
+            case 1:
+                Enums.EAccessory[] enumValuesAccessory = (Enums.EAccessory[])System.Enum.GetValues(typeof(Enums.EAccessory));
+                Enums.EAccessory accessory = enumValuesAccessory[index];
+                resourceName = "Accessory/" + accessory.ToString();
+                return Resources.Load<Sprite>(resourceName);
+            case 2:
+                switch (index)
+                {
+                    case 0:
+                        resourceName = "Item/Coin";
+                        return Resources.Load<Sprite>(resourceName);
+                    case 1:
+                        resourceName = "Item/Recovery";
+                        return Resources.Load<Sprite>(resourceName);
+                }
+                break;
+        }
+
+        return null;
+    }
     private void SetAccessoryUI(List<Accessory> accessories)
     {
         for (int i = 0; i < accessories.Count; i++)
         {
-            mOwnAccessoryImages[i].sprite = mAccessoryImages[accessories[i].AccessoryIndex];
+            mOwnAccessoryImages[i].sprite = GetSprite(1, accessories[i].AccessoryIndex);
             mOwnAccessoryImages[i].enabled = true;
 
             int j = 0;

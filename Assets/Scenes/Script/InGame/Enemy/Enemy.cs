@@ -36,20 +36,24 @@ public class Enemy : MonoBehaviour,IDamageable
         if (EnemyData.SpriteType == 4)
         {
             mDirection = (mFixedTargetDirection - mRb.position).normalized;
-            Vector2 nextVec = 0.01f * EnemyData.Speed * Time.fixedDeltaTime * mDirection;
+            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection;
             mRb.position += nextVec;
         }
         else
         {
             mDirection = (Target.position - mRb.position).normalized;
-            Vector2 nextVec = 0.01f * EnemyData.Speed * Time.fixedDeltaTime * mDirection;
+            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection;
 
             //플레이어의 키입력 값을 더한 이동=몬스터의 방향 값을 더한 이동
             mRb.MovePosition(mRb.position + nextVec);
         }
         //물리 속도가 이동에 영향을 주지 않도록 속도 제거
         mRb.velocity = Vector2.zero;
-        
+        //플레이어와 일정 거리 이상 떨어지면 다시 리스폰하기
+        if (Vector3.Distance(Target.position, mRb.position) > 30)
+        {
+            mRb.position = Target.position + mDirection * 20;
+        }
     }
     private void LateUpdate()
     {
@@ -67,7 +71,7 @@ public class Enemy : MonoBehaviour,IDamageable
         //활성화 될때 변수 초기화
         mbLive = true;
         mLevel = EnemyData.Level;
-        mHealth = EnemyData.MaxHP*mLevel;
+        mHealth = EnemyData.MaxHP*mLevel* GameManager.instance.CharacterStats[(int)Enums.EStat.Curse];
         mColl.enabled=true;
         mRb.simulated = true;
         mSpriter.sortingOrder = 2;

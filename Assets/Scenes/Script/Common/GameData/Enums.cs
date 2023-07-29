@@ -134,4 +134,9 @@ namespace Enums
         MadForest,
         InlaidLibrary
     }
+    public enum ELangauge
+    {
+        EN,
+        KR
+    }
 }

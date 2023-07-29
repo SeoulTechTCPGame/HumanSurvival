@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour, IDamageable
 {
@@ -11,7 +12,6 @@ public class Character : MonoBehaviour, IDamageable
     private float mArmor;
     private float mExp;
     private int mMaxExp;
-
     private void Start()
     {
         mExp = 0;
@@ -19,20 +19,15 @@ public class Character : MonoBehaviour, IDamageable
         mCurrentHp = GameManager.instance.CharacterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.EStat.MaxHealth];
         mMaxHp = GameManager.instance.CharacterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.EStat.MaxHealth];
         mArmor = GameManager.instance.CharacterStats[(int)Enums.EStat.Armor];
+        InvokeRepeating("RepeatRecovery", 1, 1);
     }
     private void Update()
     {
         // 장신구 레벨업시 스텟이 적용되려면 Start가 아니라 Update에서도 계속 값을 업데이트해야지 적용된다.
         mMaxHp = GameManager.instance.CharacterData.MaxHealth * GameManager.instance.CharacterStats[(int)Enums.EStat.MaxHealth];
         mArmor = GameManager.instance.CharacterStats[(int)Enums.EStat.Armor];
-        //체력 재생력
-        HpRegenerationTimer += Time.deltaTime * GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery];
-        if (HpRegenerationTimer > 1f)
-        {
-            RestoreHealth(1);
-            HpRegenerationTimer -= 1f;
-        }
     }
+
     public void RestoreHealth(float amount)
     {
         if (mCurrentHp < mMaxHp)
@@ -45,16 +40,11 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
-        if (mbDead == true) return;
-        if (damage - mArmor <= 0)
-        {
-            mCurrentHp -= Time.deltaTime * 0 * 2;   //ToDo: 무슨 의미가 있는 코드?
-            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
-        }
-        else
+        if (mbDead == true) return; 
+        SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
+        if (damage - mArmor> 0)
         {
             mCurrentHp -= Time.deltaTime * (damage - mArmor) * 2;
-            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         if (mCurrentHp <= 0)
         {
@@ -70,7 +60,7 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void GetExp(float exp)
     {
-        exp=exp*(1+GameManager.instance.CharacterStats[(int)Enums.EStat.Growth] /100);
+        exp=exp*GameManager.instance.CharacterStats[(int)Enums.EStat.Growth];
         mExp += exp;
         GameManager.instance.Exp = mExp;
         while (mExp >= mMaxExp)
@@ -80,6 +70,15 @@ public class Character : MonoBehaviour, IDamageable
             GameManager.instance.MaxExp = mMaxExp;
             GameManager.instance.LevelUp();
             SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.LevelUp)]);
+        }
+    }
+    private void RepeatRecovery()
+    {
+        if (mCurrentHp < mMaxHp)
+        {
+             mCurrentHp +=GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery];
+            if (mCurrentHp > mMaxHp) mCurrentHp = mMaxHp;
+            mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
 }
