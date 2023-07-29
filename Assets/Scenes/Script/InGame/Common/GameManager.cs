@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     public float[] WeaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
     public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
+    public float RestoreCount;
     public int DestroyCount = 0; // LightObject
     public int FoundChickenCount = 0; // RecoveryObject
     public int EvoGralicRestoreCount = 0;
+    public bool BGetChest = false;
     public EquipmentManagementSystem EquipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
     //캐릭터의 스탯지정

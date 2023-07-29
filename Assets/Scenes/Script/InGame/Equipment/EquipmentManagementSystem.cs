@@ -55,6 +55,10 @@ public class EquipmentManagementSystem
             return false;
         return TransAccessoryIndex[accIndex] >= 0;
     }
+    public bool HasAcc(EAccessory accessory)
+    {
+        return TransAccessoryIndex[(int)accessory] >= 0;
+    }
     public void SetNewWeapon(int weaponIndex)
     {
         GameManager.instance.WeaponGetTime[weaponIndex] = GameManager.instance.GameTime;

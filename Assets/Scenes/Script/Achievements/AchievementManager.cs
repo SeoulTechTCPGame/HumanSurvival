@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
+[Serializable]
 public class AchievementData
 {
     public string ClassName;
@@ -9,22 +10,29 @@ public class AchievementData
     public string Obtain;
 }
 
+[Serializable]
+public class AchievementContainer
+{
+    public AchievementData[] Achievements;
+}
+
 public class AchievementManager : MonoBehaviour
 {
-    public List<Achievement> Achievements;
+    public List<AchievementClass> Achievements;
 
     private void Awake()
     {
-        TextAsset jsonData = Resources.Load<TextAsset>("GameData/ItemExplainDataKorean");
-        AchievementData[] jsonAchievements = JsonUtility.FromJson<AchievementData[]>(jsonData.text);
-        foreach (var jsonAchievement in jsonAchievements)
+        TextAsset jsonData = Resources.Load<TextAsset>("GameData/AchievementDataKorean");
+        AchievementContainer container = JsonUtility.FromJson<AchievementContainer>(jsonData.text);
+        foreach (var jsonAchievement in container.Achievements)
         {
             Type achievementType = Type.GetType(jsonAchievement.ClassName);
 
             if (achievementType != null)
             {
-                Achievement achievement = (Achievement)Activator.CreateInstance(achievementType);
+                AchievementClass achievement = (AchievementClass)Activator.CreateInstance(achievementType);
                 achievement.Explain = jsonAchievement.Explain;
+                achievement.Obtain = jsonAchievement.Obtain;
 
                 Achievements.Add(achievement);
             }
@@ -41,6 +49,5 @@ public class AchievementManager : MonoBehaviour
                 Achievements[i].EarnRewards();
             }
         }
-        UserDataManager.instance.SaveData();
     }
 }

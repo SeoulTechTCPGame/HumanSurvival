@@ -7,6 +7,7 @@ public class UserInfo : MonoBehaviour
 {
     public static UserInfo instance;
     public UserData UserDataSet;
+    public AchievementManager AchiManager;
 
     private const int JUMP_ACCESSORY = 58;
     private const int JUMP_STAGE = 0;

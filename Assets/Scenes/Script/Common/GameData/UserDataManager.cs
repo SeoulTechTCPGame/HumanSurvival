@@ -10,7 +10,7 @@ public class UserData
     public int ConsumedGold = 0;
     public float AccumulatedTime = 0;
     public int AccKill = 0;
-    public int AccRecovery = 0;
+    public int AccRestore = 0;
     public int[] Options;
     public int[] PowerUpLevel = new int[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] PowerUpStat = new float[16] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

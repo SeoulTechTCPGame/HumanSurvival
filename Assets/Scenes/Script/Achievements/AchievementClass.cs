@@ -1,8 +1,7 @@
 using Enums;
 
-public class Achievement
+public class AchievementClass
 {
-    public bool BAchieved;
     public string Explain;
     public string Obtain;
 
@@ -13,7 +12,7 @@ public class Achievement
     public virtual void EarnRewards() { }
 }
 
-public class ReachLevel5 : Achievement
+public class ReachLevel5 : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -25,7 +24,7 @@ public class ReachLevel5 : Achievement
     }
 }
 
-public class ReachLevel10 : Achievement
+public class ReachLevel10 : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -37,7 +36,7 @@ public class ReachLevel10 : Achievement
     }
 }
 
-public class ReachLevel20InStage1 : Achievement
+public class ReachLevel20InStage1 : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -49,7 +48,7 @@ public class ReachLevel20InStage1 : Achievement
     }
 }
 
-public class Survive1Min : Achievement
+public class Survive1Min : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -61,7 +60,7 @@ public class Survive1Min : Achievement
     }
 }
 
-public class Survive5MinPlayGennaro : Achievement
+public class Survive5MinPlayGennaro : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -73,7 +72,7 @@ public class Survive5MinPlayGennaro : Achievement
     }
 }
 
-public class Survive10Min : Achievement
+public class Survive10Min : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -85,7 +84,7 @@ public class Survive10Min : Achievement
     }
 }
 
-public class ReachLevel4KingBible : Achievement
+public class ReachLevel4KingBible : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -98,7 +97,7 @@ public class ReachLevel4KingBible : Achievement
     }
 }
 
-public class ReachLevel4FireWand : Achievement
+public class ReachLevel4FireWand : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -111,7 +110,7 @@ public class ReachLevel4FireWand : Achievement
     }
 }
 
-public class ReachLevel4LightningRing : Achievement
+public class ReachLevel4LightningRing : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -124,7 +123,7 @@ public class ReachLevel4LightningRing : Achievement
     }
 }
 
-public class ReachLevel7MagicWand : Achievement
+public class ReachLevel7MagicWand : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -138,7 +137,7 @@ public class ReachLevel7MagicWand : Achievement
     }
 }
 
-public class ReachLevel7Peachone : Achievement
+public class ReachLevel7Peachone : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -151,7 +150,7 @@ public class ReachLevel7Peachone : Achievement
     }
 }
 
-public class ReachLevel7Garlic : Achievement
+public class ReachLevel7Garlic : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -164,7 +163,7 @@ public class ReachLevel7Garlic : Achievement
     }
 }
 
-public class Possession6Weapons : Achievement
+public class Possession6Weapons : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -177,11 +176,11 @@ public class Possession6Weapons : Achievement
     }
 }
 
-public class Cumulative1000Recovery : Achievement
+public class Cumulative1000Recovery : AchievementClass
 {
     public override bool IsComplete()
     {
-        return UserInfo.instance.UserDataSet.AccRecovery >= 1000;
+        return UserInfo.instance.UserDataSet.AccRestore >= 1000;
     }
 
     public override void EarnRewards()
@@ -190,7 +189,7 @@ public class Cumulative1000Recovery : Achievement
     }
 }
 
-public class Destroy20LightObject : Achievement
+public class Destroy20LightObject : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -203,7 +202,7 @@ public class Destroy20LightObject : Achievement
     }
 }
 
-public class Found5Chickens : Achievement
+public class Found5Chickens : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -216,7 +215,7 @@ public class Found5Chickens : Achievement
     }
 }
 
-public class AccKillCount3000 : Achievement
+public class AccKillCount3000 : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -229,7 +228,7 @@ public class AccKillCount3000 : Achievement
     }
 }
 
-public class EvoWhip : Achievement
+public class EvoWhip : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -243,7 +242,7 @@ public class EvoWhip : Achievement
     }
 }
 
-public class EvoMagicWand : Achievement
+public class EvoMagicWand : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -257,7 +256,7 @@ public class EvoMagicWand : Achievement
     }
 }
 
-public class EvoKnife : Achievement
+public class EvoKnife : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -271,7 +270,7 @@ public class EvoKnife : Achievement
     }
 }
 
-public class EvoLightningRing : Achievement
+public class EvoLightningRing : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -285,7 +284,7 @@ public class EvoLightningRing : Achievement
     }
 }
 
-public class EvoKingBible : Achievement
+public class EvoKingBible : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -299,7 +298,7 @@ public class EvoKingBible : Achievement
     }
 }
 
-public class EvoFireWand : Achievement
+public class EvoFireWand : AchievementClass
 {
     public override bool IsComplete()
     {
@@ -313,7 +312,7 @@ public class EvoFireWand : Achievement
     }
 }
 
-public class EvoGarlic : Achievement
+public class EvoGarlic : AchievementClass
 {
     public override bool IsComplete()
     {
