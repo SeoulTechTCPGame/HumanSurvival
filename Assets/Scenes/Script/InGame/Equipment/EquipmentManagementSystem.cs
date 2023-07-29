@@ -73,16 +73,13 @@ public class EquipmentManagementSystem
     }
     public Weapon GetWeapon(int weaponIndex)
     {
-        if (TransWeaponIndex[weaponIndex] < 0)
+        if (TransWeaponIndex[weaponIndex] < 0 || weaponIndex >= Constants.WEAPON_STAT_NUMBER)
             Debug.Log("없는 무기 호출");
         // TODO: 없는 무기 호출시 에러! 제대로 작성
         return Weapons[TransWeaponIndex[weaponIndex]];
     }
     public Weapon GetWeapon(EWeapon weapon)
     {
-        if (TransWeaponIndex[(int)weapon] < 0)
-            Debug.Log("없는 무기 호출");
-        // TODO: 없는 무기 호출시 에러! 제대로 작성
         return Weapons[TransWeaponIndex[(int)weapon]];
     }
     public void UpgradeWeapon(int weaponIndex)
@@ -93,12 +90,22 @@ public class EquipmentManagementSystem
             MasteredWeapons.Add(weaponIndex);
         }
     }
-    public void GetAccessory(int accessoryIndex)
+    public void SetNewAccessory(int accessoryIndex)
     {
         TransAccessoryIndex[accessoryIndex] = Accessories.Count;
         Accessories.Add(new Accessory(accessoryIndex));
         UpgradeAccessory(accessoryIndex);
         GameManager.instance.AccessorySlot.GetComponent<SlotUI>().AddSlot(accessoryIndex, 1);
+    }
+    public Accessory GetAccessory(int accessoryIndex)
+    {
+        if (TransWeaponIndex[accessoryIndex] < 0 || accessoryIndex >= Constants.MAX_ACCESSORY_NUMBER)
+            Debug.Log("없는 악세서리 호출");
+        return Accessories[TransWeaponIndex[accessoryIndex]];
+    }
+    public Accessory GetAccessory(EAccessory accessory)
+    {
+        return Accessories[TransWeaponIndex[(int)accessory]];
     }
     public void UpgradeAccessory(int accessoryIndex)
     {
@@ -166,7 +173,7 @@ public class EquipmentManagementSystem
     private void ApplyAccessory(int accessoryIndex, int hasAccessory)
     {
         if (hasAccessory == 0)
-            GetAccessory(accessoryIndex);
+            SetNewAccessory(accessoryIndex);
         else
             UpgradeAccessory(accessoryIndex);
     }
