@@ -129,6 +129,11 @@ namespace Enums
         Die,
         LevelUp
     }
+    public enum EStage
+    {
+        MadForest,
+        InlaidLibrary
+    }
     public enum ELangauge
     {
         EN,

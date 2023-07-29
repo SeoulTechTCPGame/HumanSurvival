@@ -1,9 +1,11 @@
+using Enums;
 using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [Header("# Game Control")]
+    public EStage GameStage;
     public float GameTime;
     public float MaxGameTime = 180 * 10f;
     public bool IsGMAlive = true;
@@ -17,7 +19,11 @@ public class GameManager : MonoBehaviour
     public float[] WeaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
     public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
+    public float RestoreCount;
+    public int DestroyCount = 0; // LightObject
+    public int FoundChickenCount = 0; // RecoveryObject
     public int EvoGralicRestoreCount = 0;
+    public bool BGetChest = false;
     public EquipmentManagementSystem EquipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
     //캐릭터의 스탯지정
@@ -112,6 +118,17 @@ public class GameManager : MonoBehaviour
         Pool.enabled = false;
         Time.timeScale = 0;
         GameOverPanel.SetActive(true); // 판넬 활성화
+    }
+    public void ProcessGameOverResults()
+    {
+        var userData = UserInfo.instance.UserDataSet;
+        userData.Gold += Coin;
+        userData.AccumulatedTime += GameTime;
+        userData.AccKill += Kill;
+        userData.AccRestore += RestoreCount;
+        UserInfo.instance.AchiManager.UpdateAchievements();
+        UserInfo.instance.CollectionManager.UpdateCollections();
+        UserDataManager.instance.SaveData();
     }
     public void LevelUp()
     {
