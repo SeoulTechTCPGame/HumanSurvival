@@ -7,8 +7,6 @@ static class Constants
     public const int MAX_ETC_NUMBER = 2;
     public const int MAX_WEAPON_NUMBER = 10;
     public const int MAX_ACCESSORY_NUMBER = 15;
-    public const int MAX_COLLECTION_NUMBER = 60;
-    public const int MAX_ACHIEVEMENT_NUMBER = 39;
     public const int DELTA_EXP = 10;
     public const int POWERUP_NUMBER = 16;
     public const int MAX_OPTION_NUMBER = 0; // TODO: 옵션 구현 후 설정

@@ -8,9 +8,7 @@ public class UserInfo : MonoBehaviour
     public static UserInfo instance;
     public UserData UserDataSet;
     public AchievementManager AchiManager;
-
-    private const int JUMP_ACCESSORY = 58;
-    private const int JUMP_STAGE = 0;
+    public CollectionManager CollectionManager;
 
     private void Awake()
     {
@@ -23,7 +21,10 @@ public class UserInfo : MonoBehaviour
             Destroy(instance.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+        AchiManager = new AchievementManager();
+        CollectionManager = new CollectionManager();
     }
+
     public void SetDefaultUnlockSettings()
     {
         SetDefaultStageSetting();
@@ -43,7 +44,6 @@ public class UserInfo : MonoBehaviour
     public void UpdateGold(int gold)
     {
         UserDataSet.Gold += gold;
-        UserDataManager.instance.SaveData();
     }
     public void ConsumeGold(int gold)
     {
@@ -59,12 +59,10 @@ public class UserInfo : MonoBehaviour
     public void UpdateCollection(int collectionIndex)
     {
         UserDataSet.BCollection[collectionIndex] = true;
-        UserDataManager.instance.SaveData();
     }
     public void UpdateAchievement(int achievementIndexes)
     {
         UserDataSet.BAchievements[achievementIndexes] = true;
-        UserDataManager.instance.SaveData();
     }
     public void UpdatePowerUpLevel(int powerUpIndex)
     {

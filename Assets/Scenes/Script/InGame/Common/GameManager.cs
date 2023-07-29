@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
+        ProcessGameOverResults();
         GameObject tb;
         tb= GameObject.FindGameObjectWithTag("CollectibleObj");
         Destroy(tb);
@@ -117,6 +118,17 @@ public class GameManager : MonoBehaviour
         Pool.enabled = false;
         Time.timeScale = 0;
         GameOverPanel.SetActive(true); // 판넬 활성화
+    }
+    public void ProcessGameOverResults()
+    {
+        var userData = UserInfo.instance.UserDataSet;
+        userData.Gold += Coin;
+        userData.AccumulatedTime += GameTime;
+        userData.AccKill += Kill;
+        userData.AccRestore += RestoreCount;
+        UserInfo.instance.AchiManager.UpdateAchievements();
+        UserInfo.instance.CollectionManager.UpdateCollections();
+        UserDataManager.instance.SaveData();
     }
     public void LevelUp()
     {

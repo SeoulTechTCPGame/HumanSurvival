@@ -1,5 +1,5 @@
 {
-  "Collection": [
+  "Collections": [
     {
       "ClassName": "CollectionWhip",
       "Name": "채찍",
@@ -194,7 +194,7 @@
       "Name": "주문속박기",
       "Explain": "지속시간이 10% 증가한다.",
       "Rank":  "black"
-    }
+    },
 
     {
       "ClassName": "CollectionWings",
@@ -236,7 +236,7 @@
       "Name": "미치광이의 두개골",
       "Explain": "저주(적의 속도, 체력, 수량, 빈도)가 10% 증가한다.",
       "Rank":  "black"
-    }
+    },
 
     {
       "ClassName": "CollectionExp",

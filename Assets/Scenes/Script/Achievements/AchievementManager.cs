@@ -16,13 +16,16 @@ public class AchievementContainer
     public AchievementData[] Achievements;
 }
 
-public class AchievementManager : MonoBehaviour
+public class AchievementManager
 {
     public List<AchievementClass> Achievements;
 
-    private void Awake()
+    public AchievementManager()
     {
+        Achievements = new List<AchievementClass>();
         TextAsset jsonData = Resources.Load<TextAsset>("GameData/AchievementDataKorean");
+        if (jsonData == null)
+            Debug.Log("Achi json 파싱 실패!!");
         AchievementContainer container = JsonUtility.FromJson<AchievementContainer>(jsonData.text);
         foreach (var jsonAchievement in container.Achievements)
         {

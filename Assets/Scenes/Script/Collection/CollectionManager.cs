@@ -17,13 +17,16 @@ public class CollectionContainer
     public CollectionData[] Collections;
 }
 
-public class CollectionManager : MonoBehaviour
+public class CollectionManager
 {
     public List<CollectionClass> Collections;
 
-    private void Awake()
+    public CollectionManager()
     {
+        Collections = new List<CollectionClass>();
         TextAsset jsonData = Resources.Load<TextAsset>("GameData/CollectionDataKorean");
+        if (jsonData == null)
+            Debug.Log("Collection json 파싱 실패!!");
         CollectionContainer container = JsonUtility.FromJson<CollectionContainer>(jsonData.text);
         foreach (var jsonCollection in container.Collections)
         {
