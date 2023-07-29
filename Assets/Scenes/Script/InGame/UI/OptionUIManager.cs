@@ -18,7 +18,6 @@ public class OptionUIManager : MonoBehaviour
     [SerializeField] GameObject mOptionButtonUI;
     [SerializeField] GameObject mBackButtonUI;
     [SerializeField] GameObject mQuitButtonUI;
-    [SerializeField] GameObject mPlayer;
 
     [SerializeField] TextMeshProUGUI mStatVarText;
 
@@ -68,14 +67,14 @@ public class OptionUIManager : MonoBehaviour
                 var weapons = GameManager.instance.EquipManageSys.Weapons;
                 var accessories = GameManager.instance.EquipManageSys.Accessories;
                 var characterStats =  GameManager.instance.CharacterStats;
-                Time.timeScale = 0f;
+                GameManager.instance.PauseGame();
                 mItemUI.SetActive(true);
                 mStatUI.SetActive(true);
                 mOptionButtonUI.SetActive(true);
                 mBackButtonUI.SetActive(true);
                 SetItemUI(weapons, accessories);
                 SetStatUI(characterStats);
-                mPlayer.GetComponent<PlayerMovement>().enabled = false;
+                GameManager.instance.Player.enabled = false;
                 mbPauseGame = true;
             }
             else
@@ -86,11 +85,11 @@ public class OptionUIManager : MonoBehaviour
                 mOptionButtonUI.SetActive(false);
                 mBackButtonUI.SetActive(false);
                 mQuitButtonUI.SetActive(false);
-                mPlayer.GetComponent<PlayerMovement>().enabled = true;
                 mbPauseGame = false;
                 if(!GameObject.Find("LevelUpUI").GetComponent<LevelUpUIManager>().mbOnLevelUp)
                 {
-                    Time.timeScale = 1f;
+                    GameManager.instance.ResumeGame();
+                    GameManager.instance.Player.enabled = true;
                 }
             }
             
@@ -106,8 +105,11 @@ public class OptionUIManager : MonoBehaviour
             mOptionButtonUI.SetActive(false);
             mBackButtonUI.SetActive(false);
             mQuitButtonUI.SetActive(false);
-            Time.timeScale = 1f;
-            mPlayer.GetComponent<PlayerMovement>().enabled = true;
+            if (!GameObject.Find("LevelUpUI").GetComponent<LevelUpUIManager>().mbOnLevelUp)
+            {
+                GameManager.instance.ResumeGame();
+                GameManager.instance.Player.enabled = true;
+            }
         }
     }
     public void UnSetItemUI()

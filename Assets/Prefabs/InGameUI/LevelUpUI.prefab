@@ -2223,6 +2223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca45d332fe4a8e744b840166b47fad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mbOnLevelUp: 0
   mWeaponLevelsUI:
   - MiniLevel:
     - {fileID: 4164668107674372337}
@@ -2359,7 +2360,6 @@ MonoBehaviour:
   - {fileID: 4164668109182085542}
   - {fileID: 4164668108616407859}
   - {fileID: 4164668108867767097}
-  mPlayer: {fileID: 0}
   mPickUpUI: {fileID: 4164668107703070200}
   mStatUI: {fileID: 4164668108258774253}
   mItemUI: {fileID: 4164668108323756660}
@@ -2369,36 +2369,6 @@ MonoBehaviour:
   - {fileID: 4164668107921368785}
   - {fileID: 4164668108490274129}
   - {fileID: 4164668107213152507}
-  mWeaponImages:
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  mAccessoryImages:
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  mEtcImages:
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
-  - {fileID: 21300000, guid: cd75baa2127817e40b8f6a1acd70560d, type: 3}
   mMiniLevelImages:
   - {fileID: 21300000, guid: 3326f3cbb3f6c453d99a26777b0da0bd, type: 3}
   - {fileID: 21300000, guid: bccc15d6698834ddba116a343dd7972d, type: 3}
@@ -13645,9 +13615,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCD5C\uB300\uCCB4\uB825\n\uD68C\uBCF5\n\uBC29\uC5B4\uB825\n\uC774\uB3D9\uC18D\uB3C4\n\n\uD53C\uD574\uB7C9\n\uD22C\uC0AC\uCCB4
-    \uC18D\uB3C4\n\uC9C0\uC18D\uC2DC\uAC04\n\uACF5\uACA9 \uBC94\uC704\n\n\uCFE8\uD0C0\uC784\n\uD22C\uC0AC\uCCB4
-    \uC218\n\uBD80\uD65C\n\uC790\uC11D\n\n\uD589\uC6B4\n\uC131\uC7A5\n\uD0D0\uC695\n\uC800\uC8FC\n\n\uC0C8\uB85C\uACE0\uCE68\n\uAC74\uB108\uB6F0\uAE30\n\uC9C0\uC6B0\uAE30"
+  m_text: "\uCD5C\uB300 \uCCB4\uB825\n\uD68C\uBCF5\n\uBC29\uC5B4\uB825\n\uC774\uB3D9
+    \uC18D\uB3C4\n\n\uD53C\uD574\uB7C9 \uC99D\uAC00\n\uD22C\uC0AC\uCCB4 \uC18D\uB3C4\n\uC9C0\uC18D\uC2DC\uAC04\n\uACF5\uACA9
+    \uBC94\uC704\n\n\uCFE8\uD0C0\uC784\n\uD22C\uC0AC\uCCB4 \uC218\n\uBD80\uD65C\n\uC790\uC11D\n\n\uD589\uC6B4\n\uC131\uC7A5\n\uD0D0\uC695\n\uC800\uC8FC\n\n\uC0C8\uB85C\uACE0\uCE68\n\uAC74\uB108\uB6F0\uAE30\n\uC9C0\uC6B0\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
   m_sharedMaterial: {fileID: 1927474857956726295, guid: f905e51d91beb154a8c61c70ee87a8b4, type: 2}
