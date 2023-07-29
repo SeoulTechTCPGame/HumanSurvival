@@ -34,23 +34,17 @@ public class Character : MonoBehaviour, IDamageable
         {
             amount = amount * (1 + GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery]);
             mCurrentHp += amount;
-            Debug.Log(amount);
             if (mCurrentHp > mMaxHp) mCurrentHp = mMaxHp;
             mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
-        if (mbDead == true) return;
-        if (damage - mArmor <= 0)
-        {
-            mCurrentHp -= Time.deltaTime * 0 * 2;   //ToDo: 무슨 의미가 있는 코드?
-            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
-        }
-        else
+        if (mbDead == true) return; 
+        SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
+        if (damage - mArmor> 0)
         {
             mCurrentHp -= Time.deltaTime * (damage - mArmor) * 2;
-            SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         }
         if (mCurrentHp <= 0)
         {

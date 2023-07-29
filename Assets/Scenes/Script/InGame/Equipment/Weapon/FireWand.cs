@@ -17,7 +17,6 @@ public class FireWand : Weapon
         if (!mbUseWand) return;
         if (mTouchLimit <= mTouch)
         {
-            mAnimator.SetBool("Hit", true);
             Destroy(this.gameObject);
         }
     }
@@ -26,8 +25,7 @@ public class FireWand : Weapon
         GameObject objPre = IsEvoluction() ? SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex] : SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
 
         mTimer += Time.deltaTime;
-        float cooldown = WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown];
-        if (mTimer > cooldown)
+        if (mTimer > WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown])
         {
             int numProjectiles = ((int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount]);
             Vector3 initialDirection = new Vector3(0f, 1f, 0f);

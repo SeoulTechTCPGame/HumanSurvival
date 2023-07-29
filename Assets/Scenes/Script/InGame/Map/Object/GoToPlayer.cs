@@ -16,7 +16,6 @@ public class GoToPlayer : MonoBehaviour
     }
     private void Update()
     {
-        // 수집 원 반지름= 기본*(1+자석스탯/100)
         mPickupDistance *= GameManager.instance.CharacterStats[(int)Enums.EStat.Magnet];
         float distance = Vector3.Distance(transform.position, mPlayer.position);
         if (distance > mPickupDistance) return;
