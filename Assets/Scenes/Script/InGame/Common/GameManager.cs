@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public float[] WeaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
     public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
-    public float RestoreCount;
+    public float RestoreCount = 0;
     public int DestroyCount = 0; // LightObject
     public int FoundChickenCount = 0; // RecoveryObject
     public int EvoGralicRestoreCount = 0;
