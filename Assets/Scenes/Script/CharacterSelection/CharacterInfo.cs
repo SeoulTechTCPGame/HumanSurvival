@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System;
 
-public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
+public class CharacterInfo : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] GameObject mCharacterButton;
     [SerializeField] GameObject mExplain;
@@ -37,7 +37,7 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         mCharacterData = Resources.Load<CharacterScriptableObject>(resourceName);
         mCharacterName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();
     }
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         mSelectedCharacter.LoadCharacterData(mCharacterData);
         mExplainName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();

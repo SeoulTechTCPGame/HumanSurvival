@@ -22,7 +22,7 @@ MonoBehaviour:
   ProjectileSpeed: 1
   Duration: 1
   Amount: 0
-  Cooldown: 0.9
+  Cooldown: 0.1
   Luck: 1
   Growth: 1
   Greed: 1
