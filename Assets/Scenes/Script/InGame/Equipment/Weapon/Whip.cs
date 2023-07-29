@@ -36,7 +36,7 @@ public class Whip : Weapon
                 GameObject newObs = Instantiate(objPre, GameObject.Find("Whips").transform);
                 newObs.transform.localScale *= objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
                 float power = newObs.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Might)];
-                power = Random.Range(0, 100) < CriticalRate ? power : power * 2;
+                power = Random.Range(0, 100) < CriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power : power * 2;
                 Whip newWhip = newObs.GetComponent<Whip>();
                 newWhip.mbUse = true;
                 // 위치 조정, 뒤집기
