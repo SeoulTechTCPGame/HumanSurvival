@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         CharacterStats[(int)Enums.EStat.Duration] = CharacterData.Duration + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Duration];
         CharacterStats[(int)Enums.EStat.Amount] = CharacterData.Amount + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Amount];
         CharacterStats[(int)Enums.EStat.MoveSpeed] = CharacterData.MoveSpeed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.MoveSpeed];
-        CharacterStats[(int)Enums.EStat.Magnet] = CharacterData.MagnetBonus *(1+ UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Magnet]);
+        CharacterStats[(int)Enums.EStat.Magnet] = CharacterData.MagnetBonus *(1 + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Magnet]);
         CharacterStats[(int)Enums.EStat.Luck] = CharacterData.Luck + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Luck];
         CharacterStats[(int)Enums.EStat.Growth] = CharacterData.Growth + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Growth];
         CharacterStats[(int)Enums.EStat.Greed] = CharacterData.Greed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Greed];

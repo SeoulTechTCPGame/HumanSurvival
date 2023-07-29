@@ -27,18 +27,18 @@ public class CharacterInfoOfSelectionScene : MonoBehaviour
     {
         mName.SetText(characterData.CharacterType.ToString());
         mMaxStamina.SetText(characterData.MaxHealth.ToString());
-        mRecovery.SetText(characterData.Recovery.ToString());
-        mDefense.SetText(characterData.Armor.ToString());
-        mSpeed.SetText(characterData.MoveSpeed.ToString());
-        mDamage.SetText(characterData.Might.ToString());
-        mProjectileSpeed.SetText(characterData.ProjectileSpeed.ToString());
-        mDurationn.SetText(characterData.Duration.ToString());
-        mAttackRange.SetText(characterData.Area.ToString());
-        mCooldown.SetText(characterData.Cooldown.ToString());
-        mNumberOfProjectiles.SetText(characterData.Amount.ToString());
-        mMagnet.SetText(characterData.MagnetBonus.ToString());
-        mLuck.SetText(characterData.Luck.ToString());
-        mGrowth.SetText(characterData.Growth.ToString());
+        mRecovery.SetText(characterData.Recovery == 0 ? "-" : "+" + characterData.Recovery.ToString());
+        mDefense.SetText(characterData.Armor == 0 ? "-" : "+" + characterData.Armor.ToString());
+        mSpeed.SetText(characterData.MoveSpeed == 1 ? "-" : "+" + ((characterData.MoveSpeed - 1) * 100).ToString() + "%");
+        mDamage.SetText(characterData.Might == 1 ? "-" : "+" + ((characterData.Might - 1) * 100).ToString() + "%");
+        mProjectileSpeed.SetText(characterData.ProjectileSpeed == 1 ? "-" : "+" + ((characterData.ProjectileSpeed - 1) * 100).ToString() + "%");
+        mDurationn.SetText(characterData.Duration == 1 ? "-" : "+" + ((characterData.Duration - 1) * 100).ToString() + "%");
+        mAttackRange.SetText(characterData.Area == 1 ? "-" : ((characterData.Area - 1) < 1 ? "+" + ((characterData.Area - 1) * 100).ToString() + "%" : "+" + (characterData.Area * 100).ToString() + "%"));
+        mCooldown.SetText(characterData.Cooldown == 1 ? "-" : "-" + ((1 - characterData.Cooldown) * 100).ToString() + "%");
+        mNumberOfProjectiles.SetText(characterData.Amount == 0 ? "-" : "+" + characterData.Amount.ToString());
+        mMagnet.SetText(characterData.MagnetBonus == 1 ? "-" : "+" + ((characterData.MagnetBonus - 1) * 100).ToString() + "%");
+        mLuck.SetText(characterData.Luck == 1 ? "-" : "+" + ((characterData.Luck - 1) * 100).ToString() + "%");
+        mGrowth.SetText(characterData.Growth == 1 ? "-" : "+" + ((characterData.Growth - 1) * 100).ToString() + "%");
     }
     private void SetMoneyText()
     {
