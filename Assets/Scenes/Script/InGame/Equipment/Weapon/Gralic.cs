@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Gralic : Weapon
 {
+    [SerializeField] AudioClip mFireClip;
     private GameObject mNewObj;
     private float mTimer = 0;
     private bool mbExist = false;
@@ -23,6 +24,7 @@ public class Gralic : Weapon
             if(!mbExist)
             {
                 mNewObj = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 mNewObj.transform.position = GameManager.instance.Player.transform.position + new Vector3(0, 0.5f, 0);
                 mNewObj.transform.localScale = new Vector3(3.5f * WeaponTotalStats[((int)Enums.EWeaponStat.Area)], 3.5f * WeaponTotalStats[((int)Enums.EWeaponStat.Area)], 0);
                 mbExist = true;

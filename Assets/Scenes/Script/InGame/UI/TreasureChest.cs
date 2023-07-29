@@ -8,7 +8,7 @@ using TMPro;
 public class TreasureChest : MonoBehaviour
 {
     public bool mbIsOn;
-    // 임시, 다른 곳에서 가져올 예정
+
     [SerializeField] GameObject mBG;
     [SerializeField] GameObject mChest;
     [SerializeField] GameObject[] mPickLights;
@@ -22,6 +22,8 @@ public class TreasureChest : MonoBehaviour
     [SerializeField] GameObject mPickLightMask;
     [SerializeField] GameObject mFlyCoin;
     [SerializeField] GameObject mFlyItem;
+    [SerializeField] AudioClip mOpenClip;
+    [SerializeField] AudioClip mChestClip;
 
     private bool mbIsOnUiEffect;
     private bool mbIsOnPickUpEffect;
@@ -96,6 +98,7 @@ public class TreasureChest : MonoBehaviour
         mChest.SetActive(true);
         mButtonOpen.SetActive(true);
         mTreasureText.SetActive(true);
+        SoundManager.instance.PlaySoundEffect(mOpenClip);
     }
     public void ChestPickUI()
     {
@@ -145,6 +148,7 @@ public class TreasureChest : MonoBehaviour
             mPickLights[i].SetActive(true);
         }
         mbIsOnPickUpEffect = true;
+        SoundManager.instance.PlayRepeatedSoundEffect(mChestClip, 10f);
     }
     private void PickUpEffect()
     {

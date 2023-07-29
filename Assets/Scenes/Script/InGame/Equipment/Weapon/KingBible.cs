@@ -1,7 +1,8 @@
-using UnityEngine;
+    using UnityEngine;
 
 public class KingBible : Weapon
 {
+    [SerializeField] AudioClip mFireClip;
     private GameObject mNewObj;
     private bool mbExist = false;
     private float mDistance = 4f;  // 오브젝트와 타겟 사이의 거리
@@ -35,6 +36,7 @@ public class KingBible : Weapon
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 GameObject kingBible = Instantiate(objPre);
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 kingBible.transform.parent = GameObject.Find("KingBibles").transform;
 
                 Vector3 rotVec = Vector3.forward * 360 * i / WeaponTotalStats[((int)Enums.EWeaponStat.Amount)];

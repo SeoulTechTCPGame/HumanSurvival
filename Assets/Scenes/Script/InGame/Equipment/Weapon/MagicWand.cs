@@ -5,6 +5,7 @@ using System.Linq; // array의 Max, Min 함수
 public class MagicWand : Weapon
 {
     [SerializeField] Animator mAnimator;
+    [SerializeField] AudioClip mFireClip;
     private float mTimer = 0;
     private bool mbUseWand = false;
     private int mTouchLimit;
@@ -36,6 +37,7 @@ public class MagicWand : Weapon
             {
                 //무기 세팅
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 newObs.transform.position = GameManager.instance.Player.transform.position;
                 MagicWand newWand = newObs.GetComponent<MagicWand>();
                 newWand.mbUseWand = true;
