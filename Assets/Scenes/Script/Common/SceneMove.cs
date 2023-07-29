@@ -33,7 +33,8 @@ public class SceneMove : MonoBehaviour
     }
     public void ToStage()
     {
-        SceneManager.LoadScene("StageSelection");
+        if(UserInfo.instance.UserDataSet.BUnlockCharacters[(int)DataManager.instance.CurrentCharcter])
+            SceneManager.LoadScene("StageSelection");
     }
     public void ToStart()
     {

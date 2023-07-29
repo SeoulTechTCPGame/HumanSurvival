@@ -9,6 +9,7 @@ public class MagicWand : Weapon
     private bool mbUseWand = false;
     private int mTouchLimit;
     private int mSpeedPower = 10;
+    private Vector3[] mCloestDirection;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class MagicWand : Weapon
         mTimer += Time.deltaTime;
         if (mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
+            mCloestDirection = FindClosestEnemyDirection((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 //무기 세팅
@@ -38,7 +40,7 @@ public class MagicWand : Weapon
                 MagicWand newWand = newObs.GetComponent<MagicWand>();
                 newWand.mbUseWand = true;
                 newWand.mTouchLimit = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Piercing];
-                Vector3 direction = FindClosestEnemyDirection();
+                Vector3 direction = mCloestDirection[i];
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 //무기가 바라보는 방향 조절
                 newObs.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);     //180은 이 스프라이트에 맞게 보정한 값
@@ -53,23 +55,34 @@ public class MagicWand : Weapon
     {
 
     }
-    private Vector3 FindClosestEnemyDirection()
+    private Vector3[] FindClosestEnemyDirection(int Amount)
     {
         Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 15 + Vector3.up * 8, GameManager.instance.Player.transform.position + Vector3.right * 15 + Vector3.down * 8, LayerMask.GetMask("Monster"));
         float[] distance = new float[enemies.Length];
+        Vector3[] result = new Vector3[Amount];
 
         for(int i = 0; i < enemies.Length; i++)
         {
             distance[i] = Vector3.Distance(GameManager.instance.Player.transform.position, enemies[i].transform.position);
         }
-        
+
         if (enemies.Length == 0)
         {
             Debug.Log("error");
-            return Vector3.right;
+            for(int i = 0; i < Amount; i++)
+            {
+                result[i] = Vector3.right;
+            }
+            return result;
         }
 
-        Vector3 direction = enemies[Array.IndexOf(distance, distance.Min())].transform.position - GameManager.instance.Player.transform.position;
-        return direction.normalized;
+        for(int i = 0; i < Amount; i++)
+        {
+            Vector3 direction = enemies[Array.IndexOf(distance, distance.Min())].transform.position - GameManager.instance.Player.transform.position;
+            result[i] = direction.normalized;
+            distance[Array.IndexOf(distance, distance.Min())] = Mathf.Infinity;
+        }
+        
+        return result;
     }
 }

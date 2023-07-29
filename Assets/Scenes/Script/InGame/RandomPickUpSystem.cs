@@ -11,8 +11,8 @@ public class RandomPickUpSystem
 
     static RandomPickUpSystem()
     {
-        mWeaponRarity = new int[10] { 100, 100, 100, 80, 80, 80, 70, 50, 50, 80 };
-        mAccessoryRarity = new int[15] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 50 }; // 임시
+        mWeaponRarity = new int[Constants.MAX_WEAPON_NUMBER] { 100, 100, 100, 80, 80, 80, 70, 50, 50, 80 };
+        mAccessoryRarity = new int[Constants.MAX_ACCESSORY_NUMBER] { 100, 100, 100, 90, 90, 90, 80, 80, 80, 70, 70, 70, 60, 60, 50 }; // 임시
     }
 
     public void UpdateWeaponPickUpList()
@@ -23,7 +23,9 @@ public class RandomPickUpSystem
         {
             for (int i = 0; i < mWeaponRarity.Length; i++)
             {
-                if (GameManager.instance.EquipManageSys.HasWeapon(i) && GameManager.instance.EquipManageSys.Weapons[GameManager.instance.EquipManageSys.TransWeaponIndex[i]].IsMaster())
+                if (UserInfo.instance.UserDataSet.BUnlockWeapons[i]
+                    && GameManager.instance.EquipManageSys.HasWeapon(i) 
+                    && GameManager.instance.EquipManageSys.GetWeapon(i).IsMaster())
                     continue;
                 mWeaponPicker.Add(i, (mWeaponRarity[i] + luck) / (double)mWeaponRarity[i]);
             }
@@ -39,6 +41,7 @@ public class RandomPickUpSystem
             }
         }
     }
+
     public void UpdateAccessoryPickUpList()
     {
         var luck = GameManager.instance.CharacterStats[(int)Enums.EStat.Luck];
@@ -47,7 +50,9 @@ public class RandomPickUpSystem
         {
             for (int i = 0; i < mAccessoryRarity.Length; i++)
             {
-                if (GameManager.instance.EquipManageSys.HasAcc(i) && GameManager.instance.EquipManageSys.Accessories[GameManager.instance.EquipManageSys.TransAccessoryIndex[i]].IsMaster())
+                if (UserInfo.instance.UserDataSet.BUnlockAccessories[i]
+                    && GameManager.instance.EquipManageSys.HasAcc(i) 
+                    && GameManager.instance.EquipManageSys.GetAccessory(i).IsMaster())
                     continue;
                 mAccessoryPicker.Add(i, (mAccessoryRarity[i] + luck) / (double)mAccessoryRarity[i]);
             }
