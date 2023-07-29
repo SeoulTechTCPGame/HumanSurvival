@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     [Header("# Game Control")]
     public float GameTime;
     public float MaxGameTime = 180 * 10f;
-
+    public bool IsGMAlive = true;
     [Header("# Player Info")]
     public Character Character;
     public int Level;
@@ -104,9 +104,10 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
-        GameObject tb;
-        tb= GameObject.FindGameObjectWithTag("CollectibleObj");
-        Destroy(tb);
+        IsGMAlive = false;
+        GameObject chest;
+        chest = GameObject.Find("chest(Clone)");
+        Destroy(chest);
         Player.enabled = false; // Character object 비활성화
         Pool.enabled = false;
         Time.timeScale = 0;
