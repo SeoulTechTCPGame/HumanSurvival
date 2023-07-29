@@ -4133,7 +4133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextKey: Experience Bonus
+  TextKey: Exp Bonus
 --- !u!1 &1999691788
 GameObject:
   m_ObjectHideFlags: 0
