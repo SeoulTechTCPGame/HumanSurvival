@@ -23,12 +23,17 @@ public class PoolManager : MonoBehaviour
     public GameObject[] HeartPrefabs;
     private List<GameObject>[] mHeartPools;
 
+    [Header("ItemPool")]
+    public GameObject[] ItemPrefabs;
+    private List<GameObject>[] mItemPools;
+
     private void Awake()
     {
         mEnemyPools = new List<GameObject>[EnemyPrefabs.Length];
         mExpPools = new List<GameObject>[ExpPrefabs.Length];
         mCoinPools = new List<GameObject>[CoinPrefabs.Length];
         mHeartPools = new List<GameObject>[HeartPrefabs.Length];
+        mItemPools = new List<GameObject>[ItemPrefabs.Length];
 
         // 인스펙터에서 초기화
         for (int index = 0; index < mEnemyPools.Length; index++)
@@ -39,6 +44,8 @@ public class PoolManager : MonoBehaviour
             mCoinPools[index] = new List<GameObject>();
         for (int index = 0; index < mHeartPools.Length; index++)
             mHeartPools[index] = new List<GameObject>();
+        for (int index = 0; index < mItemPools.Length; index++)
+            mItemPools[index] = new List<GameObject>();
     }
     public GameObject Get(string type,int index) //게임 오브젝트 반환 함수
     {
@@ -63,6 +70,10 @@ public class PoolManager : MonoBehaviour
                 mTargetPool = mCoinPools;
                 mTargetPrefab = CoinPrefabs;
                 Debug.Log("coin pooling");
+                break;
+            case "item":
+                mTargetPool = mItemPools;
+                mTargetPrefab = ItemPrefabs;
                 break;
         }
         GameObject select = null;
