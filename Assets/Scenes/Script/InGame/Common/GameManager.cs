@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public float[] WeaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
     public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
-    public float RestoreCount;
+    public float RestoreCount = 0;
     public int DestroyCount = 0; // LightObject
     public int FoundChickenCount = 0; // RecoveryObject
     public int EvoGralicRestoreCount = 0;
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public PoolManager Pool;
     public PlayerMovement Player;
     public GameObject GameOverPanel;
+    public GameObject RevivalPanel;
     public GameObject LevepUpUI;
     public GameObject WeaponSlot;
     public GameObject AccessorySlot;
@@ -119,6 +120,11 @@ public class GameManager : MonoBehaviour
         Pool.enabled = false;
         Time.timeScale = 0;
         GameOverPanel.SetActive(true); // 판넬 활성화
+    }
+    public void RevivalPanelUp()
+    {
+        Time.timeScale = 0;
+        RevivalPanel.SetActive(true);
     }
     public void ProcessGameOverResults()
     {

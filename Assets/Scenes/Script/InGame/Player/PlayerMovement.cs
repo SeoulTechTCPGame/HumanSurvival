@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator mAnimator;  //애니메이션
 
     private Vector2 mMovement;    //입력값
-    private Vector2 mPreMovement; //이전 이동 방향 벡터 가져오기
+    private Vector2 mPreMovement = Vector2.right; //이전 이동 방향 벡터 가져오기
     private const float mMOVE_SPEED = 4f;   //속도
 
     private void Awake()

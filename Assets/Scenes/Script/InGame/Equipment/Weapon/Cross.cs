@@ -3,6 +3,7 @@ using UnityEngine;
 public class Cross : Weapon
 {
     [SerializeField] Animator mAnimator;
+    [SerializeField] AudioClip mFireClip;
     private float mCoolTimer = 0;
     private bool mbUsed = false;
     private Vector3 mDirection;
@@ -39,6 +40,7 @@ public class Cross : Weapon
             {
                 // 무기 생성
                 GameObject newObs = Instantiate(objPre, GameObject.Find("SkillFiringSystem").transform);
+                SoundManager.instance.PlayOverlapSound(mFireClip);
                 newObs.transform.position = GameManager.instance.Player.transform.position;
                 Cross newCross = newObs.GetComponent<Cross>();
                 newCross.mbUsed = true;

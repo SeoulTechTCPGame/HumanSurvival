@@ -39,6 +39,10 @@ public class Weapon : MonoBehaviour
                     }
                 }
             }
+            if (WeaponIndex == 0 && BEvolution)
+            {
+                GameManager.instance.Character.RestoreHealth(8);
+            }
         }
         if (col.gameObject.tag == "Monster")
         {
