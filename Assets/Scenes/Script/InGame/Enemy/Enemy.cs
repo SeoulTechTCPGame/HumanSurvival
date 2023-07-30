@@ -91,13 +91,15 @@ public class Enemy : MonoBehaviour,IDamageable
     public void TakeDamage(float damage, int weaponIndex)
     {
         mHealth -= damage;
-        GameManager.instance.WeaponDamage[weaponIndex] += damage;
-
+        if (weaponIndex >= 0 && weaponIndex < (int)Enums.EWeapon.WeaponCount)
+        {
+            GameManager.instance.WeaponDamage[weaponIndex] += damage;
+        }
         if (mHealth > 0)
         {
             StartCoroutine(KnockBack());
             mAnim.SetTrigger("Hit");
-            if(weaponIndex == 6)
+            if(weaponIndex == (int)Enums.EWeapon.Garlic)
             {
                 if(mKnockbackpower < 3)
                 {
@@ -114,7 +116,10 @@ public class Enemy : MonoBehaviour,IDamageable
             mAnim.SetBool("Dead", true);
             GameManager.instance.Kill++;
             Dead();
-            GameManager.instance.KillCount[weaponIndex]++;
+            if (weaponIndex >= 0 && weaponIndex < (int)Enums.EWeapon.WeaponCount)
+            {
+                GameManager.instance.KillCount[weaponIndex]++;
+            }
         }
     }
     private IEnumerator KnockBack()

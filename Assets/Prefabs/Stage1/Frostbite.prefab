@@ -167,3 +167,6 @@ MonoBehaviour:
   - Name: coin
     PrefabsIndex: 0
     DropRate: 100
+  - Name: item
+    PrefabsIndex: 1
+    DropRate: 100

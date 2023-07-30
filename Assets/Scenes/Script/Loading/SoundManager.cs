@@ -84,9 +84,20 @@ public class SoundManager : MonoBehaviour
     {
         SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume);
     }
-    public void PlayRateSound(AudioClip soundEffectClip)
+    public void PlayRepeatedSoundEffect(AudioClip soundEffectClip, float time)
     {
-        SoundEffectAudioSource.PlayOneShot(soundEffectClip, SoundEffectVolume * Constants.SOUND_EFFECT_RATE);
+        StartCoroutine(PlaySoundEffectRepeatedly(soundEffectClip, time));
+    }
+    private IEnumerator PlaySoundEffectRepeatedly(AudioClip soundEffectClip, float time)
+    {
+        while (true)
+        {
+            // 오디오 클립을 재생합니다.
+            SoundEffectAudioSource.PlayOneShot(soundEffectClip);
+
+            // time초 만큼 대기합니다.
+            yield return new WaitForSeconds(time);
+        }
     }
     public void PlayOverlapSound(AudioClip soundEffectClip)
     {
@@ -120,6 +131,10 @@ public class SoundManager : MonoBehaviour
                 StopBgm();
                 PlayBgm(scene.name);
             }
+            else if (BgmAudioSource.clip == null)
+            {
+                PlayBgm(scene.name);
+            }
             else
             {
                 // 이전 씬과 동일한 BGM인 경우 이어서 재생
@@ -145,9 +160,9 @@ public class SoundManager : MonoBehaviour
             // 나머지 씬에 진입한 경우
             bgmClip = Bgm[(int)Enums.EBgm.BGM]; // 나머지 씬에 해당하는 BGM
         }
-
         BgmAudioSource.clip = bgmClip;
         BgmAudioSource.volume = BgmVolume;
+        BgmAudioSource.loop = true;
         BgmAudioSource.Play();
     }
     private void StopBgm()

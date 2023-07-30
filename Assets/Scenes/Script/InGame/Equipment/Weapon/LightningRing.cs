@@ -4,6 +4,7 @@ using System.Linq; // array의 Max, Min 함수
 
 public class LightningRing : Weapon
 {
+    [SerializeField] AudioClip mFireClip;
     private GameObject mNewObj;
     private float mTimer = 0;
     private bool mbExist = false;
@@ -21,6 +22,7 @@ public class LightningRing : Weapon
         {
             mNewObj = new GameObject("Lightnings");
             mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+            SoundManager.instance.PlayOverlapSound(mFireClip);
 
             lightningPosition = FindDenseClusterEnemy((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
@@ -44,6 +46,7 @@ public class LightningRing : Weapon
             {
                 mNewObj = new GameObject("Lightnings");
                 mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+                SoundManager.instance.PlayOverlapSound(mFireClip);
 
                 for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
                 {
