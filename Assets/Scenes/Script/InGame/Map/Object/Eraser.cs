@@ -3,7 +3,7 @@ using UnityEngine;
 public class Eraser : MonoBehaviour, ICollectible
 {
     public float Damage = 666;
-    public float[] Area = {18, 10};
+    public float[] Area = {30, 20};
     [SerializeField] AudioClip mClip;
 
     public void Collect()
