@@ -17,7 +17,7 @@ public class Eraser : MonoBehaviour, ICollectible
                 Enemy enemy = collider.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(Damage, -1);   //TODO: 두번째 인덱스가 무기 인덱스
+                    enemy.TakeDamage(Damage, -1);
                 }
             }
         }

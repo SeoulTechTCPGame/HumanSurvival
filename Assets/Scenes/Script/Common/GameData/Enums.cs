@@ -71,7 +71,8 @@ namespace Enums
         Garlic,
         Peachone,
         EbonyWings,
-        LightningRing
+        LightningRing,
+        WeaponCount
     }
     public enum EAccessory // 15개
     {
