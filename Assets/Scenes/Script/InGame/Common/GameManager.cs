@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game over");
         GameObject tb;
         tb= GameObject.FindGameObjectWithTag("CollectibleObj");
+        Debug.Log(tb);
         Destroy(tb);
         Player.enabled = false; // Character object 비활성화
         Pool.enabled = false;
