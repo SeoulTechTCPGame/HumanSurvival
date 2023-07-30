@@ -34,7 +34,15 @@ public class Character : MonoBehaviour, IDamageable
         {
             amount = amount * (1 + GameManager.instance.CharacterStats[(int)Enums.EStat.Recovery]);
             mCurrentHp += amount;
-            if (mCurrentHp > mMaxHp) mCurrentHp = mMaxHp;
+            if (mCurrentHp > mMaxHp)
+            {
+                GameManager.instance.RestoreCount += amount - (mCurrentHp - mMaxHp);
+                mCurrentHp = mMaxHp;
+            }
+            else
+            {
+                GameManager.instance.RestoreCount += amount;
+            }
             mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
@@ -48,8 +56,16 @@ public class Character : MonoBehaviour, IDamageable
         }
         if (mCurrentHp <= 0)
         {
-            GameManager.instance.GameOverPanelUp();
-            mbDead = true;
+            if (GameManager.instance.CharacterStats[(int)Enums.EStat.Revival] > 0)
+            {
+                GameManager.instance.RevivalPanelUp();
+            }
+            else
+            {
+                GameManager.instance.GameOverPanelUp();
+                mbDead = true;
+            }
+            
             SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.Die)]);
         }
         mHpBar.SetState(mCurrentHp, mMaxHp);
@@ -72,6 +88,10 @@ public class Character : MonoBehaviour, IDamageable
             SoundManager.instance.PlaySoundEffect(Clips[((int)Enums.ECharacterEffect.LevelUp)]);
         }
     }
+    public void RevivalHp()
+    {
+        mCurrentHp = mMaxHp / 2;
+    }
     private void RepeatRecovery()
     {
         if (mCurrentHp < mMaxHp)
@@ -81,4 +101,5 @@ public class Character : MonoBehaviour, IDamageable
             mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
+    
 }

@@ -3,20 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-[System.Serializable]
-class CollectionInfo
-{
-    public string Name;
-    public string Explain;
-    public string Rank;
-}
-
-[System.Serializable]
-class CollectionInfoData
-{
-    public CollectionInfo[] Collection;
-}
-
 public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] int mItemIndex;
@@ -31,13 +17,14 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
     private Image mExplainBGItemImage;
     private TMP_Text mExplainBGItemName;
     private TMP_Text mExplainBGItemExplain;
-    private CollectionInfoData mInfoData;
     private string mItemName;
     private string mExplain;
     private string mRank;
 
     private void Awake() 
     {
+        if (mItemIndex > UserInfo.instance.CollectionManager.Collections.Count)
+            Destroy(gameObject);
         Transform item = mContext.transform.GetChild(mItemIndex - 1);
 
         mThisItemIamge = item.transform.GetComponent<Image>();
@@ -47,12 +34,11 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
     }
     private void Start()
     {
-        mInfoData = JsonUtility.FromJson<CollectionInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
-        this.mItemName = mInfoData.Collection[mItemIndex-1].Name;
-        this.mExplain = mInfoData.Collection[mItemIndex-1].Explain;
-        this.mRank = mInfoData.Collection[mItemIndex-1].Rank;
+        this.mItemName = UserInfo.instance.CollectionManager.Collections[mItemIndex - 1].Name;
+        this.mExplain = UserInfo.instance.CollectionManager.Collections[mItemIndex - 1].Explain;
+        this.mRank = UserInfo.instance.CollectionManager.Collections[mItemIndex - 1].Rank;
 
-        if (!UserInfo.instance.UserDataSet.BCollection[mItemIndex]) 
+        if (!UserInfo.instance.UserDataSet.BCollection[mItemIndex - 1]) 
         {
             this.mItemName = "???";
             this.mExplain = "아직 발견하지 못했습니다.";

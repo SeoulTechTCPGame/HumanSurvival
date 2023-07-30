@@ -1,12 +1,14 @@
+using Enums;
 using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [Header("# Game Control")]
+    public EStage GameStage;
     public float GameTime;
     public float MaxGameTime = 180 * 10f;
-
+    public bool IsGMAlive = true;
     [Header("# Player Info")]
     public Character Character;
     public int Level;
@@ -17,7 +19,11 @@ public class GameManager : MonoBehaviour
     public float[] WeaponGetTime = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public float[] WeaponDamage = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
     public int[] KillCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };   // Whip,MagicWand,Knife,Cross,KingBible,FireWand,Garlic,Peachone,EbonyWings,LightningRing,SantaWater
+    public float RestoreCount = 0;
+    public int DestroyCount = 0; // LightObject
+    public int FoundChickenCount = 0; // RecoveryObject
     public int EvoGralicRestoreCount = 0;
+    public bool BGetChest = false;
     public EquipmentManagementSystem EquipManageSys;
     public RandomPickUpSystem RandomPickUpSystem;
     //캐릭터의 스탯지정
@@ -28,6 +34,7 @@ public class GameManager : MonoBehaviour
     public PoolManager Pool;
     public PlayerMovement Player;
     public GameObject GameOverPanel;
+    public GameObject RevivalPanel;
     public GameObject LevepUpUI;
     public GameObject WeaponSlot;
     public GameObject AccessorySlot;
@@ -70,7 +77,7 @@ public class GameManager : MonoBehaviour
         CharacterStats[(int)Enums.EStat.Duration] = CharacterData.Duration + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Duration];
         CharacterStats[(int)Enums.EStat.Amount] = CharacterData.Amount + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Amount];
         CharacterStats[(int)Enums.EStat.MoveSpeed] = CharacterData.MoveSpeed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.MoveSpeed];
-        CharacterStats[(int)Enums.EStat.Magnet] = CharacterData.MagnetBonus *(1+ UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Magnet]);
+        CharacterStats[(int)Enums.EStat.Magnet] = CharacterData.MagnetBonus *(1 + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Magnet]);
         CharacterStats[(int)Enums.EStat.Luck] = CharacterData.Luck + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Luck];
         CharacterStats[(int)Enums.EStat.Growth] = CharacterData.Growth + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Growth];
         CharacterStats[(int)Enums.EStat.Greed] = CharacterData.Greed + UserInfo.instance.UserDataSet.PowerUpStat[(int)Enums.EStat.Greed];
@@ -104,14 +111,31 @@ public class GameManager : MonoBehaviour
     public void GameOverPanelUp()
     {
         Debug.Log("Game over");
-        GameObject tb;
-        tb= GameObject.FindGameObjectWithTag("CollectibleObj");
-        Debug.Log(tb);
-        Destroy(tb);
+        ProcessGameOverResults();
+        IsGMAlive = false;
+        GameObject chest;
+        chest = GameObject.Find("chest(Clone)");
+        Destroy(chest);
         Player.enabled = false; // Character object 비활성화
         Pool.enabled = false;
         Time.timeScale = 0;
         GameOverPanel.SetActive(true); // 판넬 활성화
+    }
+    public void RevivalPanelUp()
+    {
+        Time.timeScale = 0;
+        RevivalPanel.SetActive(true);
+    }
+    public void ProcessGameOverResults()
+    {
+        var userData = UserInfo.instance.UserDataSet;
+        userData.Gold += Coin;
+        userData.AccumulatedTime += GameTime;
+        userData.AccKill += Kill;
+        userData.AccRestore += RestoreCount;
+        UserInfo.instance.AchiManager.UpdateAchievements();
+        UserInfo.instance.CollectionManager.UpdateCollections();
+        UserDataManager.instance.SaveData();
     }
     public void LevelUp()
     {

@@ -1,0 +1,147 @@
+{
+  "Achievements": [
+    {
+      "ClassName": "ReachLevel5",
+      "Explain": "레벨 5에 도달",
+      "Obtain": "날개"
+    },
+
+    {
+      "ClassName": "ReachLevel10",
+      "Explain": "레벨 10에 도달",
+      "Obtain": "왕관"
+    },
+
+    {
+      "ClassName": "ReachLevel20InStage1",
+      "Explain": "광기의 숲에서 레벨 20에 도달",
+      "Obtain": "화려한 도서관"
+    },
+
+    {
+      "ClassName": "Survive1Min",
+      "Explain": "아무 캐릭터로 1분 생존",
+      "Obtain": "검은 심장"
+    },
+
+    {
+      "ClassName": "Survive5MinPlayGennaro",
+      "Explain": "젠나로로 5분 생존",
+      "Obtain": "붉은 심장"
+    },
+
+    {
+      "ClassName": "Survive10Min",
+      "Explain": "아무 캐릭터로 10분 생존",
+      "Obtain": "하얀 비둘기"
+    },
+
+    {
+      "ClassName": "ReachLevel4KingBible",
+      "Explain": "성경 레벨 4까지 올리기",
+      "Obtain": "팔 보호대"
+    },
+
+    {
+      "ClassName": "ReachLevel4FireWand",
+      "Explain": "불의 지팡이 레벨 4까지 올리기",
+      "Obtain": "아르카"
+    },
+
+    {
+      "ClassName": "ReachLevel4LightningRing",
+      "Explain": "번개 반지 레벨 4까지 올리기",
+      "Obtain": "포르타"
+    },
+
+    {
+      "ClassName": "ReachLevel7MagicWand",
+      "Explain": "마법 지팡이 레벨 7까지 올리기",
+      "Obtain": "복제 반지"
+    },
+
+    {
+      "ClassName": "ReachLevel7Peachone",
+      "Explain": "하얀 비둘기 레벨 7까지 올리기",
+      "Obtain": "검은 비둘기"
+    },
+
+    {
+      "ClassName": "ReachLevel7Garlic",
+      "Explain": "마늘을 레벨 7까지 올리기",
+      "Obtain": "포"
+    },
+
+    {
+      "ClassName": "Possession6Weapons",
+      "Explain": "6개의 무기를 소지",
+      "Obtain": "빈 책"
+    },
+
+    {
+      "ClassName": "Cumulative1000Recovery",
+      "Explain": "누적 1,000의 체력을 회복",
+      "Obtain": "시스터 클레리씨"
+    },
+
+    {
+      "ClassName": "Destroy20LightObject",
+      "Explain": "빛 물체 20개 파괴",
+      "Obtain": "불의 지팡이"
+    },
+
+    {
+      "ClassName": "Found5Chickens",
+      "Explain": "치킨 5개 발견",
+      "Obtain": "마늘"
+    },
+
+    {
+      "ClassName": "AccKillCount3000",
+      "Explain": "누적 3,000마리 적을 처치",
+      "Obtain": "번개 반지"
+    },
+
+    {
+      "ClassName": "EvoWhip",
+      "Explain": "채찍 진화",
+      "Obtain": "골드 500개"
+    },
+
+    {
+      "ClassName": "EvoMagicWand",
+      "Explain": "마법 지팡이 진화",
+      "Obtain": "골드 500개"
+    },
+
+    {
+      "ClassName": "EvoKnife",
+      "Explain": "단검 진화",
+      "Obtain": "골드 500개"
+    },
+
+    {
+      "ClassName": "EvoLightningRing",
+      "Explain": "번개 반지 진화",
+      "Obtain": "골드 500개"
+    },
+
+    {
+      "ClassName": "EvoKingBible",
+      "Explain": "성경 진화",
+      "Obtain": "골드 500개"
+    },
+
+    {
+      "ClassName": "EvoFireWand",
+      "Explain": "불의 지팡이 진화",
+      "Obtain": "골드 500개"
+    },
+
+    {
+      "ClassName": "EvoGarlic",
+      "Explain": "마늘 진화",
+      "Obtain": "골드 500개"
+    }
+  ]
+}

@@ -783,17 +783,18 @@ MonoBehaviour:
     - Double Speed
     - Coin Bonus
     - Luck Bonus
-    - Experience Bonus
+    - Exp Bonus
     - Refresh
     - Skip
     - Erase
+    - Credit
   - lang: "Korean\r"
     langLocalize: "\uD55C\uAD6D\uC5B4\r"
     value:
     - "\uB098\uAC00\uAE30\r"
     - "\uC124\uC815\r"
     - "\uC74C\uD5A5 \uD6A8\uACFC\r"
-    - "BGM\r"
+    - "\uBC30\uACBD \uC74C\uC545\r"
     - "\uC804\uCCB4 \uD654\uBA74\r"
     - "\uB370\uC774\uD130 \uBCF5\uAD6C\r"
     - "\uC2DC\uC791\uD558\uAE30\r"
@@ -857,39 +858,40 @@ MonoBehaviour:
     - "\uB3CC\uAC00\uBA74\r"
     - "\uBBF8\uCE58\uAD11\uC774\uC758 \uB450\uAC1C\uACE8\r"
     - "\r"
-    - "\uC218\uC9D1\r"
+    - "\uCEEC\uB799\uC158\r"
     - "\uC544\uBB34 \uACF3\uC774\uB098 \uD074\uB9AD\uD558\uC5EC \uAC8C\uC784 \uC2DC\uC791\uD558\uAE30\r"
     - "\uC774\uC804 \uB370\uC774\uD130 \uBD88\uB7EC\uC624\uAE30\r"
     - "\uC678\uBD80 \uC800\uC7A5 \uD30C\uC77C \uBD88\uB7EC\uC624\uAE30\r"
     - "\uD655\uC778\r"
     - "\uC798\uBABB\uB41C \uB370\uC774\uD130 \uD30C\uC77C\r"
-    - "\uB85C\uB4DC\uD558\uAE30\r"
+    - "\uBD88\uB7EC\uC624\uAE30\r"
     - "\uB4A4\uB85C\uAC00\uAE30\r"
-    - "\uC77C\uBC18 \uB370\uC774\uD130 \uD30C\uC77C\uC744\uB85C\uB4DC\uD558\uBA74
-      \uAE30\uC874 \uB370\uC774\uD130\uAC00 \uC0AD\uC81C\uB429\uB2C8\uB2E4.\r"
+    - "\uB370\uC774\uD130 \uD30C\uC77C\uC744 \uBD88\uB7EC\uC624\uBA74\\n\uAE30\uC874\uC758
+      \uB370\uC774\uD130\uB294 \uC0AD\uC81C\uB429\uB2C8\uB2E4.\r"
     - "\uC2A4\uD14C\uC774\uC9C0\r"
     - "\uACB0\uACFC\r"
-    - "\uC0DD\uC874 \uC2DC\uAC04 :\r"
-    - "\uACE8\uB4DC \uD68D\uB4DD :\r"
+    - "\uC0DD\uC874 \uC2DC\uAC04:\r"
+    - "\uD68D\uB4DD\uD55C \uACE8\uB4DC:\r"
     - "\uB3C4\uB2EC\uD55C \uB808\uBCA8:\r"
     - "\uCC98\uCE58\uD55C \uC801:\r"
     - "\uB808\uBCA8\r"
     - "\uD53C\uD574\uB7C9\r"
     - "\uC2DC\uAC04\r"
-    - "\uCD08\uB2F9 \uC190\uC0C1\r"
+    - "\uCD08\uB2F9 \uD53C\uD574\uB7C9\r"
     - "\uAC8C\uC784 \uC624\uBC84\r"
     - "\uC644\uB8CC\r"
     - "\uC5F4\uAE30\r"
     - "\uBCF4\uBB3C \uBC1C\uACAC!\r"
     - "\uC644\uB8CC \uC228\uAE30\uAE30\r"
     - "\uC2DC\uAC04\r"
-    - "\uBC30\uC18D\r"
+    - "2\uBC30\uC18D\r"
     - "\uACE8\uB4DC \uBCF4\uB108\uC2A4\r"
     - "\uD589\uC6B4 \uBCF4\uB108\uC2A4\r"
-    - "\uACBD\uD5DD\uCE58 \uBCF4\uB108\uC2A4\r"
+    - "\uACBD\uD5D8\uCE58 \uBCF4\uB108\uC2A4\r"
     - "\uC0C8\uB85C\uACE0\uCE68\r"
     - "\uAC74\uB108\uB6F0\uAE30\r"
-    - "\uC9C0\uC6B0\uAE30"
+    - "\uC9C0\uC6B0\uAE30\r"
+    - "\uD06C\uB798\uB527"
 --- !u!1 &1500893181
 GameObject:
   m_ObjectHideFlags: 0

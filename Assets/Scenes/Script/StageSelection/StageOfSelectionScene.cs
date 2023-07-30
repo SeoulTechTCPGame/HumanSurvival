@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using static Singleton;
 
 public class StageOfSelectionScene : MonoBehaviour
 {
@@ -17,8 +18,18 @@ public class StageOfSelectionScene : MonoBehaviour
     }
     public void LoadMapData(MapScriptableObject mapData)
     {
-        mStageName.SetText(mapData.StageName);
-        mTime.SetText(mapData.PlayTime.ToString());
+        switch (S.curLangIndex)
+        {
+            case (int)Enums.ELangauge.EN:
+                mStageName.SetText(mapData.StageNameEN);
+                break;
+            case (int)Enums.ELangauge.KR:
+                mStageName.SetText(mapData.StageNameKR);
+                break;
+            default:
+                break;
+        }
+        mTime.SetText(mapData.PlayTime.ToString() + ":00");
         mDoubleSpeed.SetText(mapData.DoubleSpeed.ToString());
         mGoldCoinBonus.SetText(mapData.GoldCoinBonus.ToString());
         mLuckBonus.SetText(mapData.LuckBonus.ToString());

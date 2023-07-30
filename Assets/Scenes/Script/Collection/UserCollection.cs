@@ -25,13 +25,13 @@ public class UserCollection : MonoBehaviour
         mMoneyText.text = UserInfo.instance.UserDataSet.Gold.ToString();
     }
     private void SetCollectionText(){
-        for(int i = 0; i < Constants.MAX_COLLECTION_NUMBER; i++)
+        for(int i = 0; i < UserInfo.instance.CollectionManager.Collections.Count; i++)
         {
             if(UserInfo.instance.UserDataSet.BCollection[i])
             {
                 mCollectionCount++;
             }
         }
-        mCollectText.text = "Collection : " + mCollectionCount.ToString() + " / " + Constants.MAX_COLLECTION_NUMBER;
+        mCollectText.text = "Collection : " + mCollectionCount.ToString() + " / " + UserInfo.instance.CollectionManager.Collections.Count;
     }
 }

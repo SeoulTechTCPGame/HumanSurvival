@@ -3,6 +3,7 @@
   "ConsumedGold": 0,
   "AccumulatedTime": 0,
   "AccumulatedKill": 0,
+  "AccRecovery": 0,
   "Options": [],
   "PowerUpLevel": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
   "PowerUpStat": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],

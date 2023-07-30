@@ -38,9 +38,6 @@ public class RepositionTile : MonoBehaviour
                     ObjectRespown(transform.position);
                 }
                 break;
-            case "Monster":
-                //몬스터 위치 옮기기
-                break;
         }
     }
     private void ObjectRespown(Vector3 myPos) 

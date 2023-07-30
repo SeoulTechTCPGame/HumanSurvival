@@ -27,9 +27,14 @@ public class SceneMove : MonoBehaviour
     {
         SceneManager.LoadScene("PowerUp");
     }
+    public void ToCredit()
+    {
+        SceneManager.LoadScene("Credit");
+    }
     public void ToStage()
     {
-        SceneManager.LoadScene("StageSelection");
+        if(UserInfo.instance.UserDataSet.BUnlockCharacters[(int)DataManager.instance.CurrentCharcter])
+            SceneManager.LoadScene("StageSelection");
     }
     public void ToStart()
     {

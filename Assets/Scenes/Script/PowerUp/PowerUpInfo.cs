@@ -70,7 +70,7 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     }
     private void Start() 
     {   
-        mInfoData = JsonUtility.FromJson<PowerUpInfoData>(Resources.Load<TextAsset>("GameData/ItemExplainDataKorean").ToString());
+        mInfoData = JsonUtility.FromJson<PowerUpInfoData>(Resources.Load<TextAsset>("GameData/PowerUpDataKorean").ToString());
         this.mExplain = mInfoData.PowerUp[mAccessoryIndex-1].Explain;
         this.AccessoryMaxLevel = mInfoData.PowerUp[mAccessoryIndex-1].AccessoryLevel;
 
@@ -81,7 +81,6 @@ public class PowerUpInfo : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData) 
     {
-        Debug.Log(UserInfo.instance.UserDataSet.BPowerUpActive[mAccessoryIndex - 1]);
         mAccessoryName.text = mThisAccessoryName.text;
         mAccessoryExplain.text = this.mExplain;
         mAccessoryImage.GetComponent<Image>().sprite = mThisAccessoryIamge.GetComponent<Image>().sprite;

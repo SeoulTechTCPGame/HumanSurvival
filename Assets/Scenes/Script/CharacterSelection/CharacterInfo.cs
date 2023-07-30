@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System;
 
-public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
+public class CharacterInfo : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] GameObject mCharacterButton;
     [SerializeField] GameObject mExplain;
@@ -16,6 +16,7 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
     private GameObject mExplainWeapon;
     private GameObject mExplainText;
     private CharacterScriptableObject mCharacterData;
+    private Image mCharacterImage;
    
     private void Start()
     {
@@ -24,6 +25,7 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
         mExplainImage = mExplain.transform.Find("CharacterImage").gameObject;
         mExplainText = mExplain.transform.Find("CharacterExplain").gameObject;
         mExplainWeapon = mExplain.transform.Find("CharacterWeapon").gameObject;
+        mCharacterImage = transform.GetChild(0).gameObject.GetComponent<Image>();
 
         string resourceName = "CharacterData/";
         try
@@ -35,17 +37,35 @@ public class CharacterInfo : MonoBehaviour, IPointerEnterHandler
             resourceName += "Alchemist";
         }
         mCharacterData = Resources.Load<CharacterScriptableObject>(resourceName);
+
         mCharacterName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();
+        if(!UserInfo.instance.UserDataSet.BUnlockCharacters[(int)mCharacterButton.GetComponent<SelectCharacter>().Charname])
+        {
+            mCharacterImage.color = Color.black;
+        }
+        else
+        {
+            mCharacterImage.color = Color.white;
+        }
     }
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         mSelectedCharacter.LoadCharacterData(mCharacterData);
         mExplainName.GetComponent<TextMeshProUGUI>().text = mCharacterData.CharacterType.ToString();
         mExplainText.GetComponent<TextMeshProUGUI>().text = mCharacterData.explain;
-        mExplainImage.GetComponent<Image>().sprite = mCharacterButton.transform.Find("Image").GetComponent<Image>().sprite;
+        mExplainImage.GetComponent<Image>().sprite = mCharacterImage.sprite;
         Enums.EWeapon[] enumValues = (Enums.EWeapon[])System.Enum.GetValues(typeof(Enums.EWeapon));
         Enums.EWeapon weapon = enumValues[mCharacterData.startingWeapon];
         string weapoonName = "Weapons/" + weapon.ToString();
         mExplainWeapon.GetComponent<Image>().sprite = Resources.Load<Sprite>(weapoonName);
+
+        if (!UserInfo.instance.UserDataSet.BUnlockCharacters[(int)mCharacterButton.GetComponent<SelectCharacter>().Charname])
+        {
+            mExplainImage.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            mExplainImage.GetComponent<Image>().color = Color.white;
+        }
     }
 }
