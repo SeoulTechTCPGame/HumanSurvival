@@ -5,21 +5,28 @@ using UnityEngine;
 public class Inspirator : MonoBehaviour, ICollectible
 {
     [SerializeField] AudioClip mClip;
-    
-    private Collider2D[] MapObjects;
+
+    private float mTimer = 0;
+
     public void Collect()
     {
-        MapObjects = Physics2D.OverlapAreaAll(
-            GameManager.instance.Player.transform.position + Vector3.left * 25 + Vector3.up * 25,
-            GameManager.instance.Player.transform.position + Vector3.right * 25 + Vector3.down * 25,
-            LayerMask.GetMask("MapObject"));
+        mTimer += Time.deltaTime;
+        SoundManager.instance.PlaySoundEffect(mClip);
 
-        foreach(Collider2D obj in MapObjects)
+        GameObject[] MapObjects = GameObject.FindGameObjectsWithTag("CollectibleObj");
+        if (MapObjects.Length == 0) { return; }
+        
+        foreach(GameObject obj in MapObjects)
         {
             if(obj.TryGetComponent(out ExperiencePickUp exp))
             {
-                obj.transform.position = Vector3.MoveTowards(obj.transform.position, GameManager.instance.Player.transform.position, 10f * Time.deltaTime);
+                obj.transform.position = Vector3.MoveTowards(obj.transform.position, GameManager.instance.Player.transform.position, 15f * Time.deltaTime);
             }
+        }
+
+        if (mTimer > 5f)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
