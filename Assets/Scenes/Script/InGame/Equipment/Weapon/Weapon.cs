@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     protected int mTouch = 0;
     [SerializeField] AudioClip mClip;
     private float[] mWeaponStats;
+    private float CriticalRate = 10;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -25,7 +26,18 @@ public class Weapon : MonoBehaviour
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            float power = WeaponTotalStats[(int)Enums.EWeaponStat.Might];
+            if (WeaponIndex == 0 && BEvolution)
+            {
+                power = UnityEngine.Random.Range(0, 101) < CriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power * 2 : power;
+                GameManager.instance.Character.RestoreHealth(8);
+            }
+            else if(WeaponIndex == 3 && BEvolution)
+            {
+                power = UnityEngine.Random.Range(0, 101) < CriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power * 2.5f : power;
+                Debug.Log(power);
+            }
+            col.gameObject.GetComponent<Enemy>().TakeDamage(power, WeaponIndex);
             SoundManager.instance.PlayOverlapSound(mClip);
             if (WeaponIndex == 6 && BEvolution)
             {
@@ -38,10 +50,6 @@ public class Weapon : MonoBehaviour
                         WeaponTotalStats[((int)Enums.EWeaponStat.Might)] += 1;
                     }
                 }
-            }
-            if (WeaponIndex == 0 && BEvolution)
-            {
-                GameManager.instance.Character.RestoreHealth(8);
             }
         }
         if (col.gameObject.tag == "Monster")

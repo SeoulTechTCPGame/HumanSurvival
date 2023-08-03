@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Whip : Weapon
 {
-    public float CriticalRate = 10;
     [SerializeField] AudioClip mFireClip;
     private GameObject mNewObj;
     private float mTimer = 0;
@@ -37,8 +36,6 @@ public class Whip : Weapon
                 GameObject newObs = Instantiate(objPre, GameObject.Find("Whips").transform);
                 SoundManager.instance.PlayOverlapSound(mFireClip);
                 newObs.transform.localScale *= objPre.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Area)];
-                float power = newObs.GetComponent<Weapon>().WeaponTotalStats[((int)Enums.EWeaponStat.Might)];
-                power = Random.Range(0, 100) < CriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power : power * 2;
                 Whip newWhip = newObs.GetComponent<Whip>();
                 newWhip.mbUse = true;
                 // 위치 조정, 뒤집기
