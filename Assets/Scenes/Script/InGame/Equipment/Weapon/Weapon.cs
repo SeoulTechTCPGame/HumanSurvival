@@ -47,7 +47,8 @@ public class Weapon : MonoBehaviour
                 {
                     if (GameManager.instance.EvoGralicRestoreCount % 60 == 0)
                     {
-                        WeaponTotalStats[((int)Enums.EWeaponStat.Might)] += 1;
+                        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().mWeaponStats[(int)Enums.EWeaponStat.Might] += 1;
+                        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().AttackCalculation();
                     }
                 }
             }
@@ -104,7 +105,7 @@ public class Weapon : MonoBehaviour
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().BEvolution = BEvolution;
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponTotalStats = WeaponTotalStats;
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().mWeaponStats = mWeaponStats;
-}
+    }
     private void Evolution()
     {
         if (!IsMaster())
