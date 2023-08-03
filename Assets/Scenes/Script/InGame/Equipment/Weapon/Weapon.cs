@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     protected int mTouch = 0;
     [SerializeField] AudioClip mClip;
     private float[] mWeaponStats;
-    private float CriticalRate = 10;
+    private float mCriticalRate = 10;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -29,12 +29,12 @@ public class Weapon : MonoBehaviour
             float power = WeaponTotalStats[(int)Enums.EWeaponStat.Might];
             if (WeaponIndex == 0 && BEvolution)
             {
-                power = UnityEngine.Random.Range(0, 101) < CriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power * 2 : power;
+                power = UnityEngine.Random.Range(0, 101) < mCriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power * 2 : power;
                 GameManager.instance.Character.RestoreHealth(8);
             }
             else if(WeaponIndex == 3 && BEvolution)
             {
-                power = UnityEngine.Random.Range(0, 101) < CriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power * 2.5f : power;
+                power = UnityEngine.Random.Range(0, 101) < mCriticalRate * GameManager.instance.CharacterStats[(int)Enums.EStat.Luck] ? power * 2.5f : power;
                 Debug.Log(power);
             }
             col.gameObject.GetComponent<Enemy>().TakeDamage(power, WeaponIndex);
@@ -69,6 +69,7 @@ public class Weapon : MonoBehaviour
         this.WeaponIndex = weaponIndex;
         this.mWeaponStats = Enumerable.Range(0, EquipmentData.DefaultWeaponStats.GetLength(1)).Select(x => EquipmentData.DefaultWeaponStats[weaponIndex, x]).ToArray();
         WeaponLevel = 1;
+        BEvolution = false;
         WeaponMaxLevel = (int)mWeaponStats[(int)Enums.EWeaponStat.MaxLevel];
         WeaponTotalStats = Enumerable.Range(0, EquipmentData.DefaultWeaponStats.GetLength(1)).Select(x => EquipmentData.DefaultWeaponStats[weaponIndex, x]).ToArray(); ;
         AttackCalculation();
