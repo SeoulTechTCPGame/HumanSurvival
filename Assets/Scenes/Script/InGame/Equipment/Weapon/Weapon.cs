@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     public int WeaponLevel = 1;
     public int WeaponMaxLevel;
     public bool BEvolution = false;
-    public float[] WeaponTotalStatList; // Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
+    public float[] WeaponTotalStats; // Might,Cooldown,ProjectileSpeed, Duration, Amount,AmountLimit,Piercing,Area,MaxLevel
     protected int mTouch = 0;
     [SerializeField] AudioClip mClip;
     private float[] mWeaponStats;
@@ -19,13 +19,13 @@ public class Weapon : MonoBehaviour
         {
             if (col.gameObject.TryGetComponent(out DestructibleObject destructible))
             {
-                destructible.TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+                destructible.TakeDamage(WeaponTotalStats[(int)Enums.EWeaponStat.Might], WeaponIndex);
                 SoundManager.instance.PlayOverlapSound(mClip);
             }
         }
         if (col.gameObject.tag == "Monster")
         {
-            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStatList[(int)Enums.EWeaponStat.Might], WeaponIndex);
+            col.gameObject.GetComponent<Enemy>().TakeDamage(WeaponTotalStats[(int)Enums.EWeaponStat.Might], WeaponIndex);
             SoundManager.instance.PlayOverlapSound(mClip);
             if (WeaponIndex == 6 && BEvolution)
             {
@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
                 {
                     if (GameManager.instance.EvoGralicRestoreCount % 60 == 0)
                     {
-                        WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] += 1;
+                        WeaponTotalStats[((int)Enums.EWeaponStat.Might)] += 1;
                     }
                 }
             }
@@ -62,7 +62,7 @@ public class Weapon : MonoBehaviour
         this.mWeaponStats = Enumerable.Range(0, EquipmentData.DefaultWeaponStats.GetLength(1)).Select(x => EquipmentData.DefaultWeaponStats[weaponIndex, x]).ToArray();
         WeaponLevel = 1;
         WeaponMaxLevel = (int)mWeaponStats[(int)Enums.EWeaponStat.MaxLevel];
-        WeaponTotalStatList = mWeaponStats;
+        WeaponTotalStats = Enumerable.Range(0, EquipmentData.DefaultWeaponStats.GetLength(1)).Select(x => EquipmentData.DefaultWeaponStats[weaponIndex, x]).ToArray(); ;
         AttackCalculation();
     }
     public void Upgrade()
@@ -71,6 +71,10 @@ public class Weapon : MonoBehaviour
         foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[WeaponIndex][WeaponLevel])
         {
             mWeaponStats[statIndex] += data;
+        }
+        foreach (Weapon weapon in GameManager.instance.EquipManageSys.Weapons)
+        {
+            weapon.AttackCalculation();
         }
         Evolution();
     }
@@ -82,7 +86,6 @@ public class Weapon : MonoBehaviour
     {
         return BEvolution;
     }
-    public float[] WeaponTotalStats { get { return WeaponTotalStatList; } }
     public virtual void Attack() { }
     public virtual void EvolutionProcess() { }
     private void Evolution()
@@ -107,7 +110,7 @@ public class Weapon : MonoBehaviour
     }
     //아래 계산을 한번에 하기
     //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
-    private void AttackCalculation()
+    public void AttackCalculation()
     {
         DamageCalculation();
         ProjectileSpeedCalculation();
@@ -115,29 +118,32 @@ public class Weapon : MonoBehaviour
         AttackRangeCalculation();
         CooldownCalculation();
         CalculateNumberOfProjectiles();
+        Debug.Log("Cal");
     }
     private void DamageCalculation()
     {
-        WeaponTotalStatList[((int)Enums.EWeaponStat.Might)] = mWeaponStats[((int)Enums.EWeaponStat.Might)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Might];
+        WeaponTotalStats[((int)Enums.EWeaponStat.Might)] = mWeaponStats[((int)Enums.EWeaponStat.Might)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Might];
+        Debug.Log(WeaponTotalStats[((int)Enums.EWeaponStat.Might)]);
+        Debug.Log(mWeaponStats[((int)Enums.EWeaponStat.Might)]);
     }
     private void ProjectileSpeedCalculation()
     {
-        WeaponTotalStatList[((int)Enums.EWeaponStat.ProjectileSpeed)] = mWeaponStats[((int)Enums.EWeaponStat.ProjectileSpeed)] * GameManager.instance.CharacterStats[(int)Enums.EStat.ProjectileSpeed];
+        WeaponTotalStats[((int)Enums.EWeaponStat.ProjectileSpeed)] = mWeaponStats[((int)Enums.EWeaponStat.ProjectileSpeed)] * GameManager.instance.CharacterStats[(int)Enums.EStat.ProjectileSpeed];
     }
     private void DurationCalculation()
     {
-        WeaponTotalStatList[((int)Enums.EWeaponStat.Duration)] = mWeaponStats[((int)Enums.EWeaponStat.Duration)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Duration];
+        WeaponTotalStats[((int)Enums.EWeaponStat.Duration)] = mWeaponStats[((int)Enums.EWeaponStat.Duration)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Duration];
     }
     private void AttackRangeCalculation()
     {
-        WeaponTotalStatList[((int)Enums.EWeaponStat.Area)] = mWeaponStats[((int)Enums.EWeaponStat.Area)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Area];
+        WeaponTotalStats[((int)Enums.EWeaponStat.Area)] = mWeaponStats[((int)Enums.EWeaponStat.Area)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Area];
     }
     private void CooldownCalculation()
     {
-        WeaponTotalStatList[((int)Enums.EWeaponStat.Cooldown)] = mWeaponStats[((int)Enums.EWeaponStat.Cooldown)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Cooldown];
+        WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)] = mWeaponStats[((int)Enums.EWeaponStat.Cooldown)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Cooldown];
     }
     private void CalculateNumberOfProjectiles()
     {
-        WeaponTotalStatList[((int)Enums.EWeaponStat.Amount)] = ((int)mWeaponStats[((int)Enums.EWeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.EStat.Amount];
+        WeaponTotalStats[((int)Enums.EWeaponStat.Amount)] = ((int)mWeaponStats[((int)Enums.EWeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.EStat.Amount];
     }
 }

@@ -24,6 +24,10 @@ public class Accessory
         {
             GameManager.instance.CharacterStats[statIndex] += data;
         }
+        foreach(Weapon weapon in GameManager.instance.EquipManageSys.Weapons)
+        {
+            weapon.AttackCalculation();
+        }
         Evolution();
     }
     private void Evolution()
