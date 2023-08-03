@@ -16,7 +16,7 @@ public class FireWand : Weapon
     private void FixedUpdate()
     {
         if (!mbUseWand) return;
-        if (mTouchLimit <= mTouch)
+        if (mTouchLimit <= mTouch && !IsEvoluction())
         {
             Destroy(this.gameObject);
         }
