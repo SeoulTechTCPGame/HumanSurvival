@@ -65,10 +65,6 @@ public class LightningRing : Weapon
             }
         }
     }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
-    }
     private Vector3[] FindDenseClusterEnemy(int Amount)
     {
         Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 15 + Vector3.up * 8, GameManager.instance.Player.transform.position + Vector3.right * 15 + Vector3.down * 8, LayerMask.GetMask("Monster"));

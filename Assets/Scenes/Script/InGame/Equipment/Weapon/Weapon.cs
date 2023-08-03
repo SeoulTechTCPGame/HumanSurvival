@@ -87,11 +87,20 @@ public class Weapon : MonoBehaviour
         return BEvolution;
     }
     public virtual void Attack() { }
-    public virtual void EvolutionProcess() { }
+    public virtual void EvolutionProcess() 
+    {
+        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponIndex = WeaponIndex;
+        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponLevel = WeaponLevel;
+        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponMaxLevel = WeaponMaxLevel;
+        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().BEvolution = BEvolution;
+        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponTotalStats = WeaponTotalStats;
+        SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().mWeaponStats = mWeaponStats;
+}
     private void Evolution()
     {
         if (!IsMaster())
             return;
+        Debug.Log("Evo");
         var equipManageSys = GameManager.instance.EquipManageSys;
         int evoPairAccIndex = EquipmentData.EvoWeaponNeedAccIndex[WeaponIndex];
         if (evoPairAccIndex < 0)    // 짝이 되는 악세서리의 index = -1 -> 짝이 무기인 경우
@@ -118,13 +127,11 @@ public class Weapon : MonoBehaviour
         AttackRangeCalculation();
         CooldownCalculation();
         CalculateNumberOfProjectiles();
-        Debug.Log("Cal");
+        PiercingCalculation();
     }
     private void DamageCalculation()
     {
         WeaponTotalStats[((int)Enums.EWeaponStat.Might)] = mWeaponStats[((int)Enums.EWeaponStat.Might)] * GameManager.instance.CharacterStats[(int)Enums.EStat.Might];
-        Debug.Log(WeaponTotalStats[((int)Enums.EWeaponStat.Might)]);
-        Debug.Log(mWeaponStats[((int)Enums.EWeaponStat.Might)]);
     }
     private void ProjectileSpeedCalculation()
     {
@@ -145,5 +152,9 @@ public class Weapon : MonoBehaviour
     private void CalculateNumberOfProjectiles()
     {
         WeaponTotalStats[((int)Enums.EWeaponStat.Amount)] = ((int)mWeaponStats[((int)Enums.EWeaponStat.Amount)]) + GameManager.instance.CharacterStats[(int)Enums.EStat.Amount];
+    }
+    private void PiercingCalculation()
+    {
+        WeaponTotalStats[((int)Enums.EWeaponStat.Piercing)] = ((int)mWeaponStats[((int)Enums.EWeaponStat.Piercing)]);
     }
 }

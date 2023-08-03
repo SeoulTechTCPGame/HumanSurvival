@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8370051675277498723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -158,18 +158,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 3
-  WeaponLevel: 1
-  WeaponMaxLevel: 1
+  WeaponLevel: 8
+  WeaponMaxLevel: 8
   BEvolution: 1
-  WeaponTotalStatList:
-  - 5
+  WeaponTotalStats:
+  - 43.75
   - 2
-  - 1
+  - 1.5
   - -1
-  - 1
+  - 3
   - 30
-  - 1e+10
-  - 1
+  - 1.4100654e+9
+  - 1.2
   - 8
   mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
   mAnimator: {fileID: -8700681718345149569}
+  mFireClip: {fileID: 0}
