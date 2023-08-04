@@ -148,7 +148,7 @@ public class TreasureChest : MonoBehaviour
             mPickLights[i].SetActive(true);
         }
         mbIsOnPickUpEffect = true;
-        SoundManager.instance.PlayRepeatedSoundEffect(mChestClip, 10f);
+        SoundManager.instance.PlaySoundEffect(mChestClip);
     }
     private void PickUpEffect()
     {
