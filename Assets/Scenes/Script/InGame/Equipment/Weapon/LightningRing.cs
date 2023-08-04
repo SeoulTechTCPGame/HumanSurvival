@@ -6,32 +6,40 @@ public class LightningRing : Weapon
 {
     [SerializeField] AudioClip mFireClip;
     private GameObject mNewObj;
+    private GameObject mEvoNewObj;
     private float mTimer = 0;
     private bool mbExist = false;
-    private Vector3[] lightningPosition;
+    private bool mbEvoExist = false;
+    private Vector3[] mLightningPosition;
+    private float mEvoTimer = 0;
 
     public override void Attack()
     {
         GameObject objPre;
         if (IsEvoluction())
+        {
             objPre = SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex];
+            mEvoTimer += Time.deltaTime;
+        }
         else
             objPre = SkillFiringSystem.instance.weaponPrefabs[WeaponIndex];
         mTimer += Time.deltaTime;
         if (!mbExist && mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)])
         {
+            objPre.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             mNewObj = new GameObject("Lightnings");
             mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
             SoundManager.instance.PlayOverlapSound(mFireClip);
 
-            lightningPosition = FindDenseClusterEnemy((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
+            mLightningPosition = FindDenseClusterEnemy((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
             for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
                 GameObject lightning = Instantiate(objPre, GameObject.Find("Lightnings").transform);
                 lightning.GetComponent<CircleCollider2D>().radius = 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)]);
-                lightning.transform.position = lightningPosition[i] + Vector3.up * 10;
+                lightning.transform.position = mLightningPosition[i] + Vector3.up * 10;
             }
             mbExist = true;
+            mEvoTimer = 0;
             mTimer = 0;
         }
         else if (mbExist && mTimer > 0.3f)
@@ -40,29 +48,28 @@ public class LightningRing : Weapon
             mbExist = false;
             mTimer = 0;
         }
-        if (IsEvoluction())
-        {
-            if (!mbExist && mTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)] / 2)
-            {
-                mNewObj = new GameObject("Lightnings");
-                mNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
-                SoundManager.instance.PlayOverlapSound(mFireClip);
 
-                for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
-                {
-                    GameObject lightning = Instantiate(objPre, GameObject.Find("Lightnings").transform);
-                    lightning.GetComponent<CircleCollider2D>().radius = 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)]);
-                    lightning.transform.position = lightningPosition[i] + Vector3.up * 10;
-                }
-                mbExist = true;
-                mTimer = 0;
-            }
-            else if (mbExist && mTimer > 0.3f)
+        if (!mbEvoExist && mEvoTimer > WeaponTotalStats[((int)Enums.EWeaponStat.Cooldown)] / 2)
+        {
+            objPre.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+            mEvoNewObj = new GameObject("EvoLightnings");
+            mEvoNewObj.transform.parent = GameObject.Find("SkillFiringSystem").transform;
+            SoundManager.instance.PlayOverlapSound(mFireClip);
+
+            for (int i = 0; i < WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]; i++)
             {
-                Destroy(mNewObj);
-                mbExist = false;
-                mTimer = 0;
+                GameObject lightning = Instantiate(objPre, GameObject.Find("EvoLightnings").transform);
+                lightning.GetComponent<CircleCollider2D>().radius = 0.15f * (float)Math.Sqrt(WeaponTotalStats[((int)Enums.EWeaponStat.Area)]);
+                lightning.transform.position = mLightningPosition[i] + Vector3.up * 10;
             }
+            mbEvoExist = true;
+            mEvoTimer = 0;
+        }
+        else if (mbEvoExist && mEvoTimer > 0.3f)
+        {
+            Destroy(mEvoNewObj);
+            mbEvoExist = false;
+            mEvoTimer = 0;
         }
     }
     private Vector3[] FindDenseClusterEnemy(int Amount)

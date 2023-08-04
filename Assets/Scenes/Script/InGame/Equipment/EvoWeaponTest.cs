@@ -30,13 +30,13 @@ public class EvoWeaponTest : MonoBehaviour
         // GameManager.instance.EquipManageSys.SetNewWeapon(5);
         // GameManager.instance.EquipManageSys.SetNewAccessory(0);
 
-        GameManager.instance.EquipManageSys.SetNewWeapon(6);
-        GameManager.instance.EquipManageSys.SetNewAccessory(3);
+        // GameManager.instance.EquipManageSys.SetNewWeapon(6);
+        // GameManager.instance.EquipManageSys.SetNewAccessory(3);
 
-        // GameManager.instance.EquipManageSys.SetNewWeapon(7);
-        // GameManager.instance.EquipManageSys.SetNewAccessory(-1);
-        // GameManager.instance.EquipManageSys.SetNewWeapon(8);
-        // GameManager.instance.EquipManageSys.SetNewAccessory(-1);
+        GameManager.instance.EquipManageSys.SetNewWeapon(7);
+        GameManager.instance.EquipManageSys.SetNewAccessory(-1);
+        GameManager.instance.EquipManageSys.SetNewWeapon(8);
+        GameManager.instance.EquipManageSys.SetNewAccessory(-1);
 
         // GameManager.instance.EquipManageSys.SetNewWeapon(9);
         // GameManager.instance.EquipManageSys.SetNewAccessory(8);
