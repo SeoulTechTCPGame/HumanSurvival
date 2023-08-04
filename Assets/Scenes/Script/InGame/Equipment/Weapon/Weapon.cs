@@ -128,7 +128,7 @@ public class Weapon : MonoBehaviour
             BEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].BEvolution = true;
     }
     //아래 계산을 한번에 하기
-    private void AttackCalculation()
+    public void AttackCalculation()
     {
         DamageCalculation();
         ProjectileSpeedCalculation();
