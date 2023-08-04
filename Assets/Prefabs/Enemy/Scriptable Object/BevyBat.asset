@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BevyBat
   m_EditorClassIdentifier: 
   mEnemyName: Bat
-  mSpriteType: 4
+  mSpriteType: 12
   mSpeed: 200
   mPower: 6
   mKnockback: 1

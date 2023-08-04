@@ -6,7 +6,6 @@ public enum EStageEventType
 {
     SpawnEnemy,
     SpawnEnemyBoss, 
-    SpawnObjcet,
     WinStage
 }
 

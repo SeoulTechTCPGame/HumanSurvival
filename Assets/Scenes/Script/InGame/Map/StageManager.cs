@@ -25,9 +25,8 @@ public class StageManager : MonoBehaviour
                 case EStageEventType.SpawnEnemyBoss:
                     SpawnEnemy(true);
                     break;
-                case EStageEventType.SpawnObjcet://chest spawn
-                    break;
                 case EStageEventType.WinStage:
+                    GameManager.instance.GameOverPanelUp();
                     break;
             }
             mEventIndexer += 1;

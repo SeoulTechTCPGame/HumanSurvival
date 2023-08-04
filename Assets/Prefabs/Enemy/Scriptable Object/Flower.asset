@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flower
   m_EditorClassIdentifier: 
   mEnemyName: Flower
-  mSpriteType: 5
+  mSpriteType: 4
   mSpeed: 20
   mPower: 1
   mKnockback: 1

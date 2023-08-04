@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Revival : MonoBehaviour
@@ -10,6 +8,5 @@ public class Revival : MonoBehaviour
         GameManager.instance.RevivalPanel.SetActive(false);
         GameManager.instance.CharacterStats[(int)Enums.EStat.Revival] -= 1;
         Time.timeScale = 1;
-
     }
 }
