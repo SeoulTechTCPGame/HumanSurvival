@@ -1,3 +1,4 @@
+using Enums;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,28 @@ public class MiniLevels
     public Image[] MiniLevel;
 }
 
+[Serializable]
+public class ItemData
+{
+    public string Name;
+    public string Explain;
+}
+
+[Serializable]
+public class StatExplainData
+{
+    public string Explain1;
+    public string Explain2;
+}
+
+[Serializable]
+public class PickScriptContainer
+{
+    public ItemData[] Weapon;
+    public ItemData[] Accessory;
+    public ItemData[] Etc;
+    public StatExplainData[] WeaponStat;
+}
 public class LevelUpUIManager : MonoBehaviour
 {
     public bool mbOnLevelUp;
@@ -32,8 +55,8 @@ public class LevelUpUIManager : MonoBehaviour
 
     [SerializeField] GameObject mFilter;
 
-    [SerializeField] static List<string[]> mTypeScripts;
-
+    private List<ItemData[]> mItemScripts;
+    private StatExplainData[] mWeaponStatScripts;
     private List<Tuple<int, int, int>> mPickUps;
     private int mRotSpeed = 720;
     private float mTime = 0;
@@ -47,9 +70,6 @@ public class LevelUpUIManager : MonoBehaviour
         mStatUI.SetActive(false);
         mItemUI.SetActive(false);
         mFilter.SetActive(false);
-
-        // TODO: 아이템 설명들 추가하기
-        ItemScriptProcessing();
     }
     private void Update()
     {
@@ -77,6 +97,7 @@ public class LevelUpUIManager : MonoBehaviour
         mbOnLevelUp = true;
         GameManager.instance.Player.enabled = false;
         mPickUps = pickUps;
+        SetPickUpScripts();
 
         mPickUpUI.SetActive(true);
         SetPickUpUI(pickUps);
@@ -105,9 +126,11 @@ public class LevelUpUIManager : MonoBehaviour
 
             mPickUpButtons[i].GetComponent<PickButton>().Image.sprite = GetSprite(pickUps[i].Item1, pickUps[i].Item2);
 
-            mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Name].text = TransPickIndexToEnumString(pickUps[i].Item1, pickUps[i].Item2);
-
-            mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Script].text = mTypeScripts[pickUps[i].Item1][pickUps[i].Item2];
+            mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Name].text = mItemScripts[pickUps[i].Item1][pickUps[i].Item2].Name;
+            if (pickUps[i].Item1 == (int)EPickUpType.Weapon && pickUps[i].Item3 != 0)
+                mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Script].text = GetWeaponStatScript(pickUps[i].Item2);
+            else
+                mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Script].text = mItemScripts[pickUps[i].Item1][pickUps[i].Item2].Explain;
             mPickUpButtons[i].GetComponent<PickButton>().Texts[(int)Enums.EButton.Property].text = pickUps[i].Item3 == 0 ? "New" : "";
         }
     }
@@ -178,46 +201,6 @@ public class LevelUpUIManager : MonoBehaviour
         GameManager.instance.EquipManageSys.ApplyItem(mPickUps[selectedIndex]);
         UnloadLevelUpUI();
         GameManager.instance.ResumeGame();
-    }
-    private static void ItemScriptProcessing()
-    {
-        mTypeScripts = new List<string[]>();
-        mTypeScripts.Add(new string[Constants.MAX_WEAPON_NUMBER]
-        {
-            "Whip 설명",
-            "MagicWand 설명",
-            "Knife 설명",
-            "Cross 설명",
-            "KingBible 설명",
-            "FireWand 설명",
-            "Garlic 설명",
-            "Peachone 설명",
-            "EbonyWings 설명",
-            "LightningRing 설명"
-        });
-        mTypeScripts.Add(new string[Constants.MAX_ACCESSORY_NUMBER]
-        {
-            "Spinach 설명",
-            "Armor 설명",
-            "HollowHeart 설명",
-            "Pummarola 설명",
-            "EmptyTome 설명",
-            "Candelabrador 설명",
-            "Bracer 설명",
-            "Spellbinder 설명",
-            "Duplicator 설명",
-            "Wings 설명",
-            "Attractorb 설명",
-            "Clover 설명",
-            "Crown 설명",
-            "StoneMask 설명",
-            "Skull 설명",
-        });
-        mTypeScripts.Add(new string[Constants.MAX_ETC_NUMBER]
-        {
-            "25골드를 추가합니다.",
-            "체력을 30 회복합니다."
-        });
     }
     private string TransPickIndexToEnumString(int type, int index)
     {
@@ -300,5 +283,36 @@ public class LevelUpUIManager : MonoBehaviour
                 mAccessoryLevelsUI[i].MiniLevel[j].enabled = true;
             }
         }
+    }
+    private void SetPickUpScripts()
+    {
+        mItemScripts = new List<ItemData[]>();
+        
+        PickScriptContainer container = JsonUtility.FromJson<PickScriptContainer>(GetPickScriptText().text);
+        mItemScripts.Add(container.Weapon);
+        mItemScripts.Add(container.Accessory);
+        mItemScripts.Add(container.Etc);
+        mWeaponStatScripts = container.WeaponStat;
+    }
+    private TextAsset GetPickScriptText()
+    {
+        switch ((ELangauge)Singleton.S.curLangIndex)
+        {
+            case ELangauge.EN:
+                return Resources.Load<TextAsset>("GameData/PickScriptEnglish");
+            case ELangauge.KR:
+                return Resources.Load<TextAsset>("GameData/PickScriptKorean");
+            default:
+                return null;
+        }
+    }
+    private string GetWeaponStatScript(int weaponIndex)
+    {
+        string ret = "";
+        foreach((var statIndex, var data) in GameManager.instance.EquipManageSys.GetWeapon(weaponIndex).GetNextUpgradeData())
+        {
+            ret += mWeaponStatScripts[statIndex].Explain1 + data.ToString("F2") + mWeaponStatScripts[statIndex].Explain2;
+        }
+        return ret;
     }
 }
