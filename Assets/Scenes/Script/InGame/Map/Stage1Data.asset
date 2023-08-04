@@ -15,14 +15,6 @@ MonoBehaviour:
   StageEvents:
   - EventType: 0
     Time: 0
-    Message: test
-    EnemyToSpawn: {fileID: 11400000, guid: 37d107c99afff4e40bc67e638c5361b3, type: 2}
-    EnemyCount: 1
-    BRepeatedEvent: 0
-    RepeatEverySeconds: 0
-    RepeatCount: 0
-  - EventType: 0
-    Time: 0
     Message: wave1
     EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
     EnemyCount: 10
@@ -181,8 +173,16 @@ MonoBehaviour:
     BRepeatedEvent: 1
     RepeatEverySeconds: 2
     RepeatCount: 5
-  - EventType: 3
+  - EventType: 0
     Time: 120
+    Message: wave13
+    EnemyToSpawn: {fileID: 11400000, guid: 1e494659f63a2594e87f5ad7abd762b2, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 5
+    RepeatCount: 4
+  - EventType: 2
+    Time: 130
     Message: Win!
     EnemyToSpawn: {fileID: 0}
     EnemyCount: 0

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1886036213109440170}
   - component: {fileID: 1886036213109440171}
   - component: {fileID: 1886036213109440172}
-  - component: {fileID: 1886036213109440173}
   - component: {fileID: 1886036213109440168}
   - component: {fileID: 7129043048481569120}
+  - component: {fileID: 5420596722719094631}
   m_Layer: 7
   m_Name: EnemyXLMummy
   m_TagString: Monster
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 1886036213109440174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.93, y: 7.93, z: 7.93}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 6.5, y: 8, z: 7.96}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -130,22 +130,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1886036213109440173
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886036213109440174}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.7, y: 0.9}
-  m_Direction: 0
 --- !u!114 &1886036213109440168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +160,29 @@ MonoBehaviour:
   - Name: exp
     PrefabsIndex: 4
     DropRate: 100
+--- !u!61 &5420596722719094631
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886036213109440174}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
