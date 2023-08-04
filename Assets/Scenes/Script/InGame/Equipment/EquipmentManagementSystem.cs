@@ -99,13 +99,13 @@ public class EquipmentManagementSystem
     }
     public Accessory GetAccessory(int accessoryIndex)
     {
-        if (TransWeaponIndex[accessoryIndex] < 0 || accessoryIndex >= Constants.MAX_ACCESSORY_NUMBER)
+        if (TransAccessoryIndex[accessoryIndex] < 0 || accessoryIndex >= Constants.MAX_ACCESSORY_NUMBER)
             Debug.Log("없는 악세서리 호출");
-        return Accessories[TransWeaponIndex[accessoryIndex]];
+        return Accessories[TransAccessoryIndex[accessoryIndex]];
     }
     public Accessory GetAccessory(EAccessory accessory)
     {
-        return Accessories[TransWeaponIndex[(int)accessory]];
+        return Accessories[TransAccessoryIndex[(int)accessory]];
     }
     public void UpgradeAccessory(int accessoryIndex)
     {
@@ -182,7 +182,7 @@ public class EquipmentManagementSystem
         switch ((Enums.EEtc)etcIndex)
         {
             case Enums.EEtc.Food:
-                // TODO: 체력 회복 함수와 연결
+                GameManager.instance.Character.RestoreHealth(30);
                 break;
             case Enums.EEtc.Money:
                 GameManager.instance.GetCoin(25);
