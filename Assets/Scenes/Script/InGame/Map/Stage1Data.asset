@@ -15,6 +15,14 @@ MonoBehaviour:
   StageEvents:
   - EventType: 0
     Time: 0
+    Message: test
+    EnemyToSpawn: {fileID: 11400000, guid: 37d107c99afff4e40bc67e638c5361b3, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 0
     Message: wave1
     EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
     EnemyCount: 10
@@ -56,13 +64,21 @@ MonoBehaviour:
   - EventType: 0
     Time: 40
     Message: wave5
-    EnemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
+    EnemyToSpawn: {fileID: 11400000, guid: 37d107c99afff4e40bc67e638c5361b3, type: 2}
     EnemyCount: 10
     BRepeatedEvent: 1
     RepeatEverySeconds: 2
     RepeatCount: 5
   - EventType: 0
-    Time: 40
+    Time: 50
+    Message: 'wave6 '
+    EnemyToSpawn: {fileID: 11400000, guid: a82cc436940b36247827d68981512459, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 5
+    RepeatCount: 6
+  - EventType: 0
+    Time: 52
     Message: wave6 flowerwall
     EnemyToSpawn: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
     EnemyCount: 1
@@ -70,10 +86,106 @@ MonoBehaviour:
     RepeatEverySeconds: 0
     RepeatCount: 0
   - EventType: 0
-    Time: 40
-    Message: wave6 ~
-    EnemyToSpawn: {fileID: 11400000, guid: bc815237256bb614397722ad99055206, type: 2}
+    Time: 53
+    Message: wave6 Mantis
+    EnemyToSpawn: {fileID: 11400000, guid: 60a46aad3101c964faa1168676bafbf3, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 60
+    Message: wave7
+    EnemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
     EnemyCount: 10
     BRepeatedEvent: 1
-    RepeatEverySeconds: 3
-    RepeatCount: 30
+    RepeatEverySeconds: 5
+    RepeatCount: 2
+  - EventType: 0
+    Time: 70
+    Message: wave8
+    EnemyToSpawn: {fileID: 11400000, guid: f67334971fd8c6a45abb0c9ddb73704e, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 5
+    RepeatCount: 2
+  - EventType: 0
+    Time: 71
+    Message: wave8 elite bat
+    EnemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 80
+    Message: wave9
+    EnemyToSpawn: {fileID: 11400000, guid: 2372b7528a7b9204b97752c672027ae2, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 10
+  - EventType: 0
+    Time: 90
+    Message: wave10
+    EnemyToSpawn: {fileID: 11400000, guid: e93c5302bb3434643b073f0802f6fd1f, type: 2}
+    EnemyCount: 5
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 0
+    Time: 91
+    Message: wave10 elite bat
+    EnemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 100
+    Message: wave11
+    EnemyToSpawn: {fileID: 11400000, guid: a82cc436940b36247827d68981512459, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 5
+    RepeatCount: 2
+  - EventType: 0
+    Time: 101
+    Message: wave11 flower wall
+    EnemyToSpawn: {fileID: 11400000, guid: 2a91971f20bc8ef428c2c3daeb914fd3, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 102
+    Message: wave11 elite Mantis
+    EnemyToSpawn: {fileID: 11400000, guid: 60a46aad3101c964faa1168676bafbf3, type: 2}
+    EnemyCount: 1
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
+  - EventType: 0
+    Time: 110
+    Message: 'wave12 '
+    EnemyToSpawn: {fileID: 11400000, guid: e210e4b3a177dac428939d7bb7d1d9e8, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 0
+    Time: 112
+    Message: wave12 elite bat
+    EnemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 2
+    RepeatCount: 5
+  - EventType: 3
+    Time: 120
+    Message: Win!
+    EnemyToSpawn: {fileID: 0}
+    EnemyCount: 0
+    BRepeatedEvent: 0
+    RepeatEverySeconds: 0
+    RepeatCount: 0
