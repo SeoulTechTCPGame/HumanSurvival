@@ -161,14 +161,14 @@ MonoBehaviour:
   WeaponLevel: 1
   WeaponMaxLevel: 8
   BEvolution: 0
-  WeaponTotalStatList:
-  - 5
+  WeaponTotalStats:
+  - 6.25
   - 2
   - 1
   - -1
   - 1
   - 30
-  - 1e+10
+  - 1.4100654e+9
   - 1
   - 8
   mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}

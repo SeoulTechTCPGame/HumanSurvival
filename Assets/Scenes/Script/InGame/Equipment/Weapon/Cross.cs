@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;      // array의 IndexOf 함수
+using System.Linq; // array의 Max, Min 함수 
 
 public class Cross : Weapon
 {
@@ -8,7 +10,8 @@ public class Cross : Weapon
     private bool mbUsed = false;
     private Vector3 mDirection;
     private int mSpeedPower = 7;
-    
+    private Vector3[] mCloestDirection;
+
     private void Start()
     {
         mAnimator = GetComponent<Animator>();
@@ -35,6 +38,7 @@ public class Cross : Weapon
         mCoolTimer += Time.deltaTime;
         if (mCoolTimer >= cooldown)
         {
+            mCloestDirection = FindClosestEnemyDirection((int)WeaponTotalStats[((int)Enums.EWeaponStat.Amount)]);
             int numProjectiles = (int)WeaponTotalStats[(int)Enums.EWeaponStat.Amount];
             for (int i = 0; i < numProjectiles; i++)
             {
@@ -45,7 +49,7 @@ public class Cross : Weapon
                 Cross newCross = newObs.GetComponent<Cross>();
                 newCross.mbUsed = true;
                 // 무기 방향
-                Vector3 direction = FindClosestEnemyDirection();
+                Vector3 direction = mCloestDirection[i];
                 newCross.mDirection = direction;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 newObs.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -56,35 +60,34 @@ public class Cross : Weapon
             mCoolTimer = 0;
         }
     }
-    private Vector3 FindClosestEnemyDirection()
+    private Vector3[] FindClosestEnemyDirection(int Amount)
     {
-        GameObject closestEnemy = FindClosestEnemy();
-        if (closestEnemy != null)
-        {
-            Vector3 direction = closestEnemy.transform.position - transform.position;
-            return direction.normalized;
-        }
-        else
-        {
-            return Vector3.right;
-        }
-    }
-    private GameObject FindClosestEnemy()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
-        GameObject closestEnemy = null;
-        float closestDistance = Mathf.Infinity;
+        Collider2D[] enemies = Physics2D.OverlapAreaAll(GameManager.instance.Player.transform.position + Vector3.left * 15 + Vector3.up * 8, GameManager.instance.Player.transform.position + Vector3.right * 15 + Vector3.down * 8, LayerMask.GetMask("Monster"));
+        float[] distance = new float[enemies.Length];
+        Vector3[] result = new Vector3[Amount];
 
-        foreach (GameObject enemy in enemies)
+        for (int i = 0; i < enemies.Length; i++)
         {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            distance[i] = Vector3.Distance(GameManager.instance.Player.transform.position, enemies[i].transform.position);
+        }
 
-            if (distance < closestDistance)
+        if (enemies.Length == 0)
+        {
+            Debug.Log("error");
+            for (int i = 0; i < Amount; i++)
             {
-                closestEnemy = enemy;
-                closestDistance = distance;
+                result[i] = Vector3.right;
             }
+            return result;
         }
-        return closestEnemy;
+
+        for (int i = 0; i < Amount; i++)
+        {
+            Vector3 direction = enemies[Array.IndexOf(distance, distance.Min())].transform.position - GameManager.instance.Player.transform.position;
+            result[i] = direction.normalized;
+            distance[Array.IndexOf(distance, distance.Min())] = Mathf.Infinity;
+        }
+
+        return result;
     }
 }

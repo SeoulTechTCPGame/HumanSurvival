@@ -45,10 +45,6 @@ public class Knife : Weapon
             mTimer = 0;
         }
     }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
-    }
     private Vector3 setDirection(GameObject obj) {
         //칼날 방향
         if (GameManager.instance.Player.Movement.x > 0)

@@ -118,7 +118,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -137,9 +137,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponIndex: 2
-  WeaponLevel: 1
-  WeaponMaxLevel: 0
-  BEvolution: 0
-  WeaponTotalStatList: []
+  WeaponLevel: 8
+  WeaponMaxLevel: 8
+  BEvolution: 1
+  WeaponTotalStats:
+  - 23.925001
+  - 0.92
+  - 1.1
+  - -1.1
+  - 6
+  - 70
+  - 1
+  - 1
+  - 8
   mClip: {fileID: 8300000, guid: b7b82469670fd8f4dbfe583727d083b5, type: 3}
   mFireClip: {fileID: 8300000, guid: 90eb21f856ad8d04493cb838affe8f3e, type: 3}
