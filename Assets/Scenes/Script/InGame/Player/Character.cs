@@ -101,5 +101,4 @@ public class Character : MonoBehaviour, IDamageable
             mHpBar.SetState(mCurrentHp, mMaxHp);
         }
     }
-    
 }

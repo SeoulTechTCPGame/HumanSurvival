@@ -128,7 +128,6 @@ public class Weapon : MonoBehaviour
             BEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].BEvolution = true;
     }
     //아래 계산을 한번에 하기
-    //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     public void AttackCalculation()
     {
         DamageCalculation();

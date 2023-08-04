@@ -1826,9 +1826,16 @@ MonoBehaviour:
   - {fileID: 807355772286374456, guid: 566b3cc4883e73c47b4298b9649219ca, type: 3}
   - {fileID: 9127071239993843719, guid: fca21f12d44d59346abba0164516d799, type: 3}
   - {fileID: 1886036213109440174, guid: c1ccc03b76848804faf85e0437349fc5, type: 3}
+  - {fileID: 807355772286374456, guid: 2288ad732a5bf8947a7451b493597bf7, type: 3}
+  - {fileID: 752108596653014988, guid: 69566a8693dc66c49b5d708b690bab17, type: 3}
+  - {fileID: 807355772286374456, guid: 9f7b65b6ae728274ab6ae88d0032f7f6, type: 3}
+  - {fileID: 1886036213109440174, guid: e60397977a043a845a995244c03a0405, type: 3}
+  - {fileID: 807355772286374456, guid: 3b716a80cc63c95499e44ac788d752e6, type: 3}
+  - {fileID: 1886036213109440174, guid: 18d32aee44ca0e6418c2ea0ec165bba2, type: 3}
+  - {fileID: 1886036213109440174, guid: 820ea4e1c74c8884ebe598dccea509ec, type: 3}
+  - {fileID: 1886036213109440174, guid: 24fcbc89817cc9645b1407214b3ea959, type: 3}
   - {fileID: 807355772286374456, guid: 5c68810c317284949b22204c34c26745, type: 3}
   - {fileID: 807355772286374456, guid: f89c0ba8b49e7ee44b73808a373004e1, type: 3}
-  - {fileID: 752108596653014988, guid: 69566a8693dc66c49b5d708b690bab17, type: 3}
   ExpPrefabs:
   - {fileID: 3915139561794565461, guid: bb17956b9b777e743b643480f8b43503, type: 3}
   - {fileID: 3915139561794565461, guid: c22fbf40d947c8e49b8b055d4fb021aa, type: 3}
@@ -3002,6 +3009,10 @@ PrefabInstance:
     - target: {fileID: 4776699145629718429, guid: 9df577b3fdc5c08489173138d969f39d, type: 3}
       propertyPath: m_Name
       value: TreasureChestUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776699145629718429, guid: 9df577b3fdc5c08489173138d969f39d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df577b3fdc5c08489173138d969f39d, type: 3}

@@ -49,16 +49,21 @@ public class Enemy : MonoBehaviour,IDamageable
         }
         //물리 속도가 이동에 영향을 주지 않도록 속도 제거
         mRb.velocity = Vector2.zero;
-        //플레이어와 일정 거리 이상 떨어지면 다시 리스폰하기
+        //플레이어와 일정 거리 이상 떨어지면 없애기
         if (Vector3.Distance(Target.position, mRb.position) > 30)
         {
-            mRb.position = Target.position + mDirection * 20;
+            mbLive = false;
+            mColl.enabled = false;
+            mRb.simulated = false;
+            mSpriter.sortingOrder = 1;
+            mAnim.SetBool("Dead", true);
+            gameObject.SetActive(false);
         }
     }
     private void LateUpdate()
     {
         //타겟의 x축과 비교하여 sprite flip  
-        mSpriter.flipX = Target.position.x < mRb.position.x;
+        mSpriter.flipX = Target.position.x > mRb.position.x;
     }
     private void OnEnable()
     {
@@ -142,6 +147,5 @@ public class Enemy : MonoBehaviour,IDamageable
         //경험치 drop
         gameObject.GetComponent<DropSystem>().OnDrop(mRb.transform.position);
         gameObject.SetActive(false);
-
     }
 }
