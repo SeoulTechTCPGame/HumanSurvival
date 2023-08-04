@@ -16,7 +16,7 @@ public class Peachone : Weapon
     private float mTimer = 100;
     private bool mbUsePeach = false;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!mbUsePeach || mbHolding)
         {

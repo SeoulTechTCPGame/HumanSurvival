@@ -18,7 +18,7 @@ public class EbonyWings : Weapon
     private float mTimer = 100;
     private bool mbUseEbony = false;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!mbUseEbony || mbHolding)
         {
