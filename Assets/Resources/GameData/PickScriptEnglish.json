@@ -1,0 +1,150 @@
+{
+  "Weapon": [
+    {
+      "Name": "Whip",
+      "Explain": "Attacks horizontally, passes through enemies."
+    },
+    {
+      "Name": "MagicWand",
+      "Explain": "Fires at the nearest enemy."
+    },
+    {
+      "Name": "Knife",
+      "Explain": "Fires quickly in the faced direction."
+    },
+    {
+      "Name": "Cross",
+      "Explain": "Aims at nearest enemy, has boomerang effect."
+    },
+    {
+      "Name": "KingBible",
+      "Explain": "Orbits around the character."
+    },
+    {
+      "Name": "FireWand",
+      "Explain": "Fires at a random enemy, deals heavy damage."
+    },
+    {
+      "Name": "Garlic",
+      "Explain": "Damages nearby enemies."
+    },
+    {
+      "Name": "Peachone",
+      "Explain": "Bombards in a circling zone."
+    },
+    {
+      "Name": "EbonyWings",
+      "Explain": "Bombards in a circling zone."
+    },
+    {
+      "Name": "LightningRing",
+      "Explain": "Strikes at random enemies."
+    }
+  ],
+  "Accessory": [
+    {
+      "Name": "Spinach",
+      "Explain": "Raises inflicted damage by 10%."
+    },
+    {
+      "Name": "Armor",
+      "Explain": "Reduces incoming Damage by 1."
+    },
+    {
+      "Name": "HollowHeart",
+      "Explain": "Augemets Max Health by 20%"
+    },
+    {
+      "Name": "Pummarola",
+      "Explain": "Character recovers 0.2 HP per second."
+    },
+    {
+      "Name": "EmptyTome",
+      "Explain": "Reduces weapon cooldown by 8%."
+    },
+    {
+      "Name": "Candelabrador",
+      "Explain": "Augemnets area of attacks by 10%."
+    },
+    {
+      "Name": "Bracer",
+      "Explain": "Increases projectile speed by 10%."
+    },
+    {
+      "Name": "Spellbinder",
+      "Explain": "Increases duration of weapon effects by 10%."
+    },
+    {
+      "Name": "Duplicator",
+      "Explain": "Weapons fire more projectiles."
+    },
+    {
+      "Name": "Wings",
+      "Explain": "Character moves 10% faster."
+    },
+    {
+      "Name": "Attractorb",
+      "Explain": "Chracter picks up items from further away."
+    },
+    {
+      "Name": "Clover",
+      "Explain": "Character gets 10% luckier."
+    },
+    {
+      "Name": "Crown",
+      "Explain": "Character gains 8% more experience."
+    },
+    {
+      "Name": "StoneMask",
+      "Explain": "Character earns 10% more Gold coins."
+    },
+    {
+      "Name": "Skull",
+      "Explain": "Increases enemy speed, health, quantity, and frequency by 10%."
+    }
+  ],
+  "Etc": [
+    {
+      "Name": "Money",
+      "Explain": "You get 25 gold."
+    },
+    {
+      "Name": "Food",
+      "Explain": "Restores 30 health."
+    }
+  ],
+  "WeaponStat": [
+    {
+      "Explain1": "Base Damage up by ",
+      "Explain2": "%. "
+    },
+    {
+      "Explain1": "Cooldown reduced by ",
+      "Explain2": "%. "
+    },
+    {
+      "Explain1": "Base Speed up by ",
+      "Explain2": "%. "
+    },
+    {
+      "Explain1": "Effect lasts ",
+      "Explain2": "% longer. "
+    },
+    {
+      "Explain1": "Fires ",
+      "Explain2": " more projectile. "
+    },
+    {
+      "Explain1": "Maximum number of projectiles is increased by ",
+      "Explain2": "%. "
+    },
+    {
+      "Explain1": "Increases the number of projectile penetrations by ",
+      "Explain2": "%. "
+    },
+    {
+      "Explain1": "Size Increses by ",
+      "Explain2": "%. "
+    }
+  ]
+}

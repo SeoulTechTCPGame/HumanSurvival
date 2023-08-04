@@ -1,6 +1,7 @@
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
@@ -87,6 +88,20 @@ public class Weapon : MonoBehaviour
             weapon.AttackCalculation();
         }
         Evolution();
+    }
+    public List<Tuple<int, float>> GetNextUpgradeData()
+    {
+        if (IsMaster())
+            return null;
+
+        int nextLevel = WeaponLevel + 1;
+        List<Tuple<int, float>> ret = new List<Tuple<int, float>>();
+        foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[nextLevel][nextLevel])
+        {
+            ret.Add(new Tuple<int, float>(statIndex, data));
+        }
+
+        return ret;
     }
     public bool IsMaster()
     {
