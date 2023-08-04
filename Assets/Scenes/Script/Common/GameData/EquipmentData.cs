@@ -598,23 +598,23 @@ public class EquipmentData
         });
         AccessoryUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.8f)
+            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.08f)
         });
         AccessoryUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.8f)
+            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.08f)
         });
         AccessoryUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.8f)
+            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.08f)
         });
         AccessoryUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.8f)
+            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.08f)
         });
         AccessoryUpgrade[4].Add(new List<Tuple<int, float>>
         {
-            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.8f)
+            new Tuple<int, float>((int)Enums.EAccessoryStat.CooldownPer, -0.08f)
         });
 
         // Candelabrador

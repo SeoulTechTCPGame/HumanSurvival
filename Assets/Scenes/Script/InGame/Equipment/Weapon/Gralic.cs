@@ -37,8 +37,4 @@ public class Gralic : Weapon
             mTimer = 0;
         }
     }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
-    }
 }

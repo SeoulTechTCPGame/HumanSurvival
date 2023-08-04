@@ -16,7 +16,7 @@ public class FireWand : Weapon
     private void FixedUpdate()
     {
         if (!mbUseWand) return;
-        if (mTouchLimit <= mTouch)
+        if (mTouchLimit <= mTouch && !IsEvoluction())
         {
             Destroy(this.gameObject);
         }
@@ -58,9 +58,5 @@ public class FireWand : Weapon
             }
             mTimer = 0;
         }
-    }
-    public override void EvolutionProcess() // 무기 진화시 한 번 호출됨
-    {
-
     }
 }
