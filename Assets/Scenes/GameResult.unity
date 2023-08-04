@@ -1528,13 +1528,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weaponlist: {fileID: 0}
-  Accessorylist: {fileID: 0}
   mTime: {fileID: 0}
   mCoin: {fileID: 0}
   mLevel: {fileID: 0}
   mKill: {fileID: 0}
   mCharacter: {fileID: 0}
   mCharacterImage: {fileID: 0}
+  mAccesaryLv: []
 --- !u!114 &217063121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3676,13 +3676,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weaponlist: {fileID: 942213286}
-  Accessorylist: {fileID: 0}
   mTime: {fileID: 332447303}
   mCoin: {fileID: 996144308}
   mLevel: {fileID: 790988494}
   mKill: {fileID: 1529260784}
   mCharacter: {fileID: 1772883602}
   mCharacterImage: {fileID: 1537518679}
+  mAccesaryLv:
+  - {fileID: 119584354}
+  - {fileID: 1679497183}
+  - {fileID: 49943574}
+  - {fileID: 1274674487}
+  - {fileID: 1446424013}
+  - {fileID: 2116224132}
+  - {fileID: 93948534}
+  - {fileID: 93526050}
+  - {fileID: 98941704}
+  - {fileID: 398303116}
+  - {fileID: 1263102080}
+  - {fileID: 1696378193}
+  - {fileID: 1156240409}
+  - {fileID: 752750285}
+  - {fileID: 1542365874}
 --- !u!1 &1141330672
 GameObject:
   m_ObjectHideFlags: 0
