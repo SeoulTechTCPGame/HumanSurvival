@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Inspirator : MonoBehaviour, ICollectible
@@ -10,6 +8,7 @@ public class Inspirator : MonoBehaviour, ICollectible
 
     public void Collect()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
         mTimer += Time.deltaTime;
         SoundManager.instance.PlaySoundEffect(mClip);
 

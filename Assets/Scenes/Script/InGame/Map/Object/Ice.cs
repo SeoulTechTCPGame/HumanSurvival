@@ -1,45 +1,47 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class Ice : MonoBehaviour, ICollectible
 {
     [SerializeField] AudioClip mClip;
-    [SerializeField] GameObject mIceFilter;
 
-    private Coroutine mBreakFrozenCoroutine;
+    private float mTime;
+    private float mBreakTime = 5.0f;
+    private bool mbOnBreak = false;
 
     private void Start()
     {
-        mIceFilter = GameObject.Find("IceFilter");
+        mTime = 0;
     }
 
     public void Collect()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
         SoundManager.instance.PlaySoundEffect(mClip);
+        if (mbOnBreak)
+        {
+            mTime = 0;
+            return;
+        }
+        mTime += Time.deltaTime;
         EnemyFrozen();
 
-        if(mBreakFrozenCoroutine != null)
+        if (mTime >= mBreakTime)
         {
-            StopCoroutine(mBreakFrozenCoroutine);
+            BreakFrozen();
+            gameObject.SetActive(false);
         }
-        mBreakFrozenCoroutine = StartCoroutine(BreakFrozenAfterDelay(5.0f));
-        gameObject.SetActive(false);
     }
     private void EnemyFrozen()
     {
         GameManager.instance.EnemyTimeScale = 0;
         GameManager.instance.Character.BDamageImmune = true;
-        mIceFilter.SetActive(true);
+        GameManager.instance.BlueFilter.SetActive(true);
     }
     private void BreakFrozen()
     {
         GameManager.instance.EnemyTimeScale = 1;
         GameManager.instance.Character.BDamageImmune = false;
-        mIceFilter.SetActive(false);
-    }
-    private IEnumerator BreakFrozenAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        BreakFrozen();
+        GameManager.instance.BlueFilter.SetActive(false);
     }
 }
