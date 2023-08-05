@@ -100,9 +100,9 @@ public class EbonyWings : Weapon
     }
     public override void EvolutionProcess()
     {
-        base.EvolutionProcess();
         var equipManageSys = GameManager.instance.EquipManageSys;
-        var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
+        var pairWeapon = equipManageSys.GetWeapon(EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]);
+        pairWeapon.EvolutionStatProcess();
         pairWeapon.EvolutionProcess();
     }
     private Vector3 CalculateBezierPoint()

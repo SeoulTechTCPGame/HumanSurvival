@@ -23,7 +23,7 @@ public class EquipmentData
     {
         // 짝이 없는 무기, 악세서리의 경우는 -1로 초기화
         EvoWeaponNeedAccIndex       = new int[Constants.MAX_WEAPON_NUMBER] { 2, 4, 6, 11, 7, 0, 3, -1, -1, 8 };
-        EvoWeaponNeedWeaponIndex    = new int[Constants.MAX_WEAPON_NUMBER] { -1, -1, -1, -1, -1, -1, -1, 10, 9, -1 };
+        EvoWeaponNeedWeaponIndex    = new int[Constants.MAX_WEAPON_NUMBER] { -1, -1, -1, -1, -1, -1, -1, 8, 7, -1 };
         EvoAccNeedWeaponIndex       = new int[Constants.MAX_ACCESSORY_NUMBER] { 5, -1, 0, 6, 1, -1, 2, 4, 9, -1, -1, 3, -1, -1, -1 };
     }
     public static void LevelOneWeaponPreprocessing()

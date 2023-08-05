@@ -42,11 +42,10 @@ public class Peachone : Weapon
     }
     public override void EvolutionProcess()
     {
-        base.EvolutionProcess();
         var equipManageSys = GameManager.instance.EquipManageSys;
         var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
         var bird = SkillFiringSystem.instance.Birds[2];
-        pairWeapon.GetComponent<EbonyWings>().EvolutionProcess();
+        pairWeapon.EvolutionStatProcess();
 
         Destroy(Bird, pairWeapon.WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown] - mTimer);
         Destroy(pairWeapon.GetComponent<EbonyWings>().Bird, pairWeapon.WeaponTotalStats[(int)Enums.EWeaponStat.Cooldown] - mTimer);
