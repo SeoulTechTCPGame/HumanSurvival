@@ -3361,7 +3361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextKey: Load an externally saved file
+  TextKey: Initialize Data
 --- !u!1 &1029612084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4701,7 +4701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a01cd33478520b499ee9989bd27b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextKey: Load previous data
+  TextKey: Apply Cheating
 --- !u!1 &1380558095
 GameObject:
   m_ObjectHideFlags: 0

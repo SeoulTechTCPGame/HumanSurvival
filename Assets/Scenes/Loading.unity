@@ -757,8 +757,8 @@ MonoBehaviour:
     - 
     - Collection
     - Click anywhere to start the game
-    - Load previous data
-    - Load an externally saved file
+    - Apply Cheating
+    - Initialize Data
     - Check
     - Invalid data file
     - Load
@@ -860,8 +860,8 @@ MonoBehaviour:
     - "\r"
     - "\uCEEC\uB799\uC158\r"
     - "\uC544\uBB34 \uACF3\uC774\uB098 \uD074\uB9AD\uD558\uC5EC \uAC8C\uC784 \uC2DC\uC791\uD558\uAE30\r"
-    - "\uC774\uC804 \uB370\uC774\uD130 \uBD88\uB7EC\uC624\uAE30\r"
-    - "\uC678\uBD80 \uC800\uC7A5 \uD30C\uC77C \uBD88\uB7EC\uC624\uAE30\r"
+    - "\uCE58\uD2B8 \uC801\uC6A9\r"
+    - "\uB370\uC774\uD130 \uCD08\uAE30\uD654\r"
     - "\uD655\uC778\r"
     - "\uC798\uBABB\uB41C \uB370\uC774\uD130 \uD30C\uC77C\r"
     - "\uBD88\uB7EC\uC624\uAE30\r"

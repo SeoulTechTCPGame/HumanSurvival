@@ -322,8 +322,8 @@
 
     {
       "ClassName": "CollectionStage1Survive31min",
-      "Name": "광기의 그루브",
-      "Explain": "광기의 숲에서 31분 생존",
+      "Name": "초원의 그루브",
+      "Explain": "초원에서 31분 생존",
       "Rank": "purple",
       "ImageName": "MapSprite/Stage1"
     },
