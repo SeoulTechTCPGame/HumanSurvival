@@ -1,0 +1,141 @@
+{
+  "Achievements": [
+    {
+      "ClassName": "ReachLevel5",
+      "Explain": "Reached Level 5",
+      "Obtain": "Wings"
+    },
+
+    {
+      "ClassName": "ReachLevel10",
+      "Explain": "Level 10 reached",
+      "Obtain": "Crwon"
+    },
+
+    {
+      "ClassName": "Survive1Min",
+      "Explain": "survive a minute with any character",
+      "Obtain": "Hollow Heart"
+    },
+
+    {
+      "ClassName": "Survive5MinPlayGennaro",
+      "Explain": "survive five minutes as a Barbarian",
+      "Obtain": "Pummarola"
+    },
+
+    {
+      "ClassName": "Survive10Min",
+      "Explain": "Survive 10 minutes with any character",
+      "Obtain": "Peachone"
+    },
+
+    {
+      "ClassName": "ReachLevel4KingBible",
+      "Explain": "up to Bible level 4",
+      "Obtain": "Bracer"
+    },
+
+    {
+      "ClassName": "ReachLevel4FireWand",
+      "Explain": "raise the wand of fire to level 4",
+      "Obtain": "Fire Mage"
+    },
+
+    {
+      "ClassName": "ReachLevel4LightningRing",
+      "Explain": "Lightning Ring Raised to Level 4",
+      "Obtain": "Necromancer"
+    },
+
+    {
+      "ClassName": "ReachLevel7MagicWand",
+      "Explain": "Magic wand up to level 7",
+      "Obtain": "replicated ring"
+    },
+
+    {
+      "ClassName": "ReachLevel7Peachone",
+      "Explain": "Raise Peachone to Level 7",
+      "Obtain": "Ebony Wings"
+    },
+
+    {
+      "ClassName": "ReachLevel7Garlic",
+      "Explain": "Raise garlic to level 7",
+      "Obtain": "Warlock"
+    },
+
+    {
+      "ClassName": "Possession6Weapons",
+      "Explain": "carry six weapons",
+      "Obtain": "Empty Tome"
+    },
+
+    {
+      "ClassName": "Cumulative1000Recovery",
+      "Explain": "Recovering Accumulated 1,000 Stamina",
+      "Obtain": "Alchemist"
+    },
+
+    {
+      "ClassName": "Destroy20LightObject",
+      "Explain": "Destroy 20 Light Objects",
+      "Obtain": "Fire Wand"
+    },
+
+    {
+      "ClassName": "Found5Chickens",
+      "Explain": "Five Chikens Found",
+      "Obtain": "Garlic"
+    },
+
+    {
+      "ClassName": "AccKillCount3000",
+      "Explain": "Defeat cumulative 3,000 enemies",
+      "Obtain": "Lightning ring"
+    },
+
+    {
+      "ClassName": "EvoWhip",
+      "Explain": "Whip Evolution",
+      " Obtain": "500 gold pieces"
+    },
+
+    {
+      "ClassName": "EvoMagicWand",
+      "Explain": "Magic wand evolution",
+      " Obtain": "500 gold pieces"
+    },
+
+    {
+      "ClassName": "EvoKnife",
+      "Explain": "Knife 진화",
+      " Obtain": "500 gold pieces"
+    },
+
+    {
+      "ClassName": "EvoLightningRing",
+      "Explain": "Lightning Ring Evolution",
+      " Obtain": "500 gold pieces"
+    },
+
+    {
+      "ClassName": "EvoKingBible",
+      "Explain": "KingBible 진화",
+      " Obtain": "500 gold pieces"
+    },
+
+    {
+      "ClassName": "EvoFireWand",
+      "Explain": "Fire Wand 진화",
+      " Obtain": "500 gold pieces"
+    },
+    
+    {
+      "ClassName": "EvoGarlic",
+      "Explain": "Garlic Evolution",
+      " Obtain": "500 gold pieces"
+    }
+  ]
+}
