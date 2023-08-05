@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Enums;
+using static Singleton;
 
 [Serializable]
 public class AchievementData
@@ -58,7 +59,8 @@ public class AchievementManager
     }
     private TextAsset GetAchiScriptText()
     {
-        switch ((ELangauge)Singleton.S.curLangIndex)
+        Debug.Log(S.curLangIndex);
+        switch ((ELangauge)S.curLangIndex)
         {
             case ELangauge.EN:
                 return Resources.Load<TextAsset>("GameData/AchievementDataEnglish");

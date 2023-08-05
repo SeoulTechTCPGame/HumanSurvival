@@ -26,7 +26,7 @@ public class CollectionManager
     public CollectionManager()
     {
         Collections = new List<CollectionClass>();
-        TextAsset jsonData = Resources.Load<TextAsset>("GameData/CollectionDataKorean");
+        TextAsset jsonData = GetCollectionScriptText();
         if (jsonData == null)
             Debug.Log("Collection json 파싱 실패!!");
         CollectionContainer container = JsonUtility.FromJson<CollectionContainer>(jsonData.text);
@@ -47,7 +47,7 @@ public class CollectionManager
         }
     }
 
-    private TextAsset GetPickScriptText()
+    private TextAsset GetCollectionScriptText()
     {
         switch ((ELangauge)Singleton.S.curLangIndex)
         {

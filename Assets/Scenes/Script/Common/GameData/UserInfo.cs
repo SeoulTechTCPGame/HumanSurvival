@@ -21,10 +21,12 @@ public class UserInfo : MonoBehaviour
             Destroy(instance.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+    private void Start()
+    {
         AchiManager = new AchievementManager();
         CollectionManager = new CollectionManager();
     }
-
     public void SetDefaultUnlockSettings()
     {
         SetDefaultStageSetting();

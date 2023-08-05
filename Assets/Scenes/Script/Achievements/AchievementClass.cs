@@ -38,18 +38,6 @@ public class ReachLevel10 : AchievementClass
     }
 }
 
-public class ReachLevel20InStage1 : AchievementClass
-{
-    public override bool IsComplete()
-    {
-        return GameManager.instance.GameStage == EStage.MadForest && GameManager.instance.Level >= 20;
-    }
-    public override void EarnRewards()
-    {
-        UserInfo.instance.UnlockStage(EStage.InlaidLibrary);
-    }
-}
-
 public class Survive1Min : AchievementClass
 {
     public override bool IsComplete()

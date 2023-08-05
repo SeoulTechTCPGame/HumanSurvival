@@ -4,322 +4,368 @@
       "ClassName": "CollectionWhip",
       "Name": "채찍",
       "Explain": "좌우로 적을 관통해 공격합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/Whip"
     },
 
     {
       "ClassName": "CollectionBloodyTear",
       "Name": "피눈물",
       "Explain": "채찍의 진화형. 치명타 피해를 입히고 HP를 흡수합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoWhip"
     },
 
     {
       "ClassName": "CollectionMagicWand",
       "Name": "마법 지팡이",
       "Explain": "가장 가까운 적을 공격합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/MagicWand"
     },
 
     {
       "ClassName": "CollectionHolyWand",
       "Name": "신성한 지팡이",
       "Explain": "마법 지팡이의 진화형. 무기의 크기가 증가합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoMagicWand"
     },
 
     {
       "ClassName": "CollectionKnife",
       "Name": "단검",
       "Explain": "바라보는 방향으로 단검을 투척합니다",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/Knife"
     },
 
     {
       "ClassName": "CollectionThousandEdge",
       "Name": "천개의 칼날",
       "Explain": "단검의 진화형. 무기의 크기가 증가합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoKnife"
     },
 
     {
       "ClassName": "CollectionCross",
       "Name": "십자가",
       "Explain": "가장 가까운 적에게 날아가며 부메랑처럼 돌아옵니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/Cross"
     },
 
     {
       "ClassName": "CollectionHeavenSword",
       "Name": "천상의 검",
       "Explain": "십자가의 진화형. 치명타 피해를 줍니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoCross"
     },
 
     {
       "ClassName": "CollectionKingBible",
       "Name": "성경",
       "Explain": "주변을 회전하며 공격합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/KingBible"
     },
 
     {
       "ClassName": "CollectionUnHolyVespers",
       "Name": "불경한 기도문",
       "Explain": "성경의 진화형. 사라지지 않습니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoKingBible"
     },
 
     {
       "ClassName": "CollectionFireWand",
       "Name": "불의 지팡이",
       "Explain": "무작위 방향으로 향해 발사되며 큰 피해를 줍니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/FireWand"
     },
 
     {
       "ClassName": "CollectionHellfire",
       "Name": "헬파이어",
       "Explain": "불의 지팡이의 진화형. 적을 관통합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoFireWand"
     },
 
     {
       "ClassName": "CollectionGarlic",
       "Name": "마늘",
       "Explain": "범위 내의 적에게 피해를 줍니다. 적의 넉백, 빙결저항을 감소시킵니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/Garlic"
     },
 
     {
       "ClassName": "CollectionSoulEater",
       "Name": "영혼 포식자",
       "Explain": "마늘의 진화형. 적 처치 시 체력을 흡수하며 체력흡수 시 피해량이 증가합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoGarlic"
     },
 
     {
       "ClassName": "CollectionPeachone",
       "Name": "하얀 비둘기",
       "Explain": "원형의 구역을 폭격합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/Peachone"
     },
 
     {
       "ClassName": "CollectionEbonyWings",
       "Name": "검은 비둘기",
       "Explain": "원형의 구역을 폭격합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EbonyWings"
     },
 
     {
       "ClassName": "CollectionVandalier",
       "Name": "파괴자",
       "Explain": "하얀 비둘기와 검은 비둘기의 진화형.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoPeachone"
     },
 
     {
       "ClassName": "CollectionLightningRing",
       "Name": "번개 반지",
       "Explain": "무작위 적에게 번개를 내려칩니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/LightningRing"
     },
 
     {
       "ClassName": "CollectionThunderLoop",
       "Name": "번개 고리",
       "Explain": "번개 반지의 진화형. 투사체가 2회 공격합니다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Weapons/EvoLightningRing"
     },
 
     {
       "ClassName": "CollectionSpinach",
       "Name": "시금치",
       "Explain": "공격력이 10% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Spinach"
     },
 
     {
       "ClassName": "CollectionArmor",
       "Name": "갑옷",
       "Explain": "방어력이 1, 반격 대미지가 10% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Armor"
     },
 
     {
       "ClassName": "CollectionHollowHeart",
       "Name": "검은 심장",
       "Explain": "최대 체력이 20% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/HollowHeart"
     },
 
     {
       "ClassName": "CollectionPummarola",
       "Name": "붉은 심장",
       "Explain": "매 초 0.2 의 체력이 회복된다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Pummarola"
     },
 
     {
       "ClassName": "CollectionEmptyTome",
       "Name": "빈 책",
       "Explain": "쿨타임이 8% 감소한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/EmptyTome"
     },
 
     {
       "ClassName": "CollectionCandelabrador",
       "Name": "촛대",
       "Explain": "공격범위가 10% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Candelabrador"
     },
 
     {
       "ClassName": "CollectionBracer",
       "Name": "팔 보호대",
       "Explain": "투사체 속도가 10% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Bracer"
     },
 
     {
       "ClassName": "CollectionDuplicator",
       "Name": "복제 반지",
       "Explain": "투사체 수가 1개 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Duplicator"
     },
 
     {
       "ClassName": "CollectionSpellbinder",
       "Name": "주문속박기",
       "Explain": "지속시간이 10% 증가한다.",
-      "Rank":  "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Spellbinder"
     },
 
     {
       "ClassName": "CollectionWings",
       "Name": "날개",
       "Explain": "이동속도가 10% 상승한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Wings"
     },
 
     {
       "ClassName": "CollectionAttractorb",
       "Name": "매혹구",
       "Explain": "아이템 획득 범위가 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Attractorb"
     },
 
     {
       "ClassName": "CollectionClover",
       "Name": "클로버",
       "Explain": "행운이 10% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Clover"
     },
 
     {
       "ClassName": "CollectionCrown",
       "Name": "왕관",
       "Explain": "경험치 획득량이 8% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Crown"
     },
 
     {
       "ClassName": "CollectionStoneMask",
       "Name": "돌가면",
       "Explain": "골드 획득량이 10% 증가한다.",
-      "Rank": "black"
+      "Rank": "black",
+      "ImageName": "Accessory/StoneMask"
     },
 
     {
       "ClassName": "CollectionSkull",
       "Name": "미치광이의 두개골",
       "Explain": "저주(적의 속도, 체력, 수량, 빈도)가 10% 증가한다.",
-      "Rank":  "black"
+      "Rank": "black",
+      "ImageName": "Accessory/Skull"
     },
 
     {
       "ClassName": "CollectionExp",
       "Name": "경험치 보석",
       "Explain": "경험치를 증가시킵니다.",
-      "Rank": "green"
+      "Rank": "green",
+      "ImageName": "MapObject/S_ItemHeavyOutline_CoinBlue_00"
     },
 
     {
       "ClassName": "CollectionGold",
       "Name": "금화",
       "Explain": "획득시 골드를 획득합니다.",
-      "Rank": "green"
+      "Rank": "green",
+      "ImageName": "Item/Coin"
     },
 
     {
       "ClassName": "CollectionHeart",
       "Name": "치킨",
       "Explain": "체력 30을 회복합니다.",
-      "Rank": "green"
+      "Rank": "green",
+      "ImageName": "Item/Recovery"
     },
 
     {
       "ClassName": "CollectionChest",
       "Name": "보물 상자",
       "Explain": "골드와 무작위 파워 업을 획득합니다. 강력한 적에게서만 획득 할 수 있습니다.",
-      "Rank": "green"
+      "Rank": "green",
+      "ImageName": "MapObject/S_ItemHeavyOutline_ChestGold_00"
     },
 
     {
       "ClassName": "CollectionNecromancer99",
       "Name": "공주의 비련",
       "Explain": "네크로맨서 레벨 99 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/Necromancer_0"
     },
 
     {
       "ClassName": "CollectionBarbarian99",
       "Name": "푸른 강철의 의지",
       "Explain": "바바리안 레벨 99 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/Barbarian_0"
     },
 
     {
       "ClassName": "CollectionStage1Survive31min",
       "Name": "광기의 그루브",
       "Explain": "광기의 숲에서 31분 생존",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "MapSprite/Stage1"
     },
 
     {
       "ClassName": "CollectionAlchemist99",
       "Name": "신성한 혈통",
       "Explain": "연금술사 레벨 99 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/Alchemist_0"
     },
 
     {
       "ClassName": "CollectionRogue99",
       "Name": "근원",
       "Explain": "로그 레벨 99 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/Rogue_0"
     },
 
     {
       "ClassName": "CollectionStormMage99",
       "Name": "진주의 왈츠",
       "Explain": "폭풍 마법사 레벨 99 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/StormMage_0"
     },
 
     {
       "ClassName": "CollectionFireMage99",
       "Name": "불의 심장",
       "Explain": "불 마법사 레벨 99 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/FireMage_0"
     },
 
     {
       "ClassName": "CollectionWarlock99",
       "Name": "블러드 아스트로노미아",
       "Explain": "워록 99 레벨 달성",
-      "Rank": "purple"
+      "Rank": "purple",
+      "ImageName": "CharacterSprite/Warlock_0"
     }
   ]
 }

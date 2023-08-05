@@ -382,11 +382,3 @@ public class CollectionStage1Survive31min : CollectionClass
         return GameManager.instance.GameStage == EStage.MadForest && GameManager.instance.GameTime >=  31 * 60;
     }
 }
-
-public class CollectionStage2Survive31min : CollectionClass
-{
-    public override bool IsComplete()
-    {
-        return GameManager.instance.GameStage == EStage.InlaidLibrary && GameManager.instance.GameTime >= 31 * 60;
-    }
-}
