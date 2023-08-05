@@ -1,6 +1,7 @@
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
@@ -88,6 +89,20 @@ public class Weapon : MonoBehaviour
         }
         Evolution();
     }
+    public List<Tuple<int, float>> GetNextUpgradeData()
+    {
+        if (IsMaster())
+            return null;
+
+        int nextLevel = WeaponLevel + 1;
+        List<Tuple<int, float>> ret = new List<Tuple<int, float>>();
+        foreach ((var statIndex, var data) in EquipmentData.WeaponUpgrade[nextLevel][nextLevel])
+        {
+            ret.Add(new Tuple<int, float>(statIndex, data));
+        }
+
+        return ret;
+    }
     public bool IsMaster()
     {
         return WeaponLevel == WeaponMaxLevel;
@@ -128,7 +143,6 @@ public class Weapon : MonoBehaviour
             BEvolution = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[evoPairWeaponIndex]].BEvolution = true;
     }
     //아래 계산을 한번에 하기
-    //ToDo: 레벨업 할때마다 갱신하는 것으로 변경
     public void AttackCalculation()
     {
         DamageCalculation();

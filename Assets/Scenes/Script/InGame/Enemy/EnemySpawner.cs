@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 position;
         //player의 위치 값에 랜덤 pos를 더해 스폰 지점 설정
-        if (enemyToSpawn.SpriteType == 5)//flower wall
+        if (enemyToSpawn.SpriteType == 4)//flower wall
         {
             position = mPlayer.transform.position;
         }

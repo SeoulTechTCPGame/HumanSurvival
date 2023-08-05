@@ -140,4 +140,11 @@ namespace Enums
         EN,
         KR
     }
+    public enum EPickScript
+    {
+        Weapon,
+        Accessory,
+        Etc, // recovery, coin
+        WeaponStat
+    }
 }

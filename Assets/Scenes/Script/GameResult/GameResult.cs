@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class GameResult : MonoBehaviour
 {
     public GameObject Weaponlist;
-    public GameObject Accessorylist;
 
     //[SerializeField] TMP_Text map = null;
     [SerializeField] TMP_Text mTime = null;
@@ -14,10 +13,11 @@ public class GameResult : MonoBehaviour
     [SerializeField] TMP_Text mKill = null;
     [SerializeField] TMP_Text mCharacter = null;
     [SerializeField] Image mCharacterImage = null;
+    [SerializeField] TMP_Text[] mAccesaryLv;
 
     private float mGameTime;
     private GameObject mWeaponInfo;
-
+    
     private void Start()
     {
         mLevel.text = string.Format("{0}", GameManager.instance.Level);
@@ -38,9 +38,10 @@ public class GameResult : MonoBehaviour
             row.GetComponent<WeaponListUI>().SetWeaponResultData(i,GameManager.instance.EquipManageSys.Weapons[i].WeaponIndex);
             row.transform.SetParent(Weaponlist.transform, false);
         }
-        for(int i = 0; i < GameManager.instance.EquipManageSys.Accessories.Count; i++)
+        for(int i = 0; i < Constants.MAX_ACCESSORY_NUMBER; i++)
         {
-            //밑에 숫자가 뭘까..
+            //trans 배열로 인덱스 맞춰줘야함.  null  에러도 고쳐야함
+            mAccesaryLv[i].text = string.Format("{0}", GameManager.instance.EquipManageSys.Accessories[i].AccessoryLevel);
         }
     }
     public void ClickCompleteBtn()
