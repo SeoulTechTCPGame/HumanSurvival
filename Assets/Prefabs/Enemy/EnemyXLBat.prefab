@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -1377271983600501788}
   - component: {fileID: 8531361723829270703}
   - component: {fileID: 8737480394920996120}
-  - component: {fileID: 7063297561946947394}
   - component: {fileID: 571778221885497018}
   m_Layer: 7
   m_Name: EnemyXLBat
@@ -99,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: e93c5302bb3434643b073f0802f6fd1f, type: 2}
   Target: {fileID: 0}
+  BDropTB: 0
 --- !u!95 &8531361723829270703
 Animator:
   serializedVersion: 5
@@ -135,19 +135,6 @@ MonoBehaviour:
   - Name: exp
     PrefabsIndex: 5
     DropRate: 100
---- !u!114 &7063297561946947394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807355772286374456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25529b111e363774c85cd65e1451a904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mTreasureBox: {fileID: 1726393253873246427, guid: 60addc989bc9e0c4682a3c2716b01caf, type: 3}
 --- !u!212 &571778221885497018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -197,6 +184,6 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
