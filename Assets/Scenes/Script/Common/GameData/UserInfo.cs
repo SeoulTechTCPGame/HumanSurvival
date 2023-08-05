@@ -32,7 +32,7 @@ public class UserInfo : MonoBehaviour
         SetDefaultWeaponSetting();
         SetDefaultAccessorySetting();
     }
-        public void UpdateAccumulatedTime(float time)
+    public void UpdateAccumulatedTime(float time)
     {
         UserDataSet.AccumulatedTime += time;
         UserDataManager.instance.SaveData();
@@ -40,7 +40,7 @@ public class UserInfo : MonoBehaviour
     public void UpdateAccumulatedKill(int kill)
     {
         UserDataSet.AccKill += kill;
-    }   
+    }
     public void UpdateGold(int gold)
     {
         UserDataSet.Gold += gold;
@@ -120,11 +120,11 @@ public class UserInfo : MonoBehaviour
     {
         UserDataSet.BUnlockAccessories[(int)accessory] = true;
     }
-    public bool IsStageUnlocked(EStage stage) 
+    public bool IsStageUnlocked(EStage stage)
     {
         return UserDataSet.BUnlockStages[(int)stage];
     }
-    public bool IsCharacterUnlocked(ECharacterType characterType) 
+    public bool IsCharacterUnlocked(ECharacterType characterType)
     {
         return UserDataSet.BUnlockCharacters[(int)characterType];
     }
@@ -140,6 +140,22 @@ public class UserInfo : MonoBehaviour
     {
         // TODO: Option기능 완성되면 추가
         UserDataManager.instance.SaveData();
+    }
+    public void SetCheatSetting()
+    {
+        for (int i = 0; i < UserDataSet.BUnlockStages.Length; i++)
+            UserDataSet.BUnlockStages[i] = true;
+        for (int i = 0; i < UserDataSet.BUnlockCharacters.Length; i++)
+            UserDataSet.BUnlockCharacters[i] = true;
+        for (int i = 0; i < UserDataSet.BUnlockWeapons.Length; i++)
+            UserDataSet.BUnlockWeapons[i] = true;
+        for (int i = 0; i < UserDataSet.BUnlockAccessories.Length; i++)
+            UserDataSet.BUnlockAccessories[i] = true;
+        for (int i = 0; i < UserDataSet.BCollection.Length; i++)
+            UserDataSet.BCollection[i] = true;
+        for (int i = 0; i < UserDataSet.BAchievements.Length; i++)
+            UserDataSet.BAchievements[i] = true;
+        UserDataSet.Gold = 100000;
     }
     private void SetDefaultStageSetting()
     {

@@ -64,28 +64,13 @@ public class OptionManager : MonoBehaviour
             mDefaultPanel.SetActive(true);
         }
     }
-    public void LoadSystemData()
+    public void ClickDefaultDataOnButton()
     {
-        //string filePath = System.IO.File.Open("Select a File", "", "json", true);
-        //bool bErrorFile;
-        //try
-        //{
-        //    bErrorFile = !UserDataManager.instance.LoadData(filePath);
-        //}
-        //catch (ArgumentException)
-        //{
-        //    return;
-        //}
-
-        //mWarningPanel.SetActive(false);
-        //if (bErrorFile)
-        //{
-        //    LoadParsingError();
-        //}
-        //else
-        //{
-        //    GetComponent<SceneMove>().ToBack();
-        //}
+        UserDataManager.instance.DataReset();
+    }
+    public void ClickCheatOnButton()
+    {
+        UserInfo.instance.SetCheatSetting();
     }
     public void LoadWarning()
     {
