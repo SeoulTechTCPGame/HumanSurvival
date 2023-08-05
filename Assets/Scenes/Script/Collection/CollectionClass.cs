@@ -1,10 +1,12 @@
 using Enums;
+using UnityEngine;
 
 public class CollectionClass
 {
     public string Name;
     public string Explain;
     public string Rank;
+    public Sprite Sprite;
 
     public virtual bool IsComplete()
     {

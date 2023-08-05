@@ -1,9 +1,11 @@
 using Enums;
+using UnityEngine;
 
 public class AchievementClass
 {
     public string Explain;
     public string Obtain;
+    public Sprite Sprite;
 
     public virtual bool IsComplete()
     {

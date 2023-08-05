@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Enums;
 
 [Serializable]
 public class AchievementData
@@ -8,6 +9,7 @@ public class AchievementData
     public string ClassName;
     public string Explain;
     public string Obtain;
+    public string ImageName;
 }
 
 [Serializable]
@@ -23,7 +25,7 @@ public class AchievementManager
     public AchievementManager()
     {
         Achievements = new List<AchievementClass>();
-        TextAsset jsonData = Resources.Load<TextAsset>("GameData/AchievementDataKorean");
+        TextAsset jsonData = GetAchiScriptText();
         if (jsonData == null)
             Debug.Log("Achi json 파싱 실패!!");
         AchievementContainer container = JsonUtility.FromJson<AchievementContainer>(jsonData.text);
@@ -36,6 +38,7 @@ public class AchievementManager
                 AchievementClass achievement = (AchievementClass)Activator.CreateInstance(achievementType);
                 achievement.Explain = jsonAchievement.Explain;
                 achievement.Obtain = jsonAchievement.Obtain;
+                achievement.Sprite = Resources.Load<Sprite>(jsonAchievement.ImageName);
 
                 Achievements.Add(achievement);
             }
@@ -51,6 +54,18 @@ public class AchievementManager
                 UserInfo.instance.UserDataSet.BAchievements[i] = true;
                 Achievements[i].EarnRewards();
             }
+        }
+    }
+    private TextAsset GetAchiScriptText()
+    {
+        switch ((ELangauge)Singleton.S.curLangIndex)
+        {
+            case ELangauge.EN:
+                return Resources.Load<TextAsset>("GameData/AchievementDataEnglish");
+            case ELangauge.KR:
+                return Resources.Load<TextAsset>("GameData/AchievementDataKorean");
+            default:
+                return null;
         }
     }
 }
