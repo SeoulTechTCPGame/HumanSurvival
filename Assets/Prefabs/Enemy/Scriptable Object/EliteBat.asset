@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc994ea4d975a3940b1d3fd1033c2631, type: 3}
   m_Name: EliteBat
   m_EditorClassIdentifier: 
-  mEnemyName: Bat
+  mEnemyName: EliteBat
   mSpriteType: 11
   mSpeed: 140
   mPower: 10

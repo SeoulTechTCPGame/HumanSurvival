@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour,IDamageable
     private SpriteRenderer mSpriter;
     private Animator mAnim;
     private WaitForFixedUpdate mWait;
+    private float mSpawnTime;
 
     private void Awake()
     {
@@ -28,6 +29,11 @@ public class Enemy : MonoBehaviour,IDamageable
         mAnim = GetComponent<Animator>();
         mColl = GetComponent<Collider2D>();
         mWait = new WaitForFixedUpdate();
+    }
+    private void Start()
+    {
+        mSpawnTime = GameManager.instance.GameTime;
+
     }
     private void FixedUpdate()
     {
@@ -51,19 +57,37 @@ public class Enemy : MonoBehaviour,IDamageable
         //물리 속도가 이동에 영향을 주지 않도록 속도 제거
         mRb.velocity = Vector2.zero;
         //플레이어와 일정 거리 이상 떨어지면 없애기
-        if (Vector3.Distance(Target.position, mRb.position) > 30)
+        if (Vector3.Distance(Target.position, mRb.position) > 50)
         {
-            if (gameObject.TryGetComponent(out DropTB dt))
+            if(EnemyData.name == "EliteBat")
             {
-                BDropTB = true;
+                mRb.position = Target.position + mDirection * 20;
             }
-            mbLive = false;
+            else
+            {
+                if (gameObject.TryGetComponent(out DropTB dt))
+                {
+                    BDropTB = true;
+                }
+                mbLive = false;
+                mColl.enabled = false;
+                mRb.simulated = false;
+                mSpriter.sortingOrder = 1;
+                mAnim.SetBool("Dead", true);
+                gameObject.SetActive(false);
+            }            
+        }
+        /* Todo: 바로 없어짐 왜?
+         * if (EnemyData.EnemyName == "Flower" && GameManager.instance.GameTime > mSpawnTime + 14)
+        {
+            Debug.Log(mSpawnTime);
+            mbLive = false;     
             mColl.enabled = false;
             mRb.simulated = false;
             mSpriter.sortingOrder = 1;
             mAnim.SetBool("Dead", true);
             gameObject.SetActive(false);
-        }
+        }*/
     }
     private void LateUpdate()
     {
@@ -85,7 +109,7 @@ public class Enemy : MonoBehaviour,IDamageable
         mColl.enabled=true;
         mRb.simulated = true;
         mSpriter.sortingOrder = 2;
-        mAnim.SetBool("Dead", false);  //TODO: Fix code location
+        mAnim.SetBool("Dead", false);
     }
     private void OnCollisionStay2D(Collision2D col)
     {
