@@ -42,7 +42,7 @@ public class Peachone : Weapon
     }
     public override void EvolutionProcess()
     {
-        base.EvolutionProcess();
+        Debug.Log("efasae");
         var equipManageSys = GameManager.instance.EquipManageSys;
         var pairWeapon = equipManageSys.Weapons[equipManageSys.TransWeaponIndex[EquipmentData.EvoWeaponNeedWeaponIndex[WeaponIndex]]];
         var bird = SkillFiringSystem.instance.Birds[2];

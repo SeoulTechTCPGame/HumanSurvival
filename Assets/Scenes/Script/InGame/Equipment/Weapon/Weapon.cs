@@ -112,7 +112,7 @@ public class Weapon : MonoBehaviour
         return BEvolution;
     }
     public virtual void Attack() { }
-    public virtual void EvolutionProcess() 
+    public virtual void EvolutionStatProcess() 
     {
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponIndex = WeaponIndex;
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponLevel = WeaponLevel;
@@ -121,6 +121,9 @@ public class Weapon : MonoBehaviour
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponTotalStats = WeaponTotalStats;
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().mWeaponStats = mWeaponStats;
     }
+    public virtual void EvolutionProcess() {
+        Debug.Log("asdasfag");
+     }
     private void Evolution()
     {
         if (!IsMaster())
@@ -134,7 +137,10 @@ public class Weapon : MonoBehaviour
             BEvolution = true;
 
         if (BEvolution)
+        {
+            EvolutionStatProcess();
             EvolutionProcess();
+        }
     }
     private void EvolutionException(EquipmentManagementSystem equipManageSys)     // 진화에 필요한 짝이 악세서리가 아닌 무기인 경우(예시 - 비둘기, 흑비둘기)
     {
