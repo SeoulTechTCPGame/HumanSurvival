@@ -36,13 +36,13 @@ public class Enemy : MonoBehaviour,IDamageable
         if (EnemyData.SpriteType == 4)
         {
             mDirection = (mFixedTargetDirection - mRb.position).normalized;
-            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection;
+            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection * GameManager.instance.EnemyTimeScale;
             mRb.position += nextVec;
         }
         else
         {
             mDirection = (Target.position - mRb.position).normalized;
-            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection;
+            Vector2 nextVec = 0.01f * EnemyData.Speed * GameManager.instance.CharacterStats[(int)Enums.EStat.Curse] * Time.fixedDeltaTime * mDirection * GameManager.instance.EnemyTimeScale;
 
             //플레이어의 키입력 값을 더한 이동=몬스터의 방향 값을 더한 이동
             mRb.MovePosition(mRb.position + nextVec);

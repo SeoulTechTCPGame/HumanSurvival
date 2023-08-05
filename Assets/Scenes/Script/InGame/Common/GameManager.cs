@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public EStage GameStage;
     public float GameTime;
     public float MaxGameTime = 180 * 10f;
+    public float EnemyTimeScale = 1;
     public bool IsGMAlive = true;
     [Header("# Player Info")]
     public Character Character;
