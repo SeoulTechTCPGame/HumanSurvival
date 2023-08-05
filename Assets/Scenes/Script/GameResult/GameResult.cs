@@ -40,10 +40,14 @@ public class GameResult : MonoBehaviour
         }
         for(int i = 0; i < Constants.MAX_ACCESSORY_NUMBER; i++)
         {
-            //trans 배열로 인덱스 맞춰줘야함.  null  에러도 고쳐야함
-            mAccesaryLv[i].text = string.Format("{0}", GameManager.instance.EquipManageSys.Accessories[i].AccessoryLevel);
+            if (GameManager.instance.EquipManageSys.TransAccessoryIndex[i] >= 0)
+            {
+                mAccesaryLv[i].text = string.Format("{0}", GameManager.instance.EquipManageSys.Accessories[GameManager.instance.EquipManageSys.TransAccessoryIndex[i]].AccessoryLevel);
+            }
         }
     }
+           
+    
     public void ClickCompleteBtn()
     {
         UserInfo.instance.UpdateAccumulatedTime(GameManager.instance.GameTime);

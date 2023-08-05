@@ -26,7 +26,6 @@ public class GoToPlayer : MonoBehaviour
                 if(gameObject.TryGetComponent(out ICollectible collectible))
                     collectible.Collect();
             }
-        }
-        
+        } 
     }
 }
