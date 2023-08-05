@@ -59,6 +59,10 @@ public class CollectionItemInfo : MonoBehaviour, IPointerEnterHandler
                 mThisItemIamge.GetComponent<Image>().sprite = mPurpleImage;
             }
         }
+        else
+        {
+            mThisItemIamge.sprite = UserInfo.instance.CollectionManager.Collections[mItemIndex - 1].Sprite;
+        }
     }
     public void OnPointerEnter(PointerEventData eventData) 
     {
