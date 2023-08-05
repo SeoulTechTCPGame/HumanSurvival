@@ -121,9 +121,7 @@ public class Weapon : MonoBehaviour
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().WeaponTotalStats = WeaponTotalStats;
         SkillFiringSystem.instance.evolutionWeaponPrefabs[WeaponIndex].GetComponent<Weapon>().mWeaponStats = mWeaponStats;
     }
-    public virtual void EvolutionProcess() {
-        Debug.Log("asdasfag");
-     }
+    public virtual void EvolutionProcess() { }
     private void Evolution()
     {
         if (!IsMaster())
