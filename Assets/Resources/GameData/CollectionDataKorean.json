@@ -24,7 +24,7 @@
     {
       "ClassName": "CollectionHolyWand",
       "Name": "신성한 지팡이",
-      "Explain": "마법 지팡이의 진화형. 지연 없이 발사됩니다.",
+      "Explain": "마법 지팡이의 진화형. 무기의 크기가 증가합니다.",
       "Rank": "black"
     },
 
@@ -38,7 +38,7 @@
     {
       "ClassName": "CollectionThousandEdge",
       "Name": "천개의 칼날",
-      "Explain": "단검의 진화형. 지연 없이 발사됩니다.",
+      "Explain": "단검의 진화형. 무기의 크기가 증가합니다.",
       "Rank": "black"
     },
 
@@ -269,14 +269,14 @@
     {
       "ClassName": "CollectionNecromancer99",
       "Name": "공주의 비련",
-      "Explain": "포르타 레벨 99 달성",
+      "Explain": "네크로맨서 레벨 99 달성",
       "Rank": "purple"
     },
 
     {
       "ClassName": "CollectionBarbarian99",
       "Name": "푸른 강철의 의지",
-      "Explain": "젠나로 레벨 99 달성",
+      "Explain": "바바리안 레벨 99 달성",
       "Rank": "purple"
     },
 
@@ -290,42 +290,35 @@
     {
       "ClassName": "CollectionAlchemist99",
       "Name": "신성한 혈통",
-      "Explain": "클레리씨 수녀 레벨 99 달성",
+      "Explain": "연금술사 레벨 99 달성",
       "Rank": "purple"
     },
 
     {
       "ClassName": "CollectionRogue99",
       "Name": "근원",
-      "Explain": "안토니오 레벨 99 달성",
+      "Explain": "로그 레벨 99 달성",
       "Rank": "purple"
     },
 
     {
       "ClassName": "CollectionStormMage99",
       "Name": "진주의 왈츠",
-      "Explain": "이멜다 레벨 99 달성",
-      "Rank": "purple"
-    },
-
-    {
-      "ClassName": "CollectionStage2Survive31min",
-      "Name": "황금 디스코",
-      "Explain": "화려한 도서관 31분 생존",
+      "Explain": "폭풍 마법사 레벨 99 달성",
       "Rank": "purple"
     },
 
     {
       "ClassName": "CollectionFireMage99",
       "Name": "불의 심장",
-      "Explain": "아르카 레벨 99 달성",
+      "Explain": "불 마법사 레벨 99 달성",
       "Rank": "purple"
     },
 
     {
       "ClassName": "CollectionWarlock99",
       "Name": "블러드 아스트로노미아",
-      "Explain": "포 랏초 99 레벨 달성",
+      "Explain": "워록 99 레벨 달성",
       "Rank": "purple"
     }
   ]

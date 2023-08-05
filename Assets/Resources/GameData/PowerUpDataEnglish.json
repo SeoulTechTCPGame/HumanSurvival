@@ -1,0 +1,82 @@
+﻿{
+    "PowerUp": [
+            {
+                "Explain": "A 5% increase in damage per rank\n(maximum +25%)",
+                "AccessoryLevel": 5
+            },
+
+            {
+                "Explain": "Shoot damage per rank is reduced by 1.\n(maximum -3)",
+                "AccessoryLevel": 3
+            },
+
+            {
+                "Explain": "Maximum fitness increases by 10% per rank\n(maximum +30%)",
+                "AccessoryLevel": 3
+            },
+
+            {
+                "Explain": "Physical recovery per second increases by 0.1 per rank\n(up to 0.5)",
+                "AccessoryLevel": 5
+            },
+
+            {
+                "Explain": "The weapon cool time per rank is reduced by 2.5%\n(up to 5%)",
+                "AccessoryLevel": 2
+            },
+
+            {
+                "Explain": "Attack range increased by 5% per rank\n(maximum +10%)",
+                "AccessoryLevel": 2
+            },
+
+            {
+                "Explain": "Projectors are 10% faster per rank\n(up to 20%)",
+                "AccessoryLevel": 2
+            },
+
+            {
+                "Explain": "The duration of the weapon's effectiveness per rank is increased by 15%\n(maximum +30%)",
+                "AccessoryLevel": 2
+            },
+
+            {
+                "Explain": "Fire one more projectile\n(all weapons)",
+                "AccessoryLevel": 1
+            },
+
+            {
+                "Explain": "Move 5% faster per rank\n(up to 10%)",
+                "AccessoryLevel": 2
+            },
+
+            {
+                "Explain": "Increase the range of item acquisition per rank by 25%\n(maximum +50%)",
+                "AccessoryLevel": 2
+            },
+
+            {
+                "Explain": "A 10% increase in luck per rank\n(maximum +30%)",
+                "AccessoryLevel": 3
+            },
+
+            {
+                "Explain": "Earns an additional 3% experience per rank\n(up to 15%)",
+                "AccessoryLevel": 5
+            },
+
+            {
+                "Explain": "Earn 10% extra gold per rank\n(maximum +50%)",
+                "AccessoryLevel": 5
+            },
+
+            {
+                "Explain": "Enemy speed, fitness, population, spawn rate increase by 10% per rank\n(maximum +50%)",
+                "AccessoryLevel": 5
+            },
+
+            {
+                "Explain": "one revival with 50% stamina",
+                "AccessoryLevel": 1
+            }]
+}
