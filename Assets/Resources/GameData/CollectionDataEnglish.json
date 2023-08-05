@@ -1,0 +1,325 @@
+{
+  "Collections": [
+    {
+      "ClassName": "CollectionWhip",
+      "Name": "Whip",
+      "Explain": "They attack the enemy from side to side.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionBloodyTear",
+      "Name": "Bloody Tear",
+      "Explain": "The evolutionary form of a whip. Deal critical damage and absorb HP.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionMagicWand",
+      "Name": "Magic Wand",
+      "Explain": "Attack the nearest enemy.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionHolyWand",
+      "Name": "Holy Wand",
+      "Explain": "The evolution of the magic wand. The size of the weapon increases.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionKnife",
+      "Name": "Knife",
+      "Explain": "Throw a dagger in the direction you're looking at",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionThousandEdge",
+      "Name": "Thousand Edge",
+      "Explain": "The evolution of daggers. The size of the weapon increases.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionCross",
+      "Name": "Cross",
+      "Explain": "It flies to the nearest enemy and comes back like a boomerang.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionHeavenSword",
+      "Name": "Heaven Spear",
+      "Explain": "The evolutionary form of the cross. It will cause fatal damage.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionKingBible",
+      "Name": "KingBible",
+      "Explain": "Spin around and attack.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionUnHolyVespers",
+      "Name": "Holy Vespers",
+      "Explain": "The evolution of the Bible. It doesn't disappear.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionFireWand",
+      "Name": "Fire Wand",
+      "Explain": "It fires in random directions and causes great damage.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionHellfire",
+      "Name": "Hell Fire",
+      "Explain": "The evolution of the wand of fire. It penetrates the enemy.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionGarlic",
+      "Name": "Garlic",
+      "Explain": "Damage enemies within range. Reduce enemy knockback, ice resistance.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionSoulEater",
+      "Name": "Soul Eater",
+      "Explain": "An evolutionary form of garlic. It absorbs physical strength when dealing with enemies and increases damage when absorbing physical strength.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionPeachone",
+      "Name": "Peachone",
+      "Explain": "Bombard the area of the circle.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionEbonyWings",
+      "Name": "Ebony Wings",
+      "Explain": "Bombard the area of the circle.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionVandalier",
+      "Name": "Vandalier",
+      "Explain": "Evolution of white and black pigeons.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionLightningRing",
+      "Name": "LightningRing",
+      "Explain": "Lightning strikes random enemies.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionThunderLoop",
+      "Name": "Thunder Loop",
+      "Explain": "Evolution of Lightning Ring. Projectile strikes twice.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionSpinach",
+      "Name": "Spinach",
+      "Explain": "Attack increases by 10%",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionArmor",
+      "Name": "Armor",
+      "Explain": "Defensive 1, counterattack damage increased by 10%.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionHollowHeart",
+      "Name": "Hollow Heart",
+      "Explain": "Maximum fitness increases by 20%",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionPummarola",
+      "Name": "Pummarola",
+      "Explain": "You recover 0.2 of your stamina every second.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionEmptyTome",
+      "Name": "Empty Tome",
+      "Explain": "Cool time is reduced by 8 per cent.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionCandelabrador",
+      "Name": "Candelabrador",
+      "Explain": "Attack range increased by 10%.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionBracer",
+      "Name": "Bracer",
+      "Explain": "Projectile speed increases by 10%.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionDuplicator",
+      "Name": "Duplicator",
+      "Explain": "The number of projectiles is increased by one.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionSpellbinder",
+      "Name": "Spell binder",
+      "Explain": "Duration increases by 10%.",
+      "Rank":  "black"
+    },
+
+    {
+      "ClassName": "CollectionWings",
+      "Name": "Wings",
+      "Explain": "Moving speed increases by 10%.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionAttractorb",
+      "Name": "Attractorb",
+      "Explain": "Item acquisition range increases.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionClover",
+      "Name": "Clover",
+      "Explain": "Luck increases by 10 per cent.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionCrown",
+      "Name": "Crwon",
+      "Explain": "Experience acquisition increases by 8 per cent.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionStoneMask",
+      "Name": "StoneMask",
+      "Explain": "Gold acquisition increases by 10%.",
+      "Rank": "black"
+    },
+
+    {
+      "ClassName": "CollectionSkull",
+      "Name": "Skull",
+      "Explain": "Curses (enemy speed, fitness, quantity, frequency) increase by 10%.",
+      "Rank":  "black"
+    },
+
+    {
+      "ClassName": "CollectionExp",
+      "Name": "Expience",
+      "Explain": "Increase experience.",
+      "Rank": "green"
+    },
+
+    {
+      "ClassName": "CollectionGold",
+      "Name": "Gold",
+      "Explain": "Gold on acquisition.",
+      "Rank": "green"
+    },
+
+    {
+      "ClassName": "CollectionHeart",
+      "Name": "Heart",
+      "Explain": "Recover 30 physical strength.",
+      "Rank": "green"
+    },
+
+    {
+      "ClassName": "CollectionChest",
+      "Name": "Chest",
+      "Explain": "Gold and random power up. You can only get it from a powerful enemy.",
+      "Rank": "green"
+    },
+
+    {
+      "ClassName": "CollectionNecromancer99",
+      "Name": "The tragedy of a princess",
+      "Explain": "achieved Necromancer level 99",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionBarbarian99",
+      "Name": "The Will of Blue Steel",
+      "Explain": "achieved Barbarian level 99",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionStage1Survive31min",
+      "Name": "Gress Land",
+      "Explain": "31 min survival in the Gress Land",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionAlchemist99",
+      "Name": "A divine lineage",
+      "Explain": "achieved Alchemist level 99",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionRogue99",
+      "Name": "The root",
+      "Explain": "achieved Rogue level 99",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionStormMage99",
+      "Name": "The Waltz of Pearl",
+      "Explain": "achieved StormMage level 99",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionFireMage99",
+      "Name": "The heart of fire",
+      "Explain": "achieved FireMage level 99",
+      "Rank": "purple"
+    },
+
+    {
+      "ClassName": "CollectionWarlock99",
+      "Name": "Blood Astronomy",
+      "Explain": "achieved Warlock level 99",
+      "Rank": "purple"
+    }
+  ]
+}
