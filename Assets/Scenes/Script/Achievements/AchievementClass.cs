@@ -1,9 +1,11 @@
 using Enums;
+using UnityEngine;
 
 public class AchievementClass
 {
     public string Explain;
     public string Obtain;
+    public Sprite Sprite;
 
     public virtual bool IsComplete()
     {
@@ -33,18 +35,6 @@ public class ReachLevel10 : AchievementClass
     public override void EarnRewards()
     {
         UserInfo.instance.UnlockAccessory(EAccessory.Crown);
-    }
-}
-
-public class ReachLevel20InStage1 : AchievementClass
-{
-    public override bool IsComplete()
-    {
-        return GameManager.instance.GameStage == EStage.MadForest && GameManager.instance.Level >= 20;
-    }
-    public override void EarnRewards()
-    {
-        UserInfo.instance.UnlockStage(EStage.InlaidLibrary);
     }
 }
 

@@ -1,10 +1,12 @@
 using Enums;
+using UnityEngine;
 
 public class CollectionClass
 {
     public string Name;
     public string Explain;
     public string Rank;
+    public Sprite Sprite;
 
     public virtual bool IsComplete()
     {
@@ -378,13 +380,5 @@ public class CollectionStage1Survive31min : CollectionClass
     public override bool IsComplete()
     {
         return GameManager.instance.GameStage == EStage.MadForest && GameManager.instance.GameTime >=  31 * 60;
-    }
-}
-
-public class CollectionStage2Survive31min : CollectionClass
-{
-    public override bool IsComplete()
-    {
-        return GameManager.instance.GameStage == EStage.InlaidLibrary && GameManager.instance.GameTime >= 31 * 60;
     }
 }

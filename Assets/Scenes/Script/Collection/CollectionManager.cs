@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Enums;
 
 [Serializable]
 public class CollectionData
@@ -9,6 +10,7 @@ public class CollectionData
     public string Name;
     public string Explain;
     public string Rank;
+    public string ImageName;
 }
 
 [Serializable]
@@ -24,7 +26,7 @@ public class CollectionManager
     public CollectionManager()
     {
         Collections = new List<CollectionClass>();
-        TextAsset jsonData = Resources.Load<TextAsset>("GameData/CollectionDataKorean");
+        TextAsset jsonData = GetCollectionScriptText();
         if (jsonData == null)
             Debug.Log("Collection json 파싱 실패!!");
         CollectionContainer container = JsonUtility.FromJson<CollectionContainer>(jsonData.text);
@@ -38,12 +40,25 @@ public class CollectionManager
                 collection.Name = jsonCollection.Name;
                 collection.Explain = jsonCollection.Explain;
                 collection.Rank = jsonCollection.Rank;
+                collection.Sprite = Resources.Load<Sprite>(jsonCollection.ImageName);
 
                 Collections.Add(collection);
             }
         }
     }
 
+    private TextAsset GetCollectionScriptText()
+    {
+        switch ((ELangauge)Singleton.S.curLangIndex)
+        {
+            case ELangauge.EN:
+                return Resources.Load<TextAsset>("GameData/CollectionDataEnglish");
+            case ELangauge.KR:
+                return Resources.Load<TextAsset>("GameData/CollectionDataKorean");
+            default:
+                return null;
+        }
+    }
     public void UpdateCollections()
     {
         for (int i = 0; i < Collections.Count; i++)

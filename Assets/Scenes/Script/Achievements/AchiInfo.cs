@@ -43,6 +43,7 @@ public class AchiInfo : MonoBehaviour, IPointerEnterHandler
         if (UserInfo.instance.UserDataSet.BAchievements[mAchi - 1]) 
         {
             mThisAchiToggle.GetComponent<Toggle>().isOn = true;
+            mThisAchiIamge.sprite = UserInfo.instance.AchiManager.Achievements[mAchi - 1].Sprite;
         }
         mThisAchiName.text = this.mExplain;
     }

@@ -3,139 +3,162 @@
     {
       "ClassName": "ReachLevel5",
       "Explain": "Reached Level 5",
-      "Obtain": "Wings"
+      "Obtain": "Wings",
+      "ImageName": "Accessory/Wings"
     },
 
     {
       "ClassName": "ReachLevel10",
       "Explain": "Level 10 reached",
-      "Obtain": "Crwon"
+      "Obtain": "Crwon",
+      "ImageName": "Accessory/Crown"
     },
 
     {
       "ClassName": "Survive1Min",
       "Explain": "survive a minute with any character",
-      "Obtain": "Hollow Heart"
+      "Obtain": "Hollow Heart",
+      "ImageName": "Accessory/HollowHeart"
     },
 
     {
       "ClassName": "Survive5MinPlayGennaro",
       "Explain": "survive five minutes as a Barbarian",
-      "Obtain": "Pummarola"
+      "Obtain": "Pummarola",
+      "ImageName": "Accessory/Pummarola"
     },
 
     {
       "ClassName": "Survive10Min",
       "Explain": "Survive 10 minutes with any character",
-      "Obtain": "Peachone"
+      "Obtain": "Peachone",
+      "ImageName": "Weapons/Peachone"
     },
 
     {
       "ClassName": "ReachLevel4KingBible",
       "Explain": "up to Bible level 4",
-      "Obtain": "Bracer"
+      "Obtain": "Bracer",
+      "ImageName": "Accessory/Bracer"
     },
 
     {
       "ClassName": "ReachLevel4FireWand",
       "Explain": "raise the wand of fire to level 4",
-      "Obtain": "Fire Mage"
+      "Obtain": "Fire Mage",
+      "ImageName": "CharacterSprite/FireMage_0"
     },
 
     {
       "ClassName": "ReachLevel4LightningRing",
       "Explain": "Lightning Ring Raised to Level 4",
-      "Obtain": "Necromancer"
+      "Obtain": "Necromancer",
+      "ImageName": "CharacterSprite/Necromancer_0"
     },
 
     {
       "ClassName": "ReachLevel7MagicWand",
       "Explain": "Magic wand up to level 7",
-      "Obtain": "replicated ring"
+      "Obtain": "replicated ring",
+      "ImageName": "Accessory/Duplicator"
     },
 
     {
       "ClassName": "ReachLevel7Peachone",
       "Explain": "Raise Peachone to Level 7",
-      "Obtain": "Ebony Wings"
+      "Obtain": "Ebony Wings",
+      "ImageName": "Weapons/EbonyWings"
     },
 
     {
       "ClassName": "ReachLevel7Garlic",
       "Explain": "Raise garlic to level 7",
-      "Obtain": "Warlock"
+      "Obtain": "Warlock",
+      "ImageName": "CharacterSprite/Warlock_0"
     },
 
     {
       "ClassName": "Possession6Weapons",
       "Explain": "carry six weapons",
-      "Obtain": "Empty Tome"
+      "Obtain": "Empty Tome",
+      "ImageName": "Accessory/EmptyTome"
     },
 
     {
       "ClassName": "Cumulative1000Recovery",
       "Explain": "Recovering Accumulated 1,000 Stamina",
-      "Obtain": "Alchemist"
+      "Obtain": "Alchemist",
+      "ImageName": "CharacterSprite/Alchemist_0"
     },
 
     {
       "ClassName": "Destroy20LightObject",
       "Explain": "Destroy 20 Light Objects",
-      "Obtain": "Fire Wand"
+      "Obtain": "Fire Wand",
+      "ImageName": "Weapons/FireWand"
     },
 
     {
       "ClassName": "Found5Chickens",
       "Explain": "Five Chikens Found",
-      "Obtain": "Garlic"
+      "Obtain": "Garlic",
+      "ImageName": "Weapons/Garlic"
     },
 
     {
       "ClassName": "AccKillCount3000",
       "Explain": "Defeat cumulative 3,000 enemies",
-      "Obtain": "Lightning ring"
+      "Obtain": "Lightning ring",
+      "ImageName": "Weapons/LightningRing"
     },
 
     {
       "ClassName": "EvoWhip",
       "Explain": "Whip Evolution",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     },
 
     {
       "ClassName": "EvoMagicWand",
       "Explain": "Magic wand evolution",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     },
 
     {
       "ClassName": "EvoKnife",
       "Explain": "Knife 진화",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     },
 
     {
       "ClassName": "EvoLightningRing",
       "Explain": "Lightning Ring Evolution",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     },
 
     {
       "ClassName": "EvoKingBible",
       "Explain": "KingBible 진화",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     },
 
     {
       "ClassName": "EvoFireWand",
       "Explain": "Fire Wand 진화",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     },
-    
+
     {
       "ClassName": "EvoGarlic",
       "Explain": "Garlic Evolution",
-      " Obtain": "500 gold pieces"
+      " Obtain": "500 gold pieces",
+      "ImageName": "Item/Coin"
     }
   ]
 }
