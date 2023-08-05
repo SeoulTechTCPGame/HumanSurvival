@@ -46,7 +46,7 @@ public class RepositionTile : MonoBehaviour
         {
             float randomX = Random.Range(-X/2f, X/2f); //랜덤 X좌표
             float randomY = Random.Range(-Y/2f, Y/2f); //랜덤 Y좌표
-            Respawn = Instantiate(Prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity);
+            Respawn = Instantiate(Prefab,new Vector3(myPos.x+randomX,myPos.y+randomY,0f) , Quaternion.identity, GameObject.Find("--DropObj--").transform);
         }
     }
     private void RemoveObject() 

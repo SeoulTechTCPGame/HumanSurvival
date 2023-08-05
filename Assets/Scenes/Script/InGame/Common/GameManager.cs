@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public EStage GameStage;
     public float GameTime;
     public float MaxGameTime = 180 * 10f;
+    public float EnemyTimeScale = 1;
     public bool IsGMAlive = true;
     [Header("# Player Info")]
     public Character Character;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     public GameObject LevepUpUI;
     public GameObject WeaponSlot;
     public GameObject AccessorySlot;
+    public GameObject BlueFilter;
     //  Singleton Instance 선언
     public static GameManager instance = null;
 
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
 
         EquipManageSys.Set(CharacterData.startingWeapon);
         UpdateLuck(CharacterStats[(int)Enums.EStat.Luck]);
+        BlueFilter.SetActive(false);
     }
     private void Update()
     {

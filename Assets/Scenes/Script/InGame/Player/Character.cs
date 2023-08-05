@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class Character : MonoBehaviour, IDamageable
 {
     public float HpRegenerationTimer;
+    public bool BDamageImmune = false;
     [SerializeField] HealthBar mHpBar;
     [SerializeField] float mCurrentHp;
     [SerializeField] AudioClip[] Clips;
@@ -48,7 +49,7 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void TakeDamage(float damage, int weaponIndex)
     {
-        if (mbDead == true) return; 
+        if (mbDead == true || BDamageImmune) return; 
         SoundManager.instance.PlayOverlapSound(Clips[((int)Enums.ECharacterEffect.Attack)]);
         if (damage - mArmor> 0)
         {
