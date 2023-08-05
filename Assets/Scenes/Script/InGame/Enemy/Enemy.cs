@@ -5,7 +5,8 @@ public class Enemy : MonoBehaviour,IDamageable
 {
     public EnemyScriptableObject EnemyData;
     public Rigidbody2D Target;
-    
+    public bool BDropTB = false;
+
     private float mHealth;
     private bool mbLive;
     private int mLevel;
@@ -52,6 +53,10 @@ public class Enemy : MonoBehaviour,IDamageable
         //플레이어와 일정 거리 이상 떨어지면 없애기
         if (Vector3.Distance(Target.position, mRb.position) > 30)
         {
+            if (gameObject.TryGetComponent(out DropTB dt))
+            {
+                BDropTB = true;
+            }
             mbLive = false;
             mColl.enabled = false;
             mRb.simulated = false;
@@ -103,7 +108,6 @@ public class Enemy : MonoBehaviour,IDamageable
         if (mHealth > 0)
         {
             StartCoroutine(KnockBack());
-            mAnim.SetTrigger("Hit");
             if(weaponIndex == (int)Enums.EWeapon.Garlic)
             {
                 if(mKnockbackpower < 3)
@@ -144,7 +148,7 @@ public class Enemy : MonoBehaviour,IDamageable
     }  
     private void Dead()
     {
-        //경험치 drop
+        BDropTB = false;
         gameObject.GetComponent<DropSystem>().OnDrop(mRb.transform.position);
         gameObject.SetActive(false);
     }
