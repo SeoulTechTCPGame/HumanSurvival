@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     public void AddReapeatedSpawn(StageEvent stageEvent, bool bBoss)
     {
         EnemiesSpawnGroup repeatSpawnGroup = new EnemiesSpawnGroup(stageEvent.EnemyToSpawn, stageEvent.EnemyCount, bBoss);
-        repeatSpawnGroup.SetRepeatSpawn(stageEvent.RepeatEverySeconds,stageEvent.RepeatCount);
+        repeatSpawnGroup.SetRepeatSpawn(stageEvent.RepeatEverySeconds,stageEvent.RepeatCount*6);
         if (mRepeatedSpawnGroupList == null)
         {
             mRepeatedSpawnGroupList = new List<EnemiesSpawnGroup>();
