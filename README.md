@@ -1,8 +1,11 @@
 # Human Survivors 소개
 ![image](https://github.com/SeoulTechTCPGame/HumanSurvival/assets/50050003/c7c934d5-207a-45ef-b362-1f597c149a93)
 
+https://github.com/SeoulTechTCPGame/HumanSurvival/assets/50050003/8b52f02a-6708-45ae-addf-234877598a9c
+
 - Human Survivors은 대학교 학생들이 모여 2022년 12월 27일부터 2023년 8월 5일의 기간 동안 제작한 인디 로그라이트 게임ㅡVampire Survivors의 클론 게임입니다.
 - Human Survivors is a clone game for Indie Loglight Games - Vampire Survivors, produced by university students from December 27, 2022 to August 5, 2023.
+
 
 [다운로드 링크](https://drive.google.com/file/d/1MhamxWwnb9-SZu0DX9h-jzHbknoZOIoq/view?usp=sharing)  
 
