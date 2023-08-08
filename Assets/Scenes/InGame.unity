@@ -609,7 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameStage: 0
   GameTime: 0
-  MaxGameTime: 300
+  MaxGameTime: 780
   EnemyTimeScale: 1
   IsGMAlive: 1
   Character: {fileID: 1366757111}

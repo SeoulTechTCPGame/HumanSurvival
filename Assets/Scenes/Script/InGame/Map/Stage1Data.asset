@@ -169,8 +169,8 @@ MonoBehaviour:
     Time: 662
     Message: wave12 elite bat
     EnemyToSpawn: {fileID: 11400000, guid: 234d62b9d3cf277468b3522f0abfd0bb, type: 2}
-    EnemyCount: 10
-    BRepeatedEvent: 1
+    EnemyCount: 5
+    BRepeatedEvent: 0
     RepeatEverySeconds: 2
     RepeatCount: 5
   - EventType: 0
@@ -181,8 +181,16 @@ MonoBehaviour:
     BRepeatedEvent: 1
     RepeatEverySeconds: 5
     RepeatCount: 4
+  - EventType: 0
+    Time: 721
+    Message: wave13
+    EnemyToSpawn: {fileID: 11400000, guid: a6166edf1a80b834c8b7096a16f8b78e, type: 2}
+    EnemyCount: 10
+    BRepeatedEvent: 1
+    RepeatEverySeconds: 5
+    RepeatCount: 2
   - EventType: 2
-    Time: 690
+    Time: 780
     Message: Win!
     EnemyToSpawn: {fileID: 0}
     EnemyCount: 0
