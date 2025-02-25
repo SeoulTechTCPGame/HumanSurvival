@@ -69,7 +69,7 @@ https://github.com/SeoulTechTCPGame/HumanSurvival/assets/50050003/8b52f02a-6708-
 * [seong0929](https://github.com/seong0929)
 * [pianoop](https://github.com/pianoop)
 * [Jeon-YJ1004](https://github.com/Jeon-YJ1004)
-* [yhj0329](https://github.com/yhj0329)
+* [wlrnfyd0329](https://github.com/wlrnfyd0329)
 * [az0t0](https://github.com/az0t0)
 * [rapa1130](https://github.com/rapa1130)
 * [ryubat](https://github.com/ryubat)
